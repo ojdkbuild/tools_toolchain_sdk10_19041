@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.ApplicationModel.FullTrustAppContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.FullTrustAppContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.FullTrustProcessLauncher">
+      <summary>通过同一应用程序包中的通用 Windows 应用程序组件激活应用程序完全信任的 Win32 组件。</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String)">
+      <summary>启动指定应用程序 ID 的完全信任进程。</summary>
+      <param name="fullTrustPackageRelativeAppId">调用方希望启动其完全信任进程组件的应用程序的进程相对应用程序标识符。 完全信任进程可对其进行分析，以便确定哪个应用调用了它。</param>
+      <returns>要等待的 IAsyncAction。</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String,System.String)">
+      <summary>启动包含参数的指定应用程序 ID 的完全信任进程。</summary>
+      <param name="fullTrustPackageRelativeAppId">调用方希望启动其完全信任进程组件的应用程序的进程相对应用程序标识符。 完全信任进程可对其进行分析，以便确定哪个应用调用了它。</param>
+      <param name="parameterGroupId">将传递到启动进程的参数的参数组 ID。</param>
+      <returns>要等待的 IAsyncAction。</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync">
+      <summary>为当前应用程序 ID 启动完全信任进程。</summary>
+      <returns>要等待的 IAsyncAction。</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync(System.String)">
+      <summary>启动包含参数的当前应用程序 ID 的完全信任进程。</summary>
+      <param name="parameterGroupId">将传递到启动进程的参数的参数组 ID。</param>
+      <returns>要等待的 IAsyncAction。</returns>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.AppBroadcasting.AppBroadcastingContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingMonitor">
+      <summary>Permite que una aplicación determine si actualmente se emite y recibe un evento cuando la aplicación se inicia o detiene la difusión.</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.#ctor">
+      <summary>Inicializa una nueva instancia de la clase **AppBroadcastingMonitor**.</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcasting">
+      <summary>Obtiene un valor que indica si la aplicación actual está retransmitiendo.</summary>
+      <returns>True si la aplicación actual está retransmitiendo; de lo contrario, false.</returns>
+    </member>
+    <member name="E:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcastingChanged">
+      <summary>Se produce cuando cambia el estado actual de emisión de la aplicación actual.</summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatus">
+      <summary>Permite que una aplicación determine si puede actualmente iniciar la emisión y, si no es así, obtenga detalles sobre el motivo por el que no se puede iniciar la difusión.</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.CanStartBroadcast">
+      <summary>Obtiene un valor que indica si la aplicación actual puede iniciar la difusión.</summary>
+      <returns>True si la aplicación puede comenzar a retransmitir; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.Details">
+      <summary>Obtiene un objeto AppBroadcastingStatusDetails que proporciona información detallada que indica por qué la aplicación actual actualmente no puede comenzar la difusión.</summary>
+      <returns>Un objeto que proporciona información detallada que indica por qué la aplicación actual no puede iniciar la retransmisión en ese momento.</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails">
+      <summary>Proporciona información detallada que indica por qué la aplicación actual no puede iniciar la retransmisión en ese momento.</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAnyAppBroadcasting">
+      <summary>Obtiene un valor que indica si otra aplicación está retransmitiendo.</summary>
+      <returns>True si otra aplicación está retransmitiendo; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAppInactive">
+      <summary>Obtiene un valor que indica si la ventana actual de la aplicación está inactiva.</summary>
+      <returns>True es que la ventana actual de la aplicación está inactiva; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsBlockedForApp">
+      <summary>Obtiene un valor que indica si la retransmisión está bloqueada para la aplicación actual.</summary>
+      <returns>True si la difusión está bloqueada por la aplicación actual; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsCaptureResourceUnavailable">
+      <summary>Obtiene un valor que indica si el recurso de la captura no está disponible actualmente.</summary>
+      <returns>True si el recurso de la captura no está disponible; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledBySystem">
+      <summary>Obtiene un valor que indica si la retransmisión de la aplicación está deshabilitada por el sistema.</summary>
+      <returns>True si la retransmisión de la aplicación está deshabilitada por el sistema; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledByUser">
+      <summary>Obtiene un valor que indica si el usuario ha deshabilitado la retransmisión de la aplicación.</summary>
+      <returns>True si el usuario ha deshabilitado la retransmisión de la aplicación; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGameStreamInProgress">
+      <summary>Obtiene un valor que indica si una secuencia de juego está en curso.</summary>
+      <returns>True si una secuencia del juego está en curso; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGpuConstrained">
+      <summary>Obtiene un valor que indica si la retransmisión de la aplicación no está disponible porque la GPU está limitada.</summary>
+      <returns>True si la retransmisión de la aplicación no está disponible porque la GPU está limitada; de lo contrario, false.</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingUI">
+      <summary>Permite que una aplicación inicie la interfaz de usuario de la configuración del sistema de difusión de la aplicación.</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetDefault">
+      <summary>Obtiene una instancia de la clase **AppBroadcastingUI** que está asociada con el usuario actualmente conectado al dispositivo.</summary>
+      <returns>Una instancia de la clase **AppBroadcastingUI**.</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetForUser(Windows.System.User)">
+      <summary>Obtiene una instancia de la clase **AppBroadcastingUI** que está asociada con el usuario especificado.</summary>
+      <param name="user">El usuario para el que se crea la instancia **AppBroadcastingUI**.</param>
+      <returns>Una instancia de la clase **AppBroadcastingUI**.</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetStatus">
+      <summary>Obtiene un objeto que permite que una aplicación determine si puede actualmente iniciar la emisión y, si no es así, obtenga detalles sobre el motivo por el que no se puede iniciar la difusión.</summary>
+      <returns>Un objeto que permite que una aplicación determine si puede iniciar la emisión actualmente.</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.ShowBroadcastUI">
+      <summary>Muestra la interfaz de usuario de la configuración del sistema de difusión de la aplicación.</summary>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.ApplicationModel.Search.Core.SearchCoreContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs">
+      <summary>Предоставляет данные для события RequestingFocusOnKeyboardInput.</summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchCoreContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestion">
+      <summary>Предоставляет доступ к предложениям поиска, которые предоставляет SearchSuggestionManager.</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.DetailText">
+      <summary>Получает значение, переданное в параметр *detailText* метода AppendResultSuggestion.</summary>
+      <returns>Текст подробного описания или **null**, если вариант поиска не равен **Result**.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Image">
+      <summary>Получает значение, переданное в параметр *image* метода AppendResultSuggestion.</summary>
+      <returns>Изображение или **null**, если вариант поиска не равен **Result**.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.ImageAlternateText">
+      <summary>Получает значение, переданное в параметр *imageAlternateText* метода AppendResultSuggestion.</summary>
+      <returns>Альтернативный текст для Image или значение **null**, если предложение поиска не равно **Result**.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Kind">
+      <summary>Получает тип предложения.</summary>
+      <returns>Тип предложения.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Tag">
+      <summary>Получает значение, переданное в параметр *tag* метода AppendResultSuggestion.</summary>
+      <returns>Тег или **null**, если вариант поиска не равен **Result**.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Text">
+      <summary>Получает локализованный текст предложения для отображения в пользовательском интерфейсе предложений поиска.</summary>
+      <returns>Отображаемый текст.</returns>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestionKind">
+      <summary>Задает тип SearchSuggestion.</summary>
+    </member>
+    <member name="F:Windows.ApplicationModel.Search.Core.SearchSuggestionKind.Query">
+      <summary>Предложение — это предложение запроса.</summary>
+    </member>
+    <member name="F:Windows.ApplicationModel.Search.Core.SearchSuggestionKind.Result">
+      <summary>Предложение — это предложение результата.</summary>
+    </member>
+    <member name="F:Windows.ApplicationModel.Search.Core.SearchSuggestionKind.Separator">
+      <summary>Представляет разделитель между предложениями поиска, который можно использовать для группирования.</summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestionManager">
+      <summary>Управление доступом к предложениям поиска для содержащегося в приложении элемента управления SearchBox.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.#ctor">
+      <summary>Инициализирует новый экземпляр класса SearchSuggestionManager.</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SearchHistoryContext">
+      <summary>Идентифицирует контекст поиска и используется для хранения журнала поиска, выполненного пользователем в этом приложении.</summary>
+      <returns>Строка, представляющая контекст журнала поиска.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SearchHistoryEnabled">
+      <summary>Указывает, производится ли автоматическое отслеживание предыдущих поисков, выполненных пользователем с помощью этого приложения, и использование этих сведений для предоставления предложений.</summary>
+      <returns>Значение **true**, если журнал поиска пользователя автоматически отслеживается и используется для предоставления предложений; в противном случае — значение **false**. Значение по умолчанию — **true**.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.Suggestions">
+      <summary>Получает условия поиска для текущего поискового запроса.</summary>
+      <returns>Предложения поиска.</returns>
+    </member>
+    <member name="E:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.RequestingFocusOnKeyboardInput">
+      <summary>Создается, когда пользователь нажимает клавишу, которая инициирует поиск вводимого текста.</summary>
+    </member>
+    <member name="E:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SuggestionsRequested">
+      <summary>Это событие возникает при изменении текста запроса пользователя, когда приложению необходимо предоставить новые предложения для отображения в поле поиска.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.AddToHistory(System.String)">
+      <summary>Сохраняет указанные запрос в журнале поиска.</summary>
+      <param name="queryText">Запрос.</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.AddToHistory(System.String,System.String)">
+      <summary>Сохраняет указанные запрос и язык ввода в журнале поиска.</summary>
+      <param name="queryText">Запрос.</param>
+      <param name="language">Язык ввода. Язык ввода гарантирует, что строка запроса отображается в журнале поиска для правильного языка.</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.ClearHistory">
+      <summary>Удаляет все контексты журнала поиска для текущего приложения.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetLocalContentSuggestionSettings(Windows.ApplicationModel.Search.LocalContentSuggestionSettings)">
+      <summary>Указывает, добавляются ли предложения на основе локальных файлов автоматически в коллекцию Suggestions, и определяет критерии Windows для нахождения и фильтрации таких предложений.</summary>
+      <param name="settings">Новые параметры для локальных предложений содержимого.</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetQuery(System.String)">
+      <summary>Назначает текущий запрос поиска.</summary>
+      <param name="queryText">Запрос.</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetQuery(System.String,System.String)">
+      <summary>Назначает текущий запрос поиска с указанным языком ввода.</summary>
+      <param name="queryText">Запрос.</param>
+      <param name="language">Язык ввода.</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetQuery(System.String,System.String,Windows.ApplicationModel.Search.SearchQueryLinguisticDetails)">
+      <summary>Назначает текущий запрос поиска с указанными языком ввода и информацией для редактора метода ввода (IME).</summary>
+      <param name="queryText">Запрос.</param>
+      <param name="language">Язык ввода.</param>
+      <param name="linguisticDetails">Сведения о тексте запроса, который пользователь вводит с помощью редактора метода ввода (IME).</param>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs">
+      <summary>Предоставляет данные для события SuggestionsRequested.</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.Language">
+      <summary>Получает тег языка IETF (стандарт BCP 47), который указывает язык, в настоящее время связанный с устройством ввода текста пользователя.</summary>
+      <returns>Тег языка IETF (стандарт BCP 47).</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.LinguisticDetails">
+      <summary>Получает объект, предоставляющий лингвистические сведения о тексте запроса, который пользователь вводит с помощью редактора метода ввода (IME).</summary>
+      <returns>Объект, предоставляющий лингвистические сведения о тексте запроса.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.QueryText">
+      <summary>Текст, для которого приложение должно обеспечить предложения и который находился в поле поиска при возникновении события SuggestionsRequested.</summary>
+      <returns>Текст запроса, для которого приложение должно обеспечить предложения.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.Request">
+      <summary>Получает объект, хранящий предложения и сведения о запросе.</summary>
+      <returns>Объект, хранящий предложения и сведения о запросе.</returns>
+    </member>
+  </members>
+</doc>

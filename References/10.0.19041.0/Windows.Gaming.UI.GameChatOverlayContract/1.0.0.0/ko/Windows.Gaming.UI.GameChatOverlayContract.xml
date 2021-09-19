@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GameChatOverlayContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameChatMessageReceivedEventArgs">
+      <summary>MessageReceived 이벤트에 대한 이벤트 인수를 포함합니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppDisplayName">
+      <summary>이벤트를 트리거한 앱의 표시 이름입니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+      <returns>이벤트를 트리거한 앱의 표시 이름입니다.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppId">
+      <summary>이벤트를 트리거한 앱의 **PFN(패키지 패밀리 이름)**입니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+      <returns>이벤트를 트리거한 앱의 **PFN(패키지 패밀리 이름)**입니다. 앱을 식별하는 데 사용합니다.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Message">
+      <summary>메시지의 내용입니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+      <returns>메시지의 내용입니다.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Origin">
+      <summary>메시지의 출처(음성이나 텍스트)입니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+      <returns>메시지의 출처(음성이나 텍스트)입니다.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.SenderName">
+      <summary>메시지의 발신자(GameChatOverlay.AddMessage 메서드에 전달된 *sender* 매개 변수)입니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+      <returns>메시지의 발신자(GameChatOverlay.AddMessage 메서드에 전달된 *sender* 매개 변수)입니다.</returns>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayMessageSource">
+      <summary>게임 채팅에서 메시지를 받을 때마다 발생하는 이벤트와 메시지를 받은 후 게임 채팅 오버레이를 닫기 전 지연 시간을 설정할 수 있는 메서드를 제공합니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.#ctor">
+      <summary>**GameChatOverlayMessageSource** 클래스의 생성자입니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+    </member>
+    <member name="E:Windows.Gaming.UI.GameChatOverlayMessageSource.MessageReceived">
+      <summary>메시지를 받을 때마다 발생하는 이벤트입니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.SetDelayBeforeClosingAfterMessageReceived(Windows.Foundation.TimeSpan)">
+      <summary>메시지를 받은 후 게임 채팅 오버레이를 닫기 전 지연 시간을 설정합니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+      <param name="value">게임 채팅 오버레이를 닫기 전 지연 시간입니다.</param>
+    </member>
+  </members>
+</doc>

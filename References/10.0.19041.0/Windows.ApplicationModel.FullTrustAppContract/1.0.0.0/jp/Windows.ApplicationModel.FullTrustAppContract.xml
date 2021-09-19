@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.ApplicationModel.FullTrustAppContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.FullTrustAppContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.FullTrustProcessLauncher">
+      <summary>同じアプリケーション パッケージにあるユニバーサル Windows アプリ コンポーネントから、アプリケーションの完全に信頼できる Win32 コンポーネントをアクティブ化します。</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String)">
+      <summary>指定されたアプリケーション ID の完全信頼プロセスを起動します。</summary>
+      <param name="fullTrustPackageRelativeAppId">呼び出し元が起動する完全信頼プロセス コンポーネントを持つアプリケーションのプロセス相対アプリケーション ID。 完全信頼プロセスは、これを解析して呼び出し元のアプリを特定します。</param>
+      <returns>待機する IAsyncAction。</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String,System.String)">
+      <summary>パラメーターを指定して、指定されたアプリケーション ID の完全信頼プロセスを起動します。</summary>
+      <param name="fullTrustPackageRelativeAppId">呼び出し元が起動する完全信頼プロセス コンポーネントを持つアプリケーションのプロセス相対アプリケーション ID。 完全信頼プロセスは、これを解析して呼び出し元のアプリを特定します。</param>
+      <param name="parameterGroupId">起動したプロセスに渡されるパラメーターのパラメーター グループ ID。</param>
+      <returns>待機する IAsyncAction。</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync">
+      <summary>現在のアプリケーション ID の完全信頼プロセスを起動します。</summary>
+      <returns>待機する IAsyncAction。</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync(System.String)">
+      <summary>パラメーターを指定して、現在のアプリケーション ID の完全信頼プロセスを起動します。</summary>
+      <param name="parameterGroupId">起動したプロセスに渡されるパラメーターのパラメーター グループ ID。</param>
+      <returns>待機する IAsyncAction。</returns>
+    </member>
+  </members>
+</doc>

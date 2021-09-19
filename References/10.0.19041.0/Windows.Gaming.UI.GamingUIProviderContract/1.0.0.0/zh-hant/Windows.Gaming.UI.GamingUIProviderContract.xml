@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GamingUIProviderContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameUIProviderActivatedEventArgs">
+      <summary>與 **GameUIProvider** 啟用相關聯的事件引數。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.GameUIArgs">
+      <summary>與 **GameUIProvider** 啟用相關聯的事件引數。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+      <returns>與 **GameUIProvider** 啟用相關聯的事件引數。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.Kind">
+      <summary>啟用的類型。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+      <returns>啟用的類型。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.PreviousExecutionState">
+      <summary>先前的執行狀態。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+      <returns>先前的執行狀態。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.SplashScreen">
+      <summary>應用程式的啟動顯示畫面。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+      <returns>應用程式的啟動顯示畫面。</returns>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.ReportCompleted(Windows.Foundation.Collections.ValueSet)">
+      <summary>將體驗發出表示完成的信號，並將任何產生的資料傳回給呼叫應用程式。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+      <param name="results">來自 **GameUIProvider** 應用程式的結果資料。</param>
+    </member>
+    <member name="T:Windows.Gaming.UI.GamingUIProviderContract">
+      <summary>
+      </summary>
+    </member>
+  </members>
+</doc>

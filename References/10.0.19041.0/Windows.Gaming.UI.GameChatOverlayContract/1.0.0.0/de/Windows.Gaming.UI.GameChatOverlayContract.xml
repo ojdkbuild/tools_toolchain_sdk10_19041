@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GameChatOverlayContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameChatMessageReceivedEventArgs">
+      <summary>Enthält die Ereignisargumente für das MessageReceived-Ereignis. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppDisplayName">
+      <summary>Der Anzeigename der App, die das Ereignis auslöste. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+      <returns>Der Anzeigename der App, die das Ereignis auslöste.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppId">
+      <summary>Der **Paketfamilienname (PFN)** der App, die das Ereignis auslöste. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+      <returns>Der **Paketfamilienname (PFN)** der App, die das Ereignis auslöste. Verwenden Sie diese Option, um die App zu identifizieren.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Message">
+      <summary>Der Inhalt der Nachricht. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+      <returns>Der Inhalt der Nachricht.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Origin">
+      <summary>Der Ursprung der Quellmeldung (Stimme oder Text). Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+      <returns>Der Ursprung der Quellmeldung (Stimme oder Text).</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.SenderName">
+      <summary>Der Absender der Nachricht (der *sender*-Parameter, der an die GameChatOverlay.AddMessage-Methode übergeben wird. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+      <returns>Der Absender der Nachricht (der *sender*-Parameter, der an die GameChatOverlay.AddMessage-Methode übergeben wird.</returns>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayMessageSource">
+      <summary>Liefert ein Ereignis, das ausgelöst wird, jedes Mal, wenn das Spiele-Chat eine Nachricht empfängt, und als Methode zum Festlegen der Verzögerung, bevor die Spiel-Chat-Überlagerung nach dem Empfang einer Nachricht geschlossen wird. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.#ctor">
+      <summary>Konstruktor für die **GameChatOverlayMessageSource**-Klasse. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+    </member>
+    <member name="E:Windows.Gaming.UI.GameChatOverlayMessageSource.MessageReceived">
+      <summary>Ereignis, das jedes mal ausgelöst wird, wenn eine Nachricht empfangen wird. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.SetDelayBeforeClosingAfterMessageReceived(Windows.Foundation.TimeSpan)">
+      <summary>Legt die Verzögerung fest, bevor die Spiel-Chat-Überlagerung nach dem Empfang einer Nachricht geschlossen wird. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+      <param name="value">Die Verzögerung, bevor die Spiel-Chat-Überlagerung geschlossen wird.</param>
+    </member>
+  </members>
+</doc>

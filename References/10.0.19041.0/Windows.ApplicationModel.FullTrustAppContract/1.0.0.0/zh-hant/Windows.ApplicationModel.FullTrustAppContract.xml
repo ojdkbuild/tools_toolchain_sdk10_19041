@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.ApplicationModel.FullTrustAppContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.FullTrustAppContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.FullTrustProcessLauncher">
+      <summary>啟動應用程式的完全信任 Win32 元件，從相同應用程式套件中的通用 Windows 應用程式元件。</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String)">
+      <summary>啟動所指定應用程式識別碼的完全信任處理序。</summary>
+      <param name="fullTrustPackageRelativeAppId">處理序對應之應用程式的應用程式識別碼，呼叫端要啟動其完全信任處理序元件。 完全信任處理序可以剖析此資料以判斷哪一個 app 叫用它。</param>
+      <returns>要等候的 IAsyncAction。</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String,System.String)">
+      <summary>啟動所指定應用程式識別碼的完全信任處理序，使用參數。</summary>
+      <param name="fullTrustPackageRelativeAppId">處理序對應之應用程式的應用程式識別碼，呼叫端要啟動其完全信任處理序元件。 完全信任處理序可以剖析此資料以判斷哪一個 app 叫用它。</param>
+      <param name="parameterGroupId">要傳遞至啟動之處理序的參數的參數群組識別碼。</param>
+      <returns>要等候的 IAsyncAction。</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync">
+      <summary>啟動目前應用程式識別碼的完全信任處理序。</summary>
+      <returns>要等候的 IAsyncAction。</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync(System.String)">
+      <summary>啟動目前應用程式識別碼的完全信任處理序，使用參數。</summary>
+      <param name="parameterGroupId">要傳遞至啟動之處理序的參數的參數群組識別碼。</param>
+      <returns>要等候的 IAsyncAction。</returns>
+    </member>
+  </members>
+</doc>

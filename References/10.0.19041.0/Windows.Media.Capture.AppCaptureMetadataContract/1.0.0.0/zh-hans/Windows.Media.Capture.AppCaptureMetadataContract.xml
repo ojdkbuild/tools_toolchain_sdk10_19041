@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.AppCaptureMetadataContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataPriority">
+      <summary>指定使用 AppCaptureMetadataWriter 存储的应用捕获元数据项的相对重要性。 当为累积元数据分配的存储空间不足时，系统将使用元数据项的优先级和年龄以确定清除哪个元数据以释放存储空间。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppCaptureMetadataPriority.Important">
+      <summary>元数据项的重要性高于 **Informational** 元数据项。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppCaptureMetadataPriority.Informational">
+      <summary>元数据项的重要性低于 **Important** 元数据项。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataWriter">
+      <summary>使应用存储系统将插入应用内容的捕获视频文件或广播流的元数据。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.#ctor">
+      <summary>初始化 **AppCaptureMetadataWriter** 类的新实例。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppCaptureMetadataWriter.RemainingStorageBytesAvailable">
+      <summary>获取系统为应用捕获元数据项分配的存储空间中的剩余字节数。</summary>
+      <returns>剩余的元数据存储字节数。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppCaptureMetadataWriter.MetadataPurged">
+      <summary>当系统清除之前存储的元数据项时发生。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddDoubleEvent(System.String,System.Double,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>添加新的双元数据事件。</summary>
+      <param name="name">元数据事件的名称。</param>
+      <param name="value">元数据事件的值。</param>
+      <param name="priority">指定元数据项相对重要性的 AppCaptureMetadataPriority 枚举的成员。 系统使用元数据项的值和年龄以确定当达到为累积元数据分配的存储空间限制时应先清除哪些元数据项。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddInt32Event(System.String,System.Int32,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>添加新的整数元数据事件。</summary>
+      <param name="name">元数据事件的名称。</param>
+      <param name="value">元数据事件的值。</param>
+      <param name="priority">指定元数据项相对重要性的 AppCaptureMetadataPriority 枚举的成员。 系统使用元数据项的值和年龄以确定当达到为累积元数据分配的存储空间限制时应先清除哪些元数据项。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddStringEvent(System.String,System.String,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>添加新的字符串元数据事件。</summary>
+      <param name="name">元数据事件的名称。</param>
+      <param name="value">元数据事件的值。</param>
+      <param name="priority">指定元数据项相对重要性的 AppCaptureMetadataPriority 枚举的成员。 系统使用元数据项的值和年龄以确定当达到为累积元数据分配的存储空间限制时应先清除哪些元数据项。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.Close">
+      <summary>对象和相关资源的处置。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartDoubleState(System.String,System.Double,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>添加新的双元数据状态。</summary>
+      <param name="name">元数据状态的名称。</param>
+      <param name="value">元数据状态的值。</param>
+      <param name="priority">指定元数据项相对重要性的 AppCaptureMetadataPriority 枚举的成员。 系统使用元数据项的值和年龄以确定当达到为累积元数据分配的存储空间限制时应先清除哪些元数据项。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartInt32State(System.String,System.Int32,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>添加新的双元数据状态。</summary>
+      <param name="name">元数据状态的名称。</param>
+      <param name="value">元数据状态的值。</param>
+      <param name="priority">指定元数据项相对重要性的 AppCaptureMetadataPriority 枚举的成员。 系统使用元数据项的值和年龄以确定当达到为累积元数据分配的存储空间限制时应先清除哪些元数据项。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartStringState(System.String,System.String,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>添加新的双元数据状态。</summary>
+      <param name="name">元数据状态的名称。</param>
+      <param name="value">元数据状态的值。</param>
+      <param name="priority">指定元数据项相对重要性的 AppCaptureMetadataPriority 枚举的成员。 系统使用元数据项的值和年龄以确定当达到为累积元数据分配的存储空间限制时应先清除哪些元数据项。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StopAllStates">
+      <summary>停止所有元数据状态。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StopState(System.String)">
+      <summary>停止使用指定标识符的元数据状态。</summary>
+      <param name="name">要停止的状态的标识符。</param>
+    </member>
+  </members>
+</doc>

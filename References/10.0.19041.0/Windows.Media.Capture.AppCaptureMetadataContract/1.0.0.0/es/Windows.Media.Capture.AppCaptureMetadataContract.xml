@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.AppCaptureMetadataContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataPriority">
+      <summary>Especifica la importancia relativa de un elemento de metadatos de captura de la aplicación con AppCaptureMetadataWriter. Cuando el espacio de almacenamiento asignado para los metadatos acumulado es bajo, el sistema usará la prioridad y la antigüedad de los elementos de metadatos para determinar el orden en que se purgan los metadatos para liberar espacio de almacenamiento.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppCaptureMetadataPriority.Important">
+      <summary>El elemento de metadatos es de mayor importancia que los elementos de metadatos **Informational**.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppCaptureMetadataPriority.Informational">
+      <summary>El elemento de metadatos es de menor importancia que los elementos de metadatos **Important**.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataWriter">
+      <summary>Permite que una aplicación almacene los metadatos que el sistema insertará en los archivos de vídeo capturado o secuencias de difusión de contenido de la aplicación.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.#ctor">
+      <summary>Inicializa una nueva instancia de la clase **AppCaptureMetadataWriter**.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppCaptureMetadataWriter.RemainingStorageBytesAvailable">
+      <summary>Obtiene el número de bytes restantes en el espacio de almacenamiento asignado por el sistema para los elementos de metadatos de captura de la aplicación.</summary>
+      <returns>El número de bytes restantes para el almacenamiento de metadatos.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppCaptureMetadataWriter.MetadataPurged">
+      <summary>Se produce cuando el sistema purga elementos de metadatos almacenados anteriormente.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddDoubleEvent(System.String,System.Double,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>Agrega un nuevo evento de metadatos doble.</summary>
+      <param name="name">El nombre del evento de metadatos.</param>
+      <param name="value">El valor del evento de metadatos.</param>
+      <param name="priority">Un miembro de la enumeración AppCaptureMetadataPriority que especifica la importancia relativa del elemento de metadatos. El sistema usa este valor y la antigüedad de un elemento de metadatos para determinar qué elementos de metadatos se deben purgar primero cuando se alcanza el límite del espacio de almacenamiento asignado para los metadatos acumulados.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddInt32Event(System.String,System.Int32,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>Agrega un nuevo evento de metadatos de entero.</summary>
+      <param name="name">El nombre del evento de metadatos.</param>
+      <param name="value">El valor del evento de metadatos.</param>
+      <param name="priority">Un miembro de la enumeración AppCaptureMetadataPriority que especifica la importancia relativa del elemento de metadatos. El sistema usa este valor y la antigüedad de un elemento de metadatos para determinar qué elementos de metadatos se deben purgar primero cuando se alcanza el límite del espacio de almacenamiento asignado para los metadatos acumulados.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddStringEvent(System.String,System.String,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>Agrega un nuevo evento de metadatos de cadena.</summary>
+      <param name="name">El nombre del evento de metadatos.</param>
+      <param name="value">El valor del evento de metadatos.</param>
+      <param name="priority">Un miembro de la enumeración AppCaptureMetadataPriority que especifica la importancia relativa del elemento de metadatos. El sistema usa este valor y la antigüedad de un elemento de metadatos para determinar qué elementos de metadatos se deben purgar primero cuando se alcanza el límite del espacio de almacenamiento asignado para los metadatos acumulados.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.Close">
+      <summary>Desecha el objeto y los recursos asociados.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartDoubleState(System.String,System.Double,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>Agrega un nuevo estado de metadatos doble.</summary>
+      <param name="name">El nombre del estado de metadatos.</param>
+      <param name="value">El valor del estado de metadatos.</param>
+      <param name="priority">Un miembro de la enumeración AppCaptureMetadataPriority que especifica la importancia relativa del elemento de metadatos. El sistema usa este valor y la antigüedad de un elemento de metadatos para determinar qué elementos de metadatos se deben purgar primero cuando se alcanza el límite del espacio de almacenamiento asignado para los metadatos acumulados.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartInt32State(System.String,System.Int32,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>Agrega un nuevo estado de metadatos doble.</summary>
+      <param name="name">El nombre del estado de metadatos.</param>
+      <param name="value">El valor del estado de metadatos.</param>
+      <param name="priority">Un miembro de la enumeración AppCaptureMetadataPriority que especifica la importancia relativa del elemento de metadatos. El sistema usa este valor y la antigüedad de un elemento de metadatos para determinar qué elementos de metadatos se deben purgar primero cuando se alcanza el límite del espacio de almacenamiento asignado para los metadatos acumulados.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartStringState(System.String,System.String,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>Agrega un nuevo estado de metadatos doble.</summary>
+      <param name="name">El nombre del estado de metadatos.</param>
+      <param name="value">El valor del estado de metadatos.</param>
+      <param name="priority">Un miembro de la enumeración AppCaptureMetadataPriority que especifica la importancia relativa del elemento de metadatos. El sistema usa este valor y la antigüedad de un elemento de metadatos para determinar qué elementos de metadatos se deben purgar primero cuando se alcanza el límite del espacio de almacenamiento asignado para los metadatos acumulados.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StopAllStates">
+      <summary>Detiene todos los estados de metadatos.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StopState(System.String)">
+      <summary>Detiene el estado de metadatos con el identificador especificado.</summary>
+      <param name="name">El identificador del estado que se va a detener.</param>
+    </member>
+  </members>
+</doc>

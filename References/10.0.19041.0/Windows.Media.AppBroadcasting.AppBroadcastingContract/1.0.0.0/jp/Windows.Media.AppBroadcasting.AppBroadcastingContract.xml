@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.AppBroadcasting.AppBroadcastingContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingMonitor">
+      <summary>現在ブロードキャストしているかどうかを判断し、アプリがブロードキャストを開始または停止している場合もイベントを受け取るアプリを有効にします。</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.#ctor">
+      <summary>**AppBroadcastingMonitor** クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcasting">
+      <summary>現在のアプリが現在ブロードキャスト中であるかどうかを示す値を取得します。</summary>
+      <returns>現在のアプリがブロードキャスト中の場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="E:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcastingChanged">
+      <summary>現在のアプリの現在のブロードキャスト状態が変更されたときに発生します。</summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatus">
+      <summary>現在ブロードキャスト中であることを判別し、そうでない場合は、ブロードキャストを開始できない理由について詳細を取得するアプリを有効にします。</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.CanStartBroadcast">
+      <summary>現在のアプリがブロードキャストを開始できるかどうかを示す値を取得します。</summary>
+      <returns>アプリがブロードキャストを開始できる場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.Details">
+      <summary>現在のアプリがブロードキャストを現在、開始できない理由を示す詳しい情報を提供する、AppBroadcastingStatusDetails オブジェクトを取得します。</summary>
+      <returns>現在のアプリがブロードキャストを現在、開始できない理由を示す詳しい情報を提供するオブジェクト。</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails">
+      <summary>現在のアプリがブロードキャストを現在、開始できない理由を示す詳しい情報を提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAnyAppBroadcasting">
+      <summary>別のアプリが現在ブロードキャストしているかどうかを示す値を取得します。</summary>
+      <returns>別のアプリが現在ブロードキャストしている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAppInactive">
+      <summary>現在のアプリのウィンドウがアクティブでないかを指定する値を取得します。</summary>
+      <returns>現在のアプリのウィンドウが非アクティブの場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsBlockedForApp">
+      <summary>ブロードキャストが現在のアプリに対してブロックされているかどうかを示す値を取得します。</summary>
+      <returns>現在のアプリに対してブロードキャストがブロックされている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsCaptureResourceUnavailable">
+      <summary>キャプチャ リソースが現在利用不可であるかどうかを示す値を取得します。</summary>
+      <returns>キャプチャ リソースが現在利用不可の場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledBySystem">
+      <summary>アプリのブロードキャストがシステムによってを無効されているかどうかを示す値を取得します。</summary>
+      <returns>システムによってアプリのブロードキャストが無効の場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledByUser">
+      <summary>アプリのブロードキャストがユーザーによって無効にされているかどうかを示す値を取得します。</summary>
+      <returns>ユーザーによってアプリのブロードキャストが無効の場合は true。以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGameStreamInProgress">
+      <summary>ゲーム ストリームが現在進行中かどうかを示す値を取得します。</summary>
+      <returns>ゲーム ストリームが現在進行中の場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGpuConstrained">
+      <summary>GPU に制約があるためアプリのブロードキャストが利用できないかどうかを示す値を取得します。</summary>
+      <returns>GPU に制約があるためアプリのブロードキャストが利用できない場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingUI">
+      <summary>アプリのブロードキャスト システム セットアップ UI を起動するアプリを有効にします。</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetDefault">
+      <summary>デバイスに現在、サインインしているユーザーに関連付けられている **AppBroadcastingUI** クラスのインスタンスを取得します。</summary>
+      <returns>**AppBroadcastingUI** クラスのインスタンス。</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetForUser(Windows.System.User)">
+      <summary>指定したユーザーに関連付けられている **AppBroadcastingUI** クラスのインスタンスを取得します。</summary>
+      <param name="user">**AppBroadcastingUI** インスタンスが作成されるユーザー。</param>
+      <returns>**AppBroadcastingUI** クラスのインスタンス。</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetStatus">
+      <summary>アプリが現在ブロードキャスト中であることを判別することができ、そうでない場合は、ブロードキャストを開始できない理由について詳細を取得するオブジェクトを取得します。</summary>
+      <returns>アプリが現在、ブロードキャストを開始できるかどうかを決定できるオブジェクト。</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.ShowBroadcastUI">
+      <summary>アプリのブロードキャスト システム セットアップ UI を示します。</summary>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GamingUIProviderContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameUIProviderActivatedEventArgs">
+      <summary>Argomenti dell'evento associati a un'attivazione **GameUIProvider**. Questa API non è disponibile per tutte le app. L'app non può utilizzare questa API a meno che l'account per sviluppatore non sia stato fornito appositamente da Microsoft.</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.GameUIArgs">
+      <summary>Argomenti dell'evento associati a un'attivazione **GameUIProvider**. Questa API non è disponibile per tutte le app. L'app non può utilizzare questa API a meno che l'account per sviluppatore non sia stato fornito appositamente da Microsoft.</summary>
+      <returns>Argomenti dell'evento associati a un'attivazione **GameUIProvider**.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.Kind">
+      <summary>Il tipo di attivazione. Questa API non è disponibile per tutte le app. L'app non può utilizzare questa API a meno che l'account per sviluppatore non sia stato fornito appositamente da Microsoft.</summary>
+      <returns>Il tipo di attivazione.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.PreviousExecutionState">
+      <summary>Lo stato di esecuzione precedente. Questa API non è disponibile per tutte le app. L'app non può utilizzare questa API a meno che l'account per sviluppatore non sia stato fornito appositamente da Microsoft.</summary>
+      <returns>Lo stato di esecuzione precedente.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.SplashScreen">
+      <summary>Schermata iniziale dell'app. Questa API non è disponibile per tutte le app. L'app non può utilizzare questa API a meno che l'account per sviluppatore non sia stato fornito appositamente da Microsoft.</summary>
+      <returns>Schermata iniziale dell'app.</returns>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.ReportCompleted(Windows.Foundation.Collections.ValueSet)">
+      <summary>Segnala l'esperienza come completata e comunica i dati risultanti all'app chiamante. Questa API non è disponibile per tutte le app. L'app non può utilizzare questa API a meno che l'account per sviluppatore non sia stato fornito appositamente da Microsoft.</summary>
+      <param name="results">I dati risultanti dall'app **GameUIProvider**.</param>
+    </member>
+    <member name="T:Windows.Gaming.UI.GamingUIProviderContract">
+      <summary>
+      </summary>
+    </member>
+  </members>
+</doc>

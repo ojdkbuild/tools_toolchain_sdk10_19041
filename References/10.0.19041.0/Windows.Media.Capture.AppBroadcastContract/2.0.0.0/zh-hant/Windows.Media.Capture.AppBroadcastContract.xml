@@ -1,0 +1,997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.AppBroadcastContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.Background.AppBroadcastTrigger">
+      <summary>表示會觸發背景工作在應用程式開始遊戲直播時執行的事件。</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Background.AppBroadcastTrigger.#ctor(System.String)">
+      <summary>使用將會進行遊戲直播的提供者名稱建構 AppBroadcastTrigger。</summary>
+      <param name="providerKey">正在直播遊戲的提供者名稱。</param>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTrigger.ProviderInfo">
+      <summary>提供者有關正在直播遊戲之應用程式的資訊。</summary>
+      <returns>正在直播遊戲之提供者的相關資訊，例如最大視訊位元速率、視訊高度及寬度等。</returns>
+    </member>
+    <member name="T:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo">
+      <summary>提供正在直播遊戲之應用程式的相關資訊，例如其標誌、顯示名稱和視訊特性。</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.DisplayNameResource">
+      <summary>取得和設定正在直播遊戲之提供者的 UI 易記名稱資源位置。</summary>
+      <returns>顯示名稱的資源位置。 例如，「ms-resource://resources/DisplayName」</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.LogoResource">
+      <summary>取得和設定正在直播遊戲之提供者的標誌資源位置。</summary>
+      <returns>標誌的資源位置。 例如，「ms-resource://resources/Logo.png」</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoBitrate">
+      <summary>取得和設定正在直播遊戲之提供者可提供的最大位元速率。</summary>
+      <returns>最大值位元速率 (每秒位元數)。 例如，2500000 = 2.5 mbps</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoHeight">
+      <summary>取得和設定遊戲廣播提供者支援的最大視訊高度。</summary>
+      <returns>最大視訊高度 (以像素為單位)。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoWidth">
+      <summary>取得和設定遊戲廣播提供者支援的最大視訊寬度。</summary>
+      <returns>最大視訊寬度 (以像素為單位)。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.VideoKeyFrameInterval">
+      <summary>取得和設定視訊主要畫面之間的時間量。</summary>
+      <returns>主要畫面之間的時間範圍。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundService">
+      <summary>提供直播 UWP app 與系統裝載廣播服務之間的介面。 這個類別提供直播提供者服務對一些物件的存取權，這些物件會加速廣播服務驗證、測試裝置網際網路頻寬功能的物件，並且可讓您工作取得擷取的音訊與視訊框架，以便傳送至廣播提供者服務。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.AppId">
+      <summary>取得包含廣播中遊戲之識別碼的字串。 在桌上型裝置中直播時，這個值是使用者起始直播的遊戲。</summary>
+      <returns>包含直播應用程式系統定義識別碼的字串。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastChannel">
+      <summary>取得包含目前廣播頻道之名稱的字串。</summary>
+      <returns>包含目前廣播頻道之名稱的字串。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastLanguage">
+      <summary>取得代表目前廣播頻道之語言的字串。</summary>
+      <returns>代表目前廣播頻道之語言的字串。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastTitle">
+      <summary>取得包含廣播之使用者指定標題的字串。</summary>
+      <returns>包含廣播之使用者指定標題的字串。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.PlugInState">
+      <summary>取得或設定指定廣播背景工作目前狀態的值。</summary>
+      <returns>指定廣播背景工作目前狀態的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.SignInInfo">
+      <summary>取得表示應用程式廣播背景服務登入資訊的物件。</summary>
+      <returns>表示應用程式廣播背景服務登入資訊的物件。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.StreamInfo">
+      <summary>取得管理應用程式廣播背景服務串流狀態的物件。</summary>
+      <returns>管理應用程式廣播背景服務串流狀態的物件。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.TitleId">
+      <summary>取得廣播中標題的唯一識別碼。</summary>
+      <returns>廣播中標題的唯一識別碼。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.ViewerCount">
+      <summary>取得或設定廣播檢視器數目。</summary>
+      <returns>廣播檢視器數目。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastChannelChanged">
+      <summary>在 BroadcastChannel 屬性變更時發生。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastLanguageChanged">
+      <summary>在 BroadcastLanguage 屬性變更時發生。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastTitleChanged">
+      <summary>在 BroadcastLanguage 屬性變更時發生。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.HeartbeatRequested">
+      <summary>由系統定期引發以確認直播背景工作目前作用中。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastBackgroundService.TerminateBroadcast(Windows.Media.Capture.AppBroadcastTerminationReason,System.UInt32)">
+      <summary>終止廣播。</summary>
+      <param name="reason">表示即將終止廣播之原因的值。</param>
+      <param name="providerSpecificReason">傳達即將終止廣播之提供者特定原因的整數。</param>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo">
+      <summary>表示應用程式廣播背景服務的登入資訊。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.AuthenticationResult">
+      <summary>取得表示 Web 驗證作業結果的物件。</summary>
+      <returns>表示 Web 驗證作業結果的物件。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.OAuthCallbackUri">
+      <summary>取得或設定 OAuth 回撥 URI。</summary>
+      <returns>OAuth 回撥 URI。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.OAuthRequestUri">
+      <summary>取得或設定 OAuth 要求 URI。</summary>
+      <returns>OAuth 要求 URI。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.SignInState">
+      <summary>取得表示應用程式廣播背景服務登入狀態的物件。</summary>
+      <returns>應用程式廣播背景服務的登入狀態。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.UserName">
+      <summary>取得或設定應用程式廣播背景服務驗證的使用者名稱。</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged">
+      <summary>在應用程式廣播背景服務的登入狀態變更時發生。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.UserNameChanged">
+      <summary>當 UserName 屬性變更時發生。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo">
+      <summary>管理應用程式廣播背景服務的串流狀態。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.AudioCodec">
+      <summary>取得或設定應用程式廣播背景服務所使用的音訊轉碼器。</summary>
+      <returns>應用程式廣播背景服務所使用的音訊轉碼器。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.BandwidthTestBitrate">
+      <summary>取得或設定應用程式廣播背景服務的頻寬測試位元速率。</summary>
+      <returns>應用程式廣播背景服務的頻寬測試位元速率。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.BroadcastStreamReader">
+      <summary>取得應用程式廣播背景服務的廣播串流讀取器。</summary>
+      <returns>應用程式廣播背景服務的廣播串流讀取器。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.DesiredVideoEncodingBitrate">
+      <summary>取得或設定應用程式廣播背景服務所需的視訊編碼位元速率。</summary>
+      <returns>應用程式廣播背景服務所需的視訊編碼位元速率。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.StreamState">
+      <summary>取得表示應用程式廣播串流狀態的值。</summary>
+      <returns>表示應用程式廣播串流狀態的值。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.StreamStateChanged">
+      <summary>在應用程式廣播串流狀態變更時發生。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.VideoEncodingBitrateChanged">
+      <summary>在應用程式廣播視訊編碼位元速率變更時發生。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.VideoEncodingResolutionChanged">
+      <summary>在應用程式廣播視訊編碼解析度變更時發生。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.ReportProblemWithStream">
+      <summary>通知系統偵測到廣播串流的問題。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraCaptureState">
+      <summary>指定應用程式廣播相機擷取的狀態。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Failed">
+      <summary>應用程式廣播相機擷取已失敗。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Started">
+      <summary>應用程式廣播相機擷取已開始。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Stopped">
+      <summary>應用程式廣播相機擷取已停止。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs">
+      <summary>提供 AppBroadcast.CameraCaptureStateChanged 事件的資料。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs.ErrorCode">
+      <summary>取得與事件相關聯的錯誤碼。</summary>
+      <returns>與事件相關聯的錯誤碼。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs.State">
+      <summary>取得表示應用程式廣播相機擷取之新狀態的值。</summary>
+      <returns>表示應用程式廣播相機擷取之新狀態的值。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraOverlayLocation">
+      <summary>指定廣播視訊框架內的相機重疊位置。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomCenter">
+      <summary>重疊放置於畫面的底端中央。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomLeft">
+      <summary>重疊放置於畫面的左下方。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomRight">
+      <summary>重疊放置於畫面的右下方。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleCenter">
+      <summary>重疊放置於畫面的中間中央。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleLeft">
+      <summary>重疊放置於畫面的中間左側。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleRight">
+      <summary>重疊放置於畫面的中間右側。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopCenter">
+      <summary>重疊放置於畫面的頂端中央。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopLeft">
+      <summary>重疊放置於畫面的左上方。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopRight">
+      <summary>重疊放置於畫面的右上方。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraOverlaySize">
+      <summary>指定廣播視訊框架內的相機重疊大小。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Large">
+      <summary>大型重疊大小。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Medium">
+      <summary>中型重疊大小。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Small">
+      <summary>小型重疊大小。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCaptureTargetType">
+      <summary>指定應用程式廣播的擷取目標類型。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCaptureTargetType.AppView">
+      <summary>擷取應用程式檢視。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCaptureTargetType.EntireDisplay">
+      <summary>擷取整個顯示畫面。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason">
+      <summary>取得指定廣播模式結束原因的值。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.AuthorizationFail">
+      <summary>廣播因驗證失敗而結束。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.ForegroundAppActivated">
+      <summary>廣播因前景應用程式已啟用而結束。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.NormalExit">
+      <summary>廣播已正常結束。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.UserCanceled">
+      <summary>使用者取消了廣播。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastGlobalSettings">
+      <summary>指定會在所有直播 UWP app 之間持續的全域直播設定。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.CameraOverlayLocation">
+      <summary>取得或設定指定相機重疊在廣播視訊框架中位置的值。</summary>
+      <returns>指定相機重疊在廣播視訊框架中位置的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.CameraOverlaySize">
+      <summary>取得或設定指定相機重疊在廣播視訊框架中大小的值。</summary>
+      <returns>指定相機重疊在廣播視訊框架中大小的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.HasHardwareEncoder">
+      <summary>取得表示目前裝置是否支援媒體硬體編碼的值。</summary>
+      <returns>如果裝置支援媒體硬體編碼則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsAudioCaptureEnabled">
+      <summary>取得或設定表示直播是否已啟用音訊擷取的值。</summary>
+      <returns>如果音訊擷取已啟用則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsBroadcastEnabled">
+      <summary>取得表示裝置是否啟用直播的值。</summary>
+      <returns>如果裝置啟用直播則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsCameraCaptureEnabledByDefault">
+      <summary>取得或設定表示直播是否預設啟用相機擷取的值。</summary>
+      <returns>如果預設啟用相機擷取則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsCursorImageCaptureEnabled">
+      <summary>取得表示是否擷取游標影像的值。</summary>
+      <returns>如果擷取游標影像則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsDisabledByPolicy">
+      <summary>取得表示裝置是否依群組原則停用直播的值。</summary>
+      <returns>如果裝置依群組原則停用直播則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsEchoCancellationEnabled">
+      <summary>取得或設定表示是否啟用回音消除的值。</summary>
+      <returns>如果啟用回音消除則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsGpuConstrained">
+      <summary>取得表示 GPU 在裝置上是否受限的值。</summary>
+      <returns>如果 GPU 受限則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsMicrophoneCaptureEnabledByDefault">
+      <summary>取得或設定表示直播是否預設啟用麥克風擷取的值。</summary>
+      <returns>如果麥克風擷取已預設為啟用，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.MicrophoneGain">
+      <summary>取得或設定表示廣播音訊擷取麥克風增益的值。</summary>
+      <returns>廣播音訊擷取的麥克風增益。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.SelectedCameraId">
+      <summary>取得或設定包含廣播視訊擷取所用相機裝置識別碼的字串。</summary>
+      <returns>廣播視訊擷取使用的相機裝置識別碼。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.SystemAudioGain">
+      <summary>取得或設定廣播音訊擷取的系統增益。</summary>
+      <returns>廣播音訊擷取的系統增益。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs">
+      <summary>提供 AppBroadcastBackgroundService.HeartbeatRequested 事件的資料，系統定期引發此事件以確認直播背景工作目前已啟用。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs.Handled">
+      <summary>取得或設定表示直播背景工作目前是否已啟用的值。</summary>
+      <returns>如果直播背景工作目前已啟用則為 true，否則為 false。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastManager">
+      <summary>提供目前裝置全域廣播設定及廣播提供者設定的存取。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.ApplyGlobalSettings(Windows.Media.Capture.AppBroadcastGlobalSettings)">
+      <summary>更新目前裝置的全域廣播設定。</summary>
+      <param name="value">公開目前裝置全域廣播設定的物件。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.ApplyProviderSettings(Windows.Media.Capture.AppBroadcastProviderSettings)">
+      <summary>更新廣播提供者設定。</summary>
+      <param name="value">
+      </param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.GetGlobalSettings">
+      <summary>取得公開目前裝置全域廣播設定的物件。</summary>
+      <returns>公開目前裝置全域廣播設定的物件。</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.GetProviderSettings">
+      <summary>取得公開廣播提供者設定的物件。</summary>
+      <returns>公開廣播提供者設定的物件。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState">
+      <summary>指定應用程式廣播麥克風擷取的狀態。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Failed">
+      <summary>麥克風擷取已失敗。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Started">
+      <summary>麥克風擷取已開始。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Stopped">
+      <summary>麥克風擷取已停止。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs">
+      <summary>提供 AppBroadcastState.MicrophoneCaptureStateChanged 事件的資料。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs.ErrorCode">
+      <summary>取得與事件相關聯的錯誤碼。</summary>
+      <returns>與事件相關聯的錯誤碼。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs.State">
+      <summary>取得表示應用程式廣播麥克風擷取狀態的值。</summary>
+      <returns>表示應用程式廣播麥克風擷取狀態的值。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugIn">
+      <summary>提供應用程式廣播外掛程式的相關資訊。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.AppId">
+      <summary>取得與應用程式廣播外掛程式相關聯之應用程式的唯一識別碼。</summary>
+      <returns>與應用程式廣播外掛程式相關聯之應用程式的唯一識別碼。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.DisplayName">
+      <summary>取得應用程式廣播外掛程式的顯示名稱。</summary>
+      <returns>應用程式廣播外掛程式的顯示名稱。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.Logo">
+      <summary>取得包含應用程式廣播外掛程式標誌影像的串流。</summary>
+      <returns>包含應用程式廣播外掛程式標誌影像的串流。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.ProviderSettings">
+      <summary>取得表示應用程式廣播外掛程式提供者設定的物件。</summary>
+      <returns>應用程式廣播外掛程式的提供者設定。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInManager">
+      <summary>管理應用程式廣播外掛程式。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.DefaultPlugIn">
+      <summary>取得或設定預設應用程式廣播外掛程式。</summary>
+      <returns>預設應用程式廣播外掛程式。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.IsBroadcastProviderAvailable">
+      <summary>取得表示廣播提供者是否可用的值。</summary>
+      <returns>如果有廣播提供者可用則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.PlugInList">
+      <summary>取得所有應用程式廣播外掛程式的唯讀清單。</summary>
+      <returns>所有應用程式廣播外掛程式的唯讀清單。</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPlugInManager.GetDefault">
+      <summary>取得應用程式廣播的預設外掛程式。</summary>
+      <returns>應用程式廣播的預設外掛程式。</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPlugInManager.GetForUser(Windows.System.User)">
+      <summary>取得與指定之使用者相關聯的應用程式廣播外掛程式。</summary>
+      <param name="user">要為其擷取應用程式廣播外掛程式的使用者。</param>
+      <returns>與指定之使用者相關聯的應用程式廣播外掛程式。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInState">
+      <summary>指定廣播背景工作的目前狀態。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.InBandwidthTest">
+      <summary>廣播背景工作位於測試裝置與直播服務提供者之連線頻寬的處理序中。 這個測試完成後，系統就會設定 AppBroadcastBackgroundServiceStreamInfo.BandwidthTestBitrate 屬性來顯示頻寬測試的結果。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.Initialized">
+      <summary>廣播背景工作已初始化。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.MicrosoftSignInRequired">
+      <summary>目前的使用者需要透過 Microsoft 服務進行驗證。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.OAuthSignInRequired">
+      <summary>目前的使用者需要透過廣播提供者服務進行驗證。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.ProviderSignInRequired">
+      <summary>廣播背景工作參數透過廣播提供者服務驗證目前的使用者。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.ReadyToBroadcast">
+      <summary>廣播背景工作已就緒可以廣播。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.Unknown">
+      <summary>目前狀態不明。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs">
+      <summary>提供 AppBroadcastState.PlugInStateChanged 事件的資料。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs.PlugInState">
+      <summary>取得新的應用程式廣播外掛程式狀態。</summary>
+      <returns>新的應用程式廣播外掛程式狀態。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreview">
+      <summary>提供應用程式廣播預覽的狀態資訊與存取。 </summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.ErrorCode">
+      <summary>取得與應用程式廣播預覽相關聯的錯誤碼。</summary>
+      <returns>與應用程式廣播預覽相關聯的錯誤碼。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.PreviewState">
+      <summary>取得表示應用程式廣播預覽狀態的值。</summary>
+      <returns>表示應用程式廣播預覽狀態的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.PreviewStreamReader">
+      <summary>取得應用程式廣播預覽的串流讀取器。</summary>
+      <returns>應用程式廣播預覽的串流讀取器。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastPreview.PreviewStateChanged">
+      <summary>在應用程式廣播預覽狀態變更時發生。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPreview.StopPreview">
+      <summary>停止應用程式廣播預覽。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewState">
+      <summary>指定應用程式廣播預覽的狀態。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Failed">
+      <summary>應用程式廣播預覽已失敗。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Started">
+      <summary>應用程式廣播預覽已開始。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Stopped">
+      <summary>應用程式廣播預覽已停止。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs">
+      <summary>提供 AppBroadcastPreview.PreviewStateChanged 事件的資料。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs.ErrorCode">
+      <summary>取得與事件相關聯的錯誤碼。</summary>
+      <returns>與事件相關聯的錯誤碼。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs.PreviewState">
+      <summary>取得應用程式廣播預覽的新狀態。</summary>
+      <returns>應用程式廣播預覽的新狀態。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamReader">
+      <summary>提供應用程式廣播預覽串流的相關資訊與存取。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoBitmapAlphaMode">
+      <summary>取得應用程式廣播預覽串流的視訊點陣圖 Alpha 模式。</summary>
+      <returns>應用程式廣播預覽串流的視訊點陣圖 Alpha 模式。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoBitmapPixelFormat">
+      <summary>取得應用程式廣播預覽串流的視訊點陣圖像素格式。</summary>
+      <returns>應用程式廣播預覽串流的視訊點陣圖像素格式。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoHeight">
+      <summary>取得應用程式廣播預覽串流的視訊高度 (以像素為單位)。</summary>
+      <returns>應用程式廣播預覽串流的視訊高度 (以像素為單位)。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoStride">
+      <summary>取得應用程式廣播預覽串流的視訊分散。</summary>
+      <returns>應用程式廣播預覽串流的視訊分散。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoWidth">
+      <summary>取得應用程式廣播預覽串流的視訊寬度 (以像素為單位)。</summary>
+      <returns>應用程式廣播預覽串流的視訊寬度 (以像素為單位)。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoFrameArrived">
+      <summary>在應用程式廣播預覽串流的新視訊框架抵達時發生。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPreviewStreamReader.TryGetNextVideoFrame">
+      <summary>嘗試擷取應用程式廣播預覽串流的下一個視訊框架。</summary>
+      <returns>應用程式廣播預覽串流的下一個視訊框架。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame">
+      <summary>表示來自應用程式廣播預覽串流的視訊框架。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame.VideoBuffer">
+      <summary>取得包含應用程式廣播預覽串流視訊框架影像資料的緩衝區。</summary>
+      <returns>包含應用程式廣播預覽串流視訊框架影像資料的緩衝區。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame.VideoHeader">
+      <summary>取得描述應用程式廣播預覽串流視訊框架影像資料的標頭。</summary>
+      <returns>描述應用程式廣播預覽串流視訊框架影像資料的標頭。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader">
+      <summary>表示有關應用程式廣播預覽串流視訊框架的中繼資料。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.AbsoluteTimestamp">
+      <summary>取得應用程式廣播預覽串流視訊框架的絕對時間戳記。</summary>
+      <returns>應用程式廣播預覽串流視訊框架的絕對時間戳記。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.Duration">
+      <summary>取得應用程式廣播預覽串流視訊框架的持續時間。</summary>
+      <returns>應用程式廣播預覽串流視訊框架的持續時間。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.FrameId">
+      <summary>取得應用程式廣播預覽串流視訊框架的畫面識別碼。</summary>
+      <returns>應用程式廣播預覽串流視訊框架的畫面識別碼。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.RelativeTimestamp">
+      <summary>取得應用程式廣播預覽串流視訊框架的相對時間戳記。</summary>
+      <returns>應用程式廣播預覽串流視訊框架的相對時間戳記。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastProviderSettings">
+      <summary>提供遠端廣播提供者服務設定的存取。 廣播提供者可以檢視和變更這些設定。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.AudioEncodingBitrate">
+      <summary>取得或設定廣播串流的音訊編碼位元速率 (每秒位元數)。</summary>
+      <returns>廣播串流的音訊編碼位元速率 (每秒位元數)。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingBitrate">
+      <summary>取得或設定廣播串流的自訂視訊編碼位元速率 (每秒位元數)。</summary>
+      <returns>廣播串流的自訂視訊編碼位元速率 (每秒位元數)。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingHeight">
+      <summary>取得或設定廣播串流的自訂視訊編碼高度。</summary>
+      <returns>廣播串流的自訂視訊編碼高度。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingWidth">
+      <summary>取得或設定廣播串流的自訂視訊編碼寬度。</summary>
+      <returns>廣播串流的自訂視訊編碼寬度。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.DefaultBroadcastTitle">
+      <summary>取得或設定廣播的預設標題。</summary>
+      <returns>廣播的預設標題。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.VideoEncodingBitrateMode">
+      <summary>取得或設定遠端廣播提供者服務的視訊編碼位元速率模式。</summary>
+      <returns>視訊編碼位元速率</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.VideoEncodingResolutionMode">
+      <summary>取得或設定遠端廣播提供者服務的視訊編碼解析度模式。</summary>
+      <returns>視訊編碼解析度模式</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastServices">
+      <summary>管理應用程式廣播的狀態。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.BroadcastLanguage">
+      <summary>取得或設定指定應用程式廣播語言設定的字串。</summary>
+      <returns>指定應用程式廣播語言設定的字串。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.BroadcastTitle">
+      <summary>取得或設定廣播的標題。</summary>
+      <returns>廣播的標題。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.CanCapture">
+      <summary>取得表示廣播服務是否可以擷取的值。</summary>
+      <returns>如果廣播服務可以擷取則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.CaptureTargetType">
+      <summary>取得或設定指定要用於廣播之擷取目標類型的值。</summary>
+      <returns>指定要用於廣播之擷取目標類型的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.State">
+      <summary>取得應用程式廣播服務的目前狀態。</summary>
+      <returns>應用程式廣播服務的目前狀態。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.UserName">
+      <summary>取得用於應用程式廣播驗證的使用者名稱。</summary>
+      <returns>用於應用程式廣播驗證的使用者名稱。</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.EnterBroadcastModeAsync(Windows.Media.Capture.AppBroadcastPlugIn)">
+      <summary>讓應用程式廣播服務透過指定的應用程式廣播外掛程式進入廣播模式。</summary>
+      <param name="plugIn">用來進入廣播模式的應用程式廣播外掛程式。</param>
+      <returns>順利完成時會傳回狀態碼的非同步作業。</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.ExitBroadcastMode(Windows.Media.Capture.AppBroadcastExitBroadcastModeReason)">
+      <summary>讓應用程式廣播服務藉由指定的原因結束廣播模式。</summary>
+      <param name="reason">指定要結束廣播模式之原因的物件。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.PauseBroadcast">
+      <summary>暫停應用程式直播。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.ResumeBroadcast">
+      <summary>繼續應用程式直播。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.StartBroadcast">
+      <summary>開始應用程式直播。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.StartPreview(Windows.Foundation.Size)">
+      <summary>開始應用程式廣播預覽。</summary>
+      <param name="desiredSize">指定應用程式廣播預覽大小 (以像素為單位) 的物件。</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInResult">
+      <summary>指定登入作業的結果。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.AuthenticationFailed">
+      <summary>登入驗證失敗。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.ServiceUnavailable">
+      <summary>登入服務無法使用。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Success">
+      <summary>登入已成功。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Unauthorized">
+      <summary>已驗證的使用者沒有存取所要求之資源的權限。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Unknown">
+      <summary>登入結果不明。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInState">
+      <summary>指定廣播應用程式目前的登入狀態。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.MicrosoftSignInComplete">
+      <summary>Microsoft 服務的登入作業已完成。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.MicrosoftSignInInProgress">
+      <summary>Microsoft 服務的登入作業正在進行中。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.NotSignedIn">
+      <summary>使用者未登入。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.OAuthSignInComplete">
+      <summary>廣播提供者服務的登入作業已完成。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.OAuthSignInInProgress">
+      <summary>廣播提供者服務的登入作業正在進行中。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs">
+      <summary>提供 AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged 事件的資料。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs.Result">
+      <summary>取得與 AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged 事件相關聯之廣播應用程式登入作業的結果。</summary>
+      <returns>登入作業的結果。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs.SignInState">
+      <summary>取得引發 AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged 之後的目前廣播應用程式登入狀態。</summary>
+      <returns>目前的登入狀態。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastState">
+      <summary>表示和管理應用程式廣播的狀態。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.AuthenticationResult">
+      <summary>取得應用程式廣播狀態的驗證結果。</summary>
+      <returns>應用程式廣播狀態的驗證結果。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.CameraCaptureError">
+      <summary>取得與應用程式廣播狀態相關聯的相機擷取錯誤。</summary>
+      <returns>與應用程式廣播狀態相關聯的相機擷取錯誤。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.CameraCaptureState">
+      <summary>取得相機擷取狀態。</summary>
+      <returns>相機擷取狀態。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.EncodedVideoSize">
+      <summary>取得應用程式廣播的已編碼視訊大小。</summary>
+      <returns>應用程式廣播的已編碼視訊大小。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.IsCaptureTargetRunning">
+      <summary>取得表示擷取目標目前是否正在執行的值。</summary>
+      <returns>如果擷取目標目前正在執行則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureError">
+      <summary>取得與應用程式廣播狀態相關聯的麥克風擷取錯誤。</summary>
+      <returns>與應用程式廣播狀態相關聯的麥克風擷取錯誤。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureState">
+      <summary>取得麥克風擷取狀態。</summary>
+      <returns>麥克風擷取狀態。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.OAuthCallbackUri">
+      <summary>取得與應用程式廣播狀態相關聯的 OAuth 回撥 URI。</summary>
+      <returns>OAuth 回撥 URI。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.OAuthRequestUri">
+      <summary>取得與應用程式廣播狀態相關聯的 OAuth 要求 URI。</summary>
+      <returns>OAuth 要求 URI。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.PlugInState">
+      <summary>取得與應用程式廣播狀態相關聯的外掛程式狀態。</summary>
+      <returns>與應用程式廣播狀態相關聯的外掛程式狀態。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ShouldCaptureCamera">
+      <summary>取得或設定指定應用程式廣播是否要擷取相機的值。</summary>
+      <returns>指定應用程式廣播是否要擷取相機的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ShouldCaptureMicrophone">
+      <summary>取得或設定指定應用程式廣播是否要擷取麥克風的值。</summary>
+      <returns>指定應用程式廣播是否要擷取麥克風的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.SignInState">
+      <summary>取得或設定指定應用程式廣播登入狀態的值。</summary>
+      <returns>指定應用程式廣播登入狀態的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.StreamState">
+      <summary>取得指定應用程式廣播串流狀態的值。</summary>
+      <returns>指定應用程式廣播串流狀態的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.TerminationReason">
+      <summary>取得指定應用程式廣播終止原因的值。</summary>
+      <returns>指定應用程式廣播終止原因的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.TerminationReasonPlugInSpecific">
+      <summary>取得表示終止應用程式廣播之外掛程式指定原因的值。</summary>
+      <returns>表示終止應用程式廣播之外掛程式指定原因的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ViewerCount">
+      <summary>取得應用程式廣播的檢視器計數。</summary>
+      <returns>應用程式廣播的檢視器計數。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.CameraCaptureStateChanged">
+      <summary>在相機擷取狀態變更時發生。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.CaptureTargetClosed">
+      <summary>在擷取目標已關閉時發生。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureStateChanged">
+      <summary>在麥克風擷取狀態變更時發生。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.PlugInStateChanged">
+      <summary>在與應用程式廣播狀態相關聯的外掛程式狀態變更時發生。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.StreamStateChanged">
+      <summary>在應用程式廣播的串流狀態變更時發生。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.ViewerCountChanged">
+      <summary>在應用程式廣播 的檢視器計數變更時發生。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastState.RestartCameraCapture">
+      <summary>重新開始應用程式廣播相機擷取。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastState.RestartMicrophoneCapture">
+      <summary>重新開始應用程式廣播麥克風擷取。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamAudioFrame">
+      <summary>表示廣播串流中的音訊樣本框架。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioFrame.AudioBuffer">
+      <summary>取得包含廣播音訊框架音訊樣本的緩衝區。</summary>
+      <returns>包含廣播音訊框架音訊樣本的緩衝區。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioFrame.AudioHeader">
+      <summary>取得包含關於相關聯廣播音訊框架之中繼資料的物件。</summary>
+      <returns>包含關於相關聯廣播音訊框架之中繼資料的物件。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamAudioHeader">
+      <summary>提供關於廣播音訊框架的中繼資料。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.AbsoluteTimestamp">
+      <summary>取得表示擷取音訊框架之系統時間的時間戳記。</summary>
+      <returns>表示擷取音訊框架之系統時間的時間戳記。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.Duration">
+      <summary>取得表示音訊框架持續時間的值。</summary>
+      <returns>音訊框架的持續期間。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.FrameId">
+      <summary>取得識別音訊框架的值。</summary>
+      <returns>識別音訊框架的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.HasDiscontinuity">
+      <summary>取得表示音訊框架是否包含音訊串流中斷的值。</summary>
+      <returns>如果音訊框架包含中斷則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.RelativeTimestamp">
+      <summary>取得表示在音訊串流中擷取音訊框架時之相對時間的時間戳記。</summary>
+      <returns>表示在音訊串流中擷取音訊框架時之相對時間的時間戳記。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamReader">
+      <summary>提供從應用程式廣播串流取得音訊與視訊框架的方法及事件。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioAacSequence">
+      <summary>取得包含 AAC 音訊串流序列標頭的緩衝區。</summary>
+      <returns>包含 AAC 音訊串流序列標頭的緩衝區。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioBitrate">
+      <summary>取得與 AppBroadcastStreamReader 相關聯的音訊串流位元速率 (每秒位元數)。</summary>
+      <returns>音訊串流位元速率 (每秒位元數)。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioChannels">
+      <summary>取得與 AppBroadcastStreamReader 相關聯的音訊串流頻道數目。</summary>
+      <returns>音訊串流的頻道數目。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioSampleRate">
+      <summary>取得與 AppBroadcastStreamReader 相關聯的音訊串流採樣速率。</summary>
+      <returns>音訊串流的採樣速率</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoBitrate">
+      <summary>取得與 AppBroadcastStreamReader 相關聯的視訊串流位元速率 (每秒位元數)。</summary>
+      <returns>視訊串流位元速率 (每秒位元數)。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoHeight">
+      <summary>取得與 AppBroadcastStreamReader 相關聯的視訊串流畫面高度。</summary>
+      <returns>視訊串流的畫面高度</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoWidth">
+      <summary>取得與 AppBroadcastStreamReader 相關聯的視訊串流畫面寬度。</summary>
+      <returns>視訊串流的畫面寬度</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastStreamReader.AudioFrameArrived">
+      <summary>在時引發。a new 音訊框架 from the 廣播串流 arrives.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastStreamReader.VideoFrameArrived">
+      <summary>在廣播串流的新視訊框架抵達時引發。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastStreamReader.TryGetNextAudioFrame">
+      <summary>嘗試取得表示來自廣播串流之最新音訊框架的 AppBroadcastStreamAudioFrame 物件。</summary>
+      <returns>如果成功則為廣播串流的最新音訊框架，否則為 null。</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastStreamReader.TryGetNextVideoFrame">
+      <summary>嘗試取得表示來自廣播串流之最新視訊框架的 AppBroadcastStreamVideoFrame 物件。</summary>
+      <returns>如果成功則為廣播串流的最新視訊框架，否則為 null。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamState">
+      <summary>指定應用程式廣播串流的狀態。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Initializing">
+      <summary>應用程式廣播串流正在初始化。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Paused">
+      <summary>應用程式廣播串流已暫停。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Started">
+      <summary>應用程式廣播串流已開始。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.StreamReady">
+      <summary>應用程式廣播串流已就緒。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Terminated">
+      <summary>應用程式廣播串流已終止。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs">
+      <summary>提供 AppBroadcastState.StreamStateChanged 事件的資料。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs.StreamState">
+      <summary>取得應用程式廣播串流的新狀態。</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamVideoFrame">
+      <summary>表示廣播串流中的視訊框架。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoFrame.VideoBuffer">
+      <summary>取得包含廣播音訊框架影像資料的緩衝區。</summary>
+      <returns>包含廣播音訊框架影像資料的緩衝區。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoFrame.VideoHeader">
+      <summary>取得包含關於相關聯廣播視訊框架之中繼資料的物件。</summary>
+      <returns>包含關於相關聯廣播視訊框架之中繼資料的物件。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamVideoHeader">
+      <summary>提供關於廣播視訊框架的中繼資料。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.AbsoluteTimestamp">
+      <summary>取得表示擷取視訊框架之系統時間的時間戳記。</summary>
+      <returns>表示擷取音訊框架之系統時間的時間戳記。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.Duration">
+      <summary>取得表示視訊框架持續時間的值。</summary>
+      <returns>視訊框架的持續時間。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.FrameId">
+      <summary>取得識別視訊框架的值。</summary>
+      <returns>識別視訊框架的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.HasDiscontinuity">
+      <summary>取得表示視訊框架是否包含視訊串流中斷的值。</summary>
+      <returns>如果視訊框架包含中斷則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.IsKeyFrame">
+      <summary>取得表示視訊框架是否為廣播視訊串流中的主要畫面的值。</summary>
+      <returns>如果視訊框架是主要畫面則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.RelativeTimestamp">
+      <summary>取得表示在視訊串流中擷取視訊框架時之相對時間的時間戳記。</summary>
+      <returns>在視訊串流中擷取視訊框架時之相對時間的時間戳記。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastTerminationReason">
+      <summary>指定應用程式廣播的終止原因。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.BackgroundTaskTerminated">
+      <summary>應用程式廣播因為應用程式廣播背景工作已結束而終止。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.BackgroundTaskUnresponsive">
+      <summary>應用程式廣播因為應用程式廣播背景工作沒有回應而終止。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.InternalError">
+      <summary>應用程式廣播因為內部錯誤而終止。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.LostConnectionToService">
+      <summary>應用程式廣播因為與服務的連線中斷而終止。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.NoNetworkConnectivity">
+      <summary>應用程式廣播因為而終止。there is no network connectivity.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.NormalTermination">
+      <summary>應用程式廣播因為已正常終止而終止。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceAbort">
+      <summary>應用程式廣播因為服務已中止廣播而終止。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceError">
+      <summary>應用程式廣播因為發生服務錯誤而終止。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceUnavailable">
+      <summary>應用程式廣播因為服務無法使用而終止。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.UnsupportedFormat">
+      <summary>應用程式廣播因為使用不支援的格式而終止。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastTriggerDetails">
+      <summary>提供與廣播應用程式背景工作相關聯的詳細資料。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastTriggerDetails.BackgroundService">
+      <summary>取得在直播 UWP app 與系統裝載廣播服務之間提供介面的物件。</summary>
+      <returns>在直播 UWP app 與系統裝載廣播服務之間提供介面的物件。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode">
+      <summary>指定用於設定廣播視訊編碼位元速率的模式。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode.Auto">
+      <summary>系統會自動設定位元速率。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode.Custom">
+      <summary>使用透過 AppBroadcastProviderSettings.CustomVideoEncodingBitrate 屬性所指定的位元速度。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode">
+      <summary>指定用於設定廣播視訊編碼解析度的模式。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode.Auto">
+      <summary>系統會自動設定解析度。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode.Custom">
+      <summary>使用透過 AppBroadcastProviderSettings.CustomVideoEncodingHeight 和 CustomVideoEncodingBitrate 屬性所指定的解析度。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs">
+      <summary>提供 AppBroadcastViewerCountChanged 事件的資料。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs.ViewerCount">
+      <summary>取得新的檢視器計數。</summary>
+      <returns>新的檢視器計數。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.ForegroundActivationArgument">
+      <summary>指定在前景啟用應用程式廣播外掛程式的原因。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.ForegroundActivationArgument.MoreSettings">
+      <summary>應用程式廣播外掛程式是為了讓使用者可以變更外掛程式特定設定而在前景啟用。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.ForegroundActivationArgument.SignInRequired">
+      <summary>應用程式廣播外掛程式因為需要登入而在前景啟用。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesDisplayMode">
+      <summary>指定遊戲列的顯示模式。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarServicesDisplayMode.FullScreenExclusive">
+      <summary>全螢幕獨佔模式。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarServicesDisplayMode.Windowed">
+      <summary>視窗型顯示模式。</summary>
+    </member>
+  </members>
+</doc>

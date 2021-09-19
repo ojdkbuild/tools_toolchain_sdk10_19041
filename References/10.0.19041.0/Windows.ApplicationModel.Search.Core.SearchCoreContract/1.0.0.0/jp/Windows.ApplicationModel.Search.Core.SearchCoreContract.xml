@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.ApplicationModel.Search.Core.SearchCoreContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs">
+      <summary>RequestingFocusOnKeyboardInput イベントのデータを指定します。</summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchCoreContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestion">
+      <summary>SearchSuggestionManager が提供する検索候補へのアクセスを有効にします。</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.DetailText">
+      <summary>AppendResultSuggestion メソッドの *detailText* パラメーターに渡された値を取得します。</summary>
+      <returns>詳細テキスト、または検索候補が **Result** でない場合は **null**。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Image">
+      <summary>AppendResultSuggestion メソッドの *image* パラメーターに渡された値を取得します。</summary>
+      <returns>イメージ、または検索候補が **Result** でない場合は **null**。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.ImageAlternateText">
+      <summary>AppendResultSuggestion メソッドの *imageAlternateText* パラメーターに渡された値を取得します。</summary>
+      <returns>Image の代替テキスト、または検索候補が **Result** でない場合は **null**。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Kind">
+      <summary>候補の型を取得します。</summary>
+      <returns>候補の型。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Tag">
+      <summary>AppendResultSuggestion メソッドの *tag* パラメーターに渡された値を取得します。</summary>
+      <returns>タグ、または検索候補が **Result** でない場合は **null**。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Text">
+      <summary>検索候補 UI に表示される検索候補のローカライズされたテキストを取得します。</summary>
+      <returns>表示するテキスト。</returns>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestionKind">
+      <summary>SearchSuggestion の種類を指定します。</summary>
+    </member>
+    <member name="F:Windows.ApplicationModel.Search.Core.SearchSuggestionKind.Query">
+      <summary>候補はクエリ候補です。</summary>
+    </member>
+    <member name="F:Windows.ApplicationModel.Search.Core.SearchSuggestionKind.Result">
+      <summary>候補は結果候補です。</summary>
+    </member>
+    <member name="F:Windows.ApplicationModel.Search.Core.SearchSuggestionKind.Separator">
+      <summary>グループ化に役立つ検索候補の間の区切り記号を表します。</summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestionManager">
+      <summary>アプリ内 SearchBox コントロールの検索候補へのアクセスを管理します。</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.#ctor">
+      <summary>SearchSuggestionManager クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SearchHistoryContext">
+      <summary>検索の文脈を識別し、そのアプリケーションでのユーザーの検索履歴を保存するために使用されます。</summary>
+      <returns>検索履歴コンテキスト文字列。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SearchHistoryEnabled">
+      <summary>ユーザーがこのアプリケーションで実行した前回の検索内容を自動追跡して、候補の提供に使用するかどうかを示します。</summary>
+      <returns>ユーザーの検索履歴が自動的に追跡され、提案の提示に使用される場合は **true**。それ以外の場合は **false**。 既定値は **true** です。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.Suggestions">
+      <summary>現在の検索クエリの検索候補を取得します。</summary>
+      <returns>検索候補。</returns>
+    </member>
+    <member name="E:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.RequestingFocusOnKeyboardInput">
+      <summary>ユーザーが検索のための入力を開始するキーを押すとき発生します。</summary>
+    </member>
+    <member name="E:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SuggestionsRequested">
+      <summary>ユーザーのクエリ テキストが変更され、アプリが検索ボックスに新しい候補を表示する必要があるときに発生します。</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.AddToHistory(System.String)">
+      <summary>指定されたクエリを検索履歴に格納します。</summary>
+      <param name="queryText">クエリです。</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.AddToHistory(System.String,System.String)">
+      <summary>指定されたクエリと入力言語を検索履歴に格納します。</summary>
+      <param name="queryText">クエリです。</param>
+      <param name="language">入力言語。 入力言語によって、適切な言語の検索の履歴にクエリ文字列が表示されるようになります。</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.ClearHistory">
+      <summary>現在のアプリのすべての検索履歴コンテキストをクリアします。</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetLocalContentSuggestionSettings(Windows.ApplicationModel.Search.LocalContentSuggestionSettings)">
+      <summary>ローカル ファイルに基づく候補が、自動的に Suggestions コレクションに追加されるかどうかを指定すると共に、これらの候補を Windows が検索してフィルター処理するための検索条件を定義します。</summary>
+      <param name="settings">ローカル コンテンツ提案の新しい設定。</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetQuery(System.String)">
+      <summary>現在の検索クエリを割り当てます。</summary>
+      <param name="queryText">クエリです。</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetQuery(System.String,System.String)">
+      <summary>指定された入力言語で現在の検索クエリを割り当てます。</summary>
+      <param name="queryText">クエリです。</param>
+      <param name="language">入力言語。</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetQuery(System.String,System.String,Windows.ApplicationModel.Search.SearchQueryLinguisticDetails)">
+      <summary>指定された入力言語と IME (Input Method Editor) で現在の検索クエリを割り当てます。</summary>
+      <param name="queryText">クエリです。</param>
+      <param name="language">入力言語。</param>
+      <param name="linguisticDetails">ユーザーが IME (Input Method Editor) を使用して入力する、クエリ テキストに関する情報。</param>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs">
+      <summary>SuggestionsRequested イベントのデータを指定します。</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.Language">
+      <summary>現在ユーザーのテキスト入力デバイスに関連付けられている言語を示すインターネット技術標準化委員会 (IETF: Internet Engineering Task Force) の言語タグ (BCP 47 標準) を取得します。</summary>
+      <returns>インターネット技術標準化委員会 (IETF: Internet Engineering Task Force) BCP 47 標準言語タグ。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.LinguisticDetails">
+      <summary>ユーザーが IME (Input Method Editor) を使用して入力する、クエリ テキストに関する言語的情報を提供するオブジェクトを取得します。</summary>
+      <returns>クエリ テキストに関する言語情報を提供するオブジェクト。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.QueryText">
+      <summary>SuggestionsRequested イベントが発生したとき、アプリケーションによって候補が提供される検索ボックス内のテキスト。</summary>
+      <returns>アプリケーションによって提案が提供されるクエリ テキスト。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.Request">
+      <summary>要求に関する提案と情報を格納するオブジェクトを取得します。</summary>
+      <returns>要求に関する提案と情報を格納するオブジェクト。</returns>
+    </member>
+  </members>
+</doc>

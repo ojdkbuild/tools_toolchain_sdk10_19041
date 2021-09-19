@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview">
+      <summary>**Не рекомендуется.** Определяет список поддерживаемых типов данных компонента.</summary>
+      <deprecated type="deprecate">Используйте TensorKind вместо FeatureElementKindPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Boolean">
+      <summary>Элемент компонента имеет тип Boolean.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Complex128">
+      <summary>Элемент компонента имеет тип Complex128.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Complex64">
+      <summary>Элемент компонента имеет тип Complex64.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Double">
+      <summary>Элемент компонента имеет тип Double.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Float">
+      <summary>Элемент компонента имеет тип Float.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Float16">
+      <summary>Элемент компонента имеет тип Float16.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Int16">
+      <summary>Элемент компонента имеет тип Int16.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Int32">
+      <summary>Элемент компонента имеет тип Int32.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Int64">
+      <summary>Элемент компонента имеет тип Int64.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Int8">
+      <summary>Элемент компонента имеет тип Int8.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.String">
+      <summary>Элемент компонента имеет тип String.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.UInt16">
+      <summary>Элемент компонента имеет тип UInt16.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.UInt32">
+      <summary>Элемент компонента имеет тип UInt32.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.UInt64">
+      <summary>Элемент компонента имеет тип UInt64.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.UInt8">
+      <summary>Элемент компонента имеет тип UInt8.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Undefined">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.ILearningModelVariableDescriptorPreview">
+      <summary>**Не рекомендуется.** Представляет сведения о дескрипторе переменной.</summary>
+      <deprecated type="deprecate">Используйте ILearningModelFeatureDescriptor вместо ILearningModelVariableDescriptorPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ILearningModelVariableDescriptorPreview.Description">
+      <summary>**Не рекомендуется.** Получает описание переменной.</summary>
+      <returns>Описание переменной.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ILearningModelVariableDescriptorPreview.IsRequired">
+      <summary>**Не рекомендуется.** Получает значение, указывающее, является ли переменная обязательной или необязательной.</summary>
+      <returns>Значение true, если переменная обязательная; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ILearningModelVariableDescriptorPreview.ModelFeatureKind">
+      <summary>**Не рекомендуется.** Получает тип данных переменной.</summary>
+      <returns>Тип данных переменной.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ILearningModelVariableDescriptorPreview.Name">
+      <summary>**Не рекомендуется.** Получает имя переменной.</summary>
+      <returns>Имя переменной.</returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview">
+      <summary>**Не рекомендуется.** Представляет сведения о дескрипторе изображения.</summary>
+      <deprecated type="deprecate">Используйте ImageFeatureDescriptor вместо ImageVariableDescriptorPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.BitmapPixelFormat">
+      <summary>**Не рекомендуется.** Получает формат пикселей изображения.</summary>
+      <returns>Формат пикселей изображения.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.Description">
+      <summary>**Не рекомендуется.** Получает описание переменной изображения.</summary>
+      <returns>Описание переменной изображения.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.Height">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.IsRequired">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.ModelFeatureKind">
+      <summary>**Не рекомендуется.** Получает тип данных переменной.</summary>
+      <returns>Тип данных переменной.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.Name">
+      <summary>**Не рекомендуется.** Получает имя переменной изображения.</summary>
+      <returns>Имя переменной изображения.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.Width">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.InferencingOptionsPreview">
+      <summary>**Не рекомендуется.** Представляет параметры вывода для управления оценкой модели.</summary>
+      <deprecated type="deprecate">Используйте LearningModelSession вместо InferencingOptionsPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.InferencingOptionsPreview.IsTracingEnabled">
+      <summary>**Не рекомендуется.** Получает или задает значение, указывающее, включена ли трассировка во время оценки модели.</summary>
+      <returns>Значение true, если трассировка включена; в противном случае — значение false. Значение по умолчанию — "ложь".</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.InferencingOptionsPreview.MaxBatchSize">
+      <summary>**Не рекомендуется.** Получает или задает максимальный размер пакета для оценки модели.</summary>
+      <returns>Максимальный размер пакета. Ознакомительная версия API поддерживает только размер пакетов 1.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.InferencingOptionsPreview.MinimizeMemoryAllocation">
+      <summary>**Не рекомендуется.** Получает или задает значение, указывающее, требуется ли свести к минимуму выделение памяти после оценки модели.</summary>
+      <returns>Значение true, если требуется минимизировать выделение памяти во время оценки; в противном случае — значение false. Значение по умолчанию — false.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.InferencingOptionsPreview.PreferredDeviceKind">
+      <summary>**Не рекомендуется.** Получает или задает предпочтительное устройство, на котором будет выполняться оценка.</summary>
+      <returns>Предпочтительное устройство. Значение по умолчанию — LearningDeviceAny.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.InferencingOptionsPreview.ReclaimMemoryAfterEvaluation">
+      <summary>**Не рекомендуется.** Получает или задает значение, указывающее, требуется ли освободить выделенную память после оценки модели.</summary>
+      <returns>Значение true, если требуется освободить выделенную память после оценки; в противном случае — значение false. Значение по умолчанию — "ложь".</returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview">
+      <summary>**Не рекомендуется.** Представляет связи между входными данными модели и экземплярами переменных.</summary>
+      <deprecated type="deprecate">Используйте LearningModelBinding вместо LearningModelBindingPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.#ctor(Windows.AI.MachineLearning.Preview.LearningModelPreview)">
+      <summary>
+      </summary>
+      <deprecated type="deprecate">Используйте ILearningModelBindingFactory вместо ILearningModelBindingPreviewFactory. Подробнее см. в MSDN.</deprecated>
+      <param name="model">
+      </param>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.Size">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.Bind(System.String,System.Object)">
+      <summary>**Не рекомендуется.** Привязывает один входной или выходной компонент к определенной переменной.</summary>
+      <deprecated type="deprecate">Используйте ILearningModelBinding вместо ILearningModelBindingPreview. Подробнее см. в MSDN.</deprecated>
+      <param name="name">Имя входного/выходного компонента.</param>
+      <param name="value">Значение входного/выходного компонента.</param>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.Bind(System.String,System.Object,Windows.Foundation.Collections.IPropertySet)">
+      <summary>
+      </summary>
+      <deprecated type="deprecate">Используйте ILearningModelBinding вместо ILearningModelBindingPreview. Подробнее см. в MSDN.</deprecated>
+      <param name="name">
+      </param>
+      <param name="value">
+      </param>
+      <param name="metadata">
+      </param>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.Clear">
+      <summary>**Не рекомендуется.** Удаляет все связанные переменные.</summary>
+      <deprecated type="deprecate">Используйте ILearningModelBinding вместо ILearningModelBindingPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.First">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.HasKey(System.String)">
+      <summary>
+      </summary>
+      <param name="key">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.Lookup(System.String)">
+      <summary>
+      </summary>
+      <param name="key">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.Split(Windows.Foundation.Collections.IMapView{System.String,System.Object}@,Windows.Foundation.Collections.IMapView{System.String,System.Object}@)">
+      <summary>
+      </summary>
+      <param name="first">
+      </param>
+      <param name="second">
+      </param>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview">
+      <summary>**Не рекомендуется.** Представляет описания метаданных и свойств для заданной модели.</summary>
+      <deprecated type="deprecate">Используйте LearningModel вместо LearningModelDescriptionPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.Author">
+      <summary>**Не рекомендуется.** Получает информацию об авторе из модели.</summary>
+      <returns>Информация об авторе из модели.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.Description">
+      <summary>**Не рекомендуется.** Получает пользовательское описание модели.</summary>
+      <returns>Пользовательское описание модели.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.Domain">
+      <summary>**Не рекомендуется.** Получает сведения о домене для модели.</summary>
+      <returns>Сведения о домене для модели.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.InputFeatures">
+      <summary>**Не рекомендуется.** Получает описания входов для модели.</summary>
+      <returns>Описания входов для модели с ключом по имени входа.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.Metadata">
+      <summary>**Не рекомендуется.** Получает метаданные из модели.</summary>
+      <returns>Метаданные для представленной модели.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.Name">
+      <summary>**Не рекомендуется.** Получает имя модели.</summary>
+      <returns>Имя модели.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.OutputFeatures">
+      <summary>**Не рекомендуется.** Получает описания выходов модели.</summary>
+      <returns>Описания выходов для модели с ключом по имени выхода.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.Version">
+      <summary>**Не рекомендуется.** Получает сведения о версии модели.</summary>
+      <returns>Сведения о версии модели.</returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview">
+      <summary>**Не рекомендуется.** Определяет список констант, представляющий типы устройств, поддерживаемых Windows Machine Learning.</summary>
+      <deprecated type="deprecate">Используйте LearningModelDeviceKind вместо LearningModelDeviceKindPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview.LearningDeviceAny">
+      <summary>Значение по умолчанию. Любое устройство.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview.LearningDeviceCpu">
+      <summary>Центральный процессор.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview.LearningDeviceDsp">
+      <summary>Цифровой сигнальный процессор.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview.LearningDeviceFpga">
+      <summary>Программируемая пользователем логическая матрица.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview.LearningDeviceGpu">
+      <summary>Графический процессор.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview.LearningDeviceNpu">
+      <summary>Нейронный процессор.</summary>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview">
+      <summary>**Не рекомендуется.** Получает набор выходных прогнозов и соответствующих вероятностей, связанных с оценкой модели.</summary>
+      <deprecated type="deprecate">Используйте LearningModelEvaluationResult вместо LearningModelEvaluationResultPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview.CorrelationId">
+      <summary>**Не рекомендуется.** Получает значение для связывания выходных результатов с вызовом оценки.</summary>
+      <returns>Значение для связывания выходных результатов с вызовом оценки.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview.Outputs">
+      <summary>**Не рекомендуется.** Получает набор компонентов, представляющий прогноз выхода вместе с вероятностями.</summary>
+      <returns>Набор компонентов, представляющий прогноз выхода и вероятности.</returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview">
+      <summary>**Не рекомендуется.** Определяет список типов данных для компонента модели</summary>
+      <deprecated type="deprecate">Используйте LearningModelFeatureKind вместо LearningModelFeatureKindPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview.Image">
+      <summary>Тип компонента — изображение.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview.Map">
+      <summary>Тип компонента — карта.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview.Sequence">
+      <summary>Тип компонента — последовательность.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview.Tensor">
+      <summary>Тип компонента — тензор.</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview.Undefined">
+      <summary>Тип компонента — неопределенный.</summary>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelPreview">
+      <summary>**Не рекомендуется.** Представляет модель машинного обучения.</summary>
+      <deprecated type="deprecate">Используйте LearningModel вместо LearningModelPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelPreview.Description">
+      <summary>**Не рекомендуется.** Получает описательные метаданные для обученной модели машинного обучения.</summary>
+      <returns>Описательные метаданные для модели машинного обучения.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelPreview.InferencingOptions">
+      <summary>**Не рекомендуется.** Получает или задает параметры вывода для оценки модели.</summary>
+      <returns>Параметры вывода для оценки модели.</returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelPreview.EvaluateAsync(Windows.AI.MachineLearning.Preview.LearningModelBindingPreview,System.String)">
+      <summary>
+      </summary>
+      <deprecated type="deprecate">Используйте ILearningModel вместо ILearningModelPreview. Подробнее см. в MSDN.</deprecated>
+      <param name="binding">
+      </param>
+      <param name="correlationId">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelPreview.EvaluateFeaturesAsync(Windows.Foundation.Collections.IMap{System.String,System.Object},System.String)">
+      <summary>**Не рекомендуется.** Асинхронно оценивает имена экземпляров переменных в качестве входных и выходных данных для модели.</summary>
+      <deprecated type="deprecate">Используйте ILearningModel вместо ILearningModelPreview. Подробнее см. в MSDN.</deprecated>
+      <param name="features">Компоненты для привязки в качестве входных данных.</param>
+      <param name="correlationId">Значение для связывания оценки с выходными результатами.</param>
+      <returns>Результат оценки.</returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelPreview.LoadModelFromStorageFileAsync(Windows.Storage.IStorageFile)">
+      <summary>**Не рекомендуется.** Асинхронно загружает модель из файлового хранилища.</summary>
+      <deprecated type="deprecate">Используйте ILearningModelStatics вместо ILearningModelPreviewStatics. Подробнее см. в MSDN.</deprecated>
+      <param name="modelFile">Расположение файла модели.</param>
+      <returns>Возвращает LearningModelPreview.</returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelPreview.LoadModelFromStreamAsync(Windows.Storage.Streams.IRandomAccessStreamReference)">
+      <summary>**Не рекомендуется.** Асинхронно загружает модель из предоставленного потока.</summary>
+      <deprecated type="deprecate">Используйте ILearningModelStatics вместо ILearningModelPreviewStatics. Подробнее см. в MSDN.</deprecated>
+      <param name="modelStream">Поток файла для модели.</param>
+      <returns>Возвращает LearningModelPreview.</returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview">
+      <summary>
+      </summary>
+      <deprecated type="deprecate">Используйте ILearningModelFeatureDescriptor вместо LearningModelVariableDescriptorPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview.Description">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview.IsRequired">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview.ModelFeatureKind">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview.Name">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview">
+      <summary>**Не рекомендуется.** Представляет сведения о дескрипторе переменной карты.</summary>
+      <deprecated type="deprecate">Используйте MapFeatureDescriptor вместо MapVariableDescriptorPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.Description">
+      <summary>**Не рекомендуется.** Получает описание переменной карты.</summary>
+      <returns>Описание переменной карты.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.Fields">
+      <summary>**Не рекомендуется.** Получает тип данных поля переменной карты.</summary>
+      <returns>Тип данных поля переменной карты.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.IsRequired">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.KeyKind">
+      <summary>**Не рекомендуется.** Получает тип данных ключа для переменной карты.</summary>
+      <returns>Тип данных ключа.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.ModelFeatureKind">
+      <summary>**Не рекомендуется.** Получает тип данных переменной.</summary>
+      <returns>Тип данных переменной.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.Name">
+      <summary>**Не рекомендуется.** Получает имя переменной карты.</summary>
+      <returns>Имя переменной карты. Это должно быть уникальным среди всех переменных в модели.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.ValidIntegerKeys">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.ValidStringKeys">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview">
+      <summary>**Не рекомендуется.** Представляет сведения о дескрипторе переменной последовательности.</summary>
+      <deprecated type="deprecate">Используйте SequenceFeatureDescriptor вместо SequenceVariableDescriptorPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview.Description">
+      <summary>**Не рекомендуется.** Получает описание переменной последовательности.</summary>
+      <returns>Описание переменной последовательности.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview.ElementType">
+      <summary>**Не рекомендуется.** Получает тип переменной последовательности.</summary>
+      <returns>Тип переменной последовательности.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview.IsRequired">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview.ModelFeatureKind">
+      <summary>**Не рекомендуется.** Получает тип данных переменной.</summary>
+      <returns>Тип данных переменной.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview.Name">
+      <summary>**Не рекомендуется.** Получает имя переменной последовательности.</summary>
+      <returns>Имя переменной последовательности. Это должно быть уникальным среди всех переменных в модели.</returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview">
+      <summary>**Не рекомендуется.** Представляет сведения о дескрипторе переменной-тензоре.</summary>
+      <deprecated type="deprecate">Используйте TensorFeatureDescriptor вместо TensorVariableDescriptorPreview. Подробнее см. в MSDN.</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview.DataType">
+      <summary>**Не рекомендуется.** Получает тип данных тензора.</summary>
+      <returns>Тип данных тензора.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview.Description">
+      <summary>**Не рекомендуется.** Получает описание тензора.</summary>
+      <returns>Описание тензора.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview.IsRequired">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview.ModelFeatureKind">
+      <summary>**Не рекомендуется.** Получает тип данных переменной.</summary>
+      <returns>Тип данных переменной.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview.Name">
+      <summary>**Не рекомендуется.** Получает имя тензора.</summary>
+      <returns>Имя тензора. Это должно быть уникальным среди всех переменных в модели.</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview.Shape">
+      <summary>**Не рекомендуется.** Получает n-мерную форму тензора.</summary>
+      <returns>n-мерная форма тензора.</returns>
+    </member>
+  </members>
+</doc>

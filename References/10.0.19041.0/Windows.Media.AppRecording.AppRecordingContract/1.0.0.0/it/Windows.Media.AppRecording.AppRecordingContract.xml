@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.AppRecording.AppRecordingContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.AppRecording.AppRecordingContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingManager">
+      <summary>Consente un'app UWP di salvare le registrazioni e gli screenshot del proprio contenuto.</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingManager.SupportedScreenshotMediaEncodingSubtypes">
+      <summary>Ottiene un elenco di stringhe che rappresentano i sottotipi di codifica dei file multimediali supportati per il metodo SaveScreenshotToFilesAsync.</summary>
+      <returns>Elenco di stringhe che rappresentano i sottotipi di codifica dei file multimediali supportati per il metodo SaveScreenshotToFilesAsync.</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.GetDefault">
+      <summary>Ottiene un'istanza della classe **AppRecordingManager**.</summary>
+      <returns>Istanza della classe **AppRecordingManager**.</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.GetStatus">
+      <summary>Ottiene un oggetto che indica se l'app corrente è in grado di avviare una registrazione di app e, in caso contrario, vengono fornite informazioni dettagliate sui motivi per cui la registrazione di app non è disponibile.</summary>
+      <returns>Oggetto AppRecordingStatusDetails che fornisce informazioni sullo stato della registrazione di app.</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.RecordTimeSpanToFileAsync(Windows.Foundation.DateTime,Windows.Foundation.TimeSpan,Windows.Storage.StorageFile)">
+      <summary>Scrive i contenuti audio e video dell'app corrente dal buffer storico, con un intervallo di tempo definito dall'ora di inizio specificata e dalla durata, al file di destinazione specificato.</summary>
+      <param name="startTime">Ora in cui è iniziato il contenuto da registrare. Questo valore deve essere all'interno della durata del buffer storico, che può essere determinato chiamando AppRecordingManager.GetStatus e quindi controllando il valore della proprietà AppRecordingStatus.HistoricalBufferDuration.</param>
+      <param name="duration">Durata richiesta della registrazione di app. Una registrazione delle app può avere esito positivo, ma registrare una durata inferiore rispetto a quanto specificato con questo parametro se viene raggiunto lo spazio di archiviazione allocato per le registrazioni. Per determinare la durata del file che è stato in realtà registrato, controllare la proprietà AppRecordingResult.Duration del valore dell'oggetto restituito da questa operazione.</param>
+      <param name="file">File in cui viene scritto l'elemento multimediale registrato.</param>
+      <returns>Operazione asincrona che restituisce un oggetto AppRecordingResult dopo il completamento, che contiene informazioni sullo stato dell'operazione di registrazione.</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.SaveScreenshotToFilesAsync(Windows.Storage.StorageFolder,System.String,Windows.Media.AppRecording.AppRecordingSaveScreenshotOption,Windows.Foundation.Collections.IIterable{System.String})">
+      <summary>Salva in modo asincrono un file di immagine che include il contenuto corrente dell'app chiamante.</summary>
+      <param name="folder">Percorso in cui viene scritto il file multimediale registrato.</param>
+      <param name="filenamePrefix">Prefisso del nome file utilizzato per le immagini salvate. Il sistema aggiunge l'estensione appropriata per il nome del file per ogni formato specificato nel parametro *requestedFormats*.</param>
+      <param name="option">Valore che specifica le opzioni per il salvataggio dello screenshot. Per consentire al sistema di eseguire le conversioni di spazio colore appropriate, è necessario che le app specifichino HdrContentVisible se il contenuto da salvare include contenuto HDR. In caso contrario, le app dovrebbero specificare **Nessuna**.</param>
+      <param name="requestedFormats">Elenco di stringhe che specificano i formati in cui si desidera salvare le immagini degli screenshot. Ottiene un elenco di valori supportati per questo parametro con la proprietà SupportedScreenshotMediaEncodingSubtypes.</param>
+      <returns>Operazione asincrona che restituisce un parametro AppRecordingSaveScreenshotResult dopo il completamento che può essere usato per ottenere informazioni sui risultati dell'operazione di salvataggio.</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.StartRecordingToFileAsync(Windows.Storage.StorageFile)">
+      <summary>Scrive contenuto audio e video dell'app corrente nel file di destinazione specificato, che inizia all'ora corrente e termina quando l'operazione viene annullata o lo spazio di archiviazione è stato superato.</summary>
+      <param name="file">File in cui viene scritto l'elemento multimediale registrato.</param>
+      <returns>Operazione asincrona che restituisce un oggetto AppRecordingResult dopo il completamento, che contiene informazioni sullo stato dell'operazione di registrazione.</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingResult">
+      <summary>Rappresenta i risultati di un'operazione di registrazione di app avviata con una chiamata a RecordTimeSpanToFileAsync o **StartRecordingToFileAsync**.</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingResult.Duration">
+      <summary>Ottiene la durata del file registrato.</summary>
+      <returns>Durata del file registrato.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingResult.ExtendedError">
+      <summary>Ottiene il codice di errore esteso associato restituito dall'operazione di registrazione di app.</summary>
+      <returns>Codice di errore esteso associato restituito dall'operazione di registrazione di app.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingResult.IsFileTruncated">
+      <summary>Ottiene un valore che indica se la registrazione di app salvata è stata troncata.</summary>
+      <returns>True se il file è stato troncato; in caso contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingResult.Succeeded">
+      <summary>Ottiene un valore che indica se le operazioni di registrazione di app hanno avuto esito positivo.</summary>
+      <returns>True se l'operazione di registrazione è riuscita; in caso contrario, false.</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo">
+      <summary>Rappresenta le informazioni su un file di immagine salvato dall'operazione di acquisizione di screenshot, inclusi il parametro **StorageFile** associato al file e il sottotipo di codifica dei file multimediali che indica il formato del file.</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo.File">
+      <summary>Ottiene il file in cui è stato salvato uno screenshot con SaveScreenshotToFilesAsync.</summary>
+      <returns>File in cui è stato salvato uno screenshot con SaveScreenshotToFilesAsync.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo.MediaEncodingSubtype">
+      <summary>Ottiene una stringa che rappresenta il sottotipo di codifica dei file multimediali del formato di immagine con il quale è stato codificato uno screenshot salvato con SaveScreenshotToFilesAsync.</summary>
+      <returns>Stringa che rappresenta il sottotipo di codifica dei file multimediali di uno screenshot salvato.</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingSaveScreenshotOption">
+      <summary>Specifica le opzioni utilizzate per il salvataggio di uno screenshot con SaveScreenshotToFilesAsync.</summary>
+    </member>
+    <member name="F:Windows.Media.AppRecording.AppRecordingSaveScreenshotOption.HdrContentVisible">
+      <summary>Il contenuto della finestra dell'app include contenuti HDR (High Dynamic Range).</summary>
+    </member>
+    <member name="F:Windows.Media.AppRecording.AppRecordingSaveScreenshotOption.None">
+      <summary>Non è specificata alcuna opzione.</summary>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingSaveScreenshotResult">
+      <summary>Rappresenta i risultati di un'operazione di acquisizione di screenshot con una chiamata a SaveScreenshotToFilesAsync.</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSaveScreenshotResult.ExtendedError">
+      <summary>Ottiene il codice di errore esteso associato restituito dall'operazione di acquisizione di screenshot.</summary>
+      <returns>Codice di errore esteso associato restituito dall'operazione di acquisizione di screenshot.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSaveScreenshotResult.SavedScreenshotInfos">
+      <summary>Ottiene un elenco di oggetti AppRecordingSavedScreenshotInfo che rappresentano i file di immagine salvati dall'operazione di acquisizione di screenshot.</summary>
+      <returns>Elenco di oggetti AppRecordingSavedScreenshotInfo che rappresentano i file di immagine salvati dall'operazione di acquisizione di screenshot.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSaveScreenshotResult.Succeeded">
+      <summary>Ottiene un valore che indica se l'operazione di acquisizione di screenshot è riuscita.</summary>
+      <returns>True se l'operazione di acquisizione di screenshot è riuscita; in caso contrario, false.</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingStatus">
+      <summary>Indica se l'app corrente è in grado di avviare una registrazione di app chiamando StartRecordingToFileAsync o RecordTimespanToFileAsync e, in caso contrario, vengono fornite informazioni dettagliate sui motivi per cui la registrazione di app non è disponibile.</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatus.CanRecord">
+      <summary>Ottiene un valore che indica se l'app corrente può registrare il contenuto audio e video dell'app chiamando StartRecordingToFileAsymc.</summary>
+      <returns>True se l'app può attualmente registrare. In caso contrario, False.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatus.CanRecordTimeSpan">
+      <summary>Ottiene un valore che indica se l'app corrente può registrare un intervallo di tempo del contenuto audio e video dell'app chiamando RecordTimespanToFileAsync.</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatus.Details">
+      <summary>Ottiene un oggetto AppRecordingStatusDetails che fornisce informazioni dettagliate per indicare il motivo per cui l'app corrente non può iniziare la registrazione.</summary>
+      <returns>Oggetto che fornisce informazioni dettagliate che indicano il motivo per cui l'app corrente non può attualmente iniziare la registrazione.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatus.HistoricalBufferDuration">
+      <summary>Ottiene un valore che indica la durata del buffer storico di registrazione di app.</summary>
+      <returns>Durata del buffer storico di registrazione di app.</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingStatusDetails">
+      <summary>Fornisce informazioni dettagliate che indicano il motivo per cui l'app corrente non può attualmente iniziare la registrazione di contenuti di app chiamando StartRecordingToFileAsymc o RecordTimespanToFileAsymc.</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsAnyAppBroadcasting">
+      <summary>Ottiene un valore che indica se un'altra app sta al momento trasmettendo.</summary>
+      <returns>True se un'altra app sta al momento trasmettendo; in caso contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsAppInactive">
+      <summary>Ottiene un valore che specifica se la finestra dell'app corrente è inattiva.</summary>
+      <returns>True se la finestra dell'app corrente è inattiva; in caso contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsBlockedForApp">
+      <summary>Ottiene un valore che indica se la registrazione di app è bloccata per l'app corrente.</summary>
+      <returns>True se la registrazione di app è bloccata per l'app corrente; in caso contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsCaptureResourceUnavailable">
+      <summary>Ottiene un valore che indica se la risorsa di acquisizione non è attualmente disponibile.</summary>
+      <returns>True se la risorsa di acquisizione non è attualmente disponibile; in caso contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsDisabledBySystem">
+      <summary>Ottiene un valore che indica se la registrazione di app è disattivata dal sistema.</summary>
+      <returns>True se la registrazione di app è disattivata dal sistema; in caso contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsDisabledByUser">
+      <summary>Ottiene un valore che indica se la registrazione di app è stata disattivata dall'utente.</summary>
+      <returns>True se la registrazione di app è stata disattivata dall'utente; in caso contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsGameStreamInProgress">
+      <summary>Ottiene un valore che indica se il flusso del gioco è attualmente in corso.</summary>
+      <returns>True se un flusso del gioco è attualmente in corso; in caso contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsGpuConstrained">
+      <summary>Ottiene un valore che indica se la registrazione di app non è disponibile poiché è vincolata GPU.</summary>
+      <returns>True se la registrazione di app non è disponibile poiché è vincolata GPU; in caso contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsTimeSpanRecordingDisabled">
+      <summary>Ottiene un valore che indica se è disattivata la registrazione di un intervallo di tempo specificato del contenuto dell'app con RecordTimespanToFileAsymc.</summary>
+      <returns>True se la registrazione di un intervallo di tempo del contenuto dell'app è disattivata; in caso contrario, false.</returns>
+    </member>
+  </members>
+</doc>

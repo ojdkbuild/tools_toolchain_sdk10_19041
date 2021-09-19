@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.GameBarContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.Capture.GameBarCommand">
+      <summary>指定游戏栏命令集。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.OpenGameBar">
+      <summary>打开游戏栏。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.PauseBroadcast">
+      <summary>暂停广播。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.RecordHistoricalBuffer">
+      <summary>记录历史缓冲区。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ResumeBroadcast">
+      <summary>恢复广播。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StartBroadcast">
+      <summary>开始广播。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StartRecord">
+      <summary>开始录制。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StopBroadcast">
+      <summary>停止广播。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StopRecord">
+      <summary>停止录制。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.TakeScreenshot">
+      <summary>获取屏幕截图。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleCameraCapture">
+      <summary>切换相机捕获。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleMicrophoneCapture">
+      <summary>切换麦克风捕获。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleRecordingIndicator">
+      <summary>切换录制指示器。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleStartStopBroadcast">
+      <summary>切换开始/停止广播。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleStartStopRecord">
+      <summary>切换开始/停止录制。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarCommandOrigin">
+      <summary>指定游戏栏命令的来源。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.AppCommand">
+      <summary>游戏栏命令源自应用启动的命令。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.Cortana">
+      <summary>源自 Cortana 的游戏栏命令。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.ShortcutKey">
+      <summary>源自快捷键的游戏栏命令。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServices">
+      <summary>管理游戏栏的状态。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.AppBroadcastServices">
+      <summary>获取管理应用广播的对象。</summary>
+      <returns>管理应用广播的对象。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.AppCaptureServices">
+      <summary>获取管理应用捕获的对象。</summary>
+      <returns>管理应用捕获的对象。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.SessionId">
+      <summary>获取游戏栏会话的唯一标识符。</summary>
+      <returns>游戏栏会话的唯一标识符。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.TargetCapturePolicy">
+      <summary>获取目标的应用捕获策略。</summary>
+      <returns>目标的应用捕获策略。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.TargetInfo">
+      <summary>获取为应用捕获目标提供元数据的对象。</summary>
+      <returns>为应用捕获目标提供元数据的对象。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.GameBarServices.CommandReceived">
+      <summary>在接收到游戏栏命令时发生。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServices.DisableCapture">
+      <summary>禁用应用捕获。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServices.EnableCapture">
+      <summary>启用应用捕获。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesCommandEventArgs">
+      <summary>提供 GameBarServices.CommandReceived 事件的数据。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesCommandEventArgs.Command">
+      <summary>获取指定与事件关联的游戏栏命令的值。</summary>
+      <returns>指定与事件关联的游戏栏命令的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesCommandEventArgs.Origin">
+      <summary>获取指定游戏栏命令来源的值。</summary>
+      <returns>指定游戏栏命令来源的值。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesManager">
+      <summary>管理游戏栏服务。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.GameBarServicesManager.GameBarServicesCreated">
+      <summary>创建 GameBarServices 对象时发生。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServicesManager.GetDefault">
+      <summary>获取 GameBarServiceManager 类的默认实例。</summary>
+      <returns>GameBarServiceManager 类的默认实例。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs">
+      <summary>提供 GameBarServicesManager.GameBarServicesCreated 事件的数据。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs.GameBarServices">
+      <summary>获取与事件关联的 GameBarServices。</summary>
+      <returns>与事件关联的 GameBarServices。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesTargetInfo">
+      <summary>提供关于游戏栏服务目标的元数据。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.AppId">
+      <summary>获取游戏栏服务目标应用的唯一标识符。</summary>
+      <returns>游戏栏服务目标应用的唯一标识符。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.DisplayMode">
+      <summary>获取指示游戏栏服务目标应用显示模式的值。</summary>
+      <returns>指示游戏栏服务目标应用的显示模式的值。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.DisplayName">
+      <summary>获取游戏栏服务目标应用的显示名称。</summary>
+      <returns>游戏栏服务目标应用的显示名称。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.TitleId">
+      <summary>获取游戏栏服务目标标题的唯一标识符。</summary>
+      <returns>游戏栏服务目标标题的唯一标识符。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarTargetCapturePolicy">
+      <summary>提供有关此应用程序的允许操作的信息。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.EnabledBySystem">
+      <summary>操作系统确定目标允许捕获</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.EnabledByUser">
+      <summary>操作系统不知道应用的策略，但用户已将目标标识为可捕获。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.NotEnabled">
+      <summary>操作系统不知道应用的策略，且用户尚未将其标识为可捕获。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.ProhibitedByPublisher">
+      <summary>目标的发布者尚未指示不允许捕获。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.ProhibitedBySystem">
+      <summary>操作系统已确定禁止捕获目标。</summary>
+    </member>
+  </members>
+</doc>

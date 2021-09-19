@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.GameBarContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.Capture.GameBarCommand">
+      <summary>Определяет набор команд меню игры.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.OpenGameBar">
+      <summary>Открыть меню игры.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.PauseBroadcast">
+      <summary>Приостановить трансляцию.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.RecordHistoricalBuffer">
+      <summary>Записать буфер исторических данных.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ResumeBroadcast">
+      <summary>Возобновить трансляцию.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StartBroadcast">
+      <summary>Начать трансляцию.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StartRecord">
+      <summary>Начать запись.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StopBroadcast">
+      <summary>Остановить трансляцию.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StopRecord">
+      <summary>Остановить трансляцию.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.TakeScreenshot">
+      <summary>Сделать снимок экрана.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleCameraCapture">
+      <summary>Переключить камеру съемки.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleMicrophoneCapture">
+      <summary>Переключить микрофон съемки.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleRecordingIndicator">
+      <summary>Переключить индикатор записи.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleStartStopBroadcast">
+      <summary>Переключить запуск/остановку трансляции.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleStartStopRecord">
+      <summary>Переключить запуск/остановку записи.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarCommandOrigin">
+      <summary>Указывает происхождение команды меню игры.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.AppCommand">
+      <summary>Команда меню игры, поступившая из команды, инициированной в приложении.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.Cortana">
+      <summary>Команда меню игры, поступившая из Кортаны.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.ShortcutKey">
+      <summary>Команда меню игры, поступившая по нажатию сочетания клавиш.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServices">
+      <summary>Управляет состоянием меню игры.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.AppBroadcastServices">
+      <summary>Получает объект, который управляет трансляциями приложения.</summary>
+      <returns>Объект, который управляет трансляциями приложения.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.AppCaptureServices">
+      <summary>Получает объект, который управляет захватом приложения.</summary>
+      <returns>Объект, который управляет захватом приложения.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.SessionId">
+      <summary>Получает уникальный идентификатор для сеанса меню игры.</summary>
+      <returns>Уникальный идентификатор для сеанса меню игры.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.TargetCapturePolicy">
+      <summary>Получает политику для захвата целевого объекта приложением.</summary>
+      <returns>Политика захвата целевого объекта приложением.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.TargetInfo">
+      <summary>Получает объект, который предоставляет метаданные для захвата целевого объекта приложением.</summary>
+      <returns>Объект, который предоставляет метаданные для захвата целевого объекта приложением.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.GameBarServices.CommandReceived">
+      <summary>Возникает при получении команды меню игры.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServices.DisableCapture">
+      <summary>Отключает захват в приложении.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServices.EnableCapture">
+      <summary>Включает захват в приложении.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesCommandEventArgs">
+      <summary>Предоставляет данные для события GameBarServices.CommandReceived.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesCommandEventArgs.Command">
+      <summary>Получает значение, указывающее команду меню игры, связанную с событием.</summary>
+      <returns>Значение, указывающее команду меню игры, связанную с событием.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesCommandEventArgs.Origin">
+      <summary>Получает значение, указывающее происхождение команды меню игры.</summary>
+      <returns>Значение, указывающее происхождение команды меню игры.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesManager">
+      <summary>Управляет службами меню игры.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.GameBarServicesManager.GameBarServicesCreated">
+      <summary>Происходит, когда создается объект GameBarServices.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServicesManager.GetDefault">
+      <summary>Получает экземпляр по умолчанию класса GameBarServiceManager.</summary>
+      <returns>Экземпляр по умолчанию класса GameBarServiceManager.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs">
+      <summary>Предоставляет данные для события GameBarServicesManager.GameBarServicesCreated.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs.GameBarServices">
+      <summary>Получает объект GameBarServices, связанный с событием.</summary>
+      <returns>Объект GameBarServices, связанный с этим событием.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesTargetInfo">
+      <summary>Предоставляет метаданные о целевом объекте служб меню игры.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.AppId">
+      <summary>Получает уникальный идентификатор целевого приложения служб меню игры.</summary>
+      <returns>Уникальный идентификатор целевого приложения служб меню игры.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.DisplayMode">
+      <summary>Получает значение, указывающее режим отображения целевого приложения служб меню игры.</summary>
+      <returns>Значение, указывающее режим отображения целевого приложения служб меню игры.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.DisplayName">
+      <summary>Получает отображаемое имя целевого приложения служб меню игры.</summary>
+      <returns>Отображаемое имя целевого приложения служб меню игры.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.TitleId">
+      <summary>Получает уникальный идентификатор целевой плитки служб меню игры.</summary>
+      <returns>Уникальный идентификатор целевой плитки служб меню игры.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarTargetCapturePolicy">
+      <summary>Предоставляет сведения по допустимым действиям для данного приложения.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.EnabledBySystem">
+      <summary>Операционная система определила, что целевой объект допускает захват</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.EnabledByUser">
+      <summary>Операционная система не может определить политики для приложения, но пользователь определил целевой объект как допускающий захват.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.NotEnabled">
+      <summary>Операционная система не знает политики для приложения, и он не был определен пользователем в качестве допускающего захват.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.ProhibitedByPublisher">
+      <summary>Издатель целевого объекта указал, что захват запрещен.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.ProhibitedBySystem">
+      <summary>ОС определила, что захват целевого объекта запрещен.</summary>
+    </member>
+  </members>
+</doc>

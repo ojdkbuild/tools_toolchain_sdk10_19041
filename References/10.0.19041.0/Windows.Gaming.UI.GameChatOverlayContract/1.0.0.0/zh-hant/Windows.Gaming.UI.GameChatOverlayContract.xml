@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GameChatOverlayContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameChatMessageReceivedEventArgs">
+      <summary>包含 MessageReceived 事件的事件引數。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppDisplayName">
+      <summary>觸發事件之應用程式的顯示名稱。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+      <returns>觸發事件之應用程式的顯示名稱。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppId">
+      <summary>觸發事件之應用程式的**「套件系列名稱 (PFN)」**。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+      <returns>觸發事件之應用程式的**「套件系列名稱 (PFN)」**。 使用此值可以識別應用程式。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Message">
+      <summary>訊息的內容。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+      <returns>訊息的內容。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Origin">
+      <summary>來源訊息 (語音或文字) 的原始來源。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+      <returns>來源訊息 (語音或文字) 的原始來源。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.SenderName">
+      <summary>訊息的寄件者 (傳遞至 GameChatOverlay.AddMessage 方法的 *sender* 參數)。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+      <returns>訊息的寄件者 (傳遞至 GameChatOverlay.AddMessage 方法的 *sender* 參數)。</returns>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayMessageSource">
+      <summary>提供每次遊戲聊天收到訊息時引發的事件，以及設定在接收訊息後遊戲聊天重疊關閉之前延遲的方法。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.#ctor">
+      <summary>**GameChatOverlayMessageSource** 類別的建構函式。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+    </member>
+    <member name="E:Windows.Gaming.UI.GameChatOverlayMessageSource.MessageReceived">
+      <summary>每次收到訊息時引發的事件。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.SetDelayBeforeClosingAfterMessageReceived(Windows.Foundation.TimeSpan)">
+      <summary>設定在接收訊息後遊戲聊天重疊關閉之前的延遲。 這個 API 並非適用於所有的應用程式。 除非您的開發人員帳戶是由 Microsoft 特別佈建，否則您的應用程式無法使用此 API。</summary>
+      <param name="value">遊戲聊天重疊關閉之前的延遲。</param>
+    </member>
+  </members>
+</doc>

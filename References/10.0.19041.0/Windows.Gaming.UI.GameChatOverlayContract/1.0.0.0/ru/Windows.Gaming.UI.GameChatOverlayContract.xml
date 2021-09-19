@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GameChatOverlayContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameChatMessageReceivedEventArgs">
+      <summary>Содержит аргументы для события MessageReceived. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppDisplayName">
+      <summary>Отображаемое имя приложения, которое вызвало событие. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+      <returns>Отображаемое имя приложения, которое вызвало событие.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppId">
+      <summary>**Имя семейства пакетов (PFN)** приложения, которое вызвало событие. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+      <returns>**Имя семейства пакетов (PFN)** приложения, которое вызвало событие. Используется для идентификации приложения.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Message">
+      <summary>Содержимое сообщения. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+      <returns>Содержимое сообщения.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Origin">
+      <summary>Источник сообщения (голос или текст). Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+      <returns>Источник сообщения (голос или текст).</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.SenderName">
+      <summary>Отправитель сообщения (параметр *sender*, переданный методу GameChatOverlay.AddMessage). Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+      <returns>Отправитель сообщения (параметр *sender*, переданный методу GameChatOverlay.AddMessage).</returns>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayMessageSource">
+      <summary>Предоставляет события, возникающее каждый раз, когда игровой чат получает сообщение, а также метод для задания задержки перед закрытием наложения игрового чата после получения сообщения. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.#ctor">
+      <summary>Конструктор для класса **GameChatOverlayMessageSource**. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+    </member>
+    <member name="E:Windows.Gaming.UI.GameChatOverlayMessageSource.MessageReceived">
+      <summary>Событие, возникающее при каждом получении сообщения. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.SetDelayBeforeClosingAfterMessageReceived(Windows.Foundation.TimeSpan)">
+      <summary>Задает задержку перед закрытием наложения игрового чата после получения сообщения. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+      <param name="value">Задержка перед закрытием наложения игрового чата.</param>
+    </member>
+  </members>
+</doc>

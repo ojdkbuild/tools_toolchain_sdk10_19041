@@ -1,0 +1,997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.AppBroadcastContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.Background.AppBroadcastTrigger">
+      <summary>Representa un evento que desencadena una tarea en segundo plano que se ejecuta cuando una aplicación inicia la difusión de un juego.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Background.AppBroadcastTrigger.#ctor(System.String)">
+      <summary>Construye un AppBroadcastTrigger con el nombre del proveedor que realizará la difusión del juego.</summary>
+      <param name="providerKey">Nombre del proveedor que está realizando la difusión del juego.</param>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTrigger.ProviderInfo">
+      <summary>Proporciona información acerca de la aplicación que está realizando la difusión del juego.</summary>
+      <returns>Información sobre el proveedor que está realizando la difusión del juego, como la velocidad de bits máxima de vídeo, la altura y el ancho de vídeo, etc.</returns>
+    </member>
+    <member name="T:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo">
+      <summary>Proporciona información acerca de la aplicación que está realizando la difusión del juego, como su logotipo, nombre para mostrar y características de vídeo.</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.DisplayNameResource">
+      <summary>Obtiene y establece la ubicación del recurso para el nombre descriptivo de la interfaz de usuario del proveedor que está realizando la difusión del juego.</summary>
+      <returns>Ubicación del recurso del nombre para mostrar. Por ejemplo, "ms-resource://resources/DisplayName"</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.LogoResource">
+      <summary>Obtiene y establece la ubicación del recurso del logotipo del proveedor que está realizando la difusión del juego.</summary>
+      <returns>Ubicación del recurso del logotipo. Por ejemplo, "ms-resource://resources/Logo.png"</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoBitrate">
+      <summary>Obtiene y establece la velocidad de bits máxima que puede proporcionar el proveedor que está realizando la difusión del juego.</summary>
+      <returns>Velocidad de bits máxima en bits por segundo. Por ejemplo, 2500000 = 2,5 mbps</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoHeight">
+      <summary>Obtiene y establece el alto máximo de vídeo que admite el proveedor que está realizando la difusión del juego.</summary>
+      <returns>Alto máximo del vídeo en píxeles.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoWidth">
+      <summary>Obtiene y establece el ancho máximo de vídeo que admite el proveedor que está realizando la difusión del juego.</summary>
+      <returns>Ancho máximo de vídeo en píxeles.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.VideoKeyFrameInterval">
+      <summary>Obtiene y establece la cantidad de tiempo que transcurre entre fotogramas claves.</summary>
+      <returns>Intervalo de tiempo entre los fotogramas clave.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundService">
+      <summary>Proporciona una interfaz entre la aplicación para UWP de difusión y el servicio de difusión hospedado por el sistema. Esta clase proporciona acceso a objetos que facilitan la autenticación del servicio de difusión, la prueba de las funciones de ancho de banda de Internet del dispositivo para el servicio del proveedor de difusión y la adquisición de fotogramas de audio y vídeo capturados para que se puedan enviar al servicio del proveedor de difusión.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.AppId">
+      <summary>Obtiene una cadena que contiene un identificador para el juego se está difundiendo. Si la difusión se produce en un dispositivo de escritorio, este valor es el juego en el que el usuario ha iniciado la difusión.</summary>
+      <returns>Cadena que contiene un identificador definido por el sistema para la aplicación de difusión.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastChannel">
+      <summary>Obtiene una cadena que contiene el nombre del canal de difusión actual.</summary>
+      <returns>Cadena que contiene el nombre del canal de difusión actual.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastLanguage">
+      <summary>Obtiene una cadena que representa el idioma del canal de difusión actual.</summary>
+      <returns>Cadena que representa el idioma del canal de difusión actual.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastTitle">
+      <summary>Obtiene una cadena que contiene el título especificado por el usuario de la difusión.</summary>
+      <returns>Cadena que contiene el título especificado por el usuario de la difusión.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.PlugInState">
+      <summary>Obtiene o establece un valor que indica el estado actual de la tarea de difusión en segundo plano.</summary>
+      <returns>Valor que indica el estado actual de la tarea de difusión en segundo plano.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.SignInInfo">
+      <summary>Obtiene un objeto que representa la información de inicio de sesión para el servicio de difusión en segundo plano de la aplicación.</summary>
+      <returns>Objeto que representa la información de inicio de sesión para el servicio de difusión en segundo plano de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.StreamInfo">
+      <summary>Obtiene un objeto que administra el estado de la secuencia del servicio de difusión en segundo plano de la aplicación.</summary>
+      <returns>Objeto que administra el estado de la secuencia del servicio de difusión en segundo plano de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.TitleId">
+      <summary>Obtiene un identificador único para el título que se está difundiendo.</summary>
+      <returns>Identificador único para el título que se está difundiendo.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.ViewerCount">
+      <summary>Obtiene o establece el número de espectadores de la difusión.</summary>
+      <returns>Número de espectadores de la difusión.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastChannelChanged">
+      <summary>Se produce cuando cambia el valor de la propiedad BroadcastChannel.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastLanguageChanged">
+      <summary>Se produce cuando cambia el valor de la propiedad BroadcastLanguage.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastTitleChanged">
+      <summary>Se produce cuando cambia el valor de la propiedad BroadcastTitle.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.HeartbeatRequested">
+      <summary>Lo genera el sistema periódicamente para confirmar que la tarea de difusión en segundo plano está activa en ese momento.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastBackgroundService.TerminateBroadcast(Windows.Media.Capture.AppBroadcastTerminationReason,System.UInt32)">
+      <summary>Finaliza una difusión.</summary>
+      <param name="reason">Valor que indica el motivo por el que ha finalizado la difusión.</param>
+      <param name="providerSpecificReason">Entero que transmite una razón específica del proveedor por la que va a finalizar la difusión.</param>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo">
+      <summary>Representa la información de inicio de sesión para el servicio de difusión en segundo plano de la aplicación.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.AuthenticationResult">
+      <summary>Obtiene un objeto que representa el resultado de una operación de autenticación web.</summary>
+      <returns>Objeto que representa el resultado de una operación de autenticación web.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.OAuthCallbackUri">
+      <summary>Obtiene o establece el URI de devolución de llamada de OAuth.</summary>
+      <returns>URI de devolución de llamada de OAuth.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.OAuthRequestUri">
+      <summary>Obtiene o establece el URI de solicitud de OAuth.</summary>
+      <returns>URI de solicitud de OAuth.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.SignInState">
+      <summary>Obtiene un objeto que representa el estado de inicio de sesión del servicio de difusión en segundo plano de la aplicación.</summary>
+      <returns>Estado de inicio de sesión del servicio de difusión en segundo plano de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.UserName">
+      <summary>Obtiene o establece el nombre de usuario para la autenticación de servicios de difusión en segundo plano de la aplicación.</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged">
+      <summary>Se produce cuando el estado de inicio de sesión del servicio de difusión en segundo plano de la aplicación cambia.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.UserNameChanged">
+      <summary>Se produce cuando cambia la propiedad UserName.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo">
+      <summary>Administra el estado de la secuencia del servicio de difusión en segundo plano de la aplicación.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.AudioCodec">
+      <summary>Obtiene o establece el códec de audio usado por el servicio de difusión en segundo plano de la aplicación.</summary>
+      <returns>Códec de audio usado por el servicio de difusión en segundo plano de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.BandwidthTestBitrate">
+      <summary>Obtiene o establece la velocidad de bits de prueba de ancho de banda para el servicio de difusión en segundo plano de la aplicación.</summary>
+      <returns>Velocidad de bits de prueba de ancho de banda para el servicio de difusión en segundo plano de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.BroadcastStreamReader">
+      <summary>Obtiene el lector de secuencias de difusión para el servicio de difusión en segundo plano de la aplicación.</summary>
+      <returns>Lector de secuencias de difusión para el servicio de difusión en segundo plano de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.DesiredVideoEncodingBitrate">
+      <summary>Obtiene o establece la velocidad de bits de codificación de vídeo deseada para el servicio de difusión en segundo plano de la aplicación.</summary>
+      <returns>Velocidad de bits codificación vídeo deseada para el servicio de difusión en segundo plano de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.StreamState">
+      <summary>Obtiene un valor que indica el estado de la secuencia de difusión de la aplicación.</summary>
+      <returns>Valor que indica el estado de la secuencia de difusión de la aplicación.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.StreamStateChanged">
+      <summary>Se produce cuando cambia el estado de la secuencia de difusión de la aplicación.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.VideoEncodingBitrateChanged">
+      <summary>Se produce cuando cambia la velocidad de bits de la codificación de vídeo de la difusión de la aplicación.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.VideoEncodingResolutionChanged">
+      <summary>Se produce cuando cambia la resolución de la codificación de vídeo de la difusión de la aplicación.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.ReportProblemWithStream">
+      <summary>Notifica al sistema que se ha detectado un problema con la secuencia de difusión.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraCaptureState">
+      <summary>Especifica el estado de la captura de cámara de la difusión de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Failed">
+      <summary>Error al realizar la captura de cámara de la difusión de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Started">
+      <summary>Se ha iniciado la captura de cámara de la difusión de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Stopped">
+      <summary>Se ha detenido la captura de cámara de la difusión de la aplicación.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs">
+      <summary>Proporciona datos para el evento AppBroadcast.CameraCaptureStateChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs.ErrorCode">
+      <summary>Obtiene el código de error asociado al evento.</summary>
+      <returns>Código de error asociado al evento.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs.State">
+      <summary>Obtiene un valor que indica el nuevo estado de la captura de cámara de la difusión de la aplicación.</summary>
+      <returns>Valor que indica el nuevo estado de la captura de cámara de la difusión de la aplicación.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraOverlayLocation">
+      <summary>Especifica la ubicación de la superposición de la cámara en el fotograma de vídeo de la difusión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomCenter">
+      <summary>La superposición se coloca en la parte inferior central del fotograma.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomLeft">
+      <summary>La superposición se coloca en la parte inferior izquierda del fotograma.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomRight">
+      <summary>La superposición se coloca en la parte inferior derecha del fotograma.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleCenter">
+      <summary>La superposición se coloca en la parte inferior media del fotograma.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleLeft">
+      <summary>La superposición se coloca en la parte izquierda media del fotograma.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleRight">
+      <summary>La superposición se coloca en la parte derecha media del fotograma.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopCenter">
+      <summary>La superposición se coloca en la parte superior media del fotograma.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopLeft">
+      <summary>La superposición se coloca en la parte superior izquierda del fotograma.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopRight">
+      <summary>La superposición se coloca en la parte superior derecha del fotograma.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraOverlaySize">
+      <summary>Especifica el tamaño de la superposición de la cámara en el fotograma de vídeo de la difusión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Large">
+      <summary>Tamaño de superposición grande.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Medium">
+      <summary>Tamaño de superposición medio.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Small">
+      <summary>Tamaño de superposición pequeño.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCaptureTargetType">
+      <summary>Especifica el tipo de destino que se va a capturar para la difusión de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCaptureTargetType.AppView">
+      <summary>Se captura la vista de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCaptureTargetType.EntireDisplay">
+      <summary>Se captura toda la pantalla.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason">
+      <summary>Obtiene un valor que especifica el motivo por el que se ha salido del modo de difusión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.AuthorizationFail">
+      <summary>Se ha salido de la difusión debido a un error de autenticación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.ForegroundAppActivated">
+      <summary>Se ha salido de la difusión porque se activó una aplicación en primer plano.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.NormalExit">
+      <summary>Se ha salido de la difusión normalmente.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.UserCanceled">
+      <summary>El usuario ha cancelado la difusión.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastGlobalSettings">
+      <summary>Especifica la configuración de difusión global que se mantiene en todas las aplicaciones UWP de difusión.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.CameraOverlayLocation">
+      <summary>Obtiene o establece un valor que especifica la ubicación de la superposición de la cámara en el fotograma de vídeo de difusión.</summary>
+      <returns>Valor que especifica la ubicación de la superposición de la cámara en el fotograma de vídeo de difusión.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.CameraOverlaySize">
+      <summary>Obtiene o establece un valor que especifica el tamaño de la superposición de la cámara en el fotograma de vídeo de difusión.</summary>
+      <returns>Valor que especifica el tamaño de la superposición de la cámara en el fotograma de vídeo de difusión.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.HasHardwareEncoder">
+      <summary>Obtiene un valor que indica si el dispositivo actual admite la codificación de multimedia basada en hardware.</summary>
+      <returns>True si el dispositivo admite la codificación de hardware; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsAudioCaptureEnabled">
+      <summary>Obtiene o establece un valor que indica si la captura de audio está activada para la difusión.</summary>
+      <returns>True si se habilita la captura de audio; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsBroadcastEnabled">
+      <summary>Obtiene un valor que indica si está habilitada la difusión en el dispositivo.</summary>
+      <returns>True si la difusión está habilita en el dispositivo; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsCameraCaptureEnabledByDefault">
+      <summary>Obtiene o establece un valor que indica si la captura de cámara para difusión está habilitada de manera predeterminada.</summary>
+      <returns>True si la captura de cámara está habilitada de forma predeterminada; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsCursorImageCaptureEnabled">
+      <summary>Obtiene un valor que indica si se captura la imagen de cursor.</summary>
+      <returns>True si se captura la imagen de cursor; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsDisabledByPolicy">
+      <summary>Obtiene un valor que indica si la difusión está deshabilitada en el dispositivo por medio de una directiva de grupo.</summary>
+      <returns>True si la difusión está deshabilitada en el dispositivo por medio de una directiva de grupo; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsEchoCancellationEnabled">
+      <summary>Obtiene o establece un valor que indica si está habilitada la eliminación del eco.</summary>
+      <returns>True si la eliminación del eco está habilitada; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsGpuConstrained">
+      <summary>Obtiene un valor que indica si el GPU en el dispositivo tiene limitaciones.</summary>
+      <returns>True si el GPU está limitado; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsMicrophoneCaptureEnabledByDefault">
+      <summary>Obtiene o establece un valor que indica si la captura de micrófono para difusión está habilitada de manera predeterminada.</summary>
+      <returns>True si la captura de micrófono está habilitada de forma predeterminada; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.MicrophoneGain">
+      <summary>Obtiene o establece un valor que indica la ganancia de micrófono para la captura de audio de la difusión.</summary>
+      <returns>Ganancia del micrófono para la captura de audio de la difusión.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.SelectedCameraId">
+      <summary>Obtiene o establece una cadena que contiene el identificador de dispositivo de la cámara usada para la captura de vídeo de la difusión.</summary>
+      <returns>Identificador de dispositivo de la cámara usada para la captura de vídeo de la difusión.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.SystemAudioGain">
+      <summary>Obtiene o establece la ganancia del sistema para la captura de audio de la difusión.</summary>
+      <returns>Ganancia del sistema para la captura de audio de la difusión.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs">
+      <summary>Proporciona datos para el evento AppBroadcastBackgroundService.HeartbeatRequested que genera el sistema periódicamente para confirmar que la tarea de fondo de difusión todavía está activa.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs.Handled">
+      <summary>Obtiene o establece un valor que indica si la tarea de difusión en segundo plano está activa en ese momento.</summary>
+      <returns>True si la tarea de difusión en segundo plano está activa; de lo contrario, false.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastManager">
+      <summary>Proporciona acceso a la configuración de difusión global para la configuración actual del proveedor de difusión y del dispositivo.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.ApplyGlobalSettings(Windows.Media.Capture.AppBroadcastGlobalSettings)">
+      <summary>Actualiza la configuración de difusión global para el dispositivo actual.</summary>
+      <param name="value">Objeto que expone la configuración de difusión global para el dispositivo actual.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.ApplyProviderSettings(Windows.Media.Capture.AppBroadcastProviderSettings)">
+      <summary>Actualiza la configuración del proveedor de difusión.</summary>
+      <param name="value">
+      </param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.GetGlobalSettings">
+      <summary>Obtiene un objeto que expone la configuración de difusión global para el dispositivo actual.</summary>
+      <returns>Objeto que expone la configuración de difusión global para el dispositivo actual.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.GetProviderSettings">
+      <summary>Obtiene un objeto que expone la configuración del proveedor de difusión.</summary>
+      <returns>Objeto que expone la configuración del proveedor de difusión.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState">
+      <summary>Especifica el estado de la captura de micrófono de la difusión de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Failed">
+      <summary>Error al realizar la captura del micrófono.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Started">
+      <summary>Se ha iniciado la captura del micrófono.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Stopped">
+      <summary>Se ha detenido la captura del micrófono.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs">
+      <summary>Proporciona datos para el evento AppBroadcastState.MicrophoneCaptureStateChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs.ErrorCode">
+      <summary>Obtiene el código de error asociado al evento.</summary>
+      <returns>Código de error asociado al evento.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs.State">
+      <summary>Obtiene un valor que indica el estado de la captura del micrófono de la difusión de la aplicación.</summary>
+      <returns>Valor que indica el estado de la captura del micrófono de la difusión de la aplicación.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugIn">
+      <summary>Proporciona información sobre el complemento de difusión de la aplicación.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.AppId">
+      <summary>Obtiene el identificador único de la aplicación asociado al complemento de difusión de la aplicación.</summary>
+      <returns>Identificador único de la aplicación asociado al complemento de difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.DisplayName">
+      <summary>Obtiene el nombre para mostrar del complemento de difusión de la aplicación.</summary>
+      <returns>Nombre para mostrar del complemento de difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.Logo">
+      <summary>Obtiene una secuencia que contiene la imagen del logotipo del complemento de difusión de la aplicación.</summary>
+      <returns>Secuencia que contiene la imagen del logotipo del complemento de difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.ProviderSettings">
+      <summary>Obtiene un objeto que representa la configuración del proveedor para el complemento de difusión de la aplicación.</summary>
+      <returns>Configuración del proveedor para el complemento de difusión de la aplicación.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInManager">
+      <summary>Administra los complementos de difusión de aplicación.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.DefaultPlugIn">
+      <summary>Obtiene o establece el complemento de difusión de la aplicación predeterminado.</summary>
+      <returns>Complemento de difusión de la aplicación predeterminado.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.IsBroadcastProviderAvailable">
+      <summary>Obtiene un valor que indica si el proveedor de la difusión está disponible.</summary>
+      <returns>True si el proveedor de la difusión está disponible; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.PlugInList">
+      <summary>Obtiene una lista de solo lectura de todos los complementos de difusión de la aplicación.</summary>
+      <returns>Lista de solo lectura de todos los complementos de difusión de la aplicación.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPlugInManager.GetDefault">
+      <summary>Obtiene el complemento predeterminado para la difusión de la aplicación.</summary>
+      <returns>Complemento predeterminado para la difusión de la aplicación.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPlugInManager.GetForUser(Windows.System.User)">
+      <summary>Obtiene el complemento de difusión de la aplicación asociado al usuario especificado.</summary>
+      <param name="user">Usuario para el que debe recuperarse el complemento de difusión de la aplicación.</param>
+      <returns>Complemento de difusión de la aplicación asociado al usuario especificado.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInState">
+      <summary>Especifica el estado actual de la tarea de difusión en segundo plano.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.InBandwidthTest">
+      <summary>La tarea de difusión en segundo plano está probando el ancho de banda de la conexión del dispositivo con el proveedor de servicios de difusión. Una vez se completa el test, el sistema establecerá la propiedad AppBroadcastBackgroundServiceStreamInfo.BandwidthTestBitrat para indicar el resultado del test de ancho de banda.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.Initialized">
+      <summary>Se ha inicializado la tarea de difusión en segundo plano.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.MicrosoftSignInRequired">
+      <summary>El usuario actual debe autenticarse con el servicio Microsoft.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.OAuthSignInRequired">
+      <summary>El usuario actual debe autenticarse con el servicio del proveedor de difusión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.ProviderSignInRequired">
+      <summary>La tarea de difusión en segundo plano debe autenticar al usuario actual con el servicio del proveedor de difusión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.ReadyToBroadcast">
+      <summary>La tarea de difusión en segundo plano está lista para realizar la difusión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.Unknown">
+      <summary>El estado actual es desconocido.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs">
+      <summary>Proporciona datos para el evento AppBroadcastState.PlugInStateChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs.PlugInState">
+      <summary>Obtiene el nuevo estado de complemento de difusión de la aplicación.</summary>
+      <returns>Nuevo estado de complemento de difusión de la aplicación.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreview">
+      <summary>Proporciona información de estado y acceso a la vista previa de la difusión de la aplicación. </summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.ErrorCode">
+      <summary>Obtiene el código de error asociado a la vista previa de la difusión de la aplicación.</summary>
+      <returns>Código de error asociado a la vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.PreviewState">
+      <summary>Obtiene un valor que indica el estado de la vista previa de la difusión de la aplicación.</summary>
+      <returns>Valor que indica el estado de la vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.PreviewStreamReader">
+      <summary>Obtiene un lector de secuencias para la vista previa de la difusión de la aplicación.</summary>
+      <returns>Lector de secuencias para la vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastPreview.PreviewStateChanged">
+      <summary>Se produce cuando cambia el estado de la vista previa de la difusión de la aplicación.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPreview.StopPreview">
+      <summary>Ámbito de la vista previa de la difusión de la aplicación.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewState">
+      <summary>Especifica el estado de la vista previa de difusión de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Failed">
+      <summary>Error al realizar la vista previa de difusión de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Started">
+      <summary>Se ha iniciado la vista previa de la difusión de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Stopped">
+      <summary>Se ha detenido la vista previa de la difusión de la aplicación.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs">
+      <summary>Proporciona datos para el evento AppBroadcastPreview.PreviewStateChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs.ErrorCode">
+      <summary>Obtiene el código de error asociado al evento.</summary>
+      <returns>Código de error asociado al evento.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs.PreviewState">
+      <summary>Obtiene el nuevo estado de la vista previa de la difusión de la aplicación.</summary>
+      <returns>Nuevo estado de la vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamReader">
+      <summary>Proporciona información sobre el estado y acceso a la secuencia de la vista previa de la difusión de la aplicación.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoBitmapAlphaMode">
+      <summary>Obtiene el modo alfa de mapa de bits de vídeo de la secuencia de vista previa de la difusión de la aplicación.</summary>
+      <returns>Modo alfa de mapa de bits de vídeo de la secuencia de vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoBitmapPixelFormat">
+      <summary>Obtiene el formato de píxeles del mapa de bits de vídeo de la secuencia de vista previa de la difusión de la aplicación.</summary>
+      <returns>Formato de píxeles del mapa de bits de vídeo de la secuencia de vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoHeight">
+      <summary>Obtiene la altura del vídeo, en píxeles, de la secuencia de vista previa de la difusión de la aplicación.</summary>
+      <returns>Altura del vídeo, en píxeles, de la secuencia de vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoStride">
+      <summary>Obtiene el intervalo de vídeo de la secuencia de vista previa de la difusión de la aplicación.</summary>
+      <returns>Intervalo de vídeo de la secuencia de vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoWidth">
+      <summary>Obtiene el ancho del vídeo, en píxeles, de la secuencia de vista previa de la difusión de la aplicación.</summary>
+      <returns>Ancho del vídeo, en píxeles, de la secuencia de vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoFrameArrived">
+      <summary>Se produce cuando llega un nuevo fotograma de vídeo desde la secuencia de vista previa de la difusión de la aplicación.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPreviewStreamReader.TryGetNextVideoFrame">
+      <summary>Intenta recuperar el siguiente fotograma de vídeo de la secuencia de vista previa de la difusión de la aplicación.</summary>
+      <returns>Siguiente fotograma de vídeo desde la secuencia de vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame">
+      <summary>Representa un fotograma de vídeo de la secuencia de vista previa de la difusión de la aplicación.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame.VideoBuffer">
+      <summary>Obtiene el búfer que contiene los datos de imagen para el fotograma de vídeo de la secuencia de la vista previa de la difusión de la aplicación.</summary>
+      <returns>Búfer que contiene los datos de imagen para el fotograma de vídeo de la secuencia de la vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame.VideoHeader">
+      <summary>Obtiene el encabezado que describe los datos de imagen para el fotograma de vídeo de la secuencia de la vista previa de la difusión de la aplicación.</summary>
+      <returns>Encabezado que describe los datos de imagen para el fotograma de vídeo de la secuencia de la vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader">
+      <summary>Representa los metadatos acerca de un fotograma de vídeo de la secuencia de vista previa de la difusión de la aplicación.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.AbsoluteTimestamp">
+      <summary>Obtiene la marca de tiempo absoluta para el fotograma de vídeo de la secuencia de vista previa de la difusión de la aplicación.</summary>
+      <returns>Marca de tiempo absoluta para el fotograma de vídeo de la secuencia de vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.Duration">
+      <summary>Obtiene la duración del fotograma de vídeo de la secuencia de vista previa de la difusión de la aplicación.</summary>
+      <returns>Duración del fotograma de vídeo de la secuencia de vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.FrameId">
+      <summary>Obtiene el identificador del fotograma de vídeo de la secuencia de vista previa de la difusión de la aplicación.</summary>
+      <returns>Identificador del fotograma de vídeo de la secuencia de vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.RelativeTimestamp">
+      <summary>Obtiene la marca de tiempo relativa para el fotograma de vídeo de la secuencia de vista previa de la difusión de la aplicación.</summary>
+      <returns>Marca de tiempo relativa para el fotograma de vídeo de la secuencia de vista previa de la difusión de la aplicación.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastProviderSettings">
+      <summary>Proporciona acceso a la configuración del servicio de proveedor de difusión remoto. Esta configuración la puede ver y modificar el proveedor de difusión.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.AudioEncodingBitrate">
+      <summary>Obtiene o establece la velocidad de bits de codificación de audio de la secuencia de difusión en bits por segundo.</summary>
+      <returns>Velocidad de bits de codificación de audio de la secuencia de difusión en bits por segundo.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingBitrate">
+      <summary>Obtiene o establece la velocidad de bits de codificación de vídeo personalizada de la secuencia de difusión en bits por segundo.</summary>
+      <returns>Velocidad de bits de codificación de vídeo personalizada de la secuencia de difusión en bits por segundo.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingHeight">
+      <summary>Obtiene o establece una altura de codificación de vídeo personalizada de la secuencia de difusión.</summary>
+      <returns>Altura de codificación de vídeo personalizada de la secuencia de difusión.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingWidth">
+      <summary>Obtiene o establece un ancho de codificación de vídeo personalizado de la secuencia de difusión.</summary>
+      <returns>Ancho de codificación de vídeo personalizado de la secuencia de difusión.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.DefaultBroadcastTitle">
+      <summary>Obtiene o establece el título predeterminado para difusiones.</summary>
+      <returns>Título predeterminado para difusiones.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.VideoEncodingBitrateMode">
+      <summary>Obtiene o establece el modo de velocidad de bits de codificación de vídeo para el servicio de proveedor de difusión remoto.</summary>
+      <returns>Velocidad de bits de codificación de vídeo.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.VideoEncodingResolutionMode">
+      <summary>Obtiene o establece el modo de resolución de codificación de vídeo para el servicio de proveedor de difusión remoto.</summary>
+      <returns>Modo de resolución de codificación de vídeo.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastServices">
+      <summary>Administra el estado de las difusiones de la aplicación.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.BroadcastLanguage">
+      <summary>Obtiene o establece una cadena que especifica la configuración de idioma para la difusión de la aplicación.</summary>
+      <returns>Cadena que especifica la configuración de idioma para la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.BroadcastTitle">
+      <summary>Obtiene o establece el título de la difusión.</summary>
+      <returns>Título de la difusión.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.CanCapture">
+      <summary>Obtiene un valor que indica si el servicio de difusión puede capturar.</summary>
+      <returns>True si el servicio de difusión puede capturar; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.CaptureTargetType">
+      <summary>Obtiene o establece un valor que especifica el tipo de destino de captura que se usará para la difusión.</summary>
+      <returns>Valor que especifica el tipo de destino de captura que se usará para la difusión.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.State">
+      <summary>Obtiene el estado actual de los servicios de difusión de la aplicación.</summary>
+      <returns>Estado actual de los servicios de difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.UserName">
+      <summary>Obtiene el nombre de usuario que se usa para la autenticación de difusión de la aplicación.</summary>
+      <returns>Nombre de usuario que se usa para la autenticación de difusión de la aplicación.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.EnterBroadcastModeAsync(Windows.Media.Capture.AppBroadcastPlugIn)">
+      <summary>Hace que el servicio de difusión de la aplicación entre en el modo de difusión con el complemento de difusión de la aplicación especificado.</summary>
+      <param name="plugIn">Complemento de difusión de la aplicación con el que se entra en el modo de difusión.</param>
+      <returns>Operación asincrónica que devuelve un código de estado al finalizar correctamente.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.ExitBroadcastMode(Windows.Media.Capture.AppBroadcastExitBroadcastModeReason)">
+      <summary>Hace que el servicio de difusión de la aplicación salga del modo de difusión con el motivo especificado.</summary>
+      <param name="reason">Objeto que especifica el motivo de que se salga del modo de difusión.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.PauseBroadcast">
+      <summary>Pausa la difusión de la aplicación.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.ResumeBroadcast">
+      <summary>Reanuda la difusión de la aplicación.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.StartBroadcast">
+      <summary>Inicia la difusión de la aplicación.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.StartPreview(Windows.Foundation.Size)">
+      <summary>Inicia la vista previa de difusión de la aplicación.</summary>
+      <param name="desiredSize">Objeto que especifica el tamaño, en píxeles, de la vista previa de difusión de la aplicación.</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInResult">
+      <summary>Especifica el resultado de una operación de inicio de sesión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.AuthenticationFailed">
+      <summary>Error al realizar la autenticación de inicio de sesión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.ServiceUnavailable">
+      <summary>El servicio de inicio de sesión no está disponible</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Success">
+      <summary>La operación de inicio de sesión se realizó correctamente.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Unauthorized">
+      <summary>El usuario autenticado no tiene permiso para acceder al recurso solicitado.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Unknown">
+      <summary>El resultado del inicio de sesión es desconocido.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInState">
+      <summary>Especifica el estado actual de inicio de sesión para una aplicación de difusión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.MicrosoftSignInComplete">
+      <summary>Se ha completado una operación de inicio de sesión con el servicio Microsoft.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.MicrosoftSignInInProgress">
+      <summary>Se está realizando una operación de inicio de sesión con el servicio Microsoft.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.NotSignedIn">
+      <summary>El usuario no ha iniciado sesión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.OAuthSignInComplete">
+      <summary>Se ha completado una operación de inicio de sesión con el servicio del proveedor de difusión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.OAuthSignInInProgress">
+      <summary>Se está realizando una operación de inicio de sesión con el servicio del proveedor de difusión.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs">
+      <summary>Proporciona datos para el evento AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs.Result">
+      <summary>Obtiene el resultado de la operación de inicio de sesión de la aplicación de difusión asociada al evento AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged.</summary>
+      <returns>Resultado de la operación de inicio de sesión.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs.SignInState">
+      <summary>Obtiene el estado de inicio de sesión de la aplicación de difusión actual después de que se genere el AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged.</summary>
+      <returns>Estado de inicio de sesión actual.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastState">
+      <summary>Representa y administra el estado de una difusión de la aplicación.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.AuthenticationResult">
+      <summary>Obtiene el resultado de autenticación del estado de difusión de la aplicación.</summary>
+      <returns>Resultado de autenticación del estado de difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.CameraCaptureError">
+      <summary>Obtiene el error de captura de cámara asociado al estado de difusión de la aplicación.</summary>
+      <returns>Error de captura de cámara asociado al estado de difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.CameraCaptureState">
+      <summary>Obtiene el estado de la captura de cámara.</summary>
+      <returns>Estado de la captura de cámara.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.EncodedVideoSize">
+      <summary>Obtiene el tamaño del vídeo codificado de la difusión de la aplicación.</summary>
+      <returns>Tamaño del vídeo codificado de la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.IsCaptureTargetRunning">
+      <summary>Obtiene un valor que indica si el destino de la captura se está ejecutando.</summary>
+      <returns>True si el destino de la captura se está ejecutando; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureError">
+      <summary>Obtiene el error de captura de micrófono asociado al estado de difusión de la aplicación.</summary>
+      <returns>Error de captura de micrófono asociado al estado de difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureState">
+      <summary>Obtiene el estado de la captura de micrófono.</summary>
+      <returns>Estado de la captura de micrófono.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.OAuthCallbackUri">
+      <summary>Obtiene el URI de devolución de llamada de OAuth asociado al estado de difusión de la aplicación.</summary>
+      <returns>URI de devolución de llamada de OAuth.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.OAuthRequestUri">
+      <summary>Obtiene el URI de solicitud de OAuth asociado al estado de difusión de la aplicación.</summary>
+      <returns>URI de solicitud de OAuth.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.PlugInState">
+      <summary>Obtiene el estado del complemento asociado al estado de difusión de la aplicación.</summary>
+      <returns>Estado del complemento asociado al estado de difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ShouldCaptureCamera">
+      <summary>Obtiene o establece un valor que indica si se debe capturar la cámara para la difusión de la aplicación.</summary>
+      <returns>Valor que indica si se debe capturar la cámara para la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ShouldCaptureMicrophone">
+      <summary>Obtiene o establece un valor que indica si se debe capturar el micrófono para la difusión de la aplicación.</summary>
+      <returns>Valor que indica si se debe capturar el micrófono para la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.SignInState">
+      <summary>Obtiene o establece un valor que indica el estado de inicio de sesión de la difusión de la aplicación.</summary>
+      <returns>Valor que indica el estado de inicio de sesión de la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.StreamState">
+      <summary>Obtiene un valor que indica el estado de la secuencia de difusión de la aplicación.</summary>
+      <returns>Valor que indica el estado de la secuencia de difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.TerminationReason">
+      <summary>Obtiene un valor que indica el motivo por el que ha finalizado la difusión de la aplicación.</summary>
+      <returns>Valor que indica el motivo por el que ha finalizado la difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.TerminationReasonPlugInSpecific">
+      <summary>Obtiene un valor que indica el motivo especificado por el complemento de que haya finalizado esa difusión de la aplicación.</summary>
+      <returns>Valor que indica el motivo especificado por el complemento de que haya finalizado esa difusión de la aplicación.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ViewerCount">
+      <summary>Obtiene el recuento del visor de la difusión de la aplicación.</summary>
+      <returns>Recuento del visor de la difusión de la aplicación.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.CameraCaptureStateChanged">
+      <summary>Se produce cuando cambia el estado de la captura de cámara.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.CaptureTargetClosed">
+      <summary>Se produce cuando se cierra el destino de la captura.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureStateChanged">
+      <summary>Se produce cuando cambia el estado de la captura del micrófono.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.PlugInStateChanged">
+      <summary>Se produce cuando cambia el estado del complemento asociado al estado de la difusión de la aplicación.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.StreamStateChanged">
+      <summary>Se produce cuando cambia el estado de la secuencia de la difusión de la aplicación.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.ViewerCountChanged">
+      <summary>Se produce cuando cambia el recuento del visor de la difusión de la aplicación.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastState.RestartCameraCapture">
+      <summary>Reinicia la captura de cámara para la difusión de la aplicación.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastState.RestartMicrophoneCapture">
+      <summary>Reinicia la captura de micrófono para la difusión de la aplicación.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamAudioFrame">
+      <summary>Representa un fotograma de muestras de audio en una secuencia de difusión.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioFrame.AudioBuffer">
+      <summary>Obtiene el búfer que contiene las muestras de audio de la trama de audio de la difusión.</summary>
+      <returns>Búfer que contiene las muestras de audio de la trama de audio de la difusión.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioFrame.AudioHeader">
+      <summary>Obtiene un objeto que contiene metadatos sobre la trama de audio de la difusión asociada.</summary>
+      <returns>Objeto que contiene metadatos sobre la trama de audio de la difusión asociada.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamAudioHeader">
+      <summary>Proporciona metadatos sobre una trama de audio de la difusión.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.AbsoluteTimestamp">
+      <summary>Obtiene una marca de tiempo que indica la hora del sistema a la que se capturó la trama de audio.</summary>
+      <returns>Marca de tiempo que indica la hora del sistema a la que se capturó la trama de audio.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.Duration">
+      <summary>Obtiene un valor que indica la duración de la trama de audio.</summary>
+      <returns>La duración de la trama de audio.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.FrameId">
+      <summary>Obtiene un valor que identifica la trama de audio.</summary>
+      <returns>Valor que identifica la trama de audio.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.HasDiscontinuity">
+      <summary>Obtiene un valor que indica si la trama de audio contiene una discontinuidad en la secuencia de audio.</summary>
+      <returns>True si la trama de audio contiene una discontinuidad; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.RelativeTimestamp">
+      <summary>Obtiene una marca de tiempo que indica la hora relativa dentro de la secuencia de audio a la que se capturó la trama de audio.</summary>
+      <returns>Marca de tiempo que indica la hora relativa dentro de la secuencia de audio a la que se capturó la trama de audio.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamReader">
+      <summary>Proporciona métodos y eventos para obtener tramas de audio y fotogramas de vídeo de una secuencia de difusión de la aplicación.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioAacSequence">
+      <summary>Obtiene un búfer que contiene el encabezado de la secuencia de audio AAC.</summary>
+      <returns>Búfer que contiene el encabezado de la secuencia de audio AAC.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioBitrate">
+      <summary>Obtiene la velocidad de bits asociada con el AppBroadcastStreamReader, en bits por segundo.</summary>
+      <returns>Velocidad de bits de la secuencia de audio, en bits por segundo.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioChannels">
+      <summary>Obtiene el número de canales en la secuencia de audio asociados con el AppBroadcastStreamReader.</summary>
+      <returns>Número de canales de la secuencia de audio.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioSampleRate">
+      <summary>Obtiene una muestra de la secuencia de audio asociada a AppBroadcastStreamReader.</summary>
+      <returns>Velocidad de muestreo de la secuencia de audio.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoBitrate">
+      <summary>Obtiene la velocidad de bits de los fotogramas de vídeo asociados con AppBroadcastStreamReader, en bits por segundo.</summary>
+      <returns>Velocidad de bits de la secuencia de vídeo, en bits por segundo.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoHeight">
+      <summary>Obtiene el alto de los fotogramas de vídeo asociados con AppBroadcastStreamReader.</summary>
+      <returns>Altura de los fotogramas de la secuencia de vídeo.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoWidth">
+      <summary>Obtiene la anchura de los fotogramas de vídeo asociados con AppBroadcastStreamReader.</summary>
+      <returns>Ancho de los fotogramas de la secuencia de vídeo.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastStreamReader.AudioFrameArrived">
+      <summary>Se genera cuando llega una nueva trama de audio desde la secuencia de difusión.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastStreamReader.VideoFrameArrived">
+      <summary>Se genera cuando llega un nuevo fotograma de vídeo desde la secuencia de difusión.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastStreamReader.TryGetNextAudioFrame">
+      <summary>Intenta obtener el objeto AppBroadcastStreamAudioFrame que representa la última trama de audio de la secuencia de difusión.</summary>
+      <returns>Si se realiza correctamente, la trama de audio más reciente de la secuencia de difusión; de lo contrario, es null.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastStreamReader.TryGetNextVideoFrame">
+      <summary>Intenta obtener el objeto AppBroadcastStreamVideoFrame que representa el último fotograma de vídeo de la secuencia de difusión.</summary>
+      <returns>Si se realiza correctamente, el fotograma de vídeo más reciente de la secuencia de difusión; de lo contrario, es null.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamState">
+      <summary>Especifica el estado de una secuencia de difusión de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Initializing">
+      <summary>Se está inicializando la secuencia de difusión de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Paused">
+      <summary>Se ha pausado la secuencia de difusión de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Started">
+      <summary>Se ha iniciado la secuencia de difusión de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.StreamReady">
+      <summary>La secuencia de difusión de la aplicación está preparada.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Terminated">
+      <summary>La secuencia de difusión de la aplicación ha finalizado.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs">
+      <summary>Proporciona datos para el evento AppBroadcastState.StreamStateChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs.StreamState">
+      <summary>Obtiene el nuevo estado de la secuencia de difusión de la aplicación.</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamVideoFrame">
+      <summary>Representa un fotograma de vídeo en una secuencia de difusión.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoFrame.VideoBuffer">
+      <summary>Obtiene el búfer que contiene los datos de imagen para la trama de audio de la difusión.</summary>
+      <returns>Búfer que contiene los datos de imagen para la trama de audio de la difusión.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoFrame.VideoHeader">
+      <summary>Obtiene un objeto que contiene metadatos sobre el fotograma de vídeo de la difusión asociado.</summary>
+      <returns>Objeto que contiene metadatos sobre el fotograma de vídeo de la difusión asociado.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamVideoHeader">
+      <summary>Proporciona metadatos sobre un fotograma de vídeo de la difusión.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.AbsoluteTimestamp">
+      <summary>Obtiene una marca de tiempo que indica la hora del sistema a la que se capturó el fotograma de vídeo.</summary>
+      <returns>Marca de tiempo que indica la hora del sistema a la que se capturó la trama de audio.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.Duration">
+      <summary>Obtiene un valor que indica la duración del fotograma de vídeo.</summary>
+      <returns>La duración del fotograma de vídeo.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.FrameId">
+      <summary>Obtiene un valor que identifica el fotograma de vídeo.</summary>
+      <returns>Valor que identifica el fotograma de vídeo.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.HasDiscontinuity">
+      <summary>Obtiene un valor que indica si el fotograma de vídeo contiene una discontinuidad en la secuencia de vídeo.</summary>
+      <returns>True si el fotograma de vídeo contiene una discontinuidad; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.IsKeyFrame">
+      <summary>Obtiene un valor que indica si el fotograma de vídeo es un fotograma clave dentro de la secuencia de vídeo de la difusión.</summary>
+      <returns>True significa que el fotograma de vídeo es un fotograma clave; de lo contrario, false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.RelativeTimestamp">
+      <summary>Obtiene una marca de tiempo que indica la hora relativa dentro de la secuencia de vídeo a la que se capturó el fotograma de vídeo.</summary>
+      <returns>Hora relativa dentro de la secuencia de vídeo a la que se capturó el fotograma de vídeo.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastTerminationReason">
+      <summary>Especifica el motivo por el que ha finalizado una difusión de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.BackgroundTaskTerminated">
+      <summary>La difusión de la aplicación finalizó porque finalizó la tarea de difusión en segundo plano de la aplicación.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.BackgroundTaskUnresponsive">
+      <summary>La difusión de la aplicación finalizó porque la tarea de difusión en segundo plano de la aplicación no respondía.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.InternalError">
+      <summary>La aplicación de difusión finalizó debido a un error interno.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.LostConnectionToService">
+      <summary>La difusión de la aplicación finalizó porque se perdió la conexión al servicio.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.NoNetworkConnectivity">
+      <summary>La difusión de la aplicación finalizó porque no hay conexión de red.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.NormalTermination">
+      <summary>La difusión de la aplicación finalizó porque se ha finalizado de la manera normal.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceAbort">
+      <summary>La difusión de la aplicación finalizó porque el servicio anuló la difusión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceError">
+      <summary>La difusión de la aplicación finalizó porque se ha producido un error de servicio.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceUnavailable">
+      <summary>La difusión de la aplicación finalizó porque el servicio no estaba disponible.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.UnsupportedFormat">
+      <summary>La difusión de la aplicación finalizó porque usa un formato no admitido.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastTriggerDetails">
+      <summary>Proporciona detalles asociados a una tarea en segundo plano de la aplicación de difusión.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastTriggerDetails.BackgroundService">
+      <summary>Obtiene un objeto que proporciona una interfaz entre la aplicación UWP de difusión y el servicio de difusión hospedado por el sistema.</summary>
+      <returns>Objeto que proporciona una interfaz entre la aplicación UWP de difusión y el servicio de difusión hospedado por el sistema.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode">
+      <summary>Especifica el modo de establecer la velocidad de bits para la codificación de vídeo de la difusión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode.Auto">
+      <summary>La velocidad de bits la establece automáticamente el sistema.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode.Custom">
+      <summary>Se usa velocidad de bits especificada con la propiedad AppBroadcastProviderSettings.CustomVideoEncodingBitrate.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode">
+      <summary>Especifica el modo de establecer la resolución para la codificación de vídeo de la difusión.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode.Auto">
+      <summary>La resolución la establece automáticamente el sistema.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode.Custom">
+      <summary>Se usa la resolución especificada con las propiedades AppBroadcastProviderSettings.CustomVideoEncodingHeight y CustomVideoEncodingBitrate.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs">
+      <summary>Proporciona datos para el evento AppBroadcastViewerCountChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs.ViewerCount">
+      <summary>Obtiene el nuevo recuento de visor.</summary>
+      <returns>Nuevo recuento de visor.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.ForegroundActivationArgument">
+      <summary>Especifica el motivo por el que se activó un complemento de difusión de la aplicación en primer plano.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.ForegroundActivationArgument.MoreSettings">
+      <summary>El complemento de difusión de la aplicación se activó en primer plano para permitir al usuario cambiar la configuración específica del complemento.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.ForegroundActivationArgument.SignInRequired">
+      <summary>El complemento de difusión de la aplicación se activó en primer plano porque es necesario iniciar sesión.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesDisplayMode">
+      <summary>Especifica el modo de pantalla de la barra de juegos.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarServicesDisplayMode.FullScreenExclusive">
+      <summary>Modo exclusivo de pantalla completa</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarServicesDisplayMode.Windowed">
+      <summary>Modo de pantalla con ventanas.</summary>
+    </member>
+  </members>
+</doc>

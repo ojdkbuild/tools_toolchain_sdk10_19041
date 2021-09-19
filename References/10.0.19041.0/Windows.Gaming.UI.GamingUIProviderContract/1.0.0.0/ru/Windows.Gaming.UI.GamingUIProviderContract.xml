@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GamingUIProviderContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameUIProviderActivatedEventArgs">
+      <summary>Аргументы события, связанные с активацией **GameUIProvider**. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.GameUIArgs">
+      <summary>Аргументы события, связанные с активацией **GameUIProvider**. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+      <returns>Аргументы события, связанные с активацией **GameUIProvider**.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.Kind">
+      <summary>Тип активации. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+      <returns>Тип активации.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.PreviousExecutionState">
+      <summary>Предыдущее состояние выполнения. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+      <returns>Предыдущее состояние выполнения.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.SplashScreen">
+      <summary>Экран-заставка приложения. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+      <returns>Экран-заставка приложения.</returns>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.ReportCompleted(Windows.Foundation.Collections.ValueSet)">
+      <summary>Сигнализирует о том, что взаимодействие завершено, и передает все полученные данные обратно вызывающему приложению. Этот API доступен не во всех приложениях. Если ваша учетная запись разработчика не предоставлена специально корпорацией Майкрософт, ваше приложение не может использовать этот API.</summary>
+      <param name="results">Полученные данные из приложения **GameUIProvider**.</param>
+    </member>
+    <member name="T:Windows.Gaming.UI.GamingUIProviderContract">
+      <summary>
+      </summary>
+    </member>
+  </members>
+</doc>

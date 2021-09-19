@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GamingUIProviderContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameUIProviderActivatedEventArgs">
+      <summary>**GameUIProvider** ライセンス認証に関連付けられるイベント引数。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.GameUIArgs">
+      <summary>**GameUIProvider** ライセンス認証に関連付けられるイベント引数。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+      <returns>**GameUIProvider** ライセンス認証に関連付けられるイベント引数。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.Kind">
+      <summary>アクティブ化の種類。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+      <returns>アクティブ化の種類。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.PreviousExecutionState">
+      <summary>直前の実行状態。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+      <returns>直前の実行状態。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.SplashScreen">
+      <summary>アプリのスプラッシュ画面。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+      <returns>アプリのスプラッシュ画面。</returns>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.ReportCompleted(Windows.Foundation.Collections.ValueSet)">
+      <summary>エクスペリエンスが完了として通知し、結果のデータを呼び出し元データに返信します。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+      <param name="results">**GameUIProvider** アプリからの結果のデータ。</param>
+    </member>
+    <member name="T:Windows.Gaming.UI.GamingUIProviderContract">
+      <summary>
+      </summary>
+    </member>
+  </members>
+</doc>

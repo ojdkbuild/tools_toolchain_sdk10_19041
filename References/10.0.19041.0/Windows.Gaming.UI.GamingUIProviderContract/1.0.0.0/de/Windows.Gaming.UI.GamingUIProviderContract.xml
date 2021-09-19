@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GamingUIProviderContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameUIProviderActivatedEventArgs">
+      <summary>Ereignisargumente, die einer **GameUIProvider**-Aktivierung zugeordnet sind. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.GameUIArgs">
+      <summary>Ereignisargumente, die einer **GameUIProvider**-Aktivierung zugeordnet sind. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+      <returns>Ereignisargumente, die einer **GameUIProvider**-Aktivierung zugeordnet sind.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.Kind">
+      <summary>Der Aktivierungstyp. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+      <returns>Der Aktivierungstyp.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.PreviousExecutionState">
+      <summary>Der vorherige Ausführungsstatus. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+      <returns>Der vorherige Ausführungsstatus.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.SplashScreen">
+      <summary>Der Begrüßungsbildschirm der App. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+      <returns>Der Begrüßungsbildschirm der App.</returns>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.ReportCompleted(Windows.Foundation.Collections.ValueSet)">
+      <summary>Signalisiert das Erlebnis als abgeschlossen, und kommuniziert alle resultierenden Daten zurück an die aufrufende App. Diese API ist nicht für alle Apps verfügbar. Ihre App kann diese API nicht verwenden, es sei denn, Ihr Entwicklerkonto wird speziell von Microsoft bereitgestellt.</summary>
+      <param name="results">Die resultierenden Daten aus der **GameUIProvider**-App.</param>
+    </member>
+    <member name="T:Windows.Gaming.UI.GamingUIProviderContract">
+      <summary>
+      </summary>
+    </member>
+  </members>
+</doc>

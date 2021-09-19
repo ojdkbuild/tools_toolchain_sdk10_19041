@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.ApplicationModel.Search.Core.SearchCoreContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs">
+      <summary>Fornisce i dati per l'evento RequestingFocusOnKeyboardInput.</summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchCoreContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestion">
+      <summary>Fornisce l'accesso ai suggerimenti di ricerca che fornisce SearchSuggestionManager.</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.DetailText">
+      <summary>Ottiene il valore passato al parametro *detailText* del metodo AppendResultSuggestion.</summary>
+      <returns>Testo dettagliato o **null** se il suggerimento di ricerca non è un **risultato**.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Image">
+      <summary>Ottiene il valore passato al parametro *image* del metodo AppendResultSuggestion.</summary>
+      <returns>Immagine o **null** se il suggerimento di ricerca non è un **risultato**.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.ImageAlternateText">
+      <summary>Ottiene il valore passato al parametro *imageAlternateText* del metodo AppendResultSuggestion.</summary>
+      <returns>Testo alternativo per l'immagine o **null** se il suggerimento di ricerca non è un **Result**.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Kind">
+      <summary>Ottiene il tipo di suggerimento.</summary>
+      <returns>Tipo di suggerimento.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Tag">
+      <summary>Ottiene il valore passato al parametro *tag* del metodo AppendResultSuggestion.</summary>
+      <returns>Immagine o **null** se il suggerimento di ricerca non è un **risultato**.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Text">
+      <summary>Ottiene il testo localizzato del suggerimento da visualizzare nell'interfaccia utente dei suggerimenti per la ricerca.</summary>
+      <returns>Testo da visualizzare.</returns>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestionKind">
+      <summary>Specifica il tipo di SearchSuggestion.</summary>
+    </member>
+    <member name="F:Windows.ApplicationModel.Search.Core.SearchSuggestionKind.Query">
+      <summary>Il suggerimento è un suggerimento di query.</summary>
+    </member>
+    <member name="F:Windows.ApplicationModel.Search.Core.SearchSuggestionKind.Result">
+      <summary>Il suggerimento è un suggerimento di risultati.</summary>
+    </member>
+    <member name="F:Windows.ApplicationModel.Search.Core.SearchSuggestionKind.Separator">
+      <summary>Rappresenta un separatore tra i suggerimenti di ricerca utile per il raggruppamento.</summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestionManager">
+      <summary>Gestisce l'accesso per la ricerca dei suggerimenti per il controllo SearchBox in-app.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.#ctor">
+      <summary>Inizializza una nuova istanza della classe SearchSuggestionManager.</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SearchHistoryContext">
+      <summary>Identifica il contesto della ricerca e viene utilizzata per memorizzare la cronologia della ricerca dell'utente con l'applicazione.</summary>
+      <returns>Stringa di ricerca del contesto della cronologia.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SearchHistoryEnabled">
+      <summary>Indica se viene tenuta automaticamente traccia delle ricerche precedenti dell'utente con l'applicazione e se tali ricerche vengono utilizzate per fornire suggerimenti.</summary>
+      <returns>**True** se la cronologia della ricerca dell'utente viene automaticamente registrata e utilizzata per fornire suggerimenti; in caso contrario **false**. Il valore predefinito è **true**.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.Suggestions">
+      <summary>Ottiene i suggerimenti per la ricerca per la query di ricerca corrente.</summary>
+      <returns>Suggerimenti di ricerca.</returns>
+    </member>
+    <member name="E:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.RequestingFocusOnKeyboardInput">
+      <summary>Generato quando l'utente preme un tasto che avvia la funzionalità Digitare per la ricerca.</summary>
+    </member>
+    <member name="E:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SuggestionsRequested">
+      <summary>Generato quando cambia il testo della query dell'utente e l'applicazione deve fornire nuovi suggerimenti da visualizzare nella casella di ricerca.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.AddToHistory(System.String)">
+      <summary>Archivia la query specificata nella cronologia di ricerca.</summary>
+      <param name="queryText">Query.</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.AddToHistory(System.String,System.String)">
+      <summary>Archivia la query specificata e la lingua di input nella cronologia di ricerca.</summary>
+      <param name="queryText">Query.</param>
+      <param name="language">Lingua di input. La lingua di input assicura che la stringa di query venga visualizzata nella cronologia della ricerca per la lingua corretta.</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.ClearHistory">
+      <summary>Cancella tutti i contesti di ricerca della cronologia per l'applicazione corrente.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetLocalContentSuggestionSettings(Windows.ApplicationModel.Search.LocalContentSuggestionSettings)">
+      <summary>Specifica se i suggerimenti basati sui file locali vengono aggiunti automaticamente alla raccolta di suggerimenti e definisce i criteri utilizzati in Windows per individuare e filtrare i suggerimenti.</summary>
+      <param name="settings">Nuove impostazioni per i suggerimenti di contenuto locali.</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetQuery(System.String)">
+      <summary>Assegna la query di ricerca corrente.</summary>
+      <param name="queryText">Query.</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetQuery(System.String,System.String)">
+      <summary>Assegna la query di ricerca corrente con la lingua di input specificata.</summary>
+      <param name="queryText">Query.</param>
+      <param name="language">Lingua di input.</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetQuery(System.String,System.String,Windows.ApplicationModel.Search.SearchQueryLinguisticDetails)">
+      <summary>Assegna la query di ricerca corrente con la lingua di input e le informazioni su Input Method Editor (IME) specificate.</summary>
+      <param name="queryText">Query.</param>
+      <param name="language">Lingua di input.</param>
+      <param name="linguisticDetails">Informazioni sul testo della query che l'utente immette tramite un editor IME (Input Method Editor).</param>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs">
+      <summary>Fornisce i dati per l'evento SuggestionsRequested.</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.Language">
+      <summary>Ottiene il tag di lingua standard BCP 47 IETF (Internet Engineering Task Force) che identifica la lingua al momento associata al dispositivo per l'input di testo dell'utente.</summary>
+      <returns>Il tag di lingua standard BCP 47 IETF (Internet Engineering Task Force).</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.LinguisticDetails">
+      <summary>Ottiene un oggetto che fornisce informazioni linguistiche sul testo della query che l'utente sta immettendo tramite un editor IME (Input Method Editor).</summary>
+      <returns>Oggetto che fornisce informazioni linguistiche sul testo della query.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.QueryText">
+      <summary>Testo per cui l'applicazione deve fornire suggerimenti e che si trovava nella casella di ricerca quando è stato generato l'evento SuggestionsRequested.</summary>
+      <returns>Testo di query per il quale l'applicazione deve fornire suggerimenti.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.Request">
+      <summary>Ottiene un oggetto che archivia i suggerimenti e le informazioni relativi alla richiesta.</summary>
+      <returns>Oggetto che archivia i suggerimenti e le informazioni relativi alla richiesta.</returns>
+    </member>
+  </members>
+</doc>

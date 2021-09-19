@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.AppBroadcasting.AppBroadcastingContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingMonitor">
+      <summary>允许应用确定当前是否广播，以及应用开始或停止广播时是否接收事件。</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.#ctor">
+      <summary>初始化 **AppBroadcastingMonitor** 类的新实例。</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcasting">
+      <summary>获取指示当前应用目前是否广播的值。</summary>
+      <returns>如果当前应用正在广播，则为 true；否则为 false。</returns>
+    </member>
+    <member name="E:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcastingChanged">
+      <summary>在当前应用的当前广播状态改变时发生。</summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatus">
+      <summary>允许应用确定当前能否开始广播，如果不能，则获取无法启动广播的原因详细信息。</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.CanStartBroadcast">
+      <summary>获取指示当前应用是否可以开始广播的值。</summary>
+      <returns>如果应用可以开始广播，则为 true；否则为 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.Details">
+      <summary>获取提供指示为何当前应用目前无法开始广播的详细信息的 AppBroadcastingStatusDetails 对象。</summary>
+      <returns>提供指示当前应用目前为何无法开始广播的详细信息的对象。</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails">
+      <summary>提供指示当前应用目前为何无法开始广播的详细信息。</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAnyAppBroadcasting">
+      <summary>获取指示另一应用是否正在广播的值。</summary>
+      <returns>如果另一应用当前正在广播，则为 true；否则为 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAppInactive">
+      <summary>获取指定当前应用的窗口是否处于非活动状态的值。</summary>
+      <returns>如果当前应用的窗口处于非活动状态为 true；否则为 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsBlockedForApp">
+      <summary>获取指示是否为当前应用阻止广播的值。</summary>
+      <returns>如果为当前应用阻止广播则为 true；否则为 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsCaptureResourceUnavailable">
+      <summary>获取指示捕获资源当前是否不可用的值。</summary>
+      <returns>如果捕获资源当前不可用，则为 true；否则为 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledBySystem">
+      <summary>获取指示系统是否禁用应用广播的值。</summary>
+      <returns>如果系统禁用应用广播则为 ture；否则为 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledByUser">
+      <summary>获取指示用户是否已禁用应用广播的值。</summary>
+      <returns>如果用户已禁用应用广播则为 ture；否则为 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGameStreamInProgress">
+      <summary>获取指示游戏流目前是否正在进行的值。</summary>
+      <returns>如果游戏流目前正在进行则为 ture；否则为 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGpuConstrained">
+      <summary>获取指示应用广播是否由于 GPU 受限而不可用的值。</summary>
+      <returns>如果应用广播由于 GPU 受限而不可用则为 true；否则为 false。</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingUI">
+      <summary>启用应用以启动应用广播系统设置 UI。</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetDefault">
+      <summary>获取与当前登录到设备的用户关联的 **AppBroadcastingUI** 类的实例。</summary>
+      <returns>**AppBroadcastingUI** 类的实例。</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetForUser(Windows.System.User)">
+      <summary>获取与指定用户关联的 **AppBroadcastingUI** 类的实例。</summary>
+      <param name="user">为其创建 **AppBroadcastingUI** 实例的用户。</param>
+      <returns>**AppBroadcastingUI** 类的实例。</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetStatus">
+      <summary>获取允许应用确定当前能否开始广播，如果不能，则获取无法启动广播的原因详细信息的对象。</summary>
+      <returns>允许应用确定当前能否开始广播的对象。</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.ShowBroadcastUI">
+      <summary>显示应用广播系统设置 UI。</summary>
+    </member>
+  </members>
+</doc>

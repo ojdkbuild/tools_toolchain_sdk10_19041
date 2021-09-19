@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.ApplicationModel.FullTrustAppContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.FullTrustAppContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.FullTrustProcessLauncher">
+      <summary>동일한 응용 프로그램 패키지에 있는 범용 Windows 앱 구성 요소에서 응용 프로그램의 완전 신뢰 Win32 구성 요소를 활성화합니다.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String)">
+      <summary>지정된 응용 프로그램 ID에 대한 완전 신뢰 프로세스를 시작합니다.</summary>
+      <param name="fullTrustPackageRelativeAppId">호출자가 완전 신뢰 프로세스 구성 요소를 시작하려는 앱의 프로세스 상대 응용 프로그램 식별자입니다. 완전 신뢰 프로세스는 이 구문 분석으로 어떤 앱이 호출했는지 파악할 수 있습니다.</param>
+      <returns>대기할 IAsyncAction입니다.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String,System.String)">
+      <summary>매개 변수를 사용하여 지정된 응용 프로그램 ID에 대한 완전 신뢰 프로세스를 시작합니다.</summary>
+      <param name="fullTrustPackageRelativeAppId">호출자가 완전 신뢰 프로세스 구성 요소를 시작하려는 앱의 프로세스 상대 응용 프로그램 식별자입니다. 완전 신뢰 프로세스는 이 구문 분석으로 어떤 앱이 호출했는지 파악할 수 있습니다.</param>
+      <param name="parameterGroupId">시작된 프로세스에 전달할 매개 변수에 대한 매개 변수 그룹 ID입니다.</param>
+      <returns>대기할 IAsyncAction입니다.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync">
+      <summary>현재 응용 프로그램 ID에 대한 완전 신뢰 프로세스를 시작합니다.</summary>
+      <returns>대기할 IAsyncAction입니다.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync(System.String)">
+      <summary>매개 변수를 사용하여 현재 응용 프로그램 ID에 대한 완전 신뢰 프로세스를 시작합니다.</summary>
+      <param name="parameterGroupId">시작된 프로세스에 전달할 매개 변수에 대한 매개 변수 그룹 ID입니다.</param>
+      <returns>대기할 IAsyncAction입니다.</returns>
+    </member>
+  </members>
+</doc>

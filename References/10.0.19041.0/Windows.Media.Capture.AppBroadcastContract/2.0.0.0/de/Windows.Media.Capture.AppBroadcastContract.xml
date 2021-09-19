@@ -1,0 +1,997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.AppBroadcastContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.Background.AppBroadcastTrigger">
+      <summary>Steht für ein Ereignis, das eine Hintergrundaufgabe ausführt, wenn eine Anwendung die Spielverlauf-Übertragung auslöst.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Background.AppBroadcastTrigger.#ctor(System.String)">
+      <summary>Erstellt einen AppBroadcastTrigger mit dem Namen des Anbieters, der die Übertragung des Spiel ausführt.</summary>
+      <param name="providerKey">Der Name des Anbieters, der die Übertragung des Spiels ausführt.</param>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTrigger.ProviderInfo">
+      <summary>Enthält Informationen zu der Anwendung, die das Spiel überträgt.</summary>
+      <returns>Informationen zu dem Anbieter, der das Spiel überträgt, z. B. die maximale Video-Bitrate, die Höhe und Breite des Videos usw.</returns>
+    </member>
+    <member name="T:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo">
+      <summary>Enthält Informationen zu der Anwendung, die Übertragung wie Logo, Name der Anzeige und Video Merkmale.</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.DisplayNameResource">
+      <summary>Legt den Ressourcenstandort für den UI-Anzeigenamen des Anbieters fest, der die Übertragung bereitstellt.</summary>
+      <returns>Der Speicherort der Ressource für den Anzeigenamen. Beispielsweise "ms-resource://resources/DisplayName"</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.LogoResource">
+      <summary>Ruft den Ressourcenspeicherort des Logos des Anbieters, der die Übertragung bereitstellt ab oder legt diesen fest.</summary>
+      <returns>Der Ressourcenstandort für das Logo. Beispielsweise "ms-resource://resources/Logo .png"</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoBitrate">
+      <summary>Ruft die maximale Bitrate, die der Anbieter der Übertragung bereitstellt ab oder legt diesen fest.</summary>
+      <returns>Die maximale Bitrate in Bits pro Sekunde. Beispielsweise 2500000 2,5 MBit/s =</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoHeight">
+      <summary>Ruft die maximale Höhe eines Videos ab oder legt diese fest, die der Anbieter der Spielübertragung unterstützt.</summary>
+      <returns>Maximale Höhe der Videos in Pixeln.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoWidth">
+      <summary>Ruft die maximale Höhe eines Videos ab oder legt diese fest, die der Anbieter der Spielübertragung unterstützt.</summary>
+      <returns>Maximale Video-Breite in Pixeln.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.VideoKeyFrameInterval">
+      <summary>Ruft die Zeitspanne zwischen Video Keyframes ab und legt diese fest.</summary>
+      <returns>Die Zeitspanne zwischen Keyframes.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundService">
+      <summary>Ein Objekt, das eine Schnittstelle zwischen der Übertragung UWP-App und dem System gehosteten Broadcast-Dienst bereitstellt. Diese Klasse ermöglicht den Zugriff auf Objekte, die den Broadcast-Authentifizierungs-Servicer erleichtern, die Bandbreiten-Funktionen des Internet des Anbieterdiensts des Geräts testen und es Ihren Aufgaben ermöglichen, erfasste Audio- und Video-Frames zu ändern, so dass Sie dem Broadcast-Anbieter-Service gesendet werden können.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.AppId">
+      <summary>Ruft eine Zeichenfolge mit einem Bezeichner für das zu übertragende Spiel ab. Wenn auf ein Desktopgerät übertragen wird, ist dieser Wert das Spiel, für das der Benutzer die Übertragung initiiert.</summary>
+      <returns>Eine Zeichenfolge mit einem vom System definierten Bezeichner für die App.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastChannel">
+      <summary>Ruft eine Zeichenfolge mit dem Namen des aktuellen Broadcast Channels ab.</summary>
+      <returns>Eine Zeichenfolge mit dem Namen des aktuellen Broadcast Channels.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastLanguage">
+      <summary>Ruft eine Zeichenfolge ab, die die Sprache des aktuellen Broadcast Channels darstellt.</summary>
+      <returns>Eine Zeichenfolge, die die Sprache des aktuellen Broadcast Channels darstellt.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastTitle">
+      <summary>Ruft eine Zeichenfolge mit dem benutzerdefinierten Titel der Übertragung ab.</summary>
+      <returns>Eine Zeichenfolge mit dem benutzerdefinierten Titel der Übertragung.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.PlugInState">
+      <summary>Ruft den Wert des aktuellen Status der Hintergrund-Broadcast-Aufgabe ab oder legt diesen fest.</summary>
+      <returns>Ein Wert, der den aktuellen Status der Hintergrund-Broadcast-Aufgabe definiert.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.SignInInfo">
+      <summary>Ruft ein Objekt ab, das die Anmelde-Informationen für den Übertragungs-Hintergrund-App-Dienst darstellt.</summary>
+      <returns>Ein Objekt, das die Anmelde-Informationen für den Übertragungs-Hintergrund-App-Dienst darstellt.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.StreamInfo">
+      <summary>Ruft ein Objekt ab, das den Streamzustand des Übertragungshintergrund-App-Diensts verwaltet.</summary>
+      <returns>Ein Objekt, das den Streamzustand des Übertragungshintergrund-App-Diensts verwaltet.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.TitleId">
+      <summary>Ruft einen eindeutigen Bezeichner für den Titel ab, der übertragen wird.</summary>
+      <returns>Der eindeutige Bezeichner für den zu übertragenden Titel.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.ViewerCount">
+      <summary>Ruft die Anzahl der Benutzer ab, die die Übertragung ansehen oder legt diese fest,.</summary>
+      <returns>Die Anzahl der Benutzer der Übertragung.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastChannelChanged">
+      <summary>Tritt ein, wenn sich der Wert der BroadcastChannel-Eigenschaft ändert.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastLanguageChanged">
+      <summary>Tritt ein, wenn sich der Wert der BroadcastLanguage-Eigenschaft ändert.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastTitleChanged">
+      <summary>Tritt ein, wenn sich der Wert der BroadcastTitle-Eigenschaft ändert.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.HeartbeatRequested">
+      <summary>Ausgelöst durch das System in regelmäßigen Abständen, um sicherzustellen, dass die Aufnahme-Hintergrundaufgabe derzeit aktiv ist.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastBackgroundService.TerminateBroadcast(Windows.Media.Capture.AppBroadcastTerminationReason,System.UInt32)">
+      <summary>Beendet die Übertragung.</summary>
+      <param name="reason">Ein Wert, der den Grund angibt, wieso die Übertragung beendet ist.</param>
+      <param name="providerSpecificReason">Eine ganze Zahl, die einen Anbieter spezifischen Grund angibt, wieso die Übertragung beendet ist.</param>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo">
+      <summary>Ein Objekt, das die Anmelde-Informationen für den Hintergrund-Service der Übertragung angibt.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.AuthenticationResult">
+      <summary>Ruft ein Objekt ab, das das Ergebnis eines Web-Authentifizierungsvorgangs darstellt.</summary>
+      <returns>Ein Objekt, das das Ergebnis eines Web-Authentifizierungsvorgangs darstellt.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.OAuthCallbackUri">
+      <summary>Ruft die OAuth-Rückruf-URI ab oder legt diese fest.</summary>
+      <returns>Die OAuth-Rückruf-URI.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.OAuthRequestUri">
+      <summary>Ruft die OAuth-Anforderungs-URI ab oder legt diese fest.</summary>
+      <returns>Die OAuth-Anforderungs-URI.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.SignInState">
+      <summary>Ruft ein Objekt ab, das den Anmeldungszustand des Hintergrund-Service der App-Übertragung anzeigt.</summary>
+      <returns>Die Anmelde-Zustand der App des übertragenden Hintergrund-Diensts.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.UserName">
+      <summary>Ruft den Benutzernamen für den Hintergrund-Service-Authentifizierung für die Übertragungs-App fest.</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged">
+      <summary>Tritt auf, wenn der Anmelde-Zustand des Hintergrund-Service der App-Übertragung ändert.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.UserNameChanged">
+      <summary>Tritt auf, wenn sich die UserName-Eigenschaft ändert.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo">
+      <summary>Verwaltet den Stream Zustand des App-Diensts Broadcast Hintergrund.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.AudioCodec">
+      <summary>Ruft den Audio-Codecs für den Hintergrund-Service der Übertragungs-App ab oder legt diesen fest.</summary>
+      <returns>Die Audio-Codec der vom App-Dienst Broadcast Hintergrund verwendet wird.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.BandwidthTestBitrate">
+      <summary>Ruft oder legt die Bandbreite Test Bitrate für die App Hintergrund-Service-Übertragung fest.</summary>
+      <returns>Die Bandbreiten-Test Bitrate für die App Hintergrund-Service-Übertragung.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.BroadcastStreamReader">
+      <summary>Ruft den Broadcast-StreamReader für die App Hintergrund-Service-Übertragung ab.</summary>
+      <returns>Der Broadcast-StreamReader für die App Hintergrund-Service-Übertragung.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.DesiredVideoEncodingBitrate">
+      <summary>Legt die gewünschte Video Bitrate für die App Hintergrund-Service-Übertragung fest oder ruft diese ab.</summary>
+      <returns>Die gewünschte Video Codierungs-Bitrate für die App Hintergrund-Service-Übertragung.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.StreamState">
+      <summary>Ruft einen Wert ab, der den Zustands der App Stream-Broadcast angibt.</summary>
+      <returns>Ein Wert, der den Zustands der App Stream-Broadcast angibt.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.StreamStateChanged">
+      <summary>Tritt auf, wenn der Zustand der App Broadcast-Stream ändert.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.VideoEncodingBitrateChanged">
+      <summary>Tritt auf, wenn die App Broadcast Videocodierungsbitrate ändert.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.VideoEncodingResolutionChanged">
+      <summary>Tritt auf, wenn die App Broadcast Videocodierungsauflösung ändert.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.ReportProblemWithStream">
+      <summary>Benachrichtigt das System, dass ein Problem mit den Stream Broadcast erkannt wurde.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraCaptureState">
+      <summary>Gibt den Status der App Broadcast-Kameraaufnahme an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Failed">
+      <summary>App Broadcast Kameraaufnahme ist fehlgeschlagen.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Started">
+      <summary>App Broadcast Kameraaufnahme wurde gestartet.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Stopped">
+      <summary>App Broadcast Kameraaufnahme wird angehalten.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs">
+      <summary>Stellt Daten für das AppBroadcast.CameraCaptureStateChanged-Ereignis bereit.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs.ErrorCode">
+      <summary>Ruft den Fehlercode im Zusammenhang mit dem Ereignis ab.</summary>
+      <returns>Ruft den Fehler ab, der dem Ereignis zugeordnet ist.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs.State">
+      <summary>Ruft einen Wert ab, der den neuen Zustand der App Broadcast Kameraaufnahme angibt.</summary>
+      <returns>Ein Wert, der den neuen Zustand der App Broadcast Kameraaufnahme angibt.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraOverlayLocation">
+      <summary>Gibt die Position der Kamera-Überlagerung innerhalb des Broadcast Videoframes an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomCenter">
+      <summary>Die Überlagerung wird unten in der Mitte des Frames gesetzt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomLeft">
+      <summary>Die Überlagerung wird unten links des Frames gesetzt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomRight">
+      <summary>Die Überlagerung wird unten rechts des Frames gesetzt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleCenter">
+      <summary>Die Überlagerung wird unten in der Mitte des Frames gesetzt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleLeft">
+      <summary>Die Überlagerung wird unten in der Mitte links des Frames gesetzt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleRight">
+      <summary>Die Überlagerung wird unten in der Mitte rechts des Frames gesetzt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopCenter">
+      <summary>Die Überlagerung wird oben in der Mitte des Frames gesetzt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopLeft">
+      <summary>Die Überlagerung wird oben links des Frames gesetzt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopRight">
+      <summary>Die Überlagerung wird oben rechts des Frames gesetzt.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraOverlaySize">
+      <summary>Gibt die Größe der Kamera-Überlagerung innerhalb des Broadcast Videoframes an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Large">
+      <summary>Große Überlagerungs-Größe.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Medium">
+      <summary>Mittlere Überlagerungs-Größe.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Small">
+      <summary>Kleine Überlagerungs-Größe.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCaptureTargetType">
+      <summary>Gibt den Typ des Ziels für die App-Übertragung an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCaptureTargetType.AppView">
+      <summary>Die App-Ansicht wird erfasst.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCaptureTargetType.EntireDisplay">
+      <summary>Die gesamte Anzeige wird erfasst.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason">
+      <summary>Ruft einen Wert ab, der den Grund angibt, wieso der Übertragungsmodus beendet wurde</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.AuthorizationFail">
+      <summary>Die Übertragung wurde aufgrund eines Authentifizierungsfehlers beendet.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.ForegroundAppActivated">
+      <summary>Die Übertragung wurde beendet, da die Vordergrund-App aktiviert wurde.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.NormalExit">
+      <summary>Die Übertragung wurde normal beendet.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.UserCanceled">
+      <summary>Der Benutzer hat die Übertragung abgebrochen.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastGlobalSettings">
+      <summary>Gibt globale Sende-Einstellungen an, die in allen UWP-Apps beibehalten wurde.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.CameraOverlayLocation">
+      <summary>Ruft einen Wert ab der Position der Kamera-Überlagerung innerhalb des Broadcast Videoframe angieht..</summary>
+      <returns>Ein Wert, der die Position der Kamera Überlagerung innerhalb des Broadcast Videoframes angibt.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.CameraOverlaySize">
+      <summary>Ruft einen Wert ab, der die Grösse der Kamera-Überlagerung innerhalb des Broadcast Videoframe angibt.</summary>
+      <returns>Ein Wert, der die Größe der Kamera-Überlagerung innerhalb des Broadcast Videoframes angibt.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.HasHardwareEncoder">
+      <summary>Ruft einen Wert ab, der angibt, ob das aktuelle Gerät Hardware-basierten Mediencodierungseigenschaften unterstützt.</summary>
+      <returns>"True", wenn das Gerät den Wertmodus unterstützt, andernfalls "False".</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsAudioCaptureEnabled">
+      <summary>Ruft einen Wert ab, der angibt, ob die Audioausgabe für die Übertragung aktiviert ist, oder legt diesen fest.</summary>
+      <returns>True, wenn die Audioaufnahme aktiviert ist, andernfalls False.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsBroadcastEnabled">
+      <summary>Ruft einen Wert, der angibt, ob der Übertragung auf dem Gerät aktiviert ist.</summary>
+      <returns>"True", wenn EDP auf dem Gerät aktiviert ist, andernfalls "False".</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsCameraCaptureEnabledByDefault">
+      <summary>Ruft einen Wert ab, der angibt, ob Kameraaufnahme für die Übertragung standardmäßig aktiviert ist, oder legt diesen Wert fest.</summary>
+      <returns>"True" wenn die Kameraerfassung standardmäßig aktiviert ist; andernfalls "False".</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsCursorImageCaptureEnabled">
+      <summary>Ruft einen Wert, der angibt, ob das Cursor-Bild aufgezeichnet wird.</summary>
+      <returns>"True", wenn das Cursor Image erfasst wurde. Andernfalls "False".</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsDisabledByPolicy">
+      <summary>Ruft einen Wert, der angibt, ob die Übertragung von der Gruppenrichtlinie auf dem Gerät deaktiviert ist.</summary>
+      <returns>"True", wenn die Übertragung von der Gruppenrichtlinie auf dem Gerät deaktiviert ist; Andernfalls "False".</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsEchoCancellationEnabled">
+      <summary>Ruft einen Wert ab, der angibt, ob das akustische Echo aktiviert ist, oder legt diesen fest.</summary>
+      <returns>"True", wenn akustisches Echo aktiviert ist; andernfalls "False".</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsGpuConstrained">
+      <summary>Ruft einen Wert ab, der angibt, ob GPU auf dem Gerät eingeschränkt ist.</summary>
+      <returns>"True", wenn der Raster gültig ist; andernfalls "False".</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsMicrophoneCaptureEnabledByDefault">
+      <summary>Ruft einen Wert ab, der angibt, ob Mikrofonerfassung für die Übertragung standardmäßig aktiviert ist, oder legt diesen Wert fest.</summary>
+      <returns>True, wenn die Mikrofonerfassung standardmäßig aktiviert ist; andernfalls False.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.MicrophoneGain">
+      <summary>Ruft einen Wert ab oder legt einen Wert fest, der die Verstärkung des Mikrofons für die Audio-Übertragung angibt.</summary>
+      <returns>Die Verstärkung des Mikrofons für die Audo-Übertrgung.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.SelectedCameraId">
+      <summary>Ruft eine Zeichenfolge ab, die die Geräte-ID der für die Übermittlung der Videoaufnahme verwendeten Kamera enthält oder legt diese fest.</summary>
+      <returns>Die Geräte-ID der Kamera, die für die Übermittlung der Videoaufnahme verwendet werden soll.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.SystemAudioGain">
+      <summary>Ruft die System-Verstärkung für die Übermittlung der Audioaufnahme ab oder legt diese fest.</summary>
+      <returns>Die Verstärkung des Systems für die Audo-Übertragung.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs">
+      <summary>Stellt Daten für das AppBroadcastBackgroundService.HeartbeatRequested-Ereignis bereit, das vom System in regelmäßigen Abständen ausgelöst wird, um sicherzustellen, dass die Aufgabe im Hintergrund senden derzeit aktiv ist.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs.Handled">
+      <summary>Ruft einen Wert ab, der angibt, ob die Aufgabe im Hintergrund senden derzeit aktiv ist.</summary>
+      <returns>"True", wenn die Hintergrundaufgabe senden derzeit aktiv ist. Andernfalls "False".</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastManager">
+      <summary>Bietet Zugriff auf globale Broadcast Einstellungen für die aktuellen Anbietereinstellungen für Geräte und Übertragung.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.ApplyGlobalSettings(Windows.Media.Capture.AppBroadcastGlobalSettings)">
+      <summary>Aktualisiert die globalen Broadcast Einstellungen für das aktuelle Gerät.</summary>
+      <param name="value">Ein Objekt, das die globalen Broadcast Einstellungen für das aktuelle Gerät verfügbar macht.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.ApplyProviderSettings(Windows.Media.Capture.AppBroadcastProviderSettings)">
+      <summary>Aktualisiert die Anbietereinstellungen für die Übertragung.</summary>
+      <param name="value">
+      </param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.GetGlobalSettings">
+      <summary>Ruft ein Objekt ab, das die globalen Broadcast Einstellungen für das aktuelle Gerät verfügbar macht.</summary>
+      <returns>Ein Objekt, das die globalen Broadcast Einstellungen für das aktuelle Gerät verfügbar macht.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.GetProviderSettings">
+      <summary>Ruft ein Objekt ab, das die Anbietereinstellungen für die Übertragung verfügbar macht.</summary>
+      <returns>Ein Objekt, das die Anbietereinstellungen für die Übertragung verfügbar macht.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState">
+      <summary>Gibt den Status der App Broadcast-Mikrofon-Erfassung an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Failed">
+      <summary>Mikrofon-Aufnahme ist fehlgeschlagen.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Started">
+      <summary>Mikrofon Aufnahme wurde gestartet.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Stopped">
+      <summary>Mikrofon Aufnahme wurde beendet.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs">
+      <summary>Stellt Daten für das AppBroadcastState.MicrophoneCaptureStateChanged-Ereignis bereit.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs.ErrorCode">
+      <summary>Ruft den Fehlercode im Zusammenhang mit dem Ereignis ab.</summary>
+      <returns>Ruft den Fehler ab, der dem Ereignis zugeordnet ist.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs.State">
+      <summary>Ruft einen Wert ab, der den Zustand der App Mikrofon-Übertragung aufzeichnet.</summary>
+      <returns>Ein Wert, der den Zustand der App Mikrofon-Übertragung anzeigt.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugIn">
+      <summary>Enthält Informationen über die App Broadcast-Plug-In.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.AppId">
+      <summary>Ruft die eindeutige ID der App ab, die mit der App Broadcast-Plug-In verknüpft ist.</summary>
+      <returns>Die eindeutige ID der App, die mit der App Broadcast-Plug-In verknüpft ist.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.DisplayName">
+      <summary>Ruft den Anzeigenamen der App Broadcast-Plug-In ab.</summary>
+      <returns>Der Anzeigenamen der App Broadcast-Plug-In.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.Logo">
+      <summary>Ruft einen Stream mit dem Logobild von der App Broadcast-Plug-In ab.</summary>
+      <returns>Ein Stream, der das Logobild von der App Broadcast-Plug-In enthält.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.ProviderSettings">
+      <summary>Ruft ein Objekt ab, das die Anbieter-Einstellungen für die App Broadcast-Plug-In anzeigt.</summary>
+      <returns>Die Anbieter-Einstellungen für die App Übertragungs-Plug-In.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInManager">
+      <summary>Verwaltet die App-Broadcast-Plug-Ins.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.DefaultPlugIn">
+      <summary>Ruft das standardmäßige App Broadcast-Plug-In ab.</summary>
+      <returns>Die standardmäßige App Übertragungs-Plug-In.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.IsBroadcastProviderAvailable">
+      <summary>Ruft einen Wert ab, der angibt, ob der Anbieter der Übertragung verfügbar ist.</summary>
+      <returns>"True", wenn das der Anbieter verfügbar ist, andernfalls "False";</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.PlugInList">
+      <summary>Ruft eine schreibgeschützte Liste mit allen App-Broadcast Plug-Ins ab.</summary>
+      <returns>Eine schreibgeschützte Liste mit allen App-Broadcast Plug-Ins.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPlugInManager.GetDefault">
+      <summary>Ruft die Standard-Plug-In für die App-Übertragung ab.</summary>
+      <returns>Das Standard-Plug-In für die App Übertragung.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPlugInManager.GetForUser(Windows.System.User)">
+      <summary>Ruft die App Übertragungs-Plug-In Zusammenhang mit dem angegebenen Benutzer auf.</summary>
+      <param name="user">Der Benutzer, für den die App Plug-In übertragen abgerufen werden soll.</param>
+      <returns>Die App Plug-In Übertragen ist dem angegebenen Benutzer zugeordnet.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInState">
+      <summary>Gibt den aktuellen Status der Hintergrundaufgabe Übertragung an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.InBandwidthTest">
+      <summary>Die Übertragung Hintergrundaufgabe ist gerade daran, die Bandbreite der Geräteverbindung für den Übertragungsdienst zu testen. Wenn der Systemtest abgeschlossen ist, wird die AppBroadcastBackgroundServiceStreamInfo.BandwidthTestBitrate-Eigenschaft das Ergebnis der Test-Bandbreite angeben.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.Initialized">
+      <summary>Die Hintergrundaufgabe Übertragung wird initialisiert.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.MicrosoftSignInRequired">
+      <summary>Der aktuelle Benutzer muss mit dem Microsoft Service authentifiziert werden.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.OAuthSignInRequired">
+      <summary>Der aktuelle Benutzer muss mit dem Broadcast Anbieterdienst authentifiziert werden.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.ProviderSignInRequired">
+      <summary>Die Hintergrundaufgabe für die Übertragung muss den aktuellen Benutzers mit dem Anbieterdienst Broadcast authentifizieren.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.ReadyToBroadcast">
+      <summary>Die Übertragung Hintergrundaufgabe kann übertragen.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.Unknown">
+      <summary>Aktueller Betriebszustand ist unbekannt.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs">
+      <summary>Stellt Daten für das AppBroadcastState.PlugInStateChanged-Ereignis bereit.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs.PlugInState">
+      <summary>Ruft den neuen Zustand des App-Broadcast-Plug-In ab.</summary>
+      <returns>Der neue Zustand der App Broadcast-Plug-In.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreview">
+      <summary>Bietet Informationen und den Zugriff auf die Vorschau für die App Übertragung. </summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.ErrorCode">
+      <summary>Ruft den Fehlercode ab, der der App Übertragungsvorschau zugeordnet ist.</summary>
+      <returns>Der Fehlercode, der der App Übertragungsvorschau zugeordnet ist.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.PreviewState">
+      <summary>Ruft einen Wert ab, der den Zustand der App Broadcast Vorschau angibt.</summary>
+      <returns>Ein Wert, der den Zustand der App Übertragungs-Vorschau angibt.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.PreviewStreamReader">
+      <summary>Ruft einen StreamReader für die Vorschau für den App-Broadcast ab.</summary>
+      <returns>Ein Streamreader für die Vorschau für die App Übertragungsvorschau.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastPreview.PreviewStateChanged">
+      <summary>Tritt auf, wenn sich der Zustand der App Übertragungs-Vorschau ändert.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPreview.StopPreview">
+      <summary>Die App Übertragungsvorschau anhalten.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewState">
+      <summary>Gibt den Zustand einer App Broadcast-Vorschau an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Failed">
+      <summary>Die Vorschau für die App Übertragungsvorschau ist fehlgeschlagen.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Started">
+      <summary>Die Vorschau für die App Übertragung wurde gestartet.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Stopped">
+      <summary>Die Vorschau für die App Übertragung ist beendet.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs">
+      <summary>Stellt Daten für das AppBroadcastPreview.PreviewStateChanged-Ereignis bereit.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs.ErrorCode">
+      <summary>Ruft den Fehlercode im Zusammenhang mit dem Ereignis ab.</summary>
+      <returns>Ruft den Fehler ab, der dem Ereignis zugeordnet ist.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs.PreviewState">
+      <summary>Ruft den neuen Zustand der App Übertragungs-Vorschau ab.</summary>
+      <returns>Der neue Zustand der App Übertragungs-Vorschau.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamReader">
+      <summary>Bietet Informationen über und den Zugriff auf die App Übertragungs-Vorschau-Stream.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoBitmapAlphaMode">
+      <summary>Ruft den Alphamodus Video Bitmap für die App Übertragungsvorschau-Stream ab.</summary>
+      <returns>Die Video Bitmap für die App Übertragungsvorschau-Stream.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoBitmapPixelFormat">
+      <summary>Ruft das Video-Pixelformat für die App Broadcast Vorschaustream ab.</summary>
+      <returns>Das Video-Bitmappixelformat für die App Broadcast Vorschaustream.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoHeight">
+      <summary>Ruft die Videohöhe in Pixel der App Broadcast Vorschaustream ab.</summary>
+      <returns>Die Videohöhe in Pixel der App Broadcast Vorschaustream.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoStride">
+      <summary>Ruft den Videoschritt der App Broadcast-Vorschaustream ab.</summary>
+      <returns>Der Videoschritt der App Broadcast-Vorschaustream.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoWidth">
+      <summary>Ruft die Videobreite in Pixel der App Broadcast Vorschaustream ab.</summary>
+      <returns>Ruft die Videoweite in Pixel der App Broadcast Vorschaustream ab.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoFrameArrived">
+      <summary>Tritt auf, wenn ein neuer Videoframe aus dem App Broadcast-Vorschaustream eingeht.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPreviewStreamReader.TryGetNextVideoFrame">
+      <summary>Versucht, den nächsten Videoframe aus der App Broadcast-Vorschaustream abzurufen.</summary>
+      <returns>Der nächste Videoframe von der App Broadcast-Vorschaustream.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame">
+      <summary>Stellt einen Videoframe aus der App Broadcast Vorschaustream dar.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame.VideoBuffer">
+      <summary>Ruft den Puffer ab, der die Bilddaten für die App Broadcast-Vorschaustream Videoframe enthält.</summary>
+      <returns>Der Puffer, der die Bilddaten für die App Broadcast-Vorschaustream Videoframe enthält.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame.VideoHeader">
+      <summary>Ruft den Titel ab, der die Bilddaten für die App Broadcast-Vorschaustream Videoframe beschreibt.</summary>
+      <returns>Der Titel, der die Bilddaten für die App Broadcast-Vorschaustream Videoframe beschreibt.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader">
+      <summary>Stellt Metadaten über eine App Broadcast-Vorschaustream -Videoframe dar.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.AbsoluteTimestamp">
+      <summary>Ruft den absoluten Zeitstempel für die App Broadcast-Vorschaustream für Videoframes.</summary>
+      <returns>Der absolute Zeitstempel für die App Broadcast-Vorschaustream für Videoframes.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.Duration">
+      <summary>Ruft die Dauer für die App Broadcast-Vorschaustream für Videoframe ab.</summary>
+      <returns>Die Dauer für die App Broadcast-Vorschaustream für Video-Frame.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.FrameId">
+      <summary>Ruft die Frame-ID für die App Broadcast-Vorschaustream für Videoframe ab.</summary>
+      <returns>Die Frame-ID für die App Broadcast-Vorschaustream für Videoframe ab.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.RelativeTimestamp">
+      <summary>Ruft den relativen Zeitstempel für die App Broadcast-Vorschaustream für Videoframes ab.</summary>
+      <returns>Der relative Zeitstempel für die App Broadcast-Vorschaustream für Videoframe.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastProviderSettings">
+      <summary>Bietet Zugriff auf die Einstellungen des Remote-Broadcast Anbieter-Diensts. Diese Einstellungen können angezeigt und vom Broadcast-Anbieter geändert werden.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.AudioEncodingBitrate">
+      <summary>Ruft die Audio-Codierungs-Bitrate für den Broadcast-Stream fest, in Bits pro Sekunde.</summary>
+      <returns>Die Audio-Codierungs-Bitrate für den Broadcast-Stream, in Bits pro Sekunde.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingBitrate">
+      <summary>Ruft die benutzerdefinierte Audio-Codierungs-Bitrate für den Broadcast-Stream fest, in Bits pro Sekunde.</summary>
+      <returns>Die benutzerdefinierte Audio-Codierungs-Bitrate für den Broadcast-Stream fest, in Bits pro Sekunde.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingHeight">
+      <summary>Ruft eine benutzerdefiniertes Videocodierungshöhe des Broadcast-Streams ab.</summary>
+      <returns>Die benutzerdefinierte Videocodierungshöhe des Broadcast-Streams.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingWidth">
+      <summary>Ruft eine benutzerdefiniertes Videocodierungsbreite des Broadcast-Streams ab.</summary>
+      <returns>Die benutzerdefinierte Videocodierungsbreite des Broadcast-Streams.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.DefaultBroadcastTitle">
+      <summary>Ruft den Standardtitel für Broadcasts ab.</summary>
+      <returns>Der Standardtitel für Broadcasts.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.VideoEncodingBitrateMode">
+      <summary>Ruft den Videocodierungsbitratemodus für Remote-Broadast-Anbieterservices ab.</summary>
+      <returns>Die Videocodierungsbitrate.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.VideoEncodingResolutionMode">
+      <summary>Ruft den Videocodierungsauflösungsmodus für Remote-Broadast-Anbieterservices ab.</summary>
+      <returns>Der Vidoeauflösungsmodus</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastServices">
+      <summary>Den Zustand der App Broadcasts verwalten.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.BroadcastLanguage">
+      <summary>Ruft eine Zeichenfolge ab, die die Spracheinstellungen für App Broadast angibt.</summary>
+      <returns>Eine Zeichenfolge, die Spracheinstellungen für App Broadast angibt.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.BroadcastTitle">
+      <summary>Ruft den Titel des Broadcasts ab.</summary>
+      <returns>Der Titel des Broadcasts.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.CanCapture">
+      <summary>Ruft einen Wert ab, der angibt, ob der Broadcastservice aufzeichnen kann.</summary>
+      <returns>"True", wenn der Broadcastservice aufzeichnen kann; sonst "false".</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.CaptureTargetType">
+      <summary>Ruft einen Wert ab, der den Typ des Aufnahmeziels zur Nutzung in Broadcasts definiert, oder legt einen solchen Wert fest.</summary>
+      <returns>Ein Wert, der den Typ des Aufnahmeziel für Broadcast definiert.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.State">
+      <summary>Ruft den aktuellen Status der App Broadcastservices ab.</summary>
+      <returns>Der aktuelle Status der App Broadcastservices.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.UserName">
+      <summary>Ruft den Benutzernamen für die Authentifizierung für die App Broadcast ab.</summary>
+      <returns>Der Benutzernamen für die Authentifizierung für die App Broadcast.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.EnterBroadcastModeAsync(Windows.Media.Capture.AppBroadcastPlugIn)">
+      <summary>Führt dazu, dass die App Broadcastservices mit der definierten App Broadcast-Plug-in in den Broadcastmodus übergeht.</summary>
+      <param name="plugIn">Die App Broadcast-Plug-In mit der in den Broadcastmodus gewechselt wird.</param>
+      <returns>Ein asynchroner Vorgang, der einen Statuscode bei erfolgreichem Abschluss zurückgibt.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.ExitBroadcastMode(Windows.Media.Capture.AppBroadcastExitBroadcastModeReason)">
+      <summary>Führt dazu, dass die App Broadcastservice mit dem angegebenen Grund den Broadcastmodus beendet.</summary>
+      <param name="reason">Ein Objekt, das den Grund dafür angibt, dass der Broadcastmodus beendet wird.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.PauseBroadcast">
+      <summary>Unterbricht die App Broadcasting.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.ResumeBroadcast">
+      <summary>Fortsetzen der App Broadcasting.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.StartBroadcast">
+      <summary>Startet die App Broadcasting.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.StartPreview(Windows.Foundation.Size)">
+      <summary>Startet die App Broadcast-Vorschau.</summary>
+      <param name="desiredSize">Ein Objekt, das die Größe in Pixel der App Broadcast-Vorschau definiert.</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInResult">
+      <summary>Definiert das Ergebnis eines Anmeldevorgangs.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.AuthenticationFailed">
+      <summary>Die Anmelde-Authentifizierung ist fehlgeschlagen.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.ServiceUnavailable">
+      <summary>Der Anmeldeservice ist nicht verfügbar.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Success">
+      <summary>Der Anmeldevorgang wurde erfolgreich ausgeführt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Unauthorized">
+      <summary>Der authentifizierte Benutzer verfügt nicht über die Berechtigung zum Zugriff auf die angeforderte Ressource.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Unknown">
+      <summary>Das Anmelde-Ergebnis ist unbekannt.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInState">
+      <summary>Gibt den aktuellen Anmelde-Status für eine Broadcast-App bekannt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.MicrosoftSignInComplete">
+      <summary>Eine Anmeldung mit dem Microsoft-Dienst ist abgeschlossen.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.MicrosoftSignInInProgress">
+      <summary>Eine Anmeldung mit dem Microsoft-Service wird ausgeführt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.NotSignedIn">
+      <summary>Der Benutzer ist nicht angemeldet.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.OAuthSignInComplete">
+      <summary>Ein Anmeldevorgang mit dem Anbieterdienst Broadcast ist abgeschlossen.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.OAuthSignInInProgress">
+      <summary>Ein Anmeldevorgang mit dem Anbieterdienst Broadcast ist in Bearbeitung.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs">
+      <summary>Stellt Daten für das AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged-Ereignis bereit.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs.Result">
+      <summary>Ruft das Ergebnis des Anmeldevorgangs bei der App Broadcast ab, der mit dem AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged-Ereignis verknüpft ist.</summary>
+      <returns>Das Ergebnis des Anmeldevorgangs.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs.SignInState">
+      <summary>Ruft den aktuellen Broadcast App Anmelde-Zustand nach dem AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged ausgelöst wird.</summary>
+      <returns>Der aktuelle Anmeldestatus.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastState">
+      <summary>Repräsentiert und verwaltet den Zustand einer App-Übertragung.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.AuthenticationResult">
+      <summary>Ruft das Ergebnis der Authentifizierung der App Broadcast-Zustand ab.</summary>
+      <returns>Das Authentifizierungsergebnis der App Broadcast-Zustand.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.CameraCaptureError">
+      <summary>Ruft den Kameraaufnahmefehler ab, der der App Broadcast-Status zugeordnet ist.</summary>
+      <returns>Der Kameraaufnahmefehler der der App Broadcast-Status zugeordnet ist.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.CameraCaptureState">
+      <summary>Ruft den Kameraaufnahmenstatus ab.</summary>
+      <returns>Ruft den Kameraaufnahmenstatus ab.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.EncodedVideoSize">
+      <summary>Ruft die codierte Video-Größe der App Broadcast ab.</summary>
+      <returns>Die codierte Video-Größe der App Broadcast.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.IsCaptureTargetRunning">
+      <summary>Ruft einen Wert ab, der angibt, ob das Ziel für Aufnahme derzeit ausgeführt wird.</summary>
+      <returns>"True", wenn das Aufnahme-Ziel derzeit ausgeführt wird; andernfalls "False".</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureError">
+      <summary>Ruft den Mikrofonaufnahmefehler ab, der der App Broadcast-Status zugeordnet ist.</summary>
+      <returns>Der Mikrofonaufnahmefehler, der der App Broadcast-Status zugeordnet ist.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureState">
+      <summary>Ruft den Mikrofonaufnahmenstatus ab.</summary>
+      <returns>Der Mikrofonaufnahmenstatus.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.OAuthCallbackUri">
+      <summary>Ruft den OAuth-Rückruf ab, der der App Broadcast Status zugeordnet ist.</summary>
+      <returns>Die OAuth-Rückruf-URI.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.OAuthRequestUri">
+      <summary>Ruft die OAuth-URI-Anfrage ab, die der App Broadcast Status zugeordnet ist.</summary>
+      <returns>Die OAuth-Anforderungs-URI.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.PlugInState">
+      <summary>Ruft den Zustand für das Plug-In ab, das der App Broadcast-Status zugeordnet ist.</summary>
+      <returns>Der Zustand des Plug-Ins, das der App Broadcast-Status zugeordnet ist.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ShouldCaptureCamera">
+      <summary>Ruft einen Wert ab, der angibt, ob die Kamera für die App Broadcast aufgenommen werden soll oder legt diesen fest.</summary>
+      <returns>Ein Wert, der angibt, ob die Kamera für die App Broadcast aufgenommen werden soll.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ShouldCaptureMicrophone">
+      <summary>Ruft einen Wert ab oder legt einen fest, der angibt, ob das Mikrofon für die App Broadcast aufgenommen werden soll.</summary>
+      <returns>Ein Wert, der angibt, ob das Mikrofon für die App Broadcast aufgenommen werden soll.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.SignInState">
+      <summary>Ruft einen Wert ab, der den Anmelde-Zustand der App Broadcast definiert.</summary>
+      <returns>Ein Wert, der den Anmelde-Zustand der App Broadcast definiert.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.StreamState">
+      <summary>Ruft einen Wert, der den Zustand der App Broadcast-Stream angibt.</summary>
+      <returns>Ein Wert, der den Zustand der App Broadcast-Stream angibt.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.TerminationReason">
+      <summary>Ruft einen Wert ab, der den Grund für die Beendigung der App Broadcast definiert.</summary>
+      <returns>Ein Wert, der den Grund für die Beendigung der App Broadcast definiert.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.TerminationReasonPlugInSpecific">
+      <summary>Ruft einen Wert ab, der den Plug-in spezifischen Grund angibt, wieso die App Broadcast beendet wurde.</summary>
+      <returns>Ein Wert, der den Plug-in spezifischen Grund angibt, wieso die App Übertragung beendet wurde.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ViewerCount">
+      <summary>Ruft die Anzeigenzahl der App Broadcast ab.</summary>
+      <returns>Die Anzeigenzahl der App Broadcast.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.CameraCaptureStateChanged">
+      <summary>Tritt auf, wenn sich der Zustand der Kameraerfassung ändert.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.CaptureTargetClosed">
+      <summary>Tritt auf, wenn das Erfassungsziel geschlossen ist.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureStateChanged">
+      <summary>Tritt auf, wenn sich der Zustand der Mikrofonerfassung ändert.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.PlugInStateChanged">
+      <summary>Tritt auf, wenn der Status des Plug-in ändert, das der App Broadcast-Statusänderung zugeordnet ist.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.StreamStateChanged">
+      <summary>Tritt auf, wenn sich der Streamzustand der App Broadcast ändert.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.ViewerCountChanged">
+      <summary>Tritt auf, wenn sich die Ansichtenzählung der App Broadcast ändert.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastState.RestartCameraCapture">
+      <summary>Neustart der Kameraaufnahme für die App Broadcast.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastState.RestartMicrophoneCapture">
+      <summary>Neustart der Mikrofonaufnahme für die App Übertragung.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamAudioFrame">
+      <summary>Stellt einen Frame mit Audio-Beispielen in einem Stream Broadcast dar.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioFrame.AudioBuffer">
+      <summary>Ruft den Puffer mit den Audio-Beispielen für Audioframes Übertragung ab.</summary>
+      <returns>Der Puffer mit den Audio-Beispielen für den Audioframe Broadcast.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioFrame.AudioHeader">
+      <summary>Ruft ein Objekt ab, das Metadaten über zugeordnete Broadcast Audioframes enthält.</summary>
+      <returns>Ein Objekt, das Metadaten über zugeordnete Broadcast Audioframes enthält.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamAudioHeader">
+      <summary>Enthält Metadaten für einen Broadcast Audioframe.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.AbsoluteTimestamp">
+      <summary>Erhält einen Zeitstempel, der die Systemzeit angibt, zu der der Audioframe aufgezeichnet wurde.</summary>
+      <returns>Ein Zeitstempel, der die Systemzeit angibt, zu der der Audioframe aufgezeichnet wurde.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.Duration">
+      <summary>Ruft einen Wert ab, der die Dauer des Audioframes angibt.</summary>
+      <returns>Die Dauer des Audioframes.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.FrameId">
+      <summary>Ruft einen Wert ab, der den Audio-Frame identifiziert.</summary>
+      <returns>Ein Wert, der den Audioframe identifiziert.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.HasDiscontinuity">
+      <summary>Ruft einen Wert, der angibt, ob der Audioframe Diskontinuität im Audiostream enthält.</summary>
+      <returns>"True", wenn der Audioframe eine Diskontinuität enthält; Andernfalls "False".</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.RelativeTimestamp">
+      <summary>Ruft einen Zeitstempel ab, der die relativen Zeit innerhalb des Audiostream angibt, zu dem der Audioframe aufgezeichnet wurde.</summary>
+      <returns>Ein Zeitstempel, der die relativen Zeit innerhalb des Audiostream angibt, zu dem der Audioframe aufgezeichnet wurde.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamReader">
+      <summary>Stellt Methoden und Ereignisse zum Abrufen von Audio- und Videodateien aus einem App-Broadcast-Stream bereit.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioAacSequence">
+      <summary>Ruft einen Puffer mit dem Sequenz-Header für den AAC-Audio-Stream ab.</summary>
+      <returns>Ein Puffer mit dem Sequenz-Header für den AAC-Audio-Stream.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioBitrate">
+      <summary>Ruft die Bitrate des Audiostreams der ppBroadcastStreamReader in Bits pro Sekunde ab.</summary>
+      <returns>Die Bitrate des Audiostreams in Bits pro Sekunde.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioChannels">
+      <summary>Ruft die Anzahl der Kanäle im Zusammenhang mit der AppBroadcastStreamReader Audiostream ab.</summary>
+      <returns>Die Anzahl der Kanäle im Audio-Stream.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioSampleRate">
+      <summary>Ruft die Abtastrate des Audiostreams ab, der AppBroadcastStreamReader zugeordnet ist.</summary>
+      <returns>Die Abtastrate des Audiostreams</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoBitrate">
+      <summary>Ruft die Bitrate des Videostreams der ppBroadcastStreamReader in Bits pro Sekunde ab.</summary>
+      <returns>Die Bitrate des Vidoestreams in Bits pro Sekunde.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoHeight">
+      <summary>Ruft die Höhe des Frames im Zusammenhang mit dem AppBroadcastStreamReader ab.</summary>
+      <returns>Die Höhe des Frames im Videostream</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoWidth">
+      <summary>Ruft die Breite des Frames im Zusammenhang mit dem AppBroadcastStreamReader ab.</summary>
+      <returns>Die Weite des Frames im Videostream</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastStreamReader.AudioFrameArrived">
+      <summary>Wird ausgelöst, wenn eine neuer Audioframe aus dem Stream Broadcast eingeht.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastStreamReader.VideoFrameArrived">
+      <summary>Wird ausgelöst, wenn eine neuer Videoframe aus dem Stream Broadcast eingeht.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastStreamReader.TryGetNextAudioFrame">
+      <summary>Versucht, ein AppBroadcastStreamAudioFrame-Objekt abzurufen, das die neuesten Audioframes aus dem Broadcast-Stream darstellt.</summary>
+      <returns>Wenn erfolgreich wird der letzte Audio-Frame aus dem Broadcast-Stream; andernfalls null.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastStreamReader.TryGetNextVideoFrame">
+      <summary>Versucht, ein AppBroadcastStreamVideoFrameObjekt abzurufen, das die neuesten Videoframes aus dem Broadcast-Stream darstellt.</summary>
+      <returns>Wenn erfolgreich wird der letzte Video-Frame aus dem Broadcast-Stream dargestellt; andernfalls null.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamState">
+      <summary>Gibt den Zustand einer App Broadcast-Stream an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Initializing">
+      <summary>Die App Broadcast-Stream wird initialisiert.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Paused">
+      <summary>Die App Broadcast-Stream wurde angehalten.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Started">
+      <summary>Die App Broadast Stream wurde gestartet.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.StreamReady">
+      <summary>Die App Broadcast-Stream ist bereit.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Terminated">
+      <summary>Die App Broadcast-Stream wurde beendet.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs">
+      <summary>Stellt Daten für das AppBroadcastState.StreamStateChanged-Ereignis bereit.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs.StreamState">
+      <summary>Ruft den neuen Zustand der App Broadcast-Stream ab.</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamVideoFrame">
+      <summary>Stellt einen Videoframe in einem Broadcast-Stream dar.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoFrame.VideoBuffer">
+      <summary>Ruft den Puffer mit den Bilddaten für Broadcast Audioframes ab.</summary>
+      <returns>Der Puffer mit den Bilddaten für Broadcast Audioframes.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoFrame.VideoHeader">
+      <summary>Ruft ein Objekt ab, das Metadaten über zugeordnete Broadcast Videoframes enthält.</summary>
+      <returns>Ein Objekt ab, das Metadaten über zugeordnete Broadcast Videoframes enthält.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamVideoHeader">
+      <summary>Enthält Metadaten für einen Broadcast Videoframe.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.AbsoluteTimestamp">
+      <summary>Erhält einen Zeitstempel, der die Systemzeit angibt, zu der der Videoframe aufgezeichnet wurde.</summary>
+      <returns>Ein Zeitstempel, der die Systemzeit angibt, zu der der Audioframe aufgezeichnet wurde.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.Duration">
+      <summary>Ruft einen Wert ab, der die Dauer des Videoframes.</summary>
+      <returns>Die Dauer des Videoframes.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.FrameId">
+      <summary>Ruft einen Wert ab, der den Videoframe identifiziert.</summary>
+      <returns>Ein Wert, der den Videoframe identifiziert.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.HasDiscontinuity">
+      <summary>Ruft einen Wert, der angibt, ob der Videoframe Diskontinuität im Videostream enthält.</summary>
+      <returns>"True", wenn der Videoframe eine Diskontinuität enthält. Andernfalls "False".</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.IsKeyFrame">
+      <summary>Ruft einen Wert, der angibt, ob der Videoframe ein Keyframe im Stream Broadcast Video ist.</summary>
+      <returns>"True", wenn der Videoframe ein Keyframe ist. Andernfalls "False".</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.RelativeTimestamp">
+      <summary>Ruft einen Zeitstempel ab, der die relativen Zeit innerhalb des Videostream angibt, zu dem der Videoframe aufgezeichnet wurde.</summary>
+      <returns>Der Zeitpunkt im Videostream zu dem der Video-Frame aufgezeichnet wurde.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastTerminationReason">
+      <summary>Gibt den Grund an, wieso eine Übertragung App beendet wurde.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.BackgroundTaskTerminated">
+      <summary>Die App-Übertragung wurde beendet, da die Hintergrundaufgabe der App-Broadcast beendet wurde.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.BackgroundTaskUnresponsive">
+      <summary>Die App-Übertragung wurde beendet, da die Hintergrundaufgabe der App-Broadcast nicht antwortet.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.InternalError">
+      <summary>Die App-Übertragung wurde aufgrund eines internen Fehlers beendet.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.LostConnectionToService">
+      <summary>Die App-Übertragung wurde beendet, da die Verbindung mit dem Dienst unterbrochen wurde.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.NoNetworkConnectivity">
+      <summary>Die App-Übertragung wurde beendet, da keine Verbindung zum Netzwerk vorhanden ist.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.NormalTermination">
+      <summary>Die App-Übertragung beendet wurde, weil es normalerweise beendet wurde.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceAbort">
+      <summary>Die App-Übertragung beendet wurde, weil der Dienst die Übertragung abgebrochen.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceError">
+      <summary>Die App-Übertragung wurde beendet, da ein Dienstfehler aufgetreten.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceUnavailable">
+      <summary>Die App-Übertragung wurde beendet, da der Dienst nicht verfügbar ist.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.UnsupportedFormat">
+      <summary>Die App-Übertragung wurde beendet, da es sich um ein nicht unterstütztes Format verwendet.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastTriggerDetails">
+      <summary>Ausführliche Informationen mit einer Hintergrundaufgabe Broadcast App verknüpft ist.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastTriggerDetails.BackgroundService">
+      <summary>Ruft ein Objekt ab, das eine Schnittstelle zwischen der Übertragung UWP-App und dem System gehosteten Broadcast-Dienst bereitstellt.</summary>
+      <returns>Ein Objekt, das eine Schnittstelle zwischen der Übertragung UWP-App und dem System gehosteten Broadcast-Dienst bereitstellt.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode">
+      <summary>Gibt den Modus für die Bitrate für Broadcast Videocodierung an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode.Auto">
+      <summary>Die Bitrate wird vom System automatisch festgelegt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode.Custom">
+      <summary>Die Bitrate, die mit der Eigenschaft AppBroadcastProviderSettings.CustomVideoEncodingBitrate angegeben wird.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode">
+      <summary>Gibt den Modus für die Einstellungen der Auflösung für Broadcast Videocodierung an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode.Auto">
+      <summary>Die Auflösung wird vom System automatisch festgelegt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode.Custom">
+      <summary>Die Auflösung, die mit den Eigenschaften AppBroadcastProviderSettings.CustomVideoEncodingHeight und CustomVideoEncodingBitrate angegeben werden.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs">
+      <summary>Stellt Daten für das AppBroadcastViewerCountChanged-Ereignis bereit.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs.ViewerCount">
+      <summary>Ruft die Anzahl der neuen Viewer ab</summary>
+      <returns>Die neue Anzeigezählung</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.ForegroundActivationArgument">
+      <summary>Definiert den Grund, dass ein App Broadcast-Plug-In im Vordergrund aktiviert wurde.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.ForegroundActivationArgument.MoreSettings">
+      <summary>Das App-Broadcast Plug-In wurde im Vordergrund aktiviert, um es dem Benutzer zu ermöglichen, die Plug-In-spezifische Einstellungen zu ändern.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.ForegroundActivationArgument.SignInRequired">
+      <summary>Das App-Broadcast Plug-In wurde im Vordergrund aktiviert, da Anmeldung erforderlich ist.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesDisplayMode">
+      <summary>Gibt den Anzeigemodus für die Spielleiste an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarServicesDisplayMode.FullScreenExclusive">
+      <summary>Exklusiver Vollbildmodus.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarServicesDisplayMode.Windowed">
+      <summary>Fensteranzeigemodus.</summary>
+    </member>
+  </members>
+</doc>

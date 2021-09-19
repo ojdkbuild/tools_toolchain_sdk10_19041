@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.AppBroadcasting.AppBroadcastingContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingMonitor">
+      <summary>可讓應用程式判斷目前是否在被廣播中，以及是否要在應用程式開始或停止廣播時接收事件。</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.#ctor">
+      <summary>初始化 **AppBroadcastingMonitor** 類別的新執行個體。</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcasting">
+      <summary>取得表示應用程式目前是否正在廣播的值。</summary>
+      <returns>如果應用程式正在廣播則為 true，否則為 false。</returns>
+    </member>
+    <member name="E:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcastingChanged">
+      <summary>在目前應用程式的目前廣播狀態變更時發生。</summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatus">
+      <summary>可讓應用程式判斷目前是否可開始廣播，如果不可，則取得無法起始廣播之原因的詳細資料。</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.CanStartBroadcast">
+      <summary>取得表示目前應用程式是否可開始廣播的值。</summary>
+      <returns>如果應用程式可開始廣播則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.Details">
+      <summary>取得 AppBroadcastingStatusDetails 物件，這個物件提供指出目前應用程式目前為何無法開始廣播的詳細資訊。</summary>
+      <returns>提供指出目前應用程式目前為何無法開始廣播之詳細資訊的物件。</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails">
+      <summary>提供指出目前應用程式目前為何無法開始廣播的詳細資訊。</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAnyAppBroadcasting">
+      <summary>取得表示其他應用程式目前是否正在廣播的值。</summary>
+      <returns>如果其他應用程式目前正在廣播，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAppInactive">
+      <summary>取得指定目前應用程式視窗是否為非使用中的值。</summary>
+      <returns>如果目前應用程式視窗為非使用中，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsBlockedForApp">
+      <summary>取得表示是否封鎖目前應用程式進行廣播的值。</summary>
+      <returns>如果封鎖目前應用程式進行廣播，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsCaptureResourceUnavailable">
+      <summary>取得表示擷取資源目前是否無法使用的值。</summary>
+      <returns>如果擷取資源目前無法使用，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledBySystem">
+      <summary>取得表示系統是否停用應用程式廣播的值。</summary>
+      <returns>如果系統停用應用程式廣播，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledByUser">
+      <summary>取得表示應用程式廣播是否已由使用者停用的布林值。</summary>
+      <returns>如果應用程式廣播已由使用者停用，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGameStreamInProgress">
+      <summary>取得表示遊戲串流目前是否正在進行的值。</summary>
+      <returns>如果遊戲串流目前正在進行，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGpuConstrained">
+      <summary>取得值，這個值表示應用程式廣播是否因 GPU 受限制而無法使用。</summary>
+      <returns>如果應用程式廣播因 GPU 受限制而無法使用，則為 true，否則為 false。</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingUI">
+      <summary>可讓應用程式啟動應用程式廣播系統設定 UI。</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetDefault">
+      <summary>取得與目前已登入裝置之使用者相關聯的 **AppBroadcastingUI** 類別執行個體。</summary>
+      <returns>**AppBroadcastingUI** 類別的執行個體。</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetForUser(Windows.System.User)">
+      <summary>取得與指定之使用者相關聯的 **AppBroadcastingUI** 類別執行個體。</summary>
+      <param name="user">為之建立 **AppBroadcastingUI** 執行個體的使用者。</param>
+      <returns>**AppBroadcastingUI** 類別的執行個體。</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetStatus">
+      <summary>取得物件，這個物件可讓應用程式判斷目前是否可開始廣播，如果不可，則取得無法起始廣播之原因的詳細資料。</summary>
+      <returns>可讓應用程式判斷目前是否可開始廣播的物件。</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.ShowBroadcastUI">
+      <summary>顯示應用程式廣播系統設定 UI。</summary>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GameChatOverlayContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameChatMessageReceivedEventArgs">
+      <summary>MessageReceived イベントのイベント引数を格納します。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppDisplayName">
+      <summary>イベントをトリガーしたアプリの表示名。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+      <returns>イベントをトリガーしたアプリの表示名。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppId">
+      <summary>イベントをトリガーしたアプリの **パッケージ ファミリ名 (PFN)**。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+      <returns>イベントをトリガーしたアプリの **パッケージ ファミリ名 (PFN)**。 アプリを識別するために使用します。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Message">
+      <summary>メッセージの内容。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+      <returns>メッセージの内容。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Origin">
+      <summary>メッセージ (音声またはテキスト) の送信元です。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+      <returns>メッセージ (音声またはテキスト) の送信元です。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.SenderName">
+      <summary>メッセージの送信者 (*センダー* パラメーターは GameChatOverlay.AddMessage method に渡されます)。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+      <returns>メッセージの送信者 (*センダー* パラメーターは GameChatOverlay.AddMessage method に渡されます)。</returns>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayMessageSource">
+      <summary>ゲーム チャットがメッセージを受信したたびに発生するイベントと、メッセージの受信後にゲーム チャット オーバーレイを閉じるまでに遅延を設定する方法を提供します。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.#ctor">
+      <summary>**GameChatOverlayMessageSource** クラスのコンストラクター。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+    </member>
+    <member name="E:Windows.Gaming.UI.GameChatOverlayMessageSource.MessageReceived">
+      <summary>メッセージを受信するたびに発生するイベント。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.SetDelayBeforeClosingAfterMessageReceived(Windows.Foundation.TimeSpan)">
+      <summary>メッセージの受信後にゲーム チャット オーバーレイを閉じるまでに遅延を設定する方法を提供します。 一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、アプリはこの API を使用することができません。</summary>
+      <param name="value">ゲーム チャット オーバーレイを閉じるまでの遅延時間。</param>
+    </member>
+  </members>
+</doc>

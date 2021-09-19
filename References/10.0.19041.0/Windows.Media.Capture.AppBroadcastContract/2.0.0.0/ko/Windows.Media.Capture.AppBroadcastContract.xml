@@ -1,0 +1,997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.AppBroadcastContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.Background.AppBroadcastTrigger">
+      <summary>응용 프로그램이 시작 게임 플레이 브로드캐스트를 시작할 때 실행할 백그라운드 작업을 트리거하는 이벤트를 나타냅니다.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Background.AppBroadcastTrigger.#ctor(System.String)">
+      <summary>게임 플레이 브로드캐스팅을 수행할 공급자의 이름으로 AppBroadcastTrigger를 생성합니다.</summary>
+      <param name="providerKey">게임 플레이를 브로드캐스팅하는 공급자의 이름입니다.</param>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTrigger.ProviderInfo">
+      <summary>게임 플레이를 브로드캐스팅하는 응용 프로그램에 대한 정보를 제공합니다.</summary>
+      <returns>최대 비디오 비트 전송률, 비디오의 높이 및 너비 등과 같이 게임 플레이를 브로드캐스팅하는 공급자에 대한 정보입니다.</returns>
+    </member>
+    <member name="T:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo">
+      <summary>로고, 표시 이름, 비디오 특성 등 게임 플레이를 브로드캐스팅하는 응용 프로그램에 대한 정보를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.DisplayNameResource">
+      <summary>게임 플레이를 브로드캐스팅하는 공급자의 UI 이름에 대한 리소스 위치를 가져오고 설정합니다.</summary>
+      <returns>표시 이름의 리소스 위치입니다. 예를 들어, "ms-resource://resources/DisplayName"</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.LogoResource">
+      <summary>게임 플레이를 브로드캐스팅하는 공급자의 로고 리소스 위치를 가져오고 설정합니다.</summary>
+      <returns>로고의 리소스 위치입니다. 예를 들어, "ms-resource://resources/Logo.png"</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoBitrate">
+      <summary>게임 플레이를 브로드캐스팅하는 공급자가 제공할 수 있는 최대 비트 전송률을 가져오고 설정합니다.</summary>
+      <returns>최대 비트 전송률(초당 비트 수)입니다. 예를 들어, 2500000 = 2.5 mbps</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoHeight">
+      <summary>게임 플레이 브로드캐스트 공급자가 지원하는 최대 비디오 높이를 가져오고 설정합니다.</summary>
+      <returns>최대 비디오 높이(픽셀)입니다.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoWidth">
+      <summary>게임 플레이 브로드캐스트 공급자가 지원하는 최대 비디오 너비를 가져오고 설정합니다.</summary>
+      <returns>최대 비디오 너비(픽셀)입니다.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.VideoKeyFrameInterval">
+      <summary>비디오 키 프레임 사이의 시간을 가져오고 설정합니다.</summary>
+      <returns>키 프레임 사이의 시간 범위입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundService">
+      <summary>브로드캐스팅 UWP 앱과 시스템 호스트 브로드캐스트 서비스 간에 인터페이스를 제공합니다. 이 클래스는 브로드캐스트 서비스 인증을 이용하고, 브로드캐스팅 공급자 서비스에 대한 장치 인터넷의 대역폭 기능을 테스트하며 브로드캐스트 공급자 서비스로 전송할 수 있도록 작업에서 캡처한 오디오와 비디오 프레임을 가져올 수 있는 개체에 대한 액세스를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.AppId">
+      <summary>브로드캐스팅 중인 게임에 대한 식별자를 포함하는 문자열을 가져옵니다. 데스크톱 장치에서 브로드캐스팅할 때 이 값은 사용자가 브로드캐스팅을 시작한 게임입니다.</summary>
+      <returns>브로드캐스팅 앱에 대한 시스템 정의 식별자를 포함하는 문자열입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastChannel">
+      <summary>현재 브로드캐스트 채널의 이름을 포함하는 문자열을 가져옵니다.</summary>
+      <returns>현재 브로드캐스트 채널의 이름을 포함하는 문자열입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastLanguage">
+      <summary>현재 브로드캐스트 채널의 언어를 나타내는 문자열을 가져옵니다.</summary>
+      <returns>현재 브로드캐스트 채널의 언어를 나타내는 문자열입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastTitle">
+      <summary>브로드캐스트의 사용자 지정 제목을 포함하는 문자열을 가져옵니다.</summary>
+      <returns>브로드캐스트의 사용자 지정 제목을 포함하는 문자열입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.PlugInState">
+      <summary>브로드캐스트 백그라운드 작업의 현재 상태를 지정하는 값을 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트 백그라운드 작업의 현재 상태를 지정하는 값입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.SignInInfo">
+      <summary>앱 브로드캐스트 백그라운드 서비스에 대한 로그인 정보를 나타내는 개체를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 백그라운드 서비스에 대한 로그인 정보를 나타내는 개체입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.StreamInfo">
+      <summary>앱 브로드캐스트 백그라운드 서비스의 스트림 상태를 관리하는 개체를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 백그라운드 서비스의 스트림 상태를 관리하는 개체입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.TitleId">
+      <summary>브로드캐스팅 중인 제목에 대한 고유 식별자를 가져옵니다.</summary>
+      <returns>브로드캐스팅 중인 제목에 대한 고유 식별자입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.ViewerCount">
+      <summary>브로드캐스트 뷰어의 수를 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트 뷰어의 수입니다.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastChannelChanged">
+      <summary>BroadcastChannel 속성 값이 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastLanguageChanged">
+      <summary>BroadcastLanguage 속성 값이 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastTitleChanged">
+      <summary>BroadcastTitle 속성 값이 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.HeartbeatRequested">
+      <summary>브로드캐스트 백그라운드 작업은 현재 활성화되었는지 확인하기 위해 주기적으로 시스템에 의해 발생합니다.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastBackgroundService.TerminateBroadcast(Windows.Media.Capture.AppBroadcastTerminationReason,System.UInt32)">
+      <summary>브로드캐스트를 종료합니다.</summary>
+      <param name="reason">브로드캐스트가 종료되는 이유를 나타내는 값입니다.</param>
+      <param name="providerSpecificReason">브로드캐스트가 종료되는 공급자 특정 이유를 전달하는 정수입니다.</param>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo">
+      <summary>앱 브로드캐스트 백그라운드 서비스에 대한 로그인 정보를 나타냅니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.AuthenticationResult">
+      <summary>웹 인증 작업의 결과를 나타내는 개체를 가져옵니다.</summary>
+      <returns>웹 인증 작업의 결과를 나타내는 개체입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.OAuthCallbackUri">
+      <summary>OAuth 콜백 URI를 가져오거나 설정합니다.</summary>
+      <returns>OAuth 콜백 URI입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.OAuthRequestUri">
+      <summary>OAuth 요청 URI를 가져오거나 설정합니다.</summary>
+      <returns>OAuth 요청 URI입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.SignInState">
+      <summary>앱 브로드캐스트 백그라운드 서비스의 로그인 상태를 나타내는 개체를 가져옵니다.</summary>
+      <returns>앱 상태 브로드캐스트 백그라운드 서비스의 로그인 상태입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.UserName">
+      <summary>앱 브로드캐스트 백그라운드 서비스 인증에 대한 사용자 이름을 가져오거나 설정합니다.</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged">
+      <summary>앱 브로드캐스트 백그라운드 서비스의 로그인 상태가 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.UserNameChanged">
+      <summary>UserName 속성이 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo">
+      <summary>앱 브로드캐스트 백그라운드 서비스의 스트림 상태를 관리합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.AudioCodec">
+      <summary>앱 브로드캐스트 백그라운드 서비스에서 사용되는 오디오 코덱을 가져오거나 설정합니다.</summary>
+      <returns>앱 브로드캐스트 백그라운드 서비스에서 사용되는 오디오 코덱입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.BandwidthTestBitrate">
+      <summary>앱 브로드캐스트 백그라운드 서비스에 대한 대역폭 테스트 비트 전송률을 가져오거나 설정합니다.</summary>
+      <returns>앱 브로드캐스트 백그라운드 서비스에 대한 대역폭 테스트 비트 전송률입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.BroadcastStreamReader">
+      <summary>앱 브로드캐스트 백그라운드 서비스에 대한 브로드캐스트 스트림 리더를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 백그라운드 서비스에 대한 브로드캐스트 스트림 리더입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.DesiredVideoEncodingBitrate">
+      <summary>앱 브로드캐스트 백그라운드 서비스에 대해 원하는 비디오 인코딩 비트 전송률을 가져오거나 설정합니다.</summary>
+      <returns>앱 브로드캐스트 백그라운드 서비스에 대해 원하는 인코딩 비트 전송률입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.StreamState">
+      <summary>앱 브로드캐스트 스트림 상태를 나타내는 값을 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 스트림 상태를 나타내는 값입니다.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.StreamStateChanged">
+      <summary>앱 브로드캐스트 스트림 상태가 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.VideoEncodingBitrateChanged">
+      <summary>앱 브로드캐스트 비디오 인코딩 비트 전송률이 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.VideoEncodingResolutionChanged">
+      <summary>앱 브로드캐스트 비디오 인코딩 해상도가 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.ReportProblemWithStream">
+      <summary>브로드캐스트 스트림에 문제가 발견되었음을 시스템에 알립니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraCaptureState">
+      <summary>앱 브로드캐스트 카메라 캡처의 상태를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Failed">
+      <summary>앱 브로드캐스트 카메라 캡처에 실패했습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Started">
+      <summary>앱 브로드캐스트 카메라 캡처를 시작했습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Stopped">
+      <summary>앱 브로드캐스트 카메라 캡처가 중지되었습니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs">
+      <summary>AppBroadcast.CameraCaptureStateChanged 이벤트에 대한 데이터를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs.ErrorCode">
+      <summary>이벤트와 연결된 오류 코드를 가져옵니다.</summary>
+      <returns>이벤트와 연결된 오류 코드입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs.State">
+      <summary>앱 브로드캐스트 카메라 캡처의 새로운 상태를 나타내는 값을 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 카메라 캡처의 새로운 상태를 나타내는 값입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraOverlayLocation">
+      <summary>브로드캐스트 비디오 프레임 내 카메라 오버레이 위치를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomCenter">
+      <summary>오버레이는 프레임 하단 중앙에 배치됩니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomLeft">
+      <summary>오버레이는 프레임 하단 왼쪽에 배치됩니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomRight">
+      <summary>오버레이는 프레임 하단 오른쪽에 배치됩니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleCenter">
+      <summary>오버레이는 프레임 가운데 중앙에 배치됩니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleLeft">
+      <summary>오버레이는 프레임 가운데 왼쪽에 배치됩니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleRight">
+      <summary>오버레이는 프레임 가운데 오른쪽에 배치됩니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopCenter">
+      <summary>오버레이는 프레임 상단 중앙에 배치됩니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopLeft">
+      <summary>오버레이는 프레임 상단 왼쪽에 배치됩니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopRight">
+      <summary>오버레이는 프레임 상단 오른쪽에 배치됩니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraOverlaySize">
+      <summary>브로드캐스트 비디오 프레임 내 카메라 오버레이의 위치를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Large">
+      <summary>큰 오버레이 크기입니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Medium">
+      <summary>중간 오버레이 크기입니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Small">
+      <summary>작은 오버레이 크기입니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCaptureTargetType">
+      <summary>앱 브로드캐스트에 대해 캡처되는 대상의 유형을 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCaptureTargetType.AppView">
+      <summary>앱 보기가 캡처됩니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCaptureTargetType.EntireDisplay">
+      <summary>전체 디스플레이가 캡처됩니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason">
+      <summary>브로드캐스트 모드가 종료된 이유를 지정하는 값을 가져옵니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.AuthorizationFail">
+      <summary>인증 오류로 인해 브로드캐스트가 종료되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.ForegroundAppActivated">
+      <summary>포그라운드 앱이 활성화되었기 때문에 브로드캐스트가 종료되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.NormalExit">
+      <summary>브로드캐스트가 정상적으로 종료되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.UserCanceled">
+      <summary>사용자가 브로드캐스트 취소했습니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastGlobalSettings">
+      <summary>모든 브로드캐스팅 UWP 앱에 유지되는 전역 브로드캐스팅 설정을 지정합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.CameraOverlayLocation">
+      <summary>브로드캐스트 비디오 프레임 내에서 카메라 오버레이 위치를 지정하는 값을 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트 비디오 프레임 내에서 카메라 오버레이의 위치를 지정하는 값입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.CameraOverlaySize">
+      <summary>브로드캐스트 비디오 프레임 내에서 카메라 오버레이의 크기를 지정하는 값을 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트 비디오 프레임 내에서 카메라 오버레이의 크기를 지정하는 값입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.HasHardwareEncoder">
+      <summary>현재 장치가 하드웨어 기반 미디어 인코딩을 지원하는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>장치에서 하드웨어 인코딩을 지원하는 경우 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsAudioCaptureEnabled">
+      <summary>브로드캐스팅에 대해 오디오 캡처를 사용할 수 있는지 여부를 나타내는 값을 가져오거나 설정합니다.</summary>
+      <returns>오디오 캡처가 설정되었으면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsBroadcastEnabled">
+      <summary>브로드캐스팅을 장치에서 사용할 수 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>장치에서 브로드캐스팅을 사용할 수 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsCameraCaptureEnabledByDefault">
+      <summary>브로드캐스팅을 위해 카메라 캡처를 기본적으로 사용할 수 있는지 여부를 나타내는 값을 가져오거나 설정합니다.</summary>
+      <returns>마이크 캡처를 기본적으로 사용할 수 있는 경우 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsCursorImageCaptureEnabled">
+      <summary>커서 이미지가 캡처되는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>커서 이미지가 캡처되는 경우 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsDisabledByPolicy">
+      <summary>그룹 정책에 따라 장치에서 브로드캐스팅을 사용할 수 없음을 나타내는 값을 가져옵니다.</summary>
+      <returns>그룹 정책에 따라 장치에서 브로드캐스팅을 사용할 수 없는 경우 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsEchoCancellationEnabled">
+      <summary>에코 취소를 사용할 수 있는지 여부를 나타내는 값을 가져오거나 설정합니다.</summary>
+      <returns>에코 취소가 사용되면 True이고, 그렇지 않으면 False입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsGpuConstrained">
+      <summary>장치에서 GPU 제약이 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>GPU에 제한이 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsMicrophoneCaptureEnabledByDefault">
+      <summary>브로드캐스팅을 위해 마이크 캡처를 기본적으로 사용할 수 있는지 여부를 나타내는 값을 가져오거나 설정합니다.</summary>
+      <returns>기본적으로 마이크 캡처가 설정되었으면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.MicrophoneGain">
+      <summary>브로드캐스트 오디오 캡처에 대한 마이크 게인을 나타내는 값을 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트 오디오 캡처를 위한 마이크 게인입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.SelectedCameraId">
+      <summary>브로드캐스트 비디오 캡처에 사용되는 카메라의 디바이스 ID가 포함된 문자열을 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트 비디오 캡처에 사용되는 카메라의 디바이스 ID입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.SystemAudioGain">
+      <summary>브로드캐스트 오디오 캡처를 위한 시스템 게인을 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트 오디오 캡처를 위한 마이크 게인입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs">
+      <summary>브로드캐스팅 백그라운드 작업이 현재 활성인지 확인하기 위해 주기적으로 시스템에서 발생되는 AppBroadcastBackgroundService.HeartbeatRequested 이벤트에 대한 데이터를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs.Handled">
+      <summary>브로드캐스트 백그라운드 작업이 현재 활성인지 여부를 나타내는 값을 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트 백그라운드 작업이 현재 활성인 경우 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastManager">
+      <summary>현재 디바이스 및 브로드캐스트 공급자 설정에 대한 전역 브로드캐스트 설정에 액세스를 제공합니다.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.ApplyGlobalSettings(Windows.Media.Capture.AppBroadcastGlobalSettings)">
+      <summary>현재 디바이스에 대한 전역 브로드캐스트 설정을 업데이트합니다.</summary>
+      <param name="value">현재 디바이스에 대한 전역 브로드캐스트 설정을 표시하는 개체입니다.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.ApplyProviderSettings(Windows.Media.Capture.AppBroadcastProviderSettings)">
+      <summary>브로드캐스트 공급자 설정을 업데이트합니다.</summary>
+      <param name="value">
+      </param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.GetGlobalSettings">
+      <summary>현재 디바이스에 대한 전역 브로드캐스트 설정을 표시하는 개체를 가져옵니다.</summary>
+      <returns>현재 디바이스에 대한 전역 브로드캐스트 설정을 표시하는 개체입니다.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.GetProviderSettings">
+      <summary>브로드캐스트 공급자 설정을 표시하는 개체를 가져옵니다.</summary>
+      <returns>브로드캐스트 공급자 설정을 표시하는 개체입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState">
+      <summary>앱 브로드캐스트 마이크 캡처의 상태를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Failed">
+      <summary>마이크 캡처에 실패했습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Started">
+      <summary>마이크 캡처가 시작되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Stopped">
+      <summary>마이크 캡처가 중지되었습니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs">
+      <summary>AppBroadcastState.MicrophoneCaptureStateChanged 이벤트에 대한 데이터를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs.ErrorCode">
+      <summary>이벤트와 연결된 오류 코드를 가져옵니다.</summary>
+      <returns>이벤트와 연결된 오류 코드입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs.State">
+      <summary>앱 브로드캐스트 마이크 캡처의 상태를 나타내는 값을 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 마이크 캡처의 상태를 나타내는 값입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugIn">
+      <summary>앱 브로드캐스트 플러그 인에 대한 정보를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.AppId">
+      <summary>앱 브로드캐스트 플러그 인과 관련된 앱의 고유 ID를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 플러그 인과 관련된 앱의 고유 ID를 가져옵니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.DisplayName">
+      <summary>앱 브로드캐스트 플러그 인의 표시 이름을 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 플러그 인의 표시 이름입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.Logo">
+      <summary>앱 브로드캐스트 플러그 인의 로고 이미지를 포함하는 스트림을 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 플러그 인의 로고 이미지를 포함하는 스트림입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.ProviderSettings">
+      <summary>앱 브로드캐스트 플러그 인에 대한 공급자 설정을 나타내는 개체를 가져옵니다.</summary>
+      <returns>브로드캐스트 플러그 인에 대한 공급자 설정입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInManager">
+      <summary>앱 브로드캐스트 플러그 인을 관리합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.DefaultPlugIn">
+      <summary>기본 앱 브로드캐스트 플러그 인을 가져오거나 설정합니다.</summary>
+      <returns>기본 앱 브로드캐스트 플러그 인입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.IsBroadcastProviderAvailable">
+      <summary>브로드캐스트 공급자가 사용할 수 있는지를 나타내는 값을 가져옵니다.</summary>
+      <returns>브로드캐스트 공급자를 사용할 수 있는 경우 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.PlugInList">
+      <summary>모든 앱 브로드캐스트 플러그 인의 읽기 전용 목록을 가져옵니다.</summary>
+      <returns>모든 앱 브로드캐스트 플러그 인의 읽기 전용 목록입니다.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPlugInManager.GetDefault">
+      <summary>앱 브로드캐스트에 대한 기본 플러그 인을 가져옵니다.</summary>
+      <returns>앱 브로드캐스트에 대한 기본 플러그 인입니다.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPlugInManager.GetForUser(Windows.System.User)">
+      <summary>지정된 사용자와 관련된 앱 브로드캐스트 플러그 인을 가져옵니다.</summary>
+      <param name="user">앱 브로드캐스트 플러그 인을 검색해야 하는 사용자입니다.</param>
+      <returns>지정된 사용자와 관련된 앱 브로드캐스트 플러그 인입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInState">
+      <summary>브로드캐스트 백그라운드 작업의 현재 상태를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.InBandwidthTest">
+      <summary>브로드캐스트 백그라운드 작업이 브로드캐스팅 서비스 공급자에 대한 디바이스의 연결 대역폭 테스트를 진행 중입니다. 이 테스트가 완료되면 시스템은 대역폭 테스트 결과를 나타내도록 AppBroadcastBackgroundServiceStreamInfo.BandwidthTestBitrate 속성을 설정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.Initialized">
+      <summary>브로드캐스트 백그라운드 작업이 초기화됩니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.MicrosoftSignInRequired">
+      <summary>현재 사용자는 Microsoft 서비스를 사용하여 인증을 받아야 합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.OAuthSignInRequired">
+      <summary>현재 사용자는 브로드캐스트 공급자 서비스의 인증을 받아야 합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.ProviderSignInRequired">
+      <summary>브로드캐스트 백그라운드 작업은 브로드캐스트 공급자 서비스를 사용하여 현재 사용자를 인증해야 합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.ReadyToBroadcast">
+      <summary>브로드캐스트 백그라운드 작업이 브로드캐스트할 준비가 되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.Unknown">
+      <summary>현재 상태를 알 수 없습니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs">
+      <summary>AppBroadcastState.PlugInStateChanged 이벤트에 대한 데이터를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs.PlugInState">
+      <summary>새로운 앱 브로드캐스트 플러그 인 상태를 가져옵니다.</summary>
+      <returns>새로운 앱 브로드캐스트 플러그 인 상태입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreview">
+      <summary>상태 정보와 앱 브로드캐스트 미리 보기에 대한 액세스를 제공합니다. </summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.ErrorCode">
+      <summary>앱 브로드캐스트 미리 보기와 관련된 오류 코드를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기와 관련된 오류 코드입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.PreviewState">
+      <summary>앱 브로드캐스트 미리 보기 상태를 나타내는 값을 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기 상태를 나타내는 값입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.PreviewStreamReader">
+      <summary>앱 브로드캐스트 미리 보기에 대한 스트림 리더를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기에 대한 스트림 리더입니다.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastPreview.PreviewStateChanged">
+      <summary>앱 브로드캐스트 미리 보기의 상태가 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPreview.StopPreview">
+      <summary>앱 브로드캐스트 미리 보기를 중지합니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewState">
+      <summary>앱 브로드캐스트 미리 보기의 상태를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Failed">
+      <summary>앱 브로드캐스트 미리 보기에 실패했습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Started">
+      <summary>앱 브로드캐스트 미리 보기를 시작했습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Stopped">
+      <summary>앱 브로드캐스트 미리 보기가 중지되었습니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs">
+      <summary>AppBroadcastPreview.PreviewStateChanged 이벤트에 대한 데이터를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs.ErrorCode">
+      <summary>이벤트와 연결된 오류 코드를 가져옵니다.</summary>
+      <returns>이벤트와 연결된 오류 코드입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs.PreviewState">
+      <summary>앱 브로드캐스트 미리 보기의 새로운 상태를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기의 새로운 상태입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamReader">
+      <summary>앱 브로드캐스트 미리 보기 스트림에 대한 정보와 액세스를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoBitmapAlphaMode">
+      <summary>앱 미리 보기 브로드캐스트 스트림의 비디오 비트맵 알파 모드를 가져옵니다.</summary>
+      <returns>앱 미리 보기 브로드캐스트 스트림의 비디오 비트맵 알파 모드입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoBitmapPixelFormat">
+      <summary>앱 브로드캐스트 미리 보기 스트림의 비디오 비트맵 픽셀 형식을 가져옵니다.</summary>
+      <returns>앱 미리 보기 브로드캐스트 스트림의 비디오 비트맵 픽셀 형식입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoHeight">
+      <summary>앱 브로드캐스트 미리 보기 스트림의 비디오 높이(픽셀)를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기 스트림의 비디오 높이(픽셀)를 가져옵니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoStride">
+      <summary>앱 브로드캐스트 미리 보기 스트림의 비디오 스트라이드를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기 스트림의 비디오 스트라이드입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoWidth">
+      <summary>앱 브로드캐스트 미리 보기 스트림의 비디오 너비(픽셀)를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기 스트림의 비디오 너비(픽셀)를 가져옵니다.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoFrameArrived">
+      <summary>앱 브로드캐스트 미리 보기 스트림에서 새 비디오 프레임이 도착할 때 발생합니다.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPreviewStreamReader.TryGetNextVideoFrame">
+      <summary>앱 브로드캐스트 미리 보기 스트림에서 다음 비디오 프레임을 검색하려고 시도합니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기 스트림의 다음 비디오 프레임입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame">
+      <summary>앱 브로드캐스트 미리 보기 스트림의 비디오 프레임을 나타냅니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame.VideoBuffer">
+      <summary>앱 브로드캐스트 미리 보기 스트림 비디오 프레임에 대한 이미지 데이터가 포함된 버퍼를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기 스트림 비디오 프레임에 대한 이미지 데이터가 포함된 버퍼입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame.VideoHeader">
+      <summary>앱 브로드캐스트 미리 보기 스트림 비디오 프레임에 대한 이미지 데이터를 설명하는 헤더를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기 스트림 비디오 프레임에 대한 이미지 데이터를 설명하는 헤더입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader">
+      <summary>앱 브로드캐스트 미리 보기 스트림 비디오 프레임에 대한 메타 데이터를 나타냅니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.AbsoluteTimestamp">
+      <summary>앱 브로드캐스트 스트림 비디오 프레임에 대한 절대 타임 스탬프를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기 스트림 비디오 프레임에 대한 절대 타임 스탬프입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.Duration">
+      <summary>앱 브로드캐스트 미리 보기 스트림 비디오 프레임에 대한 기간을 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기 스트림 비디오 프레임에 대한 기간입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.FrameId">
+      <summary>앱 브로드캐스트 미리 보기 스트림 비디오 프레임에 대한 프레임 ID를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기 스트림 비디오 프레임에 대한 프레임 ID입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.RelativeTimestamp">
+      <summary>앱 브로드캐스트 미리 보기 스트림 비디오 프레임에 대한 상대 타임 스탬프를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 미리 보기 스트림 비디오 프레임에 대한 상대 타임 스탬프입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastProviderSettings">
+      <summary>원격 브로드캐스트 공급자 서비스의 설정에 액세스를 제공합니다. 이러한 설정은 브로드캐스트 공급자가 보고 변경할 수 있습니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.AudioEncodingBitrate">
+      <summary>브로드캐스트 스트림의 오디오 인코딩 비트 전송률(초당 비트 수)을 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트 스트림의 오디오 인코딩 비트 전송률(초당 비트 수)입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingBitrate">
+      <summary>브로드캐스트 스트림의 사용자 지정 비디오 인코딩 비트 전송률(초당 비트 수)을 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트 스트림의 사용자 지정 비디오 인코딩 비트 전송률(초당 비트 수)입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingHeight">
+      <summary>브로드캐스트 스트림의 사용자 지정 비디오 인코딩 높이를 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트 스트림의 사용자 지정 비디오 인코딩 높이입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingWidth">
+      <summary>브로드캐스트 스트림의 사용자 지정 비디오 인코딩 너비를 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트 스트림의 사용자 지정 비디오 인코딩 너비입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.DefaultBroadcastTitle">
+      <summary>브로드캐스트에 대한 기본 제목을 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트에 대한 기본 제목입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.VideoEncodingBitrateMode">
+      <summary>원격 브로드캐스트 공급자 서비스에 대한 비디오 인코딩 비트 전송률 모드를 가져오거나 설정합니다.</summary>
+      <returns>비디오 인코딩 비트 전송률입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.VideoEncodingResolutionMode">
+      <summary>원격 브로드캐스트 공급자 서비스에 대한 비디오 인코딩 해상도 모드를 가져오거나 설정합니다.</summary>
+      <returns>비디오 인코딩 해결 모드입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastServices">
+      <summary>앱 브로드캐스트의 상태를 관리합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.BroadcastLanguage">
+      <summary>앱 브로드캐스트에 대한 언어 설정을 지정하는 문자열을 가져오거나 설정합니다.</summary>
+      <returns>앱 브로드캐스트에 대한 언어 설정을 지정하는 문자열입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.BroadcastTitle">
+      <summary>브로드캐스트의 제목을 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트의 제목입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.CanCapture">
+      <summary>브로드캐스트 서비스가 캡처할 수 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>브로드캐스트 서비스가 캡처할 수 있는 경우 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.CaptureTargetType">
+      <summary>브로드캐스트에 사용할 캡처 대상의 유형을 지정하는 값을 가져오거나 설정합니다.</summary>
+      <returns>브로드캐스트에 사용할 캡처 대상의 유형을 지정하는 값입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.State">
+      <summary>앱 브로드캐스트 서비스의 현재 상태를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 서비스의 현재 상태입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.UserName">
+      <summary>앱 브로드캐스트 인증에 사용되는 사용자 이름을 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 인증에 사용되는 사용자 이름입니다.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.EnterBroadcastModeAsync(Windows.Media.Capture.AppBroadcastPlugIn)">
+      <summary>앱 브로드캐스트 서비스가 지정된 앱 브로드캐스트 플러그 인을 사용하여 브로드캐스트 모드를 시작하도록 합니다.</summary>
+      <param name="plugIn">브로드캐스트 모드를 시작한 앱 브로드캐스트 플러그인입니다.</param>
+      <returns>성공적으로 완료되면 상태 코드를 반환하는 비동기 작업입니다.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.ExitBroadcastMode(Windows.Media.Capture.AppBroadcastExitBroadcastModeReason)">
+      <summary>앱 브로드캐스트 서비스가 지정된 원인으로 브로드캐스트 모드를 종료합니다.</summary>
+      <param name="reason">브로드캐스트 모드가 종료되는 이유를 지정하는 개체입니다.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.PauseBroadcast">
+      <summary>앱 브로드캐스팅을 일시 중지합니다.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.ResumeBroadcast">
+      <summary>앱 브로드캐스트를 다시 시작합니다.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.StartBroadcast">
+      <summary>앱 브로드캐스팅을 시작합니다.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.StartPreview(Windows.Foundation.Size)">
+      <summary>앱 브로드캐스팅 미리 보기를 시작합니다.</summary>
+      <param name="desiredSize">앱 브로드캐스트 미리 보기의 크기(픽셀)를 지정하는 개체입니다.</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInResult">
+      <summary>로그인 작업 결과를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.AuthenticationFailed">
+      <summary>로그인 인증에 실패했습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.ServiceUnavailable">
+      <summary>로그인 서비스를 사용할 수 없습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Success">
+      <summary>로그인에 성공했습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Unauthorized">
+      <summary>인증된 사용자에게 요청한 리소스에 액세스할 권한이 없습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Unknown">
+      <summary>로그인 결과를 알 수 없습니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInState">
+      <summary>브로드캐스트 앱에 대한 현재 로그인 상태를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.MicrosoftSignInComplete">
+      <summary>Microsoft 서비스의 로그인 작업이 완료되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.MicrosoftSignInInProgress">
+      <summary>Microsoft 서비스의 로그인 작업이 진행 중입니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.NotSignedIn">
+      <summary>사용자가 로그인하지 않았습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.OAuthSignInComplete">
+      <summary>브로드캐스트 공급자 서비스의 로그인 작업이 완료되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.OAuthSignInInProgress">
+      <summary>브로드캐스트 공급자 서비스의 로그인 작업이 진행 중입니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs">
+      <summary>AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged 이벤트에 대한 데이터를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs.Result">
+      <summary>AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged 이벤트와 관련된 브로드캐스트 앱 로그인 작업 결과를 가져옵니다.</summary>
+      <returns>로그인 작업의 결과입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs.SignInState">
+      <summary>AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged가 발생 한 후 현재 브로드캐스트 앱 로그인 상태를 가져옵니다.</summary>
+      <returns>현재 로그인 상태입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastState">
+      <summary>앱 브로드캐스트의 상태를 나타내고 관리합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.AuthenticationResult">
+      <summary>앱 브로드캐스트 상태의 인증 결과를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 상태의 인증 결과입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.CameraCaptureError">
+      <summary>앱 브로드캐스트 상태와 관련된 카메라 캡처 오류를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 상태와 관련된 카메라 캡처 오류입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.CameraCaptureState">
+      <summary>카메라 캡처 상태를 가져옵니다.</summary>
+      <returns>카메라 캡처 상태입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.EncodedVideoSize">
+      <summary>앱 브로드캐스트의 인코딩된 비디오 크기를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트의 인코딩된 비디오 크기입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.IsCaptureTargetRunning">
+      <summary>캡처 대상이 현재 실행 중인지를 나타내는 값을 가져옵니다.</summary>
+      <returns>캡처 대상이 현재 실행 중인 경우 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureError">
+      <summary>앱 브로드캐스트 상태와 관련된 마이크 캡처 오류를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 상태와 관련된 마이크 캡처 오류입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureState">
+      <summary>마이크 캡처 상태를 가져옵니다.</summary>
+      <returns>마이크 캡처 상태입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.OAuthCallbackUri">
+      <summary>앱 브로드캐스트 상태와 관련된 OAuth 콜백 URI를 가져옵니다.</summary>
+      <returns>OAuth 콜백 URI입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.OAuthRequestUri">
+      <summary>앱 브로드캐스트 상태와 관련된 OAuth 요청 URI를 가져옵니다.</summary>
+      <returns>OAuth 요청 URI입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.PlugInState">
+      <summary>앱 브로드캐스트 상태와 관련된 플러그 인의 상태를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 상태와 관련된 플러그 인의 상태입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ShouldCaptureCamera">
+      <summary>앱 브로드캐스트에 대해 카메라를 캡처해야 하는지 여부를 지정하는 값을 가져오거나 설정합니다.</summary>
+      <returns>앱 브로드캐스트에 대해 카메라를 캡처해야 하는지 여부를 지정하는 값입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ShouldCaptureMicrophone">
+      <summary>앱 브로드캐스트에 대해 마이크를 캡처해야 하는지 여부를 지정하는 값을 가져오거나 설정합니다.</summary>
+      <returns>앱 브로드캐스트에 대해 마이크를 캡처해야 하는지 여부를 지정하는 값입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.SignInState">
+      <summary>앱 브로드캐스트의 로그인 상태를 지정하는 값을 가져오거나 설정합니다.</summary>
+      <returns>앱 브로드캐스트의 로그인 상태를 지정하는 값입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.StreamState">
+      <summary>앱 브로드캐스트 스트림의 상태를 지정하는 값을 가져옵니다.</summary>
+      <returns>앱 브로드캐스트 스트림의 상태를 지정하는 값입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.TerminationReason">
+      <summary>앱 브로드캐스트가 종료된 이유를 지정하는 값을 가져옵니다.</summary>
+      <returns>앱 브로드캐스트가 종료된 이유를 지정하는 값입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.TerminationReasonPlugInSpecific">
+      <summary>앱 브로드캐스트가 종료된 플러그인 지정 이유를 나타내는 값을 가져옵니다.</summary>
+      <returns>앱 브로드캐스트가 종료된 플러그인 지정 이유를 나타내는 값입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ViewerCount">
+      <summary>앱 브로드캐스트의 뷰어 개수를 가져옵니다.</summary>
+      <returns>앱 브로드캐스트의 뷰어 개수입니다.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.CameraCaptureStateChanged">
+      <summary>카메라 캡처 상태가 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.CaptureTargetClosed">
+      <summary>캡처 대상이 닫힐 때 발생합니다.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureStateChanged">
+      <summary>마이크 캡처 상태가 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.PlugInStateChanged">
+      <summary>앱 브로드캐스트 상태와 관련된 플러그 인의 상태가 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.StreamStateChanged">
+      <summary>앱 브로드캐스트의 스트림 상태가 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.ViewerCountChanged">
+      <summary>앱 브로드캐스트의 뷰어 개수가 변경될 때 발생합니다.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastState.RestartCameraCapture">
+      <summary>앱 브로드캐스트에 대한 카메라 캡처를 다시 시작합니다.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastState.RestartMicrophoneCapture">
+      <summary>앱 브로드캐스트에 대한 마이크 캡처를 다시 시작합니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamAudioFrame">
+      <summary>브로드캐스트 스트림에서 오디오 샘플의 프레임을 나타냅니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioFrame.AudioBuffer">
+      <summary>브로드캐스트 오디오 프레임에 대한 오디오 샘플을 포함하는 버퍼를 가져옵니다.</summary>
+      <returns>브로드캐스트 오디오 프레임에 대한 오디오 샘플을 포함하는 버퍼입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioFrame.AudioHeader">
+      <summary>관련된 브로드캐스트 오디오 프레임에 대한 메타데이터를 포함하는 개체를 가져옵니다.</summary>
+      <returns>관련된 브로드캐스트 오디오 프레임에 대한 메타데이터를 포함하는 개체입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamAudioHeader">
+      <summary>브로드캐스트 오디오 프레임에 대한 메타데이터를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.AbsoluteTimestamp">
+      <summary>오디오 프레임이 캡처된 시스템 시간을 나타내는 타임 스탬프를 가져옵니다.</summary>
+      <returns>오디오 프레임이 캡처된 시스템 시간을 나타내는 타임 스탬프입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.Duration">
+      <summary>오디오 프레임의 기간을 나타내는 값을 가져옵니다.</summary>
+      <returns>오디오 프레임의 기간입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.FrameId">
+      <summary>오디오 프레임을 식별하는 값을 가져옵니다.</summary>
+      <returns>오디오 프레임을 식별하는 값입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.HasDiscontinuity">
+      <summary>오디오 스트림에서 오디오 프레임이 불연속을 포함하는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>오디오 프레임이 불연속을 포함하는 경우 true, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.RelativeTimestamp">
+      <summary>오디오 프레임을 캡처한 오디오 스트림 내의 상대 시간을 나타내는 타임 스탬프를 가져옵니다.</summary>
+      <returns>오디오 프레임을 캡처한 오디오 스트림 내의 상대 시간을 나타내는 타임 스탬프입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamReader">
+      <summary>앱 브로드캐스트 스트림에서 오디오 및 비디오 프레임을 가져오는 방법 및 이벤트를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioAacSequence">
+      <summary>AAC 오디오 스트림에 대한 시퀀스 헤더를 포함하는 버퍼를 가져옵니다.</summary>
+      <returns>AAC 오디오 스트림에 대한 시퀀스 헤더를 포함하는 버퍼입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioBitrate">
+      <summary>AppBroadcastStreamReader와 관련된 오디오 스트림의 비트 전송률(초당 비트 수)을 가져옵니다.</summary>
+      <returns>오디오 스트림의 비트 전송률(초당 비트 수)입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioChannels">
+      <summary>AppBroadcastStreamReader와 관련된 오디오 스트림에서 채널 번호를 가져옵니다.</summary>
+      <returns>오디오 스트림의 채널 번호입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioSampleRate">
+      <summary>AppBroadcastStreamReader와 관련된 오디오 스트림의 샘플 속도를 가져옵니다.</summary>
+      <returns>오디오 스트림의 샘플 속도</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoBitrate">
+      <summary>AppBroadcastStreamReader와 관련된 비디오 스트림의 비트 전송률(초당 비트 수)을 가져옵니다.</summary>
+      <returns>비디오 스트림의 비트 전송률(초당 비트 수)입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoHeight">
+      <summary>AppBroadcastStreamReader와 관련된 비디오 스트림에서 프레임의 높이를 가져옵니다.</summary>
+      <returns>비디오 스트림에서 프레임의 높이</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoWidth">
+      <summary>AppBroadcastStreamReader와 관련된 비디오 스트림에서 프레임의 너비를 가져옵니다.</summary>
+      <returns>비디오 스트림에서 프레임의 너비</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastStreamReader.AudioFrameArrived">
+      <summary>브로드캐스트 스트림에서 새 오디오 프레임이 도착할 때 발생합니다.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastStreamReader.VideoFrameArrived">
+      <summary>브로드캐스트 스트림에서 새 비디오 프레임이 도착할 때 발생합니다.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastStreamReader.TryGetNextAudioFrame">
+      <summary>브로드캐스트 스트림에서 최신 오디오 프레임을 나타내는 AppBroadcastStreamAudioFrame 개체를 가져오려고 시도합니다.</summary>
+      <returns>성공하는 경우 브로드캐스트 스트림의 최신 오디오 프레임이고, 그렇지 않은 경우 null입니다.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastStreamReader.TryGetNextVideoFrame">
+      <summary>브로드캐스트 스트림에서 최신 비디오 프레임을 나타내는 AppBroadcastStreamAudioFrame 개체를 가져오려고 시도합니다.</summary>
+      <returns>성공하는 경우 브로드캐스트의 최신 비디오 프레임이고, 그렇지 않으면 null입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamState">
+      <summary>앱 브로드캐스트 스트림의 상태를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Initializing">
+      <summary>앱 브로드캐스트 스트림을 초기화하고 있습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Paused">
+      <summary>앱 브로드캐스트 스트림이 일시 중지되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Started">
+      <summary>앱 브로드캐스트 스트림이 시작되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.StreamReady">
+      <summary>앱 브로드캐스트 스트림이 준비되어 있습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Terminated">
+      <summary>앱 브로드캐스트 스트림이 종료되었습니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs">
+      <summary>AppBroadcastState.StreamStateChanged 이벤트에 대한 데이터를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs.StreamState">
+      <summary>앱 브로드캐스트 스트림의 새로운 상태를 가져옵니다.</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamVideoFrame">
+      <summary>브로드캐스트 스트림에서 비디오 프레임을 나타냅니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoFrame.VideoBuffer">
+      <summary>브로드캐스트 오디오 프레임에 대한 이미지 데이터를 포함하 버퍼를 가져옵니다.</summary>
+      <returns>브로드캐스트 오디오 프레임에 대한 이미지 데이터를 포함하 버퍼입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoFrame.VideoHeader">
+      <summary>관련된 브로드캐스트 비디오 프레임에 대한 메타데이터를 포함하는 개체를 가져옵니다.</summary>
+      <returns>관련된 브로드캐스트 비디오 프레임에 대한 메타데이터를 포함하는 개체입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamVideoHeader">
+      <summary>브로드캐스트 비디오 프레임에 대한 메타 데이터를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.AbsoluteTimestamp">
+      <summary>비디오 프레임이 캡처된 시스템 시간을 나타내는 타임 스탬프를 가져옵니다.</summary>
+      <returns>오디오 프레임이 캡처된 시스템 시간을 나타내는 타임 스탬프입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.Duration">
+      <summary>비디오 프레임의 기간을 나타내는 값을 가져옵니다.</summary>
+      <returns>비디오 프레임의 지속 시간입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.FrameId">
+      <summary>비디오 프레임을 식별하는 값을 가져옵니다.</summary>
+      <returns>비디오 프레임을 식별하는 값입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.HasDiscontinuity">
+      <summary>비디오 프레임이 비디오 스트림의 불연속을 포함하고 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>비디오 프레임이 불연속을 포함하는 경우 true, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.IsKeyFrame">
+      <summary>브로드캐스트 비디오 스트림 내에서 비디오 프레임이 키 프레임인지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>비디오 프레임이 키 프레임인 경우 true, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.RelativeTimestamp">
+      <summary>비디오 프레임을 캡처한 비디오 스트림 내의 상대 시간을 나타내는 타임 스탬프를 가져옵니다.</summary>
+      <returns>비디오 프레임을 캡처한 비디오 스트림 내의 상대 시간입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastTerminationReason">
+      <summary>앱 브로드캐스트가 종료된 이유를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.BackgroundTaskTerminated">
+      <summary>앱 브로드캐스트 백그라운드 작업이 종료되었으므로 앱 브로드캐스트 종료 되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.BackgroundTaskUnresponsive">
+      <summary>앱 브로드캐스트 백그라운드 작업이 응답하지 앟으므로 앱 브로드캐스트가 종료되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.InternalError">
+      <summary>내부 오류로 인해 앱 브로드캐스트가 종료되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.LostConnectionToService">
+      <summary>서비스 연결이 끊어져 앱 방송이 종료되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.NoNetworkConnectivity">
+      <summary>네트워크에 연결되지 않았기 때문에 앱 브로드캐스트가 종료되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.NormalTermination">
+      <summary>정상적으로 종료되었기 때문에 앱 브로드캐스트가 종료되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceAbort">
+      <summary>서비스가 브로드캐스트를 중단했기 때문에 앱 브로드캐스트가 종료되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceError">
+      <summary>서비스 오류로 인해 앱 브로드캐스트가 종료되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceUnavailable">
+      <summary>서비스를 사용할 수 없기 때문에 앱 브로드캐스트가 종료되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.UnsupportedFormat">
+      <summary>지원되지 않는 형식을 사용하기 때문에 앱 브로드캐스트가 종료되었습니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastTriggerDetails">
+      <summary>브로드캐스트 앱 백그라운드 작업과 관련된 세부 정보를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastTriggerDetails.BackgroundService">
+      <summary>브로드캐스팅 UWP 앱 및 시스템 호스트 브로드캐스트 서비스 사이에 인터페이스를 제공하는 개체를 가져옵니다.</summary>
+      <returns>브로드캐스팅 UWP 앱 및 시스템 호스트 브로드캐스트 서비스 사이에 인터페이스를 제공하는 개체입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode">
+      <summary>브로드캐스트 비디오 인코딩에 대한 비트 전송률을 설정하기 위한 모드를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode.Auto">
+      <summary>비트 전송률은 시스템에 의해 자동으로 설정됩니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode.Custom">
+      <summary>AppBroadcastProviderSettings.CustomVideoEncodingBitrate 속성을 사용하여 지정된 비트 전송률이 사용됩니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode">
+      <summary>브로드캐스트 비디오 인코딩울 위한 해상도 설정을 위한 모드를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode.Auto">
+      <summary>해당도는 시스템에 의해 자동으로 설정됩니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode.Custom">
+      <summary>사용된 AppBroadcastProviderSettings.CustomVideoEncodingHeight 및 CustomVideoEncodingBitrate 속성에 지정된 해상도입니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs">
+      <summary>AppBroadcastViewerCountChanged 이벤트에 대한 데이터를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs.ViewerCount">
+      <summary>새 뷰어 개수를 가져옵니다.</summary>
+      <returns>새 뷰어 개수입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.ForegroundActivationArgument">
+      <summary>포그라운드에서 앱 브로드캐스트 플러그인이 활성화된 이유를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.ForegroundActivationArgument.MoreSettings">
+      <summary>사용자가 플러그 인 특정 설정을 변경할 수 있도록 포그라운드에서 앱 브로드캐스트 플러그 인이 활성화되었습니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.ForegroundActivationArgument.SignInRequired">
+      <summary>로그인이 필요하기 때문에 포그라운드에서 앱 브로드캐스트 플러그 인이 활성화되었습니다.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesDisplayMode">
+      <summary>게임 바에 대한 표시 모드를 지정합니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarServicesDisplayMode.FullScreenExclusive">
+      <summary>전체 화면 단독 모드입니다.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarServicesDisplayMode.Windowed">
+      <summary>창 표시 모드입니다.</summary>
+    </member>
+  </members>
+</doc>

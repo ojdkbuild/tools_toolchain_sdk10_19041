@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.ApplicationModel.Search.Core.SearchCoreContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs">
+      <summary>为 RequestingFocusOnKeyboardInput 事件提供数据。</summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchCoreContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestion">
+      <summary>支持对 SearchSuggestionManager 提供的搜索建议的访问。</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.DetailText">
+      <summary>获取已传递给 AppendResultSuggestion 方法的 *detailText* 参数的值。</summary>
+      <returns>详细文本，或 **null**（如果搜索建议不是 **Result**）。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Image">
+      <summary>获取已传递给 AppendResultSuggestion 方法的 *image* 参数的值。</summary>
+      <returns>图像，或 **null**（如果搜索建议不是 **Result**）。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.ImageAlternateText">
+      <summary>获取已传递给 AppendResultSuggestion 方法的 *imageAlternateText* 参数的值。</summary>
+      <returns>Image 的替换文字，或者为 **null**（如果搜索建议不是 **Result**）。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Kind">
+      <summary>获取建议的类型。</summary>
+      <returns>建议的类型。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Tag">
+      <summary>获取已传递给 AppendResultSuggestion 方法的 *tag* 参数的值。</summary>
+      <returns>标记，或 **null**（如果搜索建议不是 **Result**）。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestion.Text">
+      <summary>获取在搜索建议 UI 中显示的建议的本地化文本。</summary>
+      <returns>要显示的文本。</returns>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestionKind">
+      <summary>指定 SearchSuggestion 的类型。</summary>
+    </member>
+    <member name="F:Windows.ApplicationModel.Search.Core.SearchSuggestionKind.Query">
+      <summary>该建议是一个查询建议。</summary>
+    </member>
+    <member name="F:Windows.ApplicationModel.Search.Core.SearchSuggestionKind.Result">
+      <summary>该建议是一个结果建议。</summary>
+    </member>
+    <member name="F:Windows.ApplicationModel.Search.Core.SearchSuggestionKind.Separator">
+      <summary>表示搜索建议之间用于分组的分隔符。</summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestionManager">
+      <summary>管理对应用程序内 SearchBox 控件的搜索建议的访问。</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.#ctor">
+      <summary>初始化 SearchSuggestionManager 类的新实例。</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SearchHistoryContext">
+      <summary>标识搜索上下文，并且用于存储用户搜索应用程序历史记录。</summary>
+      <returns>搜索历史记录上下文字符串。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SearchHistoryEnabled">
+      <summary>指示是否自动跟踪应用程序的前一个用户搜索以及该搜索是否用于提供建议。</summary>
+      <returns>如果用户的搜索历史记录将被自动跟踪并用于提供建议，则为 **true**；否则为 **false**。 默认值为 **true**。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.Suggestions">
+      <summary>获取当前搜索查询的搜索建议。</summary>
+      <returns>搜索建议。</returns>
+    </member>
+    <member name="E:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.RequestingFocusOnKeyboardInput">
+      <summary>在用户按下启动键入搜索的按键时引发。</summary>
+    </member>
+    <member name="E:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SuggestionsRequested">
+      <summary>当用户的查询文本发生更改，且应用程序需要提供新的建议以显示在搜索框中时引发。</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.AddToHistory(System.String)">
+      <summary>在搜索历史记录中存储指定的查询。</summary>
+      <param name="queryText">查询。</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.AddToHistory(System.String,System.String)">
+      <summary>在搜索历史记录中存储指定的查询和输入语言。</summary>
+      <param name="queryText">查询。</param>
+      <param name="language">输入语言。 输入语言用于确保查询字符串在正确语言的搜索历史记录中显示。</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.ClearHistory">
+      <summary>清除当前应用程序的所有搜索历史记录上下文。</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetLocalContentSuggestionSettings(Windows.ApplicationModel.Search.LocalContentSuggestionSettings)">
+      <summary>指定基于本地文件的建议是否自动添加到 Suggestions 集合，并定义 Windows 使用的条件来定位和筛选这些建议。</summary>
+      <param name="settings">本地内容建议的新设置。</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetQuery(System.String)">
+      <summary>分配当前搜索查询。</summary>
+      <param name="queryText">查询。</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetQuery(System.String,System.String)">
+      <summary>为当前搜索查询分配指定的输入语言。</summary>
+      <param name="queryText">查询。</param>
+      <param name="language">输入语言。</param>
+    </member>
+    <member name="M:Windows.ApplicationModel.Search.Core.SearchSuggestionManager.SetQuery(System.String,System.String,Windows.ApplicationModel.Search.SearchQueryLinguisticDetails)">
+      <summary>为当前搜索查询分配指定的输入语言和输入法编辑器 (IME) 信息。</summary>
+      <param name="queryText">查询。</param>
+      <param name="language">输入语言。</param>
+      <param name="linguisticDetails">有关用户通过输入法编辑器 (IME) 输入的查询文本的信息。</param>
+    </member>
+    <member name="T:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs">
+      <summary>为 SuggestionsRequested 事件提供数据。</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.Language">
+      <summary>获取标识当前与用户的文本输入设备关联的语言的 Internet 工程任务组 (IETF) 语言标记 (BCP 47 标准)。</summary>
+      <returns>Internet 工程任务组 (IETF) BCP 47 标准语言标记。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.LinguisticDetails">
+      <summary>获取提供有关查询文本的语言信息（用户通过输入法编辑器 (IME) 输入）的对象。</summary>
+      <returns>提供查询文本相关语言信息的对象。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.QueryText">
+      <summary>当 SuggestionsRequested 事件引发时应用程序应为其提供建议且位于搜索框中的文本。</summary>
+      <returns>应用程序应为其提供建议的查询文本。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs.Request">
+      <summary>获取存储有关请求的建议和信息的对象。</summary>
+      <returns>存储有关请求的建议和信息的对象。</returns>
+    </member>
+  </members>
+</doc>

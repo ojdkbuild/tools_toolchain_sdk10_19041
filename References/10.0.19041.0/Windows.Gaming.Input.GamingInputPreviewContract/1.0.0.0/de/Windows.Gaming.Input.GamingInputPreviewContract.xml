@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.Input.GamingInputPreviewContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.Input.GamingInputPreviewContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Gaming.Input.Preview.GameControllerProviderInfo">
+      <summary>Diese API ist nicht für alle Apps verfügbar. Nur wenn Ihr Entwicklerkonto speziell von Microsoft bereitgestellt wird, schlagen Aufrufe dieser APIs zur Laufzeit nicht fehl.</summary>
+    </member>
+    <member name="M:Windows.Gaming.Input.Preview.GameControllerProviderInfo.GetParentProviderId(Windows.Gaming.Input.Custom.IGameControllerProvider)">
+      <summary>Diese API ist nicht für alle Apps verfügbar. Nur wenn Ihr Entwicklerkonto speziell von Microsoft bereitgestellt wird, schlagen Aufrufe dieser APIs zur Laufzeit nicht fehl.</summary>
+      <param name="provider">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Windows.Gaming.Input.Preview.GameControllerProviderInfo.GetProviderId(Windows.Gaming.Input.Custom.IGameControllerProvider)">
+      <summary>Diese API ist nicht für alle Apps verfügbar. Nur wenn Ihr Entwicklerkonto speziell von Microsoft bereitgestellt wird, schlagen Aufrufe dieser APIs zur Laufzeit nicht fehl.</summary>
+      <param name="provider">
+      </param>
+      <returns>
+      </returns>
+    </member>
+  </members>
+</doc>

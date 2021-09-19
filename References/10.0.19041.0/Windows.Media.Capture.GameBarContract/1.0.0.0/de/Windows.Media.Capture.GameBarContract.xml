@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.GameBarContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.Capture.GameBarCommand">
+      <summary>Gibt den Satz der Spielleisten-Befehle an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.OpenGameBar">
+      <summary>Öffnen der Spiel-Leiste</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.PauseBroadcast">
+      <summary>Halten Sie die Übertragung an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.RecordHistoricalBuffer">
+      <summary>Die Verlaufspufferlänge aufzeichnen.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ResumeBroadcast">
+      <summary>Aufnahme fortsetzen.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StartBroadcast">
+      <summary>Starten Sie Übertragung.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StartRecord">
+      <summary>Starten der Aufzeichnung.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StopBroadcast">
+      <summary>Aufzeichnung beenden.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StopRecord">
+      <summary>Beenden der Aufzeichnung.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.TakeScreenshot">
+      <summary>Aufnehmen eines Screenshots.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleCameraCapture">
+      <summary>Setzen Sie die Kameraaufnahme fort.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleMicrophoneCapture">
+      <summary>Mikrofon-Aufzeichnung starten.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleRecordingIndicator">
+      <summary>Setzen Sie den Indikator für Aufnahmen.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleStartStopBroadcast">
+      <summary>Übertragung starten/beenden.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleStartStopRecord">
+      <summary>Aufnahme starten/beenden.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarCommandOrigin">
+      <summary>Gibt den Ursprung für einen Befehl auf der Spielleiste an.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.AppCommand">
+      <summary>Der Spielleisten-Befehl, der von einem App initiierten Befehl stammt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.Cortana">
+      <summary>Der Spielleisten-Befehl, der von Cortana stammt.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.ShortcutKey">
+      <summary>Der Spielleisten-Befehl, der von einer Tastenkombination stammt.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServices">
+      <summary>Verwaltet den Zustand der Spiel-Leiste.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.AppBroadcastServices">
+      <summary>Ruft ein Objekt ab, das App-Übertragungen veröffentlicht.</summary>
+      <returns>Ein Objekt ab, das App-Übertragungen veröffentlicht.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.AppCaptureServices">
+      <summary>Ruft ein Objekt ab, das App-Übertragungen erfasst.</summary>
+      <returns>Ein Objekt, das App-Aufnahme verwaltet.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.SessionId">
+      <summary>Ruft einen eindeutigen Bezeichner für die Spiel-Leiste ab.</summary>
+      <returns>Ein eindeutiger Bezeichner für die Spiel-Leiste.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.TargetCapturePolicy">
+      <summary>Ruft die Richtlinie zur Erfassung eines Ziels ab.</summary>
+      <returns>Die Richtlinie zur Erfassung eines Ziels.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.TargetInfo">
+      <summary>Ruft ein Objekt ab, das Metadaten für ein App-Ziel erfasst.</summary>
+      <returns>Ein Objekt, das Metadaten für ein App-Ziel erfasst.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.GameBarServices.CommandReceived">
+      <summary>Tritt auf, wenn ein Spielleisten-Befehl empfangen wird.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServices.DisableCapture">
+      <summary>Deaktiviert die Aufnahme der App.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServices.EnableCapture">
+      <summary>Ermöglicht das Erfassen der App.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesCommandEventArgs">
+      <summary>Stellt Daten für das GameBarServices.CommandReceived-Ereignis bereit.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesCommandEventArgs.Command">
+      <summary>Ruft einen Wert ab, der dem Spielleisten-Befehl entspricht, der dem Ereignis zugeordnet ist.</summary>
+      <returns>Ruft einen Wert ab, der dem Spielleisten-Befehl entspricht, der dem Ereignis zugeordnet ist.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesCommandEventArgs.Origin">
+      <summary>Ruft einen Wert ab, der den Ursprung des Spielleisten-Befehls definiert.</summary>
+      <returns>Ein Wert, der den Ursprung des Spielleisten-Befehls definiert.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesManager">
+      <summary>Verwaltet die Spielleisten-Dienste.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.GameBarServicesManager.GameBarServicesCreated">
+      <summary>Tritt auf, wenn das GameBarServices-Objekt erstellt wird.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServicesManager.GetDefault">
+      <summary>Ruft die Standardinstanz der GameBarServiceManager-Klasse ab.</summary>
+      <returns>Die Standardinstanz der GameBarServiceManager-Klasse.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs">
+      <summary>Stellt Daten für das GameBarServicesManager.GameBarServicesCreated-Ereignis bereit.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs.GameBarServices">
+      <summary>Ruft die GameBarServices ab, die dem Ereignis zugeordnet sind.</summary>
+      <returns>Der GameBarServices, der dem Ereignis zugeordnet ist.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesTargetInfo">
+      <summary>Enthält Metadaten für ein Spiel-Balken-Ziel-Dienste.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.AppId">
+      <summary>Ruft den eindeutigen Bezeichner für das Spiel-Services-Ziel-App ab.</summary>
+      <returns>Der eindeutigen Bezeichner für das Spiel-Services-Ziel-App.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.DisplayMode">
+      <summary>Ruft einen Wert ab, der den Anzeigemodus für die Spielleisten-Zieldienste-App angibt.</summary>
+      <returns>Ein Wert, der den Anzeigemodus für die Spielleisten-Zieldienste-App angibt.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.DisplayName">
+      <summary>Ruft die Anzeigen-Namen des Spiels-Services-Ziel-App ab.</summary>
+      <returns>Die Anzeigen-Namen des Spiels-Services-Ziel-Apps.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.TitleId">
+      <summary>Ruft den eindeutigen Bezeichner für die Spiel-Services-Titel-App ab.</summary>
+      <returns>Der eindeutige Bezeichner für die Spiel-Services-Titel-App.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarTargetCapturePolicy">
+      <summary>Bietet Informationen zu den zulässigen Aktionen für diese Anwendung.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.EnabledBySystem">
+      <summary>Das Betriebssystem hat festgestellt, dass das Ziel die Erfassung erlaubt</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.EnabledByUser">
+      <summary>Das Betriebssystem kennt die Richtlinie für die App nicht, der Benutzer hat das Ziel jedoch als erfassbar identifiziert.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.NotEnabled">
+      <summary>Das Betriebssystem kenn die Richtlinie für die App nicht, und sie wurde nicht vom Benutzer als erfassbar identifiziert.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.ProhibitedByPublisher">
+      <summary>Der Verleger des Ziels hat angegeben, dass die Erfassung nicht zulässig ist.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.ProhibitedBySystem">
+      <summary>Das Betriebssystem hat festgestellt, dass das Ziel nicht erfasst werden darf.</summary>
+    </member>
+  </members>
+</doc>

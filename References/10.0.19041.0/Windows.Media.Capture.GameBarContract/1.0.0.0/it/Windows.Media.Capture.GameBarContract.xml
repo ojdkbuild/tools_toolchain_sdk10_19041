@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.GameBarContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.Capture.GameBarCommand">
+      <summary>Specifica il set di comandi della barra dei giochi.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.OpenGameBar">
+      <summary>Aprire la barra dei giochi.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.PauseBroadcast">
+      <summary>Sospendere la trasmissione.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.RecordHistoricalBuffer">
+      <summary>Registrare il buffer storico.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ResumeBroadcast">
+      <summary>Riprendere la trasmissione.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StartBroadcast">
+      <summary>Avviare la trasmissione.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StartRecord">
+      <summary>Avviare la registrazione.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StopBroadcast">
+      <summary>Interrompere la trasmissione.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StopRecord">
+      <summary>Interrompere la registrazione.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.TakeScreenshot">
+      <summary>Acquisire uno screenshot.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleCameraCapture">
+      <summary>Attivare l'acquisizione con fotocamera.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleMicrophoneCapture">
+      <summary>Attivare l'acquisizione con microfono.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleRecordingIndicator">
+      <summary>Attivare l'indicatore di registrazione.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleStartStopBroadcast">
+      <summary>Attivare l'avvio/interruzione della trasmissione.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleStartStopRecord">
+      <summary>Attivare l'avvio/interruzione della registrazione.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarCommandOrigin">
+      <summary>Specifica l'origine di un comando della barra dei giochi.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.AppCommand">
+      <summary>Il comando della barra dei giochi ha avuto origine da un comando avviato dall'app.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.Cortana">
+      <summary>Il comando della barra dei giochi ha avuto origine da Cortana.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.ShortcutKey">
+      <summary>Il comando della barra dei giochi ha avuto origine da un tasto di scelta rapida.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServices">
+      <summary>Gestisce lo stato della barra dei giochi.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.AppBroadcastServices">
+      <summary>Ottiene un oggetto che gestisce le trasmissioni di app.</summary>
+      <returns>Un oggetto che gestisce le trasmissioni di app.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.AppCaptureServices">
+      <summary>Ottiene un oggetto che gestisce l'acquisizione di app.</summary>
+      <returns>Un oggetto che gestisce l'acquisizione di app.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.SessionId">
+      <summary>Ottiene un identificatore univoco per la sessione della barra dei giochi.</summary>
+      <returns>Un identificatore univoco per la sessione della barra dei giochi.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.TargetCapturePolicy">
+      <summary>Ottiene i criteri per l'acquisizione di app di una destinazione.</summary>
+      <returns>I criteri per l'acquisizione di app di una destinazione.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.TargetInfo">
+      <summary>Ottiene un oggetto che fornisce i metadati per una destinazione dell'acquisizione di app.</summary>
+      <returns>Un oggetto che fornisce i metadati per una destinazione dell'acquisizione di app.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.GameBarServices.CommandReceived">
+      <summary>Si verifica alla ricezione di un comando della barra dei giochi.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServices.DisableCapture">
+      <summary>Disabilita l'acquisizione di app.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServices.EnableCapture">
+      <summary>Abilita l'acquisizione di app.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesCommandEventArgs">
+      <summary>Fornisce i dati per l'evento GameBarServices.CommandReceived.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesCommandEventArgs.Command">
+      <summary>Ottiene un valore che specifica il comando della barra dei giochi associato all'evento.</summary>
+      <returns>Un valore che specifica il comando della barra dei giochi associato all'evento.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesCommandEventArgs.Origin">
+      <summary>Ottiene un valore che specifica l'origine del comando della barra dei giochi.</summary>
+      <returns>Un valore che specifica l'origine del comando della barra dei giochi.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesManager">
+      <summary>Gestisce i servizi della barra dei giochi.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.GameBarServicesManager.GameBarServicesCreated">
+      <summary>Si verifica quando viene creato l'oggetto GameBarServices.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServicesManager.GetDefault">
+      <summary>Ottiene l'istanza predefinita della classe GameBarServiceManager.</summary>
+      <returns>L'istanza predefinita della classe GameBarServiceManager.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs">
+      <summary>Fornisce i dati per l'evento GameBarServicesManager.GameBarServicesCreated.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs.GameBarServices">
+      <summary>Ottiene l'oggetto GameBarServices associato all'evento.</summary>
+      <returns>L'oggetto GameBarServices associato all'evento.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesTargetInfo">
+      <summary>Fornisce i metadati relativi alla destinazione dei servizi della barra dei giochi.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.AppId">
+      <summary>Ottiene l'identificatore univoco dell'app di destinazione dei servizi della barra dei giochi.</summary>
+      <returns>L'identificatore univoco dell'app di destinazione dei servizi della barra dei giochi.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.DisplayMode">
+      <summary>Ottiene un valore che indica la modalità di visualizzazione dell'app di destinazione dei servizi della barra dei giochi.</summary>
+      <returns>Un valore che indica la modalità di visualizzazione dell'app di destinazione dei servizi della barra dei giochi.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.DisplayName">
+      <summary>Ottiene il nome della visualizzazione dell'app di destinazione dei servizi della barra dei giochi.</summary>
+      <returns>Il nome della visualizzazione dell'app di destinazione dei servizi della barra dei giochi.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.TitleId">
+      <summary>Ottiene l'identificatore univoco del titolo di destinazione dei servizi della barra dei giochi.</summary>
+      <returns>L'identificatore univoco del titolo di destinazione dei servizi della barra dei giochi.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarTargetCapturePolicy">
+      <summary>Fornisce informazioni sulle azioni consentite per l'applicazione.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.EnabledBySystem">
+      <summary>Il sistema operativo ha stabilito che la destinazione consente l'acquisizione</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.EnabledByUser">
+      <summary>Il sistema operativo non conosce i criteri per l'app, ma l'utente ha identificato la destinazione come acquisibile.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.NotEnabled">
+      <summary>Il sistema operativo non conosce i criteri per l'app e non è stato identificato dall'utente come acquisibile.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.ProhibitedByPublisher">
+      <summary>L'autore della destinazione ha indicato che non è consentita l'acquisizione.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.ProhibitedBySystem">
+      <summary>Il sistema operativo ha stabilito che è vietato acquisire la destinazione.</summary>
+    </member>
+  </members>
+</doc>

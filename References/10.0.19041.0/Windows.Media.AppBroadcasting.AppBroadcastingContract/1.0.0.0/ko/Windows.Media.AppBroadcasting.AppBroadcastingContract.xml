@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.AppBroadcasting.AppBroadcastingContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingMonitor">
+      <summary>앱이 현재 브로드캐스트 중인지 확인하고 브로드캐스팅을 시작하거나 중지할 때 이벤트를 수신할 수 있습니다.</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.#ctor">
+      <summary>**AppBroadcastingMonitor** 클래스의 새 인스턴스를 초기화합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcasting">
+      <summary>앱이 현재 브로드캐스팅 중인지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>현재 앱이 브로드캐스팅 중이면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="E:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcastingChanged">
+      <summary>현재 앱의 현재 브로드캐스팅 상태가 변경되면 발생합니다.</summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatus">
+      <summary>앱이 현재 브로드캐스팅을 시작할 수 있는지 확인하고, 그렇지 않은 경우 브로드캐스팅을 시작할 수 없는 이유에 대한 자세한 정보를 얻을 수 있습니다.</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.CanStartBroadcast">
+      <summary>현재 앱이 브로드캐스팅을 시작할 수 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>앱이 브로드캐스팅을 시작할 수 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.Details">
+      <summary>현재 앱이 현재 브로드캐스팅을 시작할 수 없는 이유를 나타내는 자세한 정보를 제공하는 AppBroadcastingStatusDetails 개체를 가져옵니다.</summary>
+      <returns>현재 앱이 현재 브로드캐스팅을 시작할 수 없는 이유를 나타내는 자세한 정보를 제공하는 개체입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails">
+      <summary>현재 앱이 현재 브로드캐스팅을 시작할 수 없는 이유를 나타내는 자세한 정보를 제공합니다.</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAnyAppBroadcasting">
+      <summary>다른 앱에서 현재 브로드캐스팅하고 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>다른 앱에서 현재 브로드캐스팅하고 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAppInactive">
+      <summary>현재 앱의 창이 비활성 상태인지를 지정하는 값을 가져옵니다.</summary>
+      <returns>현재 앱의 창이 비활성 상태이면 true이고 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsBlockedForApp">
+      <summary>현재 앱에 대해 브로드캐스팅이 차단되어 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>현재 앱에 대해 브로드캐스팅이 차단된 경우 true이고, 그렇지 않은 경우 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsCaptureResourceUnavailable">
+      <summary>캡처 리소스를 현재 사용할 수 없는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>캡처 리소스를 현재 사용할 수 없으면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledBySystem">
+      <summary>시스템에서 앱 브로드캐스팅을 사용하지 않도록 설정할지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>시스템에서 앱 브로드캐스팅을 사용하지 않도록 설정되어 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledByUser">
+      <summary>사용자가 앱 브로드캐스팅을 사용하지 않도록 설정했는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>사용자가 앱 브로드캐스트를 사용하지 않도록 설정한 경우 true이고, 그렇지 않은 경우 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGameStreamInProgress">
+      <summary>게임 스트림이 현재 진행 중인지를 나타내는 값을 가져옵니다.</summary>
+      <returns>게임 스트림이 현재 진행 중이면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGpuConstrained">
+      <summary>GPU가 제한되어 있기 때문에 앱 브로드캐스팅을 사용할 수 없는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>GPU가 제한되어 있기 때문에 앱 브로드캐스팅을 사용할 수 없는 경우 true이고, 그렇지 않은 경우 false입니다.</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingUI">
+      <summary>앱이 앱 브로드캐스팅 시스템 설정 UI를 시작할 수 있도록 합니다.</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetDefault">
+      <summary>해당 장치에 현재 로그인한 사용자와 연결된 **AppBroadcastingUI ** 클래스의 인스턴스를 가져옵니다.</summary>
+      <returns>**AppBroadcastingUI** 클래스의 인스턴스입니다.</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetForUser(Windows.System.User)">
+      <summary>지정된 사용자와 연결된 ** AppBroadcastingUI ** 클래스의 인스턴스를 가져옵니다.</summary>
+      <param name="user">**AppBroadcastingUI** 인스턴스를 생성한 사용자입니다.</param>
+      <returns>**AppBroadcastingUI** 클래스의 인스턴스입니다.</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetStatus">
+      <summary>앱이 현재 브로드캐스팅을 시작할 수 있는지 확인하고, 그렇지 않은 경우 브로드캐스팅을 시작할 수 없는 이유에 대한 세부 정보를 얻을 수 있도록 하는 개체를 가져옵니다.</summary>
+      <returns>앱이 현재 브로드캐스팅을 시작할 수 있는지 확인할 수 있도록 하는 개체입니다.</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.ShowBroadcastUI">
+      <summary>앱 브로드캐스팅 시스템 설정 UI를 표시합니다.</summary>
+    </member>
+  </members>
+</doc>

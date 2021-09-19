@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.AppBroadcasting.AppBroadcastingContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingMonitor">
+      <summary>Ermöglicht es der Anwendung, festzustellen, ob es derzeit übertragen wird und ein Ereignis empfängt, wenn die App gestartet oder nicht mehr übertragen wird.</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.#ctor">
+      <summary>Initialisiert eine neue Instanz der **AppBroadcastingMonitor**-Klasse.</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcasting">
+      <summary>Ruft einen Wert ab, der angibt, ob die aktuelle App derzeit übertragen wird.</summary>
+      <returns>„True“, wenn die aktuelle App übertragen wird, andernfalls „false”.</returns>
+    </member>
+    <member name="E:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcastingChanged">
+      <summary>Tritt auf, wenn der aktuelle Übertragungszustand der aktuellen App geändert wird.</summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatus">
+      <summary>Ermöglicht es der App, festzustellen, ob es derzeit mit der Übertragen beginnen kann. Falls nicht, erhält es Informationen zur Ursache, warum die Übertragung nicht initiiert werden kann.</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.CanStartBroadcast">
+      <summary>Ruft einen Wert ab, der angibt, ob die aktuelle App mit der Übertragung beginnen kann.</summary>
+      <returns>„True”, wenn die App mit der Übertragung beginnen kann, andernfalls „false”.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.Details">
+      <summary>Ruft ein AppBroadcastingStatusDetails-Objekt ab, das ausführliche Informationen zum Grund bereitstellt, warum die aktuelle App derzeit die Übertragung nicht starten kann.</summary>
+      <returns>Ein Objekt, das ausführliche Informationen zum Grund bereitstellt, warum die aktuelle App derzeit die Übertragung nicht starten kann.</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails">
+      <summary>Stellt ausführliche Informationen zum Grund bereit, warum die aktuelle App derzeit die Übertragung nicht starten kann.</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAnyAppBroadcasting">
+      <summary>Ruft einen Wert ab, der angibt, ob eine andere App gerade überträgt.</summary>
+      <returns>„True”, wenn eine andere App gerade Audio überträgt; andernfalls „false”.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAppInactive">
+      <summary>Ruft einen Wert ab, der angibt, ob das aktuelle App-Fenster nicht aktiv ist.</summary>
+      <returns>„True”, wenn das aktuelle App-Fenster nicht aktiv ist, andernfalls „false”.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsBlockedForApp">
+      <summary>Ruft einen Wert ab, der angibt, ob die Übertragung für die aktuelle App blockiert wird.</summary>
+      <returns>„True”, wenn die Übertragung für die aktuelle App blockiert wird, andernfalls „false”.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsCaptureResourceUnavailable">
+      <summary>Ruft einen Wert ab, der angibt, ob die Ressourcenaufnahme derzeit nicht verfügbar ist.</summary>
+      <returns>„True”, wenn da Ressourcenaufnahme derzeit nicht verfügbar ist, andernfalls „false”.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledBySystem">
+      <summary>Ruft einen Wert ab, der angibt, ob die App-Übertragung vom System deaktiviert ist.</summary>
+      <returns>„True”, wenn die App-Übertragung vom System deaktiviert ist, andernfalls „false”.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledByUser">
+      <summary>Ruft einen Wert ab, der angibt, ob die App-Übertragung vom Benutzer deaktiviert wurde.</summary>
+      <returns>„True”, wenn die App-Übertragung vom Benutzer deaktiviert wurde, andernfalls „false”.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGameStreamInProgress">
+      <summary>Ruft einen Wert ab, der angibt, ob ein Spiel-Stream ausgeführt wird.</summary>
+      <returns>„True”, wenn ein Spiel-Stream ausgeführt wird, andernfalls „false”.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGpuConstrained">
+      <summary>Ruft einen Wert ab, der angibt, ob die App-Übertragung nicht verfügbar ist, weil der GPU beschränkt ist.</summary>
+      <returns>„True”, wenn die App-Übertragung nicht verfügbar ist, weil der GPU beschränkt ist, andernfalls „false”.</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingUI">
+      <summary>Ermöglicht es einer App, die Setup-Benutzeroberfläche für die App-Übertragung zu starten.</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetDefault">
+      <summary>Ruft eine Instanz der ** AppBroadcastingUI **-Klasse ab, die den am Gerät derzeit angemeldeten Benutzern zugeordnet ist.</summary>
+      <returns>Eine Instanz der **AppBroadcastingUI**-Klasse.</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetForUser(Windows.System.User)">
+      <summary>Ruft eine Instanz der ** AppBroadcastingUI **-Klasse ab, die dem angegebenen Benutzer zugeordnet ist.</summary>
+      <param name="user">Der Benutzer, für den die **AppBroadcastingUI**-Instanz erstellt wird.</param>
+      <returns>Eine Instanz der **AppBroadcastingUI**-Klasse.</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetStatus">
+      <summary>Ruft ein Objekt ab, das es der App ermöglicht, festzustellen, ob es derzeit mit der Übertragen beginnen kann. Falls nicht, erhält es Informationen zur Ursache, warum die Übertragung nicht initiiert werden kann.</summary>
+      <returns>Ein Objekt, das es der App ermöglicht, festzustellen, ob es derzeit mit der Übertragung beginnen kann.</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.ShowBroadcastUI">
+      <summary>Zeigt die Systemsetup-Benutzeroberfläche für die App-Übertragung an.</summary>
+    </member>
+  </members>
+</doc>

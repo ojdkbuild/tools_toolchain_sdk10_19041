@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.ApplicationModel.FullTrustAppContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.FullTrustAppContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.FullTrustProcessLauncher">
+      <summary>Attiva il componente con attendibilità totale Win32 di un'applicazione da un componente di un'app di Windows universale nello stesso pacchetto di applicazioni.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String)">
+      <summary>Avvia il processo con attendibilità totale per l'ID applicazione specificato.</summary>
+      <param name="fullTrustPackageRelativeAppId">Identificatore dell'applicazione relativo al processo dell'applicazione il cui componente con attendibilità totale il chiamante desidera avviare. Il processo di attendibilità consente di effettuare questa analisi per determinare quale app lo ha richiamato.</param>
+      <returns>Interfaccia IAsyncAction prevista.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String,System.String)">
+      <summary>Avvia il processo con attendibilità totale per l'ID applicazione specificato, con parametri.</summary>
+      <param name="fullTrustPackageRelativeAppId">Identificatore dell'applicazione relativo al processo dell'applicazione il cui componente con attendibilità totale il chiamante desidera avviare. Il processo di attendibilità consente di effettuare questa analisi per determinare quale app lo ha richiamato.</param>
+      <param name="parameterGroupId">ID del gruppo di parametri per i parametri che vengono passati al processo avviato.</param>
+      <returns>Interfaccia IAsyncAction prevista.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync">
+      <summary>Avvia il processo con attendibilità totale per l'ID applicazione corrente.</summary>
+      <returns>Interfaccia IAsyncAction prevista.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync(System.String)">
+      <summary>Avvia il processo con attendibilità totale per l'ID applicazione corrente, con parametri.</summary>
+      <param name="parameterGroupId">ID del gruppo di parametri per i parametri che vengono passati al processo avviato.</param>
+      <returns>Interfaccia IAsyncAction prevista.</returns>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.ApplicationModel.FullTrustAppContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.FullTrustAppContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.FullTrustProcessLauncher">
+      <summary>Activez le composant Win32 de confiance totale d'une application à partir d'un composant d'application Windows universelle dans le même package d'application.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String)">
+      <summary>Lancez le processus de confiance totale pour l'ID d'application spécifié.</summary>
+      <param name="fullTrustPackageRelativeAppId">L'identificateur relatif de processus de l'application contenant le composant de processus de confiance totale que l'appelant veut activer. Le processus de confiance totale peut analyser cela pour déterminer quelle application appeler.</param>
+      <returns>L'IAsyncAction qui doit attendre.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String,System.String)">
+      <summary>Lancez le processus de confiance totale pour l'ID d'application spécifié, avec des paramètres.</summary>
+      <param name="fullTrustPackageRelativeAppId">L'identificateur relatif de processus de l'application contenant le composant de processus de confiance totale que l'appelant veut activer. Le processus de confiance totale peut analyser cela pour déterminer quelle application appeler.</param>
+      <param name="parameterGroupId">L'ID de groupe des paramètres qui sont passés au processus en cours d'exécution.</param>
+      <returns>L'IAsyncAction qui doit attendre.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync">
+      <summary>Lancez le processus de confiance totale pour l'ID d'application actuel.</summary>
+      <returns>L'IAsyncAction qui doit attendre.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync(System.String)">
+      <summary>Lancez le processus de confiance totale pour l'ID d'application actuel, avec des paramètres.</summary>
+      <param name="parameterGroupId">L'ID de groupe des paramètres qui sont passés au processus en cours d'exécution.</param>
+      <returns>L'IAsyncAction qui doit attendre.</returns>
+    </member>
+  </members>
+</doc>

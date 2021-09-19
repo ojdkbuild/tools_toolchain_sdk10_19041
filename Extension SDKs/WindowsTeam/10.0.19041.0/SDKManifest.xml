@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FileList TargetPlatform="UAP" TargetPlatformMinVersion="10.0.19041.0" TargetPlatformVersion="10.0.19041.0" SDKType="Platform" DisplayName="Windows Team Extensions for the UWP" AppliesTo="WindowsAppContainer" MinVSVersion="14.0" ProductFamilyName="Windows.Team" SupportsMultipleVersion="Error" TargetFramework=".NETCore, version=v4.5.3;" SupportPrefer32Bit="True" MoreInfo="http://go.microsoft.com/fwlink/?LinkId=517639">
+	<ContainedApiContracts>
+		<ApiContract name="Windows.UI.Core.Preview.Communications.PreviewCommunicationsContract" version="1.0.0.0"/>
+	</ContainedApiContracts>
+</FileList>

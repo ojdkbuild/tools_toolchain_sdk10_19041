@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GamingUIProviderContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameUIProviderActivatedEventArgs">
+      <summary>与 **GameUIProvider** 激活关联的事件参数。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.GameUIArgs">
+      <summary>与 **GameUIProvider** 激活关联的事件参数。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+      <returns>与 **GameUIProvider** 激活关联的事件参数。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.Kind">
+      <summary>激活的类型。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+      <returns>激活的类型。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.PreviousExecutionState">
+      <summary>以前的执行状态。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+      <returns>以前的执行状态。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.SplashScreen">
+      <summary>应用的初始屏幕。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+      <returns>应用的初始屏幕。</returns>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.ReportCompleted(Windows.Foundation.Collections.ValueSet)">
+      <summary>将体验标记为完成，并将任何生成的数据传输回调用应用。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+      <param name="results">从 **GameUIProvider** 应用生成的数据。</param>
+    </member>
+    <member name="T:Windows.Gaming.UI.GamingUIProviderContract">
+      <summary>
+      </summary>
+    </member>
+  </members>
+</doc>

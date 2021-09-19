@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GamingUIProviderContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameUIProviderActivatedEventArgs">
+      <summary>**GameUIProvider** 활성화에 연결된 이벤트 인수입니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.GameUIArgs">
+      <summary>**GameUIProvider** 활성화에 연결된 이벤트 인수입니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+      <returns>**GameUIProvider** 활성화에 연결된 이벤트 인수입니다.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.Kind">
+      <summary>활성화 유형입니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+      <returns>활성화 유형입니다.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.PreviousExecutionState">
+      <summary>이전 실행 상태입니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+      <returns>이전 실행 상태입니다.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.SplashScreen">
+      <summary>앱의 시작 화면입니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+      <returns>앱의 시작 화면입니다.</returns>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.ReportCompleted(Windows.Foundation.Collections.ValueSet)">
+      <summary>환경이 완료되었음을 알리고 호출한 앱으로 모든 결과 데이터를 전송합니다. 이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않는 한 앱에서 이 API를 사용할 수 없습니다.</summary>
+      <param name="results">**GameUIProvider** 앱의 결과 데이터입니다.</param>
+    </member>
+    <member name="T:Windows.Gaming.UI.GamingUIProviderContract">
+      <summary>
+      </summary>
+    </member>
+  </members>
+</doc>

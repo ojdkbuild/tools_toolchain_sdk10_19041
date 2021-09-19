@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.AppRecording.AppRecordingContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.AppRecording.AppRecordingContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingManager">
+      <summary>可讓 UWP app 儲存其內容錄製及螢幕擷取畫面。</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingManager.SupportedScreenshotMediaEncodingSubtypes">
+      <summary>取得表示 SaveScreenshotToFilesAsync 方法支援之媒體編碼子類型的字串清單。</summary>
+      <returns>表示 SaveScreenshotToFilesAsync 方法支援之媒體編碼子類型的字串清單。</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.GetDefault">
+      <summary>取得 **AppRecordingManager** 類別的執行個體。</summary>
+      <returns>**AppRecordingManager** 類別的執行個體。</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.GetStatus">
+      <summary>取得物件，這個物件提供目前應用程式目前是否可以起始應用程式錄製的相關資訊，如果不可以，則提供應用程式錄製無法使用之原因的詳細資料。</summary>
+      <returns>提供應用程式錄製狀態資訊的 AppRecordingStatusDetails 物件。</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.RecordTimeSpanToFileAsync(Windows.Foundation.DateTime,Windows.Foundation.TimeSpan,Windows.Storage.StorageFile)">
+      <summary>在指定之開始時間與持續時間所定義的時間範圍下，將目前應用程式的音訊及視訊內容從歷史緩衝區寫入指定的目的地檔案。</summary>
+      <param name="startTime">要開始錄製內容的時間。 這個值必須在歷史緩衝區的持續時間內，判斷該持續時間的方式為呼叫 AppRecordingManager.GetStatus 然後檢查 AppRecordingStatus.HistoricalBufferDuration 屬性值。</param>
+      <param name="duration">應用程式錄製的要求持續時間。 應用程式錄製可以成功，但若已達錄製配置儲存空間，則只能錄製較此參數所指定為短的持續時間。 若要判斷實際錄製檔案的持續時間，請檢查此作業傳回之物件的 AppRecordingResult.Duration 屬性值。</param>
+      <param name="file">寫入錄製媒體的目標檔案。</param>
+      <returns>完成時會傳回 AppRecordingResult 物件的非同步作業，該物件包含錄製作業狀態的相關資訊。</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.SaveScreenshotToFilesAsync(Windows.Storage.StorageFolder,System.String,Windows.Media.AppRecording.AppRecordingSaveScreenshotOption,Windows.Foundation.Collections.IIterable{System.String})">
+      <summary>以非同步方式儲存包含呼叫端應用程式目前內容的映像檔。</summary>
+      <param name="folder">寫入錄製媒體檔案的目標路徑。</param>
+      <param name="filenamePrefix">映像檔使用的檔案名稱前置詞。 系統會為 *requestedFormats* 參數所指定的每個格式，將適當的副檔名附加至檔案名稱。</param>
+      <param name="option">可指定螢幕擷取畫面儲存選項的值。 為了協助系統執行正確的色彩空間轉換，如果要儲存的內容包含 HDR 內容，應用程式就必須指定 HdrContentVisible。 否則應用程式應指定 **None**。</param>
+      <param name="requestedFormats">指定儲存螢幕擷取畫面影像所用格式的字串清單。 透過 SupportedScreenshotMediaEncodingSubtypes 屬性取得此參數支援的值清單。</param>
+      <returns>完成時會傳回 AppRecordingSaveScreenshotResult 的非同步作業，這個傳回的物件可用來取得儲存作業結果的相關資訊。</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.StartRecordingToFileAsync(Windows.Storage.StorageFile)">
+      <summary>從目前時間開始到取消作業或已超過儲存空間時結束，將目前應用程式的音訊及視訊內容寫入指定的目的地檔案。</summary>
+      <param name="file">寫入錄製媒體的目標檔案。</param>
+      <returns>完成時會傳回 AppRecordingResult 物件的非同步作業，該物件包含錄製作業狀態的相關資訊。</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingResult">
+      <summary>表示以呼叫 RecordTimeSpanToFileAsync 或 StartRecordingToFileAsync 開始的應用程式錄製作業。</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingResult.Duration">
+      <summary>取得錄製檔案的持續時間。</summary>
+      <returns>錄製檔案的持續時間。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingResult.ExtendedError">
+      <summary>取得應用程式錄製作業傳回的相關聯延伸錯誤碼。</summary>
+      <returns>應用程式錄製作業傳回的相關聯延伸錯誤碼。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingResult.IsFileTruncated">
+      <summary>取得表示儲存的應用程式錄製是否已遭截斷的值。</summary>
+      <returns>如果檔案已遭截斷則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingResult.Succeeded">
+      <summary>取得表示應用程式錄製作業是否成功的值。</summary>
+      <returns>如果錄製作業成功則為 true，否則為 false。</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo">
+      <summary>表示螢幕擷取畫面作業所儲存之影像檔的相關資訊，包括與檔案及表示檔案格式之媒體編碼子類型相關聯的 **StorageFile**。</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo.File">
+      <summary>取得使用 SaveScreenshotToFilesAsync 所儲存之螢幕擷取畫面儲存所在的檔案。</summary>
+      <returns>使用 SaveScreenshotToFilesAsync 所儲存之螢幕擷取畫面儲存所在的檔案。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo.MediaEncodingSubtype">
+      <summary>取得字串，表示已用於編碼透過 SaveScreenshotToFilesAsync 所儲存之螢幕擷取畫面的影像格式媒體編碼子類型。</summary>
+      <returns>字串，表示已儲存之螢幕擷取畫面的媒體編碼子類型。</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingSaveScreenshotOption">
+      <summary>指定用於透過 SaveScreenshotToFilesAsync 儲存螢幕擷取畫面的選項。</summary>
+    </member>
+    <member name="F:Windows.Media.AppRecording.AppRecordingSaveScreenshotOption.HdrContentVisible">
+      <summary>應用程式視窗的內容包含高動態範圍 (HDR) 內容。</summary>
+    </member>
+    <member name="F:Windows.Media.AppRecording.AppRecordingSaveScreenshotOption.None">
+      <summary>沒有指定任何選項。</summary>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingSaveScreenshotResult">
+      <summary>表示透過呼叫 SaveScreenshotToFilesAsync 所起始之螢幕擷取畫面作業的結果。</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSaveScreenshotResult.ExtendedError">
+      <summary>取得螢幕擷取畫面作業傳回的相關聯延伸錯誤碼。</summary>
+      <returns>螢幕擷取畫面作業傳回的相關聯延伸錯誤碼。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSaveScreenshotResult.SavedScreenshotInfos">
+      <summary>取得 AppRecordingSavedScreenshotInfo 物件的清單，這些物件表示螢幕擷取畫面作業所儲存的影像檔。</summary>
+      <returns>AppRecordingSavedScreenshotInfo 物件的清單，這些物件表示螢幕擷取畫面作業所儲存的影像檔。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSaveScreenshotResult.Succeeded">
+      <summary>取得表示螢幕擷取畫面作業是否成功的值。</summary>
+      <returns>如果螢幕擷取畫面作業成功則為 true，否則為 false。</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingStatus">
+      <summary>提供目前應用程式目前是否可以藉由呼叫 StartRecordingToFileAsync 或 RecordTimespanToFileAsync 起始應用程式錄製的相關資訊，如果無法起始，則提供應用程式錄製無法使用之原因的詳細資料。</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatus.CanRecord">
+      <summary>取得值，這個值表示目前應用程式目前是否可以藉由呼叫 StartRecordingToFileAsymc 錄製應用程式的音訊及視訊內容。</summary>
+      <returns>如果應用程式目前可以錄製，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatus.CanRecordTimeSpan">
+      <summary>取得值，這個值表示目前應用程式目前是否可以藉由呼叫 RecordTimespanToFileAsync 錄製應用程式特定時間範圍的音訊及視訊內容。</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatus.Details">
+      <summary>取得 AppRecordingStatusDetails 物件，這個物件提供指出目前應用程式目前為何無法開始錄製的詳細資訊。</summary>
+      <returns>提供指出目前應用程式目前為何無法開始錄製之詳細資訊的物件。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatus.HistoricalBufferDuration">
+      <summary>取得表示歷史應用程式錄製緩衝區持續時間的值。</summary>
+      <returns>歷史應用程式錄製緩衝區的持續時間。</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingStatusDetails">
+      <summary>提供表示目前應用程式目前為何無法藉由 StartRecordingToFileAsymc 或 RecordTimespanToFileAsymc 呼叫開始錄製應用程式內容的詳細資訊。</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsAnyAppBroadcasting">
+      <summary>取得表示其他應用程式目前是否正在廣播的值。</summary>
+      <returns>如果其他應用程式目前正在廣播，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsAppInactive">
+      <summary>取得指定目前應用程式視窗是否為非使用中的值。</summary>
+      <returns>如果目前應用程式視窗為非使用中，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsBlockedForApp">
+      <summary>取得表示是否封鎖目前應用程式進行應用程式錄製的值。</summary>
+      <returns>如果封鎖目前應用程式進行應用程式錄製，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsCaptureResourceUnavailable">
+      <summary>取得表示擷取資源目前是否無法使用的值。</summary>
+      <returns>如果擷取資源目前無法使用，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsDisabledBySystem">
+      <summary>取得表示系統是否停用應用程式錄製的值。</summary>
+      <returns>如果系統停用應用程式錄製，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsDisabledByUser">
+      <summary>取得表示應用程式錄製是否已由使用者停用的布林值。</summary>
+      <returns>如果應用程式錄製已由使用者停用，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsGameStreamInProgress">
+      <summary>取得表示遊戲串流目前是否正在進行的值。</summary>
+      <returns>如果遊戲串流目前正在進行，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsGpuConstrained">
+      <summary>取得值，這個值表示應用程式錄製是否因 GPU 受限制而無法使用。</summary>
+      <returns>如果應用程式錄製因 GPU 受限制而無法使用，則為 true，否則為 false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsTimeSpanRecordingDisabled">
+      <summary>取得值，這個值指定是否停用透過 RecordTimespanToFileAsymc 錄製特定時間範圍的應用程式內容。</summary>
+      <returns>如果停用特定時間範圍的應用程式內容錄製，則為 true，否則為 false。</returns>
+    </member>
+  </members>
+</doc>

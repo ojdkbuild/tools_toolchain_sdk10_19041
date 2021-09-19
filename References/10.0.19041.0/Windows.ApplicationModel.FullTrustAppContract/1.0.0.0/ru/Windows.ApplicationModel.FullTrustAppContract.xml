@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.ApplicationModel.FullTrustAppContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.FullTrustAppContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.FullTrustProcessLauncher">
+      <summary>Активирует компонент Win32 с полным доверием из компонента универсального приложения для Windows в том же пакете приложения.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String)">
+      <summary>Запускает процесс с полным доверием для указанного идентификатора приложения.</summary>
+      <param name="fullTrustPackageRelativeAppId">Идентификатор относительно процесса для приложения, компонент процесса с полным доверием которого требуется запустить вызывающему объекту. Процесс с полным доверием может проанализировать его, чтобы определить, какое приложение его вызвало.</param>
+      <returns>Ожидаемое действие IAsyncAction.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String,System.String)">
+      <summary>Запускает процесс с полным доверием для указанного идентификатора приложения с параметрами.</summary>
+      <param name="fullTrustPackageRelativeAppId">Идентификатор относительно процесса для приложения, компонент процесса с полным доверием которого требуется запустить вызывающему объекту. Процесс с полным доверием может проанализировать его, чтобы определить, какое приложение его вызвало.</param>
+      <param name="parameterGroupId">Идентификатор группы параметров, которые будут переданы запущенному процессу.</param>
+      <returns>Ожидаемое действие IAsyncAction.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync">
+      <summary>Запускает процесс с полным доверием для текущего идентификатора приложения.</summary>
+      <returns>Ожидаемое действие IAsyncAction.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync(System.String)">
+      <summary>Запускает процесс с полным доверием для текущего идентификатора приложения с параметрами.</summary>
+      <param name="parameterGroupId">Идентификатор группы параметров, которые будут переданы запущенному процессу.</param>
+      <returns>Ожидаемое действие IAsyncAction.</returns>
+    </member>
+  </members>
+</doc>

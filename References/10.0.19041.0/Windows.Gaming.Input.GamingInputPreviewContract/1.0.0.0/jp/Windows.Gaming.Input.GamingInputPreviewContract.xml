@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.Input.GamingInputPreviewContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.Input.GamingInputPreviewContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Gaming.Input.Preview.GameControllerProviderInfo">
+      <summary>一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、実行時にこれらの API の呼び出しは失敗します。</summary>
+    </member>
+    <member name="M:Windows.Gaming.Input.Preview.GameControllerProviderInfo.GetParentProviderId(Windows.Gaming.Input.Custom.IGameControllerProvider)">
+      <summary>一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、実行時にこれらの API の呼び出しは失敗します。</summary>
+      <param name="provider">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Windows.Gaming.Input.Preview.GameControllerProviderInfo.GetProviderId(Windows.Gaming.Input.Custom.IGameControllerProvider)">
+      <summary>一部のアプリケーションでは、この API を使用できません。 開発者用アカウントが Microsoft によって特にプロビジョニングされない限り、実行時にこれらの API の呼び出しは失敗します。</summary>
+      <param name="provider">
+      </param>
+      <returns>
+      </returns>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.GameBarContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.Capture.GameBarCommand">
+      <summary>ゲーム バーのコマンドのセットを指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.OpenGameBar">
+      <summary>ゲーム バーを開きます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.PauseBroadcast">
+      <summary>ブロードキャストを一時停止します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.RecordHistoricalBuffer">
+      <summary>履歴バッファーを記録します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ResumeBroadcast">
+      <summary>ブロードキャストを再開します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StartBroadcast">
+      <summary>ブロードキャストを開始します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StartRecord">
+      <summary>記録を開始します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StopBroadcast">
+      <summary>ブロードキャストを停止します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.StopRecord">
+      <summary>記録を停止します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.TakeScreenshot">
+      <summary>スクリーンショットを撮ります。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleCameraCapture">
+      <summary>カメラ キャプチャを切り替えます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleMicrophoneCapture">
+      <summary>マイク キャプチャを切り替えます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleRecordingIndicator">
+      <summary>録音インジケーターを切り替えます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleStartStopBroadcast">
+      <summary>ブロードキャストの開始/停止を切り替えます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommand.ToggleStartStopRecord">
+      <summary>記録の開始/停止を切り替えます。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarCommandOrigin">
+      <summary>ゲーム バー コマンドの元の場所を指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.AppCommand">
+      <summary>ゲーム バー コマンドは、アプリで起動されるコマンドに由来します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.Cortana">
+      <summary>Cortana に由来するゲーム バー コマンドです。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarCommandOrigin.ShortcutKey">
+      <summary>ショートカット キーに由来するゲーム バー コマンドです。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServices">
+      <summary>ゲーム バーの状態を管理します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.AppBroadcastServices">
+      <summary>アプリ ブロードキャストを管理するオブジェクトを取得します。</summary>
+      <returns>アプリ ブロードキャストを管理するオブジェクトです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.AppCaptureServices">
+      <summary>アプリ キャプチャを管理するオブジェクトを取得します。</summary>
+      <returns>アプリ キャプチャを管理するオブジェクトです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.SessionId">
+      <summary>ゲーム バー セッションの一意の識別子を取得します。</summary>
+      <returns>ゲーム バー セッションの一意の識別子です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.TargetCapturePolicy">
+      <summary>ターゲットのアプリ キャプチャのポリシーを取得します。</summary>
+      <returns>ターゲットのアプリ キャプチャのポリシーです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServices.TargetInfo">
+      <summary>アプリ キャプチャのターゲットのメタデータを提供するオブジェクトを取得します。</summary>
+      <returns>アプリ キャプチャのターゲットのメタデータを提供するオブジェクトです。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.GameBarServices.CommandReceived">
+      <summary>ゲーム バー コマンドを受信したときに発生します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServices.DisableCapture">
+      <summary>アプリ キャプチャを無効にします。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServices.EnableCapture">
+      <summary>アプリ キャプチャを有効にします。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesCommandEventArgs">
+      <summary>GameBarServices.CommandReceived イベントのデータを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesCommandEventArgs.Command">
+      <summary>イベントに関連付けられているゲーム バー コマンドを指定する値を取得します。</summary>
+      <returns>イベントに関連付けられているゲーム バー コマンドを指定する値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesCommandEventArgs.Origin">
+      <summary>ゲーム バー コマンドの発生元を指定する値を取得します。</summary>
+      <returns>ゲーム バー コマンドの発生元を指定する値です。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesManager">
+      <summary>ゲーム バー サービスを管理します。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.GameBarServicesManager.GameBarServicesCreated">
+      <summary>GameBarServices オブジェクトの作成時に発生します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.GameBarServicesManager.GetDefault">
+      <summary>GameBarServiceManager クラスの既定のインスタンスを取得します。</summary>
+      <returns>GameBarServiceManager クラスの既定のインスタンス。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs">
+      <summary>GameBarServicesManager.GameBarServicesCreated イベントのデータを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs.GameBarServices">
+      <summary>イベントに関連付けられている GameBarServices を取得します。</summary>
+      <returns>イベントに関連付けられている GameBarServices。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesTargetInfo">
+      <summary>ゲーム バー サービスの対象に関するメタデータを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.AppId">
+      <summary>ゲーム バー サービスのターゲット アプリの一意の識別子を取得します。</summary>
+      <returns>ゲーム バー サービスのターゲット アプリの一意の識別子です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.DisplayMode">
+      <summary>ゲーム バー サービスのターゲット アプリの表示モードを示す値を取得します。</summary>
+      <returns>ゲーム バー サービスのターゲット アプリの表示モードを示す値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.DisplayName">
+      <summary>ゲーム バー サービスのターゲット アプリの表示名を取得します。</summary>
+      <returns>ゲーム バー サービスのターゲット アプリの表示名です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.GameBarServicesTargetInfo.TitleId">
+      <summary>ゲーム バー サービスのターゲットのタイトルの一意の識別子を取得します。</summary>
+      <returns>ゲーム バー サービスのターゲットのタイトルの一意の識別子です。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarTargetCapturePolicy">
+      <summary>このアプリケーションに使用可能な操作に関する情報を提供します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.EnabledBySystem">
+      <summary>OS は、ターゲットがキャプチャを許可することを決定しました</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.EnabledByUser">
+      <summary>OS はアプリのポリシーを認識していませんが、ユーザーがターゲットをキャプチャ可能として識別しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.NotEnabled">
+      <summary>OS は、アプリのポリシーを認識している状態になく、キャプチャ可能としてユーザーによって識別されていません。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.ProhibitedByPublisher">
+      <summary>ターゲットの発行元は、キャプチャが許可されていないことを示しています。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarTargetCapturePolicy.ProhibitedBySystem">
+      <summary>OS は、ターゲットのキャプチャが禁止されていることを決定しました。</summary>
+    </member>
+  </members>
+</doc>

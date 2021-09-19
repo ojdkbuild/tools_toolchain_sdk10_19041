@@ -1,0 +1,997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.AppBroadcastContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.Background.AppBroadcastTrigger">
+      <summary>Представляет событие, запускающее фоновую задачу, выполняемую, когда приложение запускает трансляцию игры.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Background.AppBroadcastTrigger.#ctor(System.String)">
+      <summary>Создает AppBroadcastTrigger с именем поставщика, который будет выполнять трансляцию игры.</summary>
+      <param name="providerKey">Имя поставщика, транслирующего игру.</param>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTrigger.ProviderInfo">
+      <summary>Предоставляет информацию о приложении, транслирующем игру.</summary>
+      <returns>Информация о поставщике, транслирующем игру, например максимальная скорость воспроизведения видео, высота и ширина видео и т.д.</returns>
+    </member>
+    <member name="T:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo">
+      <summary>Предоставляет информацию о приложении, транслирующем игру, например его логотип, отображаемое имя и параметры видео.</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.DisplayNameResource">
+      <summary>Получает или задает расположение ресурсов для понятного имени пользовательского интерфейса поставщика, транслирующего игру.</summary>
+      <returns>Расположение ресурсов для отображаемого имени. Например, "ms-resource://resources/DisplayName".</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.LogoResource">
+      <summary>Получает или задает расположение ресурсов логотипа поставщика, транслирующего игру.</summary>
+      <returns>Расположение ресурса логотипа. Например, "ms-resource://resources/Logo.png".</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoBitrate">
+      <summary>Получает или задает максимальную скорость, которую обеспечивает поставщик, транслирующий игру.</summary>
+      <returns>Максимальная скорость в битах в секунду. Например, 2500000 = 2,5 Мбит/с.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoHeight">
+      <summary>Получает или задает максимальную высоту видео, которую поддерживает поставщик, транслирующий игру.</summary>
+      <returns>Максимальная высота видео в пикселях.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoWidth">
+      <summary>Получает или задает максимальную ширину видео, которую поддерживает поставщик, транслирующий игру.</summary>
+      <returns>Максимальная ширина видео в пикселях.</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.VideoKeyFrameInterval">
+      <summary>Получает или задает промежуток времени между ключевыми кадрами видео.</summary>
+      <returns>Промежуток времени между ключевыми кадрами.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundService">
+      <summary>Предоставляет интерфейс между приложением UWP для трансляций и службой трансляций, размещенной в системе. Этот класс предоставляет доступ к объектам, которые упрощают проверку подлинности службы трансляций, проверяют пропускную способность подключения устройства к службе поставщика, осуществляющего трансляцию, и позволяют выполнить задачу по получению кадров аудио и видео для отправки в службу трансляций поставщика.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.AppId">
+      <summary>Получает строку, содержащую идентификатор для транслируемой игры. В случае трансляции на настольное устройство это значение соответствует игре, с которой пользователь инициировал трансляцию.</summary>
+      <returns>Строка, содержащая определенный системой идентификатор для приложения для трансляций.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastChannel">
+      <summary>Получает строку, содержащую имя текущего широковещательного канала.</summary>
+      <returns>Строка, содержащая имя текущего широковещательного канала.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastLanguage">
+      <summary>Получает строку, представляющую язык текущего широковещательного канала.</summary>
+      <returns>Строка, представляющая язык текущего широковещательного канала.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastTitle">
+      <summary>Получает строку, содержащую заданное пользователем название трансляции.</summary>
+      <returns>Строка, содержащая заданное пользователем название трансляции.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.PlugInState">
+      <summary>Получает или задает значение, определяющее текущее состояние фоновой задачи трансляции.</summary>
+      <returns>Значение, определяющее текущее состояние фоновой задачи трансляции.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.SignInInfo">
+      <summary>Получает объект, представляющий данные о входе в фоновую службу трансляций через приложение.</summary>
+      <returns>Объект, представляющий данные о входе в фоновую службу трансляций через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.StreamInfo">
+      <summary>Получает объект, управляющий состоянием потока фоновой службы трансляций через приложение.</summary>
+      <returns>Объект, управляющий состоянием потока фоновой службы трансляций через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.TitleId">
+      <summary>Получает уникальный идентификатор для заголовка текущей трансляции.</summary>
+      <returns>Уникальный идентификатор для заголовка текущей трансляции.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.ViewerCount">
+      <summary>Получает или задает количество просмотров трансляции.</summary>
+      <returns>Количество просмотров трансляции.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastChannelChanged">
+      <summary>Происходит при изменении значения свойства BroadcastChannel.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastLanguageChanged">
+      <summary>Происходит при изменении значения свойства BroadcastLanguage.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastTitleChanged">
+      <summary>Происходит при изменении значения свойства BroadcastTitle.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.HeartbeatRequested">
+      <summary>Периодически вызывается системой для подтверждения текущего активного состояния фоновой задачи трансляции.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastBackgroundService.TerminateBroadcast(Windows.Media.Capture.AppBroadcastTerminationReason,System.UInt32)">
+      <summary>Завершает трансляцию.</summary>
+      <param name="reason">Значение, указывающее на причину завершения трансляции.</param>
+      <param name="providerSpecificReason">Целое число, которое передает причину завершения трансляции, указанную поставщиком.</param>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo">
+      <summary>Представляет данные о входе для фоновой службы трансляций через приложение.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.AuthenticationResult">
+      <summary>Получает объект, представляющий результат операции веб-аутентификации.</summary>
+      <returns>Объект, представляющий результат операции веб-аутентификации.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.OAuthCallbackUri">
+      <summary>Получает или задает URI обратного вызова OAuth.</summary>
+      <returns>URI обратного вызова OAuth.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.OAuthRequestUri">
+      <summary>Получает или задает URI запроса OAuth.</summary>
+      <returns>URI запроса OAuth.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.SignInState">
+      <summary>Получает объект, представляющий состояние входа для фоновой службы трансляций через приложение.</summary>
+      <returns>Состояние входа для фоновой службы трансляций через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.UserName">
+      <summary>Получает или задает имя пользователя для проверки подлинности фоновой службы трансляций через приложение.</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged">
+      <summary>Возникает при изменении состояния входа для фоновой службы трансляций через приложение.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.UserNameChanged">
+      <summary>Происходит при изменении свойства UserName.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo">
+      <summary>Управляет состоянием потока фоновой службы трансляций через приложение.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.AudioCodec">
+      <summary>Получает или задает аудиокодек, используемый фоновой службой трансляций через приложение.</summary>
+      <returns>Аудиокодек, используемый фоновой службой трансляций через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.BandwidthTestBitrate">
+      <summary>Получает или задает скорость тестирования пропускной способности для фоновой службы трансляций через приложение.</summary>
+      <returns>Скорость тестирования пропускной способности для фоновой службы трансляций через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.BroadcastStreamReader">
+      <summary>Получает средство чтения потока трансляции для фоновой службы трансляций через приложение.</summary>
+      <returns>Средство чтения потока трансляции для фоновой службы трансляций через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.DesiredVideoEncodingBitrate">
+      <summary>Получает или задает необходимую скорость шифрования видео для фоновой службы трансляций через приложение.</summary>
+      <returns>Необходимая скорость шифрования видео для фоновой службы трансляций через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.StreamState">
+      <summary>Возвращает значение, определяющее состояние потока трансляции через приложение.</summary>
+      <returns>Значение, определяющее состояние потока трансляции через приложение.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.StreamStateChanged">
+      <summary>Возникает при изменении состояния потока трансляции через приложение.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.VideoEncodingBitrateChanged">
+      <summary>Возникает при изменении скорости шифрования видео трансляции через приложение.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.VideoEncodingResolutionChanged">
+      <summary>Возникает при изменении разрешения шифрования видео трансляции через приложение.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.ReportProblemWithStream">
+      <summary>Уведомляет систему, что обнаружена проблема с широковещательным потоком.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraCaptureState">
+      <summary>Определяет состояние записи с камеры трансляции через приложение.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Failed">
+      <summary>Ошибка записи с камеры трансляции через приложение.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Started">
+      <summary>Запущена запись с камеры трансляции через приложение.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Stopped">
+      <summary>Запись с камеры трансляции через приложение остановлена.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs">
+      <summary>Предоставляет данные для события AppBroadcast.CameraCaptureStateChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs.ErrorCode">
+      <summary>Получает код ошибки, связанный с событием.</summary>
+      <returns>Код ошибки, связанный с событием.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs.State">
+      <summary>Получает значение, которое указывает на новое состояние записи с камеры трансляции через приложение.</summary>
+      <returns>Значение, которое указывает на новое состояние записи с камеры трансляции через приложение.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraOverlayLocation">
+      <summary>Определяет расположение наложения камеры в видеокадре трансляции.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomCenter">
+      <summary>Наложение располагается под центром кадра.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomLeft">
+      <summary>Наложение располагается в нижнем левом углу кадра.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomRight">
+      <summary>Наложение располагается в нижнем правом углу кадра.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleCenter">
+      <summary>Наложение располагается в центре кадра.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleLeft">
+      <summary>Наложение располагается слева от центра кадра.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleRight">
+      <summary>Наложение располагается справа от центра кадра.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopCenter">
+      <summary>Наложение располагается над центром кадра.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopLeft">
+      <summary>Наложение располагается в верхнем левом углу кадра.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopRight">
+      <summary>Наложение располагается в верхнем правом углу кадра.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraOverlaySize">
+      <summary>Определяет размер наложения камеры в видеокадре трансляции.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Large">
+      <summary>Большой размер наложения.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Medium">
+      <summary>Средний размер наложения.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Small">
+      <summary>Маленький размер наложения.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCaptureTargetType">
+      <summary>Определяет тип целевого объекта, снимаемого для трансляции через приложение.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCaptureTargetType.AppView">
+      <summary>Фиксируется представление приложения.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCaptureTargetType.EntireDisplay">
+      <summary>Фиксируется весь экран.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason">
+      <summary>Получает значение, определяющее причину, по которой был закрыт режим трансляции.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.AuthorizationFail">
+      <summary>Трансляция была завершена из-за сбоя проверки подлинности.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.ForegroundAppActivated">
+      <summary>Трансляция была завершена, так как приложение переднего плана было активировано.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.NormalExit">
+      <summary>Трансляция была завершена обычным образом.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.UserCanceled">
+      <summary>Пользователь отменил трансляцию.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastGlobalSettings">
+      <summary>Определяет глобальные параметры трансляции, которые сохраняются во всех приложениях UWP для трансляций.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.CameraOverlayLocation">
+      <summary>Получает или задает значение, которое определяет расположение наложения камеры в видеокадре трансляции.</summary>
+      <returns>Значение, которое определяет расположение наложения камеры в видеокадре трансляции.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.CameraOverlaySize">
+      <summary>Получает или задает значение, которое определяет размер наложения камеры в видеокадре трансляции.</summary>
+      <returns>Значение, которое определяет размер наложения камеры в видеокадре трансляции.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.HasHardwareEncoder">
+      <summary>Получает значение, определяющее поддержку используемым устройством кодирования мультимедиа на основе оборудования.</summary>
+      <returns>Значение true, если устройство поддерживает кодирование на основе оборудования; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsAudioCaptureEnabled">
+      <summary>Получает или задает значение, показывающее, активирована ли запись звука для трансляции.</summary>
+      <returns>Значение true, если фиксация звука включена; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsBroadcastEnabled">
+      <summary>Получает значение, которое указывает, активирована ли трансляция на устройстве.</summary>
+      <returns>Значение true, если трансляция включена; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsCameraCaptureEnabledByDefault">
+      <summary>Получает или задает значение, определяющее, включена ли запись с камеры для трансляций по умолчанию.</summary>
+      <returns>Значение true, если запись с камеры включена по умолчанию; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsCursorImageCaptureEnabled">
+      <summary>Получает значение, определяющее, выполняется ли захват изображения курсора.</summary>
+      <returns>Значение true, если выполняется захват изображения курсора; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsDisabledByPolicy">
+      <summary>Получает значение, определяющее отключение трансляции на устройстве групповой политикой.</summary>
+      <returns>Значение true, если трансляция отключена на устройстве групповой политикой; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsEchoCancellationEnabled">
+      <summary>Получает или задает значение, определяющее, включено ли подавление эха.</summary>
+      <returns>Значение true, если подавление эха включено; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsGpuConstrained">
+      <summary>Получает значение, указывающее, ограничен ли графический процессор на устройстве.</summary>
+      <returns>Значение true, если графический процессор ограничен; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsMicrophoneCaptureEnabledByDefault">
+      <summary>Получает или задает значение, определяющее, включена ли запись с микрофона для трансляций по умолчанию.</summary>
+      <returns>Значение true, если фиксация микрофона включена по умолчанию; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.MicrophoneGain">
+      <summary>Получает или задает значение, определяющее усиление микрофона для записи звука трансляции.</summary>
+      <returns>Усиление микрофона для записи звука трансляции.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.SelectedCameraId">
+      <summary>Получает или задает строку, содержащую идентификатор устройства камеры, которая используется для видеозаписи трансляции.</summary>
+      <returns>Идентификатор устройства камеры, которая используется для видеозаписи трансляции.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.SystemAudioGain">
+      <summary>Получает или задает усиление системы для записи звука трансляции.</summary>
+      <returns>Усиление системы для записи звука трансляции.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs">
+      <summary>Предоставляет данные для события AppBroadcastBackgroundService.HeartbeatRequested, которое вызывается системой периодически для подтверждения текущей активности фоновой задачи трансляции.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs.Handled">
+      <summary>Получает или задает значение, определяющее текущую активность фоновой задачи трансляции.</summary>
+      <returns>Значение true, если фоновая задача трансляции в данный момент активна; в противном случае — значение false.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastManager">
+      <summary>Предоставляет доступ к глобальным параметрам трансляции для текущего устройства и параметрам поставщика трансляции.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.ApplyGlobalSettings(Windows.Media.Capture.AppBroadcastGlobalSettings)">
+      <summary>Обновляет глобальные параметры трансляции для текущего устройства.</summary>
+      <param name="value">Объект, который предоставляет глобальные параметры трансляции для текущего устройства.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.ApplyProviderSettings(Windows.Media.Capture.AppBroadcastProviderSettings)">
+      <summary>Обновляет параметры поставщика трансляции.</summary>
+      <param name="value">
+      </param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.GetGlobalSettings">
+      <summary>Получает объект, который предоставляет глобальные параметры трансляции для текущего устройства.</summary>
+      <returns>Объект, который предоставляет глобальные параметры трансляции для текущего устройства.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.GetProviderSettings">
+      <summary>Получает объект, который предоставляет параметры поставщика трансляции.</summary>
+      <returns>Объект, который предоставляет параметры поставщика трансляции.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState">
+      <summary>Определяет состояние записи с микрофона трансляции через приложение.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Failed">
+      <summary>Сбой записи с микрофона.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Started">
+      <summary>Запись с микрофона запущена.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Stopped">
+      <summary>Запись с микрофона остановлена.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs">
+      <summary>Предоставляет данные для события AppBroadcastState.MicrophoneCaptureStateChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs.ErrorCode">
+      <summary>Получает код ошибки, связанный с событием.</summary>
+      <returns>Код ошибки, связанный с событием.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs.State">
+      <summary>Получает значение, определяющее состояние записи с микрофона трансляции через приложение.</summary>
+      <returns>Значение, определяющее состояние записи с микрофона трансляции через приложение.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugIn">
+      <summary>Предоставляет информацию о подключаемом модуле трансляций через приложение.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.AppId">
+      <summary>Получает уникальный идентификатор приложения, связанный с подключаемым модулем трансляций через приложение.</summary>
+      <returns>Уникальный идентификатор приложения, связанный с подключаемым модулем трансляций через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.DisplayName">
+      <summary>Получает отображаемое имя подключаемого модуля трансляций через приложение.</summary>
+      <returns>Отображаемое имя подключаемого модуля трансляций через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.Logo">
+      <summary>Получает поток, содержащий изображение логотипа подключаемого модуля трансляций через приложение.</summary>
+      <returns>Поток, содержащий изображение логотипа подключаемого модуля трансляций через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.ProviderSettings">
+      <summary>Получает объект, представляющий параметры поставщика для подключаемого модуля трансляций через приложение.</summary>
+      <returns>Параметры поставщика для подключаемого модуля трансляций через приложение.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInManager">
+      <summary>Управляет подключаемыми модулями трансляций через приложение.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.DefaultPlugIn">
+      <summary>Получает или задает подключаемый модуль трансляций через приложение по умолчанию.</summary>
+      <returns>Подключаемый модуль трансляций через приложение по умолчанию.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.IsBroadcastProviderAvailable">
+      <summary>Получает значение, определяющее доступность поставщика трансляций.</summary>
+      <returns>Значение true, если поставщик трансляций доступен; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.PlugInList">
+      <summary>Получает список всех подключаемых модулей трансляций через приложение только для чтения.</summary>
+      <returns>Список всех подключаемых модулей трансляций через приложение только для чтения.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPlugInManager.GetDefault">
+      <summary>Получает подключаемый модуль для трансляций через приложение по умолчанию.</summary>
+      <returns>Подключаемый модуль для трансляций через приложение по умолчанию.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPlugInManager.GetForUser(Windows.System.User)">
+      <summary>Получает подключаемый модуль трансляций через приложение, связанный с указанным пользователем.</summary>
+      <param name="user">Пользователь, для которого должен быть получен подключаемый модуль трансляций через приложение.</param>
+      <returns>Подключаемый модуль трансляций через приложение, связанный с указанным пользователем.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInState">
+      <summary>Определяет текущее состояние фоновой задачи трансляции.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.InBandwidthTest">
+      <summary>В рамках фоновой задачи трансляции выполняется тестирование пропускной способности подключения устройства к поставщику трансляций. По завершении теста система установит свойство AppBroadcastBackgroundServiceStreamInfo.BandwidthTestBitrate для индикации результата тестирования пропускной способности.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.Initialized">
+      <summary>Инициализируется фоновая задача трансляции.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.MicrosoftSignInRequired">
+      <summary>Текущий пользователь должен пройти проверку подлинности с помощью службы Майкрософт.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.OAuthSignInRequired">
+      <summary>Текущий пользователь должен пройти проверку подлинности с помощью службы поставщика трансляций.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.ProviderSignInRequired">
+      <summary>В рамках фоновой задачи трансляции необходимо выполнить проверку подлинности текущего пользователя в службе поставщика трансляций.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.ReadyToBroadcast">
+      <summary>Фоновая задача готова к трансляции.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.Unknown">
+      <summary>Текущее состояние неизвестно.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs">
+      <summary>Предоставляет данные для события AppBroadcastState.PlugInStateChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs.PlugInState">
+      <summary>Получает новое состояние подключаемого модуля трансляций через приложение.</summary>
+      <returns>Новое состояние подключаемого модуля трансляций через приложение.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreview">
+      <summary>Предоставляет сведения о состоянии и доступ к предварительному просмотру трансляции через приложение. </summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.ErrorCode">
+      <summary>Возвращает код ошибки, связанной с предварительным просмотром трансляции через приложение.</summary>
+      <returns>Код ошибки, связанной с предварительным просмотром трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.PreviewState">
+      <summary>Возвращает значение, определяющее состояние предварительного просмотра трансляции через приложение.</summary>
+      <returns>Значение, определяющее состояние предварительного просмотра трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.PreviewStreamReader">
+      <summary>Получает средство чтения потока для предварительного просмотра трансляции через приложение.</summary>
+      <returns>Средство чтения потока для предварительного просмотра трансляции через приложение.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastPreview.PreviewStateChanged">
+      <summary>Возникает при изменении состояния предварительного просмотра трансляции через приложение.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPreview.StopPreview">
+      <summary>Останавливает предварительный просмотр трансляции через приложение.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewState">
+      <summary>Определяет состояние предварительного просмотра трансляции через приложение.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Failed">
+      <summary>Не удалось выполнить предварительный просмотр трансляции через приложение.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Started">
+      <summary>Предварительный просмотр трансляции через приложение запущен.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Stopped">
+      <summary>Предварительный просмотр трансляции через приложение остановлен.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs">
+      <summary>Предоставляет данные для события AppBroadcastPreview.PreviewStateChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs.ErrorCode">
+      <summary>Получает код ошибки, связанный с событием.</summary>
+      <returns>Код ошибки, связанный с событием.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs.PreviewState">
+      <summary>Получает новое состояние предварительного просмотра трансляции через приложение.</summary>
+      <returns>Новое состояние предварительного просмотра трансляции через приложение.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamReader">
+      <summary>Предоставляет сведения о состоянии и доступ к потоку предварительного просмотра трансляции через приложение.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoBitmapAlphaMode">
+      <summary>Получает режим альфа-канала растрового изображения видео для потока предварительного просмотра трансляции через приложение.</summary>
+      <returns>Режим альфа-канала растрового изображения видео для потока предварительного просмотра трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoBitmapPixelFormat">
+      <summary>Получает формат пикселей растрового изображения видео для потока предварительного просмотра трансляции через приложение.</summary>
+      <returns>Формат пикселей растрового изображения видео для потока предварительного просмотра трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoHeight">
+      <summary>Получает высоту видео потока предварительного просмотра трансляции через приложение в пикселях.</summary>
+      <returns>Высота видео потока предварительного просмотра трансляции через приложение в пикселях.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoStride">
+      <summary>Получает шаг видео потока предварительного просмотра трансляции через приложение.</summary>
+      <returns>Шаг видео потока предварительного просмотра трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoWidth">
+      <summary>Получает ширину видео потока предварительного просмотра трансляции через приложение в пикселях.</summary>
+      <returns>Ширина видео потока предварительного просмотра трансляции через приложение в пикселях.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoFrameArrived">
+      <summary>Возникает, когда из потока предварительного просмотра трансляции через приложение поступает новый видеокадр.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPreviewStreamReader.TryGetNextVideoFrame">
+      <summary>Пытается получить следующий видеокадр из потока предварительного просмотра трансляции через приложение.</summary>
+      <returns>Следующий видеокадр из потока предварительного просмотра трансляции через приложение.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame">
+      <summary>Представляет видеокадр из потока предварительного просмотра трансляции через приложение.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame.VideoBuffer">
+      <summary>Получает буфер, содержащий данные изображения для видеокадра потока предварительного просмотра трансляции через приложение.</summary>
+      <returns>Буфер, содержащий данные изображения для видеокадра потока предварительного просмотра трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame.VideoHeader">
+      <summary>Получает заголовок, описывающий данные изображения для видеокадра потока предварительного просмотра трансляции через приложение.</summary>
+      <returns>Заголовок, описывающий данные изображения для видеокадра потока предварительного просмотра трансляции через приложение.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader">
+      <summary>Представляет метаданные видеокадра потока предварительного просмотра трансляции через приложение.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.AbsoluteTimestamp">
+      <summary>Получает отметку абсолютного времени для видеокадра потока предварительного просмотра трансляции через приложение.</summary>
+      <returns>Отметка абсолютного времени для видеокадра потока предварительного просмотра трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.Duration">
+      <summary>Получает продолжительность видеокадра потока предварительного просмотра трансляции через приложение.</summary>
+      <returns>Продолжительность видеокадра потока предварительного просмотра трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.FrameId">
+      <summary>Получает идентификатор для видеокадра потока предварительного просмотра трансляции через приложение.</summary>
+      <returns>Идентификатор для видеокадра потока предварительного просмотра трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.RelativeTimestamp">
+      <summary>Получает отметку относительного времени для видеокадра потока предварительного просмотра трансляции через приложение.</summary>
+      <returns>Отметка относительного времени для видеокадра потока предварительного просмотра трансляции через приложение.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastProviderSettings">
+      <summary>Предоставляет доступ к параметрам удаленной службы поставщика трансляций. Эти параметры может просматривать и изменять поставщик трансляций.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.AudioEncodingBitrate">
+      <summary>Получает или задает скорость шифрования звука потока трансляции в битах в секунду.</summary>
+      <returns>Скорость шифрования звука потока трансляции в битах в секунду.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingBitrate">
+      <summary>Получает или задает пользовательскую скорость шифрования видео потока трансляции в битах в секунду.</summary>
+      <returns>Пользовательская скорость шифрования видео для потока трансляции в битах в секунду.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingHeight">
+      <summary>Получает или задает пользовательскую высоту шифрования видео для потока трансляции.</summary>
+      <returns>Пользовательская высота шифрования видео для потока трансляции.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingWidth">
+      <summary>Получает или задает пользовательскую ширину шифрования видео для потока трансляции.</summary>
+      <returns>Пользовательская ширина шифрования видео для потока трансляции.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.DefaultBroadcastTitle">
+      <summary>Получает или задает название трансляции по умолчанию.</summary>
+      <returns>Название трансляции по умолчанию.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.VideoEncodingBitrateMode">
+      <summary>Получает или задает режим скорости шифрования видео для удаленной службы поставщика трансляций.</summary>
+      <returns>Скорость шифрования видео.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.VideoEncodingResolutionMode">
+      <summary>Получает или задает режим разрешения шифрования видео для удаленной службы поставщика трансляций.</summary>
+      <returns>Режим разрешения шифрования видео.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastServices">
+      <summary>Управляет состоянием трансляций через приложение.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.BroadcastLanguage">
+      <summary>Получает или задает строку, которая определяет параметры языка приложения для трансляций.</summary>
+      <returns>Строка, которая определяет параметры языка приложения для трансляций.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.BroadcastTitle">
+      <summary>Получает или задает заголовок трансляции.</summary>
+      <returns>Заголовок трансляции.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.CanCapture">
+      <summary>Получает значение, определяющее возможность записи службы трансляции.</summary>
+      <returns>Значение true, если запись службы трансляции возможна; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.CaptureTargetType">
+      <summary>Получает или задает значение, определяющее тип записи целевого объекта для трансляции.</summary>
+      <returns>Значение, определяющее тип записи целевого объекта для трансляции.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.State">
+      <summary>Получает текущее состояние служб трансляций через приложение.</summary>
+      <returns>Текущее состояние служб трансляций через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.UserName">
+      <summary>Получает имя пользователя, используемое для проверки подлинности трансляций через приложение.</summary>
+      <returns>Имя пользователя, используемое для проверки подлинности трансляций через приложение.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.EnterBroadcastModeAsync(Windows.Media.Capture.AppBroadcastPlugIn)">
+      <summary>Переводит службу приложения для трансляций в режим трансляции с помощью указанного подключаемого модуля трансляций через приложение.</summary>
+      <param name="plugIn">Подключаемый модуль трансляций через приложение, с помощью которого выполняется переход в режим трансляции.</param>
+      <returns>Асинхронная операция, которая при успешном завершении возвращает код состояния.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.ExitBroadcastMode(Windows.Media.Capture.AppBroadcastExitBroadcastModeReason)">
+      <summary>Выводит службу трансляций через приложение из режима трансляций по указанной причине.</summary>
+      <param name="reason">Объект, который определяет причину выхода из режима трансляции.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.PauseBroadcast">
+      <summary>Приостанавливает трансляции через приложение.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.ResumeBroadcast">
+      <summary>Возобновляет трансляции через приложение.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.StartBroadcast">
+      <summary>Запускает трансляции через приложение.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.StartPreview(Windows.Foundation.Size)">
+      <summary>Запускает предварительный просмотр трансляции через приложение.</summary>
+      <param name="desiredSize">Объект, определяющий размер предварительного просмотра трансляций через приложение в пикселях.</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInResult">
+      <summary>Определяет результат операции входа.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.AuthenticationFailed">
+      <summary>Ошибка проверки подлинности при входе.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.ServiceUnavailable">
+      <summary>Служба входа в систему недоступна.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Success">
+      <summary>Вход в систему выполнен успешно.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Unauthorized">
+      <summary>Пользователь, прошедший проверку подлинности, не имеет прав доступа к запрашиваемому ресурсу.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Unknown">
+      <summary>Результат входа в систему неизвестен.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInState">
+      <summary>Определяет текущее состояние входа в приложение для трансляций.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.MicrosoftSignInComplete">
+      <summary>Операция входа с помощью службы Майкрософт завершена.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.MicrosoftSignInInProgress">
+      <summary>Выполняется операция входа с помощью службы Майкрософт.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.NotSignedIn">
+      <summary>Пользователь не выполнил вход.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.OAuthSignInComplete">
+      <summary>Операция входа с помощью службы поставщиков трансляций завершена.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.OAuthSignInInProgress">
+      <summary>Выполняется операция входа с помощью службы поставщиков трансляций.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs">
+      <summary>Предоставляет данные для события AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs.Result">
+      <summary>Возвращает результат операции входа в приложение для трансляций, связанной с событием AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged.</summary>
+      <returns>Результат операции входа.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs.SignInState">
+      <summary>Получает текущее состояние входа в приложение для трансляций после возникновения AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged.</summary>
+      <returns>Текущее состояние входа.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastState">
+      <summary>Представляет и управляет состоянием трансляции через приложение.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.AuthenticationResult">
+      <summary>Получает результат проверки подлинности состояния трансляции через приложение.</summary>
+      <returns>Результат проверки подлинности состояния трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.CameraCaptureError">
+      <summary>Получает ошибку записи с камеры, связанную с состоянием трансляции через приложение.</summary>
+      <returns>Ошибка записи с камеры, связанная с состоянием трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.CameraCaptureState">
+      <summary>Получает состояние записи с камеры.</summary>
+      <returns>Состояние записи с камеры.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.EncodedVideoSize">
+      <summary>Получает размер зашифрованного видео трансляции через приложение.</summary>
+      <returns>Размер зашифрованного видео трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.IsCaptureTargetRunning">
+      <summary>Получает значение, определяющее работу целевого объекта захвата в данный момент.</summary>
+      <returns>Значение true, если целевой объект захвата приложений работает; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureError">
+      <summary>Получает ошибку записи с микрофона, связанную с состоянием трансляции через приложение.</summary>
+      <returns>Ошибка записи с микрофона, связанная с состоянием трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureState">
+      <summary>Получает состояние записи с микрофона.</summary>
+      <returns>Состояние записи с микрофона.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.OAuthCallbackUri">
+      <summary>Получает URI обратного вызова OAuth, связанный с состоянием трансляции через приложение.</summary>
+      <returns>URI обратного вызова OAuth.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.OAuthRequestUri">
+      <summary>Получает URI запроса OAuth, связанный с состоянием трансляции через приложение.</summary>
+      <returns>URI запроса OAuth.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.PlugInState">
+      <summary>Получает состояние подключаемого модуля, связанного с состоянием трансляции через приложение.</summary>
+      <returns>Состояние подключаемого модуля, связанное с состоянием трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ShouldCaptureCamera">
+      <summary>Получает или задает значение, определяющее необходимость записи с камеры для трансляции через приложение.</summary>
+      <returns>Значение, определяющее необходимость записи с камеры для трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ShouldCaptureMicrophone">
+      <summary>Получает или задает значение, определяющее необходимость записи с микрофона для трансляции через приложение.</summary>
+      <returns>Значение, определяющее необходимость записи с микрофона для трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.SignInState">
+      <summary>Получает или задает значение, определяющее состояние входа для трансляции через приложение.</summary>
+      <returns>Значение, определяющее состояние входа для трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.StreamState">
+      <summary>Получает значение, определяющее состояние потока трансляции через приложение.</summary>
+      <returns>Значение, определяющее состояние потока трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.TerminationReason">
+      <summary>Получает значение, определяющее причину завершения трансляции через приложение.</summary>
+      <returns>Значение, определяющее причину завершения трансляции через приложение.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.TerminationReasonPlugInSpecific">
+      <summary>Получает значение, определяющее причину завершения трансляции через приложение в зависимости от подключаемого модуля.</summary>
+      <returns>Значение, определяющее причину завершения трансляции через приложение в зависимости от подключаемого модуля.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ViewerCount">
+      <summary>Получает количество просмотров трансляции через приложение.</summary>
+      <returns>Количество просмотров трансляции через приложение.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.CameraCaptureStateChanged">
+      <summary>Возникает при изменении состояния записи с камеры.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.CaptureTargetClosed">
+      <summary>Возникает при закрытии целевого объекта захвата.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureStateChanged">
+      <summary>Возникает при изменении состояния записи с микрофона.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.PlugInStateChanged">
+      <summary>Возникает при изменении состояния подключаемого модуля, связанного с состоянием трансляции через приложение.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.StreamStateChanged">
+      <summary>Возникает при изменении состояния потока трансляции через приложение.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.ViewerCountChanged">
+      <summary>Возникает при изменении количества просмотров трансляции через приложение.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastState.RestartCameraCapture">
+      <summary>Перезапускает запись трансляции через приложение с камеры.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastState.RestartMicrophoneCapture">
+      <summary>Перезапускает запись трансляции через приложение с микрофона.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamAudioFrame">
+      <summary>Представляет кадр из фрагментов звуковых данных в потоке трансляции.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioFrame.AudioBuffer">
+      <summary>Получает буфер, содержащий фрагменты звуковых данных для аудиокадра трансляции.</summary>
+      <returns>Буфер, содержащий фрагменты звуковых данных для аудиокадра трансляции.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioFrame.AudioHeader">
+      <summary>Получает объект, содержащий метаданные о связанном аудиокадре трансляции.</summary>
+      <returns>Объект, содержащий метаданные о связанном аудиокадре трансляции.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamAudioHeader">
+      <summary>Предоставляет метаданные об аудиокадре трансляции.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.AbsoluteTimestamp">
+      <summary>Получает отметку времени, определяющую системное время записи аудиокадра.</summary>
+      <returns>Отметка времени, определяющая системное время записи аудиокадра.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.Duration">
+      <summary>Получает значение, определяющее продолжительность аудиокадра.</summary>
+      <returns>Длительность аудиокадра.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.FrameId">
+      <summary>Получает значение, определяющее аудиокадр.</summary>
+      <returns>Значение, определяющее аудиокадр.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.HasDiscontinuity">
+      <summary>Получает значение, определяющее присутствие разрыва в аудиопотоке аудиокадра.</summary>
+      <returns>Значение true, если аудиокадр содержит разрыв; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.RelativeTimestamp">
+      <summary>Получает отметку времени, определяющую относительное время записи аудиокадра в аудиопотоке.</summary>
+      <returns>Отметка времени, определяющая относительное время записи аудиокадра в аудиопотоке.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamReader">
+      <summary>Предоставляет методы и события для получения аудио- и видеокадров из потока трансляции через приложение.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioAacSequence">
+      <summary>Получает буфер, содержащий заголовок последовательности для аудиопотока AAC.</summary>
+      <returns>Буфер, содержащий заголовок последовательности для аудиопотока AAC.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioBitrate">
+      <summary>Получает скорость аудиопотока, связанную с AppBroadcastStreamReader, в битах в секунду.</summary>
+      <returns>Скорость аудиопотока в битах в секунду.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioChannels">
+      <summary>Получает количество каналов в аудиопотоке, связанных с AppBroadcastStreamReader.</summary>
+      <returns>Количество каналов в аудиопотоке.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioSampleRate">
+      <summary>Получает частоту дискретизации звукового потока, связанную с AppBroadcastStreamReader.</summary>
+      <returns>Частота дискретизации звукового потока</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoBitrate">
+      <summary>Получает скорость видеопотока, связанную с AppBroadcastStreamReader, в битах в секунду.</summary>
+      <returns>Скорость видеопотока в битах в секунду.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoHeight">
+      <summary>Получает высоту кадров в видеопотоке, связанную с AppBroadcastStreamReader.</summary>
+      <returns>Высота кадров в видеопотоке</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoWidth">
+      <summary>Получает ширину кадров в видеопотоке, связанную с AppBroadcastStreamReader.</summary>
+      <returns>Ширина кадров в видеопотоке</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastStreamReader.AudioFrameArrived">
+      <summary>Вызывается, когда поступают новые аудиокадры из потока трансляции.</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastStreamReader.VideoFrameArrived">
+      <summary>Вызывается, когда поступают новые видеокадры из потока трансляции.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastStreamReader.TryGetNextAudioFrame">
+      <summary>Пытается получить объект AppBroadcastStreamAudioFrame, представляющий последний аудиокадр из потока трансляции.</summary>
+      <returns>В случае успеха — последний аудиокадр из потока трансляции; в противном случае — значение null.</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastStreamReader.TryGetNextVideoFrame">
+      <summary>Пытается получить объект AppBroadcastStreamVideoFrame, представляющий последний видеокадр из потока трансляции.</summary>
+      <returns>В случае успеха — последний видеокадр из потока трансляции; в противном случае — значение null.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamState">
+      <summary>Определяет состояние потока трансляции через приложение.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Initializing">
+      <summary>Выполняется инициализация потока трансляции через приложение.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Paused">
+      <summary>Поток трансляции через приложение приостановлен.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Started">
+      <summary>Поток трансляции через приложение запущен.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.StreamReady">
+      <summary>Поток трансляции через приложение готов.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Terminated">
+      <summary>Поток трансляции через приложение прекращен.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs">
+      <summary>Предоставляет данные для события AppBroadcastState.StreamStateChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs.StreamState">
+      <summary>Получает новое состояние потока трансляции через приложение.</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamVideoFrame">
+      <summary>Представляет видеокадр в потоке трансляции.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoFrame.VideoBuffer">
+      <summary>Получает буфер, содержащий данные изображения для аудиокадра трансляции.</summary>
+      <returns>Буфер, содержащий данные изображения для аудиокадра трансляции.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoFrame.VideoHeader">
+      <summary>Получает объект, содержащий метаданные о связанном видеокадре трансляции.</summary>
+      <returns>Объект, содержащий метаданные о связанном видеокадре трансляции.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamVideoHeader">
+      <summary>Предоставляет метаданные об видеокадре трансляции.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.AbsoluteTimestamp">
+      <summary>Получает отметку времени, определяющую системное время записи видеокадра.</summary>
+      <returns>Отметка времени, определяющая системное время записи аудиокадра.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.Duration">
+      <summary>Получает значение, определяющее продолжительность видеокадра.</summary>
+      <returns>Длительность видеокадра.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.FrameId">
+      <summary>Получает значение, определяющее видеокадр.</summary>
+      <returns>Значение, определяющее видеокадр.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.HasDiscontinuity">
+      <summary>Получает значение, определяющее присутствие разрыва в видеопотоке видеокадра.</summary>
+      <returns>Значение true, если видеокадр содержит разрыв; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.IsKeyFrame">
+      <summary>Возвращает значение, определяющее, является ли видеокадр опорным кадром в видеопотоке трансляции.</summary>
+      <returns>Значение true, если видеокадр является опорным кадром; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.RelativeTimestamp">
+      <summary>Получает отметку времени, определяющую относительное время записи видеокадра в видеопотоке.</summary>
+      <returns>Относительное время записи видеокадра в видеопотоке.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastTerminationReason">
+      <summary>Определяет причину прекращения трансляции через приложение.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.BackgroundTaskTerminated">
+      <summary>Трансляция через приложение была завершена, так как выполнение фоновой задачи трансляции через приложение завершено.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.BackgroundTaskUnresponsive">
+      <summary>Трансляция через приложение была завершена, так как фоновая задача трансляции через приложение не отвечает.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.InternalError">
+      <summary>Трансляция через приложение была завершена из-за внутренней ошибки.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.LostConnectionToService">
+      <summary>Трансляция через приложение была завершена из-за прерывания подключения к службе.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.NoNetworkConnectivity">
+      <summary>Трансляция через приложение была завершена из-за отсутствия подключения к сети.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.NormalTermination">
+      <summary>Трансляция через приложение была завершена нормально.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceAbort">
+      <summary>Трансляция через приложение была завершена, поскольку служба прервала трансляцию.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceError">
+      <summary>Трансляция через приложение была завершена из-за ошибки службы.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceUnavailable">
+      <summary>Трансляция через приложение была завершена из-за недоступности службы.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.UnsupportedFormat">
+      <summary>Трансляция через приложение была завершена, поскольку используется неподдерживаемый формат.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastTriggerDetails">
+      <summary>Содержит сведения, связанные с фоновой задачей приложения для трансляций.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastTriggerDetails.BackgroundService">
+      <summary>Возвращает объект, предоставляющий интерфейс между приложением UWP для трансляций и службой трансляций, размещенной в системе.</summary>
+      <returns>Объект, предоставляющий интерфейс между приложением UWP для трансляций и службой трансляций, размещенной в системе.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode">
+      <summary>Задает режим для определения скорости шифрования видео для трансляций.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode.Auto">
+      <summary>Скорость устанавливается системой автоматически.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode.Custom">
+      <summary>Используется скорость, заданная с помощью свойства AppBroadcastProviderSettings.CustomVideoEncodingBitrate.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode">
+      <summary>Задает режим для определения разрешения шифрования видео для трансляций.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode.Auto">
+      <summary>Разрешение устанавливается системой автоматически.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode.Custom">
+      <summary>Используется разрешение, указанное с помощью свойств AppBroadcastProviderSettings.CustomVideoEncodingHeight и CustomVideoEncodingBitrate properties.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs">
+      <summary>Предоставляет данные для события AppBroadcastViewerCountChanged.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs.ViewerCount">
+      <summary>Получает новое число просмотров.</summary>
+      <returns>Новое число просмотров.</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.ForegroundActivationArgument">
+      <summary>Определяет причину активации подключаемого модуля трансляций через приложение на переднем плане.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.ForegroundActivationArgument.MoreSettings">
+      <summary>Подключаемый модуль трансляций через приложение был активирован на переднем плане, чтобы пользователь мог изменить параметры подключаемого модуля.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.ForegroundActivationArgument.SignInRequired">
+      <summary>Подключаемый модуль трансляций через приложение был активирован на переднем плане, поскольку требуется выполнить вход.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesDisplayMode">
+      <summary>Определяет режим отображения для меню игры.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarServicesDisplayMode.FullScreenExclusive">
+      <summary>Полноэкранный монопольный режим.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarServicesDisplayMode.Windowed">
+      <summary>Оконный режим отображения.</summary>
+    </member>
+  </members>
+</doc>

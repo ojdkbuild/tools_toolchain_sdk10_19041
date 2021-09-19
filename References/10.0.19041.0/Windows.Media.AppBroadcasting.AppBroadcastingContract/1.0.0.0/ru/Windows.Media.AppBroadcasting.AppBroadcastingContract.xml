@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.AppBroadcasting.AppBroadcastingContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingMonitor">
+      <summary>Позволяет приложению определить, если оно в настоящее транслируется, и получить событие, когда приложение начинает или останавливает трансляцию.</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.#ctor">
+      <summary>Инициализирует новый экземпляр класса **AppBroadcastingMonitor**.</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcasting">
+      <summary>Получает значение, указывающее, транслирует ли в данный момент текущее приложение.</summary>
+      <returns>Значение true, если текущее приложение выполняет трансляцию; в противном случае — значение false.</returns>
+    </member>
+    <member name="E:Windows.Media.AppBroadcasting.AppBroadcastingMonitor.IsCurrentAppBroadcastingChanged">
+      <summary>Происходит, когда изменяется текущее состояние трансляции текущего приложения.</summary>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatus">
+      <summary>Позволяет приложению определять, может ли оно сейчас начать трансляцию, и если нет, получить информацию о причине невозможности начать трансляцию.</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.CanStartBroadcast">
+      <summary>Возвращает значение, указывающее, может ли текущее приложение начать трансляцию.</summary>
+      <returns>Значение true, если приложение может начать трансляцию; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatus.Details">
+      <summary>Получает объект AppBroadcastingStatusDetails, который содержит подробные сведения о том, почему текущее приложение не может сейчас начать трансляцию.</summary>
+      <returns>Объект, который содержит подробные сведения о том, почему текущее приложение не может сейчас начать трансляцию.</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails">
+      <summary>Предоставляет подробные сведения о том, почему текущее приложение не может сейчас начать трансляцию.</summary>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAnyAppBroadcasting">
+      <summary>Получает значение, указывающее, использует ли в настоящий момент другое приложение функцию трансляции.</summary>
+      <returns>Значение true, если другое приложение в данный момент транслирует; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsAppInactive">
+      <summary>Возвращает значение, указывающее, неактивно ли окно текущего приложения.</summary>
+      <returns>Значение True, если окно текущего приложения неактивно; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsBlockedForApp">
+      <summary>Возвращает значение, указывающее, заблокирована ли трансляция для текущего приложения.</summary>
+      <returns>Значение true, если трансляция блокируется для текущего приложения; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsCaptureResourceUnavailable">
+      <summary>Получает значение, доступен ли в текущей момент ресурс захвата.</summary>
+      <returns>Значение True, если ресурс захвата сейчас недоступен; иначе — False.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledBySystem">
+      <summary>Возвращает значение, указывающее, отключена ли трансляция для приложения системой.</summary>
+      <returns>Значение true, если трансляция для приложения отключена системой; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsDisabledByUser">
+      <summary>Возвращает значение, указывающее, отключена ли трансляция для приложения пользователем.</summary>
+      <returns>Значение true, если трансляция для приложения отключена пользователем; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGameStreamInProgress">
+      <summary>Возвращает значение, указывающее, ведется ли сейчас трансляция игры.</summary>
+      <returns>Значение true, если трансляция игры в данный момент выполняется; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails.IsGpuConstrained">
+      <summary>Возвращает значение, которое указывает, недоступна ли трансляция для приложения из-за ограничений графического процессора.</summary>
+      <returns>Значение true, если трансляция для приложения недоступна из-за ограничений графического процессора; в противном случае — значение false.</returns>
+    </member>
+    <member name="T:Windows.Media.AppBroadcasting.AppBroadcastingUI">
+      <summary>Позволяет приложению запускать пользовательский интерфейс настройки системы трансляции.</summary>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetDefault">
+      <summary>Возвращает экземпляр класса **AppBroadcastingUI**, связанный с пользователем, вошедшим в систему на устройстве.</summary>
+      <returns>Экземпляр класса **AppBroadcastingUI**.</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetForUser(Windows.System.User)">
+      <summary>Возвращает экземпляр класса **AppBroadcastingUI**, связанный с указанным пользователем.</summary>
+      <param name="user">Пользователь, для которого создается экземпляр **AppBroadcastingUI**.</param>
+      <returns>Экземпляр класса **AppBroadcastingUI**.</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.GetStatus">
+      <summary>Получает объект, который позволяет приложению определять, может ли оно сейчас начать трансляцию, и если нет, получить информацию о причине невозможности начать трансляцию.</summary>
+      <returns>Объект, который позволяет приложению определить, может ли оно в данный момент начать трансляцию.</returns>
+    </member>
+    <member name="M:Windows.Media.AppBroadcasting.AppBroadcastingUI.ShowBroadcastUI">
+      <summary>Показывает пользовательский интерфейс системы трансляции приложения.</summary>
+    </member>
+  </members>
+</doc>

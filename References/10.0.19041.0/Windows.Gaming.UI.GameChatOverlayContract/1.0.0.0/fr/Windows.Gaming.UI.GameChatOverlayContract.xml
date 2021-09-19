@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GameChatOverlayContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameChatMessageReceivedEventArgs">
+      <summary>Contient les arguments d'événement pour l'événement MessageReceived. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppDisplayName">
+      <summary>Nom d'affichage de l'application qui a déclenché l'événement. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+      <returns>Nom d'affichage de l'application qui a déclenché l'événement.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppId">
+      <summary>**Nom de la famille de packages(PFN)** de l'application qui a déclenché l'événement. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+      <returns>**Nom de la famille de packages(PFN)** de l'application qui a déclenché l'événement. Cela permet d’identifier l’application.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Message">
+      <summary>Contenu du message. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+      <returns>Contenu du message.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Origin">
+      <summary>L’origine du message (texte ou vocal). Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+      <returns>L’origine du message (texte ou vocal).</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.SenderName">
+      <summary>L’expéditeur du message (le paramètre *expéditeur* passé à la méthode GameChatOverlay.AddMessage). Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+      <returns>L’expéditeur du message (le paramètre *expéditeur* passé à la méthode GameChatOverlay.AddMessage).</returns>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayMessageSource">
+      <summary>Fournit un événement qui est déclenché chaque fois que la conversation instantanée de jeu reçoit un message, mais aussi une méthode pour définir le délai avant la fermeture de la superposition de conversation instantanée de jeu après avoir reçu un message. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.#ctor">
+      <summary>Constructeur de la classe **GameChatOverlayMessageSource**. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+    </member>
+    <member name="E:Windows.Gaming.UI.GameChatOverlayMessageSource.MessageReceived">
+      <summary>Événement déclenché chaque fois qu'un message est reçu. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.SetDelayBeforeClosingAfterMessageReceived(Windows.Foundation.TimeSpan)">
+      <summary>Définit le délai avant la fermeture de la superposition de conversation instantanée de jeu après avoir reçu un message. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+      <param name="value">Le délai avant que la superposition de conversation instantanée de jeu se ferme.</param>
+    </member>
+  </members>
+</doc>

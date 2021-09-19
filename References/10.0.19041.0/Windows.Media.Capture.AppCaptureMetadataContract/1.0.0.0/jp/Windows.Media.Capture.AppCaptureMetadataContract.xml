@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.AppCaptureMetadataContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataPriority">
+      <summary>AppCaptureMetadataWriter を使用して保存されたアプリケーション キャプチャ メタデータ項目の相対的な重要度を指定します。 蓄積されたメタデータに割り当てられている記憶域スペースが低い場合、システムはメタデータ項目の優先順位と経過時間を使用して、メタデータが記憶域スペースを解放するためにパージされる順序を決定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppCaptureMetadataPriority.Important">
+      <summary>メタデータ項目は、**Informational** メタデータ項目よりも重要です。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppCaptureMetadataPriority.Informational">
+      <summary>メタデータ項目は、**Important** メタデータ項目より重要度が低くなります。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataWriter">
+      <summary>システムがキャプチャしたビデオ ファイルやアプリケーション コンテンツのブロードキャスト ストリームに挿入するメタデータを、アプリケーションが保存できるようにします。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.#ctor">
+      <summary>**AppCaptureMetadataWriter** クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppCaptureMetadataWriter.RemainingStorageBytesAvailable">
+      <summary>アプリケーション キャプチャ メタデータ項目用にシステムが割り当てた記憶域スペースに残っているバイト数を取得します。</summary>
+      <returns>メタデータ ストレージ用に残っているバイト数。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppCaptureMetadataWriter.MetadataPurged">
+      <summary>システムにより以前保存されたメタデータ項目をパージするときに発生します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddDoubleEvent(System.String,System.Double,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>新しいダブル メタデータ イベントを追加します。</summary>
+      <param name="name">メタデータ イベントの名前。</param>
+      <param name="value">メタデータ イベントの値。</param>
+      <param name="priority">AppCaptureMetadataPriority 列挙のメンバーで、メタデータ項目の相対的な重要度を指定します。 この値とメタデータアイテムの経過時間は、システムによって使用され、蓄積されたメタデータのための割り当てられた記憶域スペースの限界に達したときに最初にパージされるメタデータ項目を決定します。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddInt32Event(System.String,System.Int32,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>新しい整数メタデータ イベントを追加します。</summary>
+      <param name="name">メタデータ イベントの名前。</param>
+      <param name="value">メタデータ イベントの値。</param>
+      <param name="priority">AppCaptureMetadataPriority 列挙のメンバーで、メタデータ項目の相対的な重要度を指定します。 この値とメタデータアイテムの経過時間は、システムによって使用され、蓄積されたメタデータのための割り当てられた記憶域スペースの限界に達したときに最初にパージされるメタデータ項目を決定します。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddStringEvent(System.String,System.String,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>新しい文字列メタデータ イベントを追加します。</summary>
+      <param name="name">メタデータ イベントの名前。</param>
+      <param name="value">メタデータ イベントの値。</param>
+      <param name="priority">AppCaptureMetadataPriority 列挙のメンバーで、メタデータ項目の相対的な重要度を指定します。 この値とメタデータアイテムの経過時間は、システムによって使用され、蓄積されたメタデータのための割り当てられた記憶域スペースの限界に達したときに最初にパージされるメタデータ項目を決定します。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.Close">
+      <summary>オブジェクトと関連付けられたリソースを破棄します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartDoubleState(System.String,System.Double,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>新しいダブル メタデータ状態を追加します。</summary>
+      <param name="name">メタデータ状態の名前。</param>
+      <param name="value">メタデータ状態の値。</param>
+      <param name="priority">AppCaptureMetadataPriority 列挙のメンバーで、メタデータ項目の相対的な重要度を指定します。 この値とメタデータアイテムの経過時間は、システムによって使用され、蓄積されたメタデータのための割り当てられた記憶域スペースの限界に達したときに最初にパージされるメタデータ項目を決定します。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartInt32State(System.String,System.Int32,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>新しいダブル メタデータ状態を追加します。</summary>
+      <param name="name">メタデータ状態の名前。</param>
+      <param name="value">メタデータ状態の値。</param>
+      <param name="priority">AppCaptureMetadataPriority 列挙のメンバーで、メタデータ項目の相対的な重要度を指定します。 この値とメタデータアイテムの経過時間は、システムによって使用され、蓄積されたメタデータのための割り当てられた記憶域スペースの限界に達したときに最初にパージされるメタデータ項目を決定します。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartStringState(System.String,System.String,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>新しいダブル メタデータ状態を追加します。</summary>
+      <param name="name">メタデータ状態の名前。</param>
+      <param name="value">メタデータ状態の値。</param>
+      <param name="priority">AppCaptureMetadataPriority 列挙のメンバーで、メタデータ項目の相対的な重要度を指定します。 この値とメタデータアイテムの経過時間は、システムによって使用され、蓄積されたメタデータのための割り当てられた記憶域スペースの限界に達したときに最初にパージされるメタデータ項目を決定します。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StopAllStates">
+      <summary>すべてのメタデータ状態を停止します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StopState(System.String)">
+      <summary>指定された識別子とメタデータの状態を停止します。</summary>
+      <param name="name">停止させる状態の識別子。</param>
+    </member>
+  </members>
+</doc>

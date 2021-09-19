@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.AppRecording.AppRecordingContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.AppRecording.AppRecordingContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingManager">
+      <summary>そのコンテンツの記録とスクリーンショットを保存する UWP アプリを有効にします。</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingManager.SupportedScreenshotMediaEncodingSubtypes">
+      <summary>SaveScreenshotToFilesAsync メソッドでサポートされるメディア エンコード サブタイプを表す文字列のリストを取得します。</summary>
+      <returns>SaveScreenshotToFilesAsync メソッドでサポートされるメディア エンコード サブタイプを表す文字列のリスト。</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.GetDefault">
+      <summary>**AppRecordingManager** クラスのインスタンスを取得します。</summary>
+      <returns>**AppRecordingManager** クラスのインスタンスを作成します。</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.GetStatus">
+      <summary>現在のアプリが現在、アプリ記録を開始できるかどうかに関する情報を提供し、そうでない場合は、アプリ記録が利用できないこと理由に関する詳細を説明するオブジェクトを取得します。</summary>
+      <returns>アプリ記録に関する状態の情報を提供する AppRecordingStatusDetails オブジェクト。</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.RecordTimeSpanToFileAsync(Windows.Foundation.DateTime,Windows.Foundation.TimeSpan,Windows.Storage.StorageFile)">
+      <summary>履歴バッファーから、指定した開始時刻と期間で定義される時間の範囲で、現在のアプリのオーディオおよびビデオ コンテンツを指定した目的地ファイルに書き込みます。</summary>
+      <param name="startTime">記録されるコンテンツの開始時刻。 この値は、履歴バッファーの期間内である必要があり、AppRecordingManager.GetStatus を呼び出してから、AppRecordingStatus.HistoricalBufferDuration プロパティの値をチェックすることで判別できます。</param>
+      <param name="duration">アプリ記録の要求された期間。 アプリ記録は成功できますが、記録に割り当てられているストレージが満杯になる場合、このパラメーターで指定されたよりも短い期間を記録します。 実際に記録されたファイルの期間を調べるには、この操作から返されるオブジェクトの値 AppRecordingResult.Duration プロパティを確認してください。</param>
+      <param name="file">記録されたメディアが書き込まれているファイル。</param>
+      <returns>完了時に AppRecordingResult オブジェクトを返す非同期操作で、レコーディング操作の状態に関する情報が含まれています。</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.SaveScreenshotToFilesAsync(Windows.Storage.StorageFolder,System.String,Windows.Media.AppRecording.AppRecordingSaveScreenshotOption,Windows.Foundation.Collections.IIterable{System.String})">
+      <summary>呼び出し元のアプリの現在のコンテンツを含むイメージ ファイルを非同期的に保存します。</summary>
+      <param name="folder">記録されたメディア ファイルが書き込まれているパス。</param>
+      <param name="filenamePrefix">保存した画像に使用されるファイル名のプレフィックス。 システムは、*requestedFormats* パラメーターで指定されている各形式のファイル名に、適切な拡張子を追加します。</param>
+      <param name="option">スクリーンショットを保存するためのオプションを指定する値。 システムが適切な色空間の変換を行えるようにするには、保存するコンテンツに HDR コンテンツが含まれている場合、アプリは HdrContentVisible を指定する必要があります。 そうではない場合、アプリでは **None** を指定する必要があります。</param>
+      <param name="requestedFormats">スクリーンショット イメージを保存する必要のある形式を指定する文字列のリスト。 SupportedScreenshotMediaEncodingSubtypes プロパティによりこのパラメーターでサポートされる値のリストを取得します。</param>
+      <returns>保存操作の結果に関する情報を取得するために使用できる、完了時に AppRecordingSaveScreenshotResult を返す非同期操作。</returns>
+    </member>
+    <member name="M:Windows.Media.AppRecording.AppRecordingManager.StartRecordingToFileAsync(Windows.Storage.StorageFile)">
+      <summary>現時点で開始して、操作が取り消されるか、ストレージ スペースを超えたときに終了する、現在のアプリのオーディオおよびビデオ コンテンツを、指定した目的地ファイルに書き込みます。</summary>
+      <param name="file">記録されたメディアが書き込まれているファイル。</param>
+      <returns>完了時に AppRecordingResult オブジェクトを返す非同期操作で、レコーディング操作の状態に関する情報が含まれています。</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingResult">
+      <summary>RecordTimeSpanToFileAsync または StartRecordingToFileAsync への呼び出しで開始するアプリの記録操作の結果を表します。</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingResult.Duration">
+      <summary>記録されたファイルの期間を取得します。</summary>
+      <returns>記録されたファイルの期間。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingResult.ExtendedError">
+      <summary>アプリの記録操作によって返され、関連付けられている拡張エラー コードを取得します。</summary>
+      <returns>アプリの記録操作によって返され、関連付けられている拡張エラー コード。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingResult.IsFileTruncated">
+      <summary>保存されているアプリ記録が切り捨てられなかったかどうかを示す値を取得します。</summary>
+      <returns>ファイルが切り捨てられた場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingResult.Succeeded">
+      <summary>アプリ記録の操作が成功した場合に示す値を取得します。</summary>
+      <returns>記録操作が成功した場合は true。そうでない場合は false。</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo">
+      <summary>ファイルに関連付けられている **StorageFile** ファイルとファイルの形式を示すメディア エンコード サブタイプを含む、スクリーンショット操作から保存された画像ファイルに関する情報を表します。</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo.File">
+      <summary>SaveScreenshotToFilesAsync で保存されたスクリーンショットが保存されたファイルを取得します。</summary>
+      <returns>SaveScreenshotToFilesAsync で保存されたスクリーンショットが保存されたファイル。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo.MediaEncodingSubtype">
+      <summary>SaveScreenshotToFilesAsync で保存されたスクリーンショットがエンコードされた画像形式のメディア エンコード サブタイプを表す文字列を取得します。</summary>
+      <returns>保存したスクリーンショットのメディア エンコード サブタイプを表す文字列。</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingSaveScreenshotOption">
+      <summary>SaveScreenshotToFilesAsync でスクリーンショットを保存するために使用するオプションを指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.AppRecording.AppRecordingSaveScreenshotOption.HdrContentVisible">
+      <summary>アプリ ウィンドウの内容には、ハイ ダイナミック レンジ (HDR) のコンテンツが含まれています。</summary>
+    </member>
+    <member name="F:Windows.Media.AppRecording.AppRecordingSaveScreenshotOption.None">
+      <summary>オプションが指定されていません。</summary>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingSaveScreenshotResult">
+      <summary>SaveScreenshotToFilesAsync の呼び出しによって開始されたスクリーンショット操作の結果を表します。</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSaveScreenshotResult.ExtendedError">
+      <summary>スクリーンショット操作から返され関連付けられている拡張エラー コードを取得します。</summary>
+      <returns>スクリーンショット操作から返され関連付けられている拡張エラー コード。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSaveScreenshotResult.SavedScreenshotInfos">
+      <summary>スクリーンショット操作から保存されたイメージ ファイルを表す AppRecordingSavedScreenshotInfo オブジェクトのリストを保存します。</summary>
+      <returns>スクリーンショット操作から保存されたイメージ ファイルを表す AppRecordingSavedScreenshotInfo オブジェクトのリスト。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingSaveScreenshotResult.Succeeded">
+      <summary>スクリーンショット操作が成功した場合に示す値を取得します。</summary>
+      <returns>スクリーンショット操作が成功した場合は true。そうでない場合は false。</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingStatus">
+      <summary>StartRecordingToFileAsync または RecordTimespanToFileAsync を呼び出すことによって、現在のアプリが現在アプリ記録を開始できるかどうかについての情報を提供し、そうでない場合、アプリ記録が利用できない理由の詳細を提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatus.CanRecord">
+      <summary>現在のアプリが、StartRecordingToFileAsymc を呼び出すことによってアプリのオーディオおよびビデオ コンテンツを現在、記録できるかどうかを示す値を取得します。</summary>
+      <returns>アプリが現在記録できる場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatus.CanRecordTimeSpan">
+      <summary>現在のアプリが、RecordTimespanToFileAsymc を呼び出すことによってアプリのオーディオおよびビデオ コンテンツのタイムスパンを現在、記録できるかどうかを示す値を取得します。</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatus.Details">
+      <summary>現在のアプリが記録を現在、開始できない理由を示す詳しい情報を提供する AppRecordingStatusDetails オブジェクトを取得します。</summary>
+      <returns>現在のアプリが記録を現在、開始できない理由を示す詳しい情報を提供するオブジェクト。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatus.HistoricalBufferDuration">
+      <summary>履歴アプリのレコーディング バッファーの期間を示す値を取得します。</summary>
+      <returns>履歴アプリのレコーディング バッファーの期間。</returns>
+    </member>
+    <member name="T:Windows.Media.AppRecording.AppRecordingStatusDetails">
+      <summary>StartRecordingToFileAsymc または RecordTimespanToFileAsymc を呼び出すことによって、現在のアプリが記録アプリのコンテンツを現在、開始できない理由を示す詳しい情報を提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsAnyAppBroadcasting">
+      <summary>別のアプリが現在ブロードキャストしているかどうかを示す値を取得します。</summary>
+      <returns>別のアプリが現在ブロードキャストしている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsAppInactive">
+      <summary>現在のアプリのウィンドウがアクティブでないかを指定する値を取得します。</summary>
+      <returns>現在のアプリのウィンドウが非アクティブの場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsBlockedForApp">
+      <summary>アプリ記録が現在のアプリに対してブロックされているかどうかを示す値を取得します。</summary>
+      <returns>アプリ記録が現在のアプリでブロックされている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsCaptureResourceUnavailable">
+      <summary>キャプチャ リソースが現在利用不可であるかどうかを示す値を取得します。</summary>
+      <returns>キャプチャ リソースが現在利用不可の場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsDisabledBySystem">
+      <summary>アプリ記録がシステムによってを無効されているかどうかを示す値を取得します。</summary>
+      <returns>システムによってアプリ記録が無効の場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsDisabledByUser">
+      <summary>アプリ記録がユーザーによって無効にされているかどうかを示す値を取得します。</summary>
+      <returns>ユーザーによってアプリ記録が無効の場合は true。以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsGameStreamInProgress">
+      <summary>ゲーム ストリームが現在進行中かどうかを示す値を取得します。</summary>
+      <returns>ゲーム ストリームが現在進行中の場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsGpuConstrained">
+      <summary>GPU に制約があるためアプリ記録が利用できないかどうかを示す値を取得します。</summary>
+      <returns>GPU に制約があるためアプリ記録が利用できない場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.AppRecording.AppRecordingStatusDetails.IsTimeSpanRecordingDisabled">
+      <summary>RecordTimespanToFileAsymc でアプリ コンテンツの指定されたタイムスパンを記録することが無効かどうかを指定する値を取得します。</summary>
+      <returns>アプリ コンテンツのタイムスパンの記録が無効の場合は true。それ以外の場合は false。</returns>
+    </member>
+  </members>
+</doc>

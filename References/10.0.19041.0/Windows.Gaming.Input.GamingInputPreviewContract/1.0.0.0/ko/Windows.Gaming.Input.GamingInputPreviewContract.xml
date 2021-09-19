@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.Input.GamingInputPreviewContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.Input.GamingInputPreviewContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Gaming.Input.Preview.GameControllerProviderInfo">
+      <summary>이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않은 한, 런타임 시 이러한 API를 호출하면 실패합니다.</summary>
+    </member>
+    <member name="M:Windows.Gaming.Input.Preview.GameControllerProviderInfo.GetParentProviderId(Windows.Gaming.Input.Custom.IGameControllerProvider)">
+      <summary>이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않은 한, 런타임 시 이러한 API를 호출하면 실패합니다.</summary>
+      <param name="provider">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Windows.Gaming.Input.Preview.GameControllerProviderInfo.GetProviderId(Windows.Gaming.Input.Custom.IGameControllerProvider)">
+      <summary>이 API는 일부 앱에서 사용할 수 없습니다. Microsoft에서 개발자 계정을 특별히 프로비전하지 않은 한, 런타임 시 이러한 API를 호출하면 실패합니다.</summary>
+      <param name="provider">
+      </param>
+      <returns>
+      </returns>
+    </member>
+  </members>
+</doc>

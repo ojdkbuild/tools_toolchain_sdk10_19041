@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GameChatOverlayContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameChatMessageReceivedEventArgs">
+      <summary>包含 MessageReceived 事件的事件参数。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppDisplayName">
+      <summary>已触发事件的应用的显示名称。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+      <returns>已触发事件的应用的显示名称。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.AppId">
+      <summary>已触发事件的应用的**程序包系列名称 (PFN)**。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+      <returns>已触发事件的应用的**程序包系列名称 (PFN)**。 使用此项来标识该应用。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Message">
+      <summary>消息的内容。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+      <returns>消息的内容。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.Origin">
+      <summary>消息（语音或文本）的来源。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+      <returns>消息（语音或文本）的来源。</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameChatMessageReceivedEventArgs.SenderName">
+      <summary>消息的发件人（传递到 GameChatOverlay.AddMessage 方法的 *sender* 参数）。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+      <returns>消息的发件人（传递到 GameChatOverlay.AddMessage 方法的 *sender* 参数）。</returns>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Gaming.UI.GameChatOverlayMessageSource">
+      <summary>提供每次游戏聊天收到消息时都会引发的事件，并且提供一个方法，以在游戏聊天覆盖关闭前收到消息后设置延迟。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.#ctor">
+      <summary>**GameChatOverlayMessageSource** 类的构造函数。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+    </member>
+    <member name="E:Windows.Gaming.UI.GameChatOverlayMessageSource.MessageReceived">
+      <summary>每次收到消息时都会引发的事件。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameChatOverlayMessageSource.SetDelayBeforeClosingAfterMessageReceived(Windows.Foundation.TimeSpan)">
+      <summary>在游戏聊天覆盖关闭前收到消息后设置延迟。 此 API 并非对所有应用可用。 除非你的开发人员帐户由 Microsoft 特别预配，否则，你的应用无法使用此 API。</summary>
+      <param name="value">游戏聊天覆盖关闭前的延迟。</param>
+    </member>
+  </members>
+</doc>

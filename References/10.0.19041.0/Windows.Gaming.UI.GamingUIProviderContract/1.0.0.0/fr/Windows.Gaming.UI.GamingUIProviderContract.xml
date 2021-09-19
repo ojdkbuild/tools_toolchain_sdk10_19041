@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Gaming.UI.GamingUIProviderContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Gaming.UI.GameUIProviderActivatedEventArgs">
+      <summary>Les arguments d’événement associés à une activation **GameUIProvider**. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.GameUIArgs">
+      <summary>Les arguments d’événement associés à une activation **GameUIProvider**. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+      <returns>Les arguments d’événement associés à une activation **GameUIProvider**.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.Kind">
+      <summary>Le type d'activation. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+      <returns>Le type d'activation.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.PreviousExecutionState">
+      <summary>L'état d'exécution précédent. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+      <returns>L'état d'exécution précédent.</returns>
+    </member>
+    <member name="P:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.SplashScreen">
+      <summary>L'écran de démarrage de l’application. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+      <returns>L'écran de démarrage de l’application.</returns>
+    </member>
+    <member name="M:Windows.Gaming.UI.GameUIProviderActivatedEventArgs.ReportCompleted(Windows.Foundation.Collections.ValueSet)">
+      <summary>Signale l’expérience comme étant terminée et communique toutes les données résultantes à l’application appelante. Cette API n'est pas disponible pour toutes les applications Windows. Tant que votre compte de développeur ne sera pas spécialement approvisionné par Microsoft, votre application ne pourra pas utiliser cet API.</summary>
+      <param name="results">Les données résultantes de l'application **GameUIProvider**.</param>
+    </member>
+    <member name="T:Windows.Gaming.UI.GamingUIProviderContract">
+      <summary>
+      </summary>
+    </member>
+  </members>
+</doc>

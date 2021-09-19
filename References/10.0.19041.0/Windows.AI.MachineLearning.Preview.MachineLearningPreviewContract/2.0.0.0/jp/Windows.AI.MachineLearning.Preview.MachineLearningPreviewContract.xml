@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview">
+      <summary>**使用しないでください。**サポートされている機能データ タイプの一覧を定義します。</summary>
+      <deprecated type="deprecate">FeatureElementKindPreview ではなく TensorKind を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Boolean">
+      <summary>機能の要素は、Boolean タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Complex128">
+      <summary>機能の要素は、Complex128 タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Complex64">
+      <summary>機能の要素は、Complex64 タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Double">
+      <summary>機能の要素は、Double タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Float">
+      <summary>機能の要素は、Float タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Float16">
+      <summary>機能の要素は、Float16 タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Int16">
+      <summary>機能の要素は、Int16 タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Int32">
+      <summary>機能の要素は、Int32 タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Int64">
+      <summary>機能の要素は、Int64 タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Int8">
+      <summary>機能の要素は、Int8 タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.String">
+      <summary>機能の要素は、String タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.UInt16">
+      <summary>機能の要素は、UInt16 タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.UInt32">
+      <summary>機能の要素は、Ulnt32 タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.UInt64">
+      <summary>機能の要素は、Ulnt64 タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.UInt8">
+      <summary>機能の要素は、Ulnt8 タイプです。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.FeatureElementKindPreview.Undefined">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.ILearningModelVariableDescriptorPreview">
+      <summary>**使用しないでください。**変数の記述子に関する情報を表します。</summary>
+      <deprecated type="deprecate">ILearningModelVariableDescriptorPreview ではなく ILearningModelFeatureDescriptor を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ILearningModelVariableDescriptorPreview.Description">
+      <summary>**使用しないでください。**変数の説明を取得します。</summary>
+      <returns>変数の説明。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ILearningModelVariableDescriptorPreview.IsRequired">
+      <summary>**使用しないでください。**変数が必須であるかオプションであるかを取得します。</summary>
+      <returns>変数が必須である場合は True、それ以外は false。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ILearningModelVariableDescriptorPreview.ModelFeatureKind">
+      <summary>**使用しないでください。**変数のデータ タイプを取得します。</summary>
+      <returns>変数のデータ タイプ。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ILearningModelVariableDescriptorPreview.Name">
+      <summary>**使用しないでください。**変数名を取得します。</summary>
+      <returns>変数名。</returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview">
+      <summary>**使用しないでください。**イメージの記述子に関する情報を表します。</summary>
+      <deprecated type="deprecate">ImageVariableDescriptorPreview ではなく ImageFeatureDescriptor を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.BitmapPixelFormat">
+      <summary>**使用しないでください。**イメージのピクセル形式を取得します。</summary>
+      <returns>イメージのピクセル形式。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.Description">
+      <summary>**使用しないでください。**イメージの変数の説明を取得します。</summary>
+      <returns>イメージの変数の説明。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.Height">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.IsRequired">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.ModelFeatureKind">
+      <summary>**使用しないでください。**変数のデータ タイプを取得します。</summary>
+      <returns>変数のデータ タイプ。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.Name">
+      <summary>**使用しないでください。**イメージの変数名を取得します。</summary>
+      <returns>イメージの変数名。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview.Width">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.InferencingOptionsPreview">
+      <summary>**使用しないでください。**モデルの評価を制御するための推論オプションを表します。</summary>
+      <deprecated type="deprecate">InferencingOptionsPreview ではなく LearningModelSession を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.InferencingOptionsPreview.IsTracingEnabled">
+      <summary>**使用しないでください。**モデルの評価中にトレースが有効になっているかどうかを取得また設定します。</summary>
+      <returns>トレースが有効な場合は True、それ以外は false。 既定値は false です。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.InferencingOptionsPreview.MaxBatchSize">
+      <summary>**使用しないでください。**モデルの評価のバッチの最大サイズを設定または取得します。</summary>
+      <returns>最大バッチ サイズ。 プレビュー API は、1 のバッチ サイズのみをサポートします。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.InferencingOptionsPreview.MinimizeMemoryAllocation">
+      <summary>**使用しないでください。**モデル評価後のメモリの割り当てを最小化するかどうかを取得または設定します。</summary>
+      <returns>評価中にメモリの割り当てを最小限に抑える場合は True、それ以外は false。 既定値は false です。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.InferencingOptionsPreview.PreferredDeviceKind">
+      <summary>**使用しないでください。**評価が実行される優先デバイスを取得または設定します。</summary>
+      <returns>優先デバイス。 既定値は、LearningDeviceAny です。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.InferencingOptionsPreview.ReclaimMemoryAfterEvaluation">
+      <summary>**使用しないでください。**モデル評価後の割り当てられたメモリを再要求するかどうかを取得または設定します。</summary>
+      <returns>評価後に割り当てられたメモリを再要求する場合は True、それ以外は false。 既定値は false です。</returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview">
+      <summary>**使用しないでください。**モデル入力と変数インスタンス間の関連付けを表します。</summary>
+      <deprecated type="deprecate">LearningModelBindingPreview ではなく LearningModelBinding を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.#ctor(Windows.AI.MachineLearning.Preview.LearningModelPreview)">
+      <summary>
+      </summary>
+      <deprecated type="deprecate">ILearningModelBindingPreviewFactory ではなく ILearningModelBindingFactory を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+      <param name="model">
+      </param>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.Size">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.Bind(System.String,System.Object)">
+      <summary>**使用しないでください。**変数を定義するため単一入力または出力機能をバインドします。</summary>
+      <deprecated type="deprecate">ILearningModelBindingPreview ではなく ILearningModelBinding を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+      <param name="name">入力 / 出力機能の名前。</param>
+      <param name="value">入力 / 出力機能の値。</param>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.Bind(System.String,System.Object,Windows.Foundation.Collections.IPropertySet)">
+      <summary>
+      </summary>
+      <deprecated type="deprecate">ILearningModelBindingPreview ではなく ILearningModelBinding を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+      <param name="name">
+      </param>
+      <param name="value">
+      </param>
+      <param name="metadata">
+      </param>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.Clear">
+      <summary>**使用しないでください。**すべてのバインドされた変数を削除します。</summary>
+      <deprecated type="deprecate">ILearningModelBindingPreview ではなく ILearningModelBinding を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.First">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.HasKey(System.String)">
+      <summary>
+      </summary>
+      <param name="key">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.Lookup(System.String)">
+      <summary>
+      </summary>
+      <param name="key">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelBindingPreview.Split(Windows.Foundation.Collections.IMapView{System.String,System.Object}@,Windows.Foundation.Collections.IMapView{System.String,System.Object}@)">
+      <summary>
+      </summary>
+      <param name="first">
+      </param>
+      <param name="second">
+      </param>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview">
+      <summary>**使用しないでください。**指定されたモデルのメタデータとプロパティの説明を表します。</summary>
+      <deprecated type="deprecate">LearningModelDescriptionPreview ではなく LearningModel を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.Author">
+      <summary>**使用しないでください。**モデルから作成者の情報を取得します。</summary>
+      <returns>モデルから作成者の情報。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.Description">
+      <summary>**使用しないでください。**モデルのカスタム説明を取得します。</summary>
+      <returns>モデルのカスタム説明。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.Domain">
+      <summary>**使用しないでください。**モデルのドメイン情報を取得します。</summary>
+      <returns>モデルのドメイン情報。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.InputFeatures">
+      <summary>**使用しないでください。**モデルの入力説明を取得します。</summary>
+      <returns>入力名がキーとして使われるモデルの入力説明。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.Metadata">
+      <summary>**使用しないでください。**モデルからメタデータを取得します。</summary>
+      <returns>指定されモデルのメタデータ。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.Name">
+      <summary>**使用しないでください。**モデル名を取得します。</summary>
+      <returns>モデル名。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.OutputFeatures">
+      <summary>**使用しないでください。**モデルの出力説明を取得します。</summary>
+      <returns>出力名がキーとして使われるモデルの出力説明。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview.Version">
+      <summary>**使用しないでください。**モデルのバージョン情報を取得します。</summary>
+      <returns>モデルのバージョン情報。</returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview">
+      <summary>**使用しないでください。**Windows Machine Learning でサポートされているデバイスの種類を表す定数の一覧を定義します。</summary>
+      <deprecated type="deprecate">LearningModelDeviceKindPreview ではなく LearningModelDeviceKind を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview.LearningDeviceAny">
+      <summary>既定値。 任意のデバイス。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview.LearningDeviceCpu">
+      <summary>中央プロセッサ。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview.LearningDeviceDsp">
+      <summary>デジタル信号プロセッサ。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview.LearningDeviceFpga">
+      <summary>field-programmable ゲート配列。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview.LearningDeviceGpu">
+      <summary>グラフィックス プロセッサ。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview.LearningDeviceNpu">
+      <summary>ニューラル プロセッサ。</summary>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview">
+      <summary>**使用しないでください。**出力予測と相関モデルの評価に相関する対応確率のセットを取得します。</summary>
+      <deprecated type="deprecate">LearningModelEvaluationResultPreview ではなく LearningModelEvaluationResult を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview.CorrelationId">
+      <summary>**使用しないでください。**評価呼び出しの出力結果に関連付ける値を取得します。</summary>
+      <returns>評価呼び出しの出力結果に関連付ける値。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview.Outputs">
+      <summary>**使用しないでください。**確率と共に出力予測を表す機能のセットを取得します。</summary>
+      <returns>出力予測と確率を表す機能のセット。</returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview">
+      <summary>**使用しないでください。**モデル機能のデータ タイプの一覧を定義します。</summary>
+      <deprecated type="deprecate">LearningModelFeatureKindPreview ではなく LearningModelFeatureKind を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview.Image">
+      <summary>機能タイプは、Image です。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview.Map">
+      <summary>機能タイプは、Map です。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview.Sequence">
+      <summary>機能タイプは、Sequence です。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview.Tensor">
+      <summary>機能タイプは、Tensor です。</summary>
+    </member>
+    <member name="F:Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview.Undefined">
+      <summary>機能タイプは、Undefined です。</summary>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelPreview">
+      <summary>**使用しないでください。**機械学習モデルを表します。</summary>
+      <deprecated type="deprecate">LearningModelPreview ではなく LearningModel を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelPreview.Description">
+      <summary>**使用しないでください。**トレーニングされた機械学習モデルのわかりやすいメタデータを取得します。</summary>
+      <returns>machine learning モデルのわかりやすいメタデータ。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelPreview.InferencingOptions">
+      <summary>**使用しないでください。**モデル評価の推論オプションを取得または設定します。</summary>
+      <returns>モデル評価の推論オプション。</returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelPreview.EvaluateAsync(Windows.AI.MachineLearning.Preview.LearningModelBindingPreview,System.String)">
+      <summary>
+      </summary>
+      <deprecated type="deprecate">ILearningModelPreview ではなく ILearningModel を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+      <param name="binding">
+      </param>
+      <param name="correlationId">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelPreview.EvaluateFeaturesAsync(Windows.Foundation.Collections.IMap{System.String,System.Object},System.String)">
+      <summary>**使用しないでください。**非同期的にモデルの入力と出力として変数インスタンス名を評価します。</summary>
+      <deprecated type="deprecate">ILearningModelPreview ではなく ILearningModel を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+      <param name="features">入力としてバインドする機能。</param>
+      <param name="correlationId">評価を出力結果に関連付ける値。</param>
+      <returns>評価結果。</returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelPreview.LoadModelFromStorageFileAsync(Windows.Storage.IStorageFile)">
+      <summary>**使用しないでください。**非同期的にファイルの保存スペースからモデルを読み込みます。</summary>
+      <deprecated type="deprecate">ILearningModelPreviewStatics ではなく ILearningModelStatics を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+      <param name="modelFile">モデル ファイルの場所。</param>
+      <returns>LearningModelPreview を返す。</returns>
+    </member>
+    <member name="M:Windows.AI.MachineLearning.Preview.LearningModelPreview.LoadModelFromStreamAsync(Windows.Storage.Streams.IRandomAccessStreamReference)">
+      <summary>**使用しないでください。**非同期的にモデルを指定したストリームから読み込みます。</summary>
+      <deprecated type="deprecate">ILearningModelPreviewStatics ではなく ILearningModelStatics を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+      <param name="modelStream">モデルのファイル ストリーム。</param>
+      <returns>LearningModelPreview を返す。</returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview">
+      <summary>
+      </summary>
+      <deprecated type="deprecate">LearningModelVariableDescriptorPreview ではなく ILearningModelFeatureDescriptor を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview.Description">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview.IsRequired">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview.ModelFeatureKind">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview.Name">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview">
+      <summary>**使用しないでください。**マップ変数の記述子に関する情報を表します。</summary>
+      <deprecated type="deprecate">MapVariableDescriptorPreview ではなく MapFeatureDescriptor を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.Description">
+      <summary>**使用しないでください。**マップ変数の説明を取得します。</summary>
+      <returns>マップ変数の説明。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.Fields">
+      <summary>**使用しないでください。**マップ変数のフィールドのデータ タイプを取得します。</summary>
+      <returns>マップ変数のフィールドのデータ タイプ。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.IsRequired">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.KeyKind">
+      <summary>**使用しないでください。**マップ変数のキーのデータ タイプを取得します。</summary>
+      <returns>キーのデータ タイプ。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.ModelFeatureKind">
+      <summary>**使用しないでください。**変数のデータ タイプを取得します。</summary>
+      <returns>変数のデータ タイプ。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.Name">
+      <summary>**使用しないでください。**マップ変数名を取得します。</summary>
+      <returns>マップ変数名。 これは、モデルのすべての変数で一意でなければなりません。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.ValidIntegerKeys">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview.ValidStringKeys">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview">
+      <summary>**使用しないでください。**シーケンス変数の記述子に関する情報を表します。</summary>
+      <deprecated type="deprecate">SequenceVariableDescriptorPreview ではなく SequenceFeatureDescriptor を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview.Description">
+      <summary>**使用しないでください。**シーケンス変数の説明を取得します。</summary>
+      <returns>シーケンス変数の説明。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview.ElementType">
+      <summary>**使用しないでください。**シーケンス変数のタイプを取得します。</summary>
+      <returns>シーケンス変数のタイプ。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview.IsRequired">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview.ModelFeatureKind">
+      <summary>**使用しないでください。**変数のデータ タイプを取得します。</summary>
+      <returns>変数のデータ タイプ。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview.Name">
+      <summary>**使用しないでください。**シーケンス変数名を取得します。</summary>
+      <returns>シーケンス変数名。 これは、モデルのすべての変数で一意でなければなりません。</returns>
+    </member>
+    <member name="T:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview">
+      <summary>**使用しないでください。**Tensor 変数の記述子に関する情報を表します。</summary>
+      <deprecated type="deprecate">TensorVariableDescriptorPreview ではなく TensorFeatureDescriptor を使用します。 詳しくは、MSDN をご覧ください。</deprecated>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview.DataType">
+      <summary>**使用しないでください。**テンソル データのタイプを取得します。</summary>
+      <returns>Tensor データのタイプ。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview.Description">
+      <summary>**使用しないでください。**テンソルの説明を取得します。</summary>
+      <returns>Tensor の説明。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview.IsRequired">
+      <summary>
+      </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview.ModelFeatureKind">
+      <summary>**使用しないでください。**変数のデータ タイプを取得します。</summary>
+      <returns>変数のデータ タイプ。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview.Name">
+      <summary>**使用しないでください。**テンソル名を取得します。</summary>
+      <returns>Tensor 名。 これは、モデルのすべての変数で一意でなければなりません。</returns>
+    </member>
+    <member name="P:Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview.Shape">
+      <summary>**使用しないでください。**テンソルの n 次元シェイプを取得します。</summary>
+      <returns>Tensor の n 次元図形。</returns>
+    </member>
+  </members>
+</doc>

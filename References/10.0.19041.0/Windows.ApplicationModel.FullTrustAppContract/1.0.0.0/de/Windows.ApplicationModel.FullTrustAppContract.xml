@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.ApplicationModel.FullTrustAppContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.FullTrustAppContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.ApplicationModel.FullTrustProcessLauncher">
+      <summary>Aktivieren der vollständig vertrauenswürdigen Win32-Komponente einer Anwendung von einer Universal Windows-Komponente im gleichen Anwendungspaket.</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String)">
+      <summary>Starten des vollständig vertrauenswürdigen Prozesses für die angegebene Anwendungs-ID.</summary>
+      <param name="fullTrustPackageRelativeAppId">Die prozessrelative Anwendungskennung der Anwendung, deren vollständig vertrauenswürdige Prozesskomponente der Anrufer starten möchte. Der vollständig vertrauenswürdige Prozess kann dies analysieren, um zu bestimmen, welche Anwendung es aufgerufen hat.</param>
+      <returns>Die zu erwartende IAsyncAction.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForAppAsync(System.String,System.String)">
+      <summary>Starten des vollständig vertrauenswürdigen Prozesses für die angegebene Anwendungs-ID, mit Parametern.</summary>
+      <param name="fullTrustPackageRelativeAppId">Die prozessrelative Anwendungskennung der Anwendung, deren vollständig vertrauenswürdige Prozesskomponente der Anrufer starten möchte. Der vollständig vertrauenswürdige Prozess kann dies analysieren, um zu bestimmen, welche Anwendung es aufgerufen hat.</param>
+      <param name="parameterGroupId">Die Parametergruppen-ID für die Parameter, die dem gestarteten Prozess übergeben werden.</param>
+      <returns>Die zu erwartende IAsyncAction.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync">
+      <summary>Starten des vollständig vertrauenswürdigen Prozesses für die aktuelle Anwendungs-ID.</summary>
+      <returns>Die zu erwartende IAsyncAction.</returns>
+    </member>
+    <member name="M:Windows.ApplicationModel.FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync(System.String)">
+      <summary>Starten des vollständig vertrauenswürdigen Prozesses für die aktuelle Anwendungs-ID, mit Parametern.</summary>
+      <param name="parameterGroupId">Die Parametergruppen-ID für die Parameter, die dem gestarteten Prozess übergeben werden.</param>
+      <returns>Die zu erwartende IAsyncAction.</returns>
+    </member>
+  </members>
+</doc>

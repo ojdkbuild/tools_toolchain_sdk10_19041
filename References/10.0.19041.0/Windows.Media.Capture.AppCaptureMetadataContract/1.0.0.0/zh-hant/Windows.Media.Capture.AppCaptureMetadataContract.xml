@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.AppCaptureMetadataContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataPriority">
+      <summary>指定使用 AppCaptureMetadataWriter 儲存應用程式擷取中繼資料的相對重要性。 分配給累積中繼資料的儲存空間不足時，系統會使用此優先順序及中繼資料項目的使用期限來決定清除中繼資料的順序，以便釋放可用的儲存空間。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppCaptureMetadataPriority.Important">
+      <summary>中繼資料項目的重要性比**資訊**中繼資料項目的重要性來得高。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppCaptureMetadataPriority.Informational">
+      <summary>中繼資料項目的重要性比**資訊**中繼資料項目的重要性來得低。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataWriter">
+      <summary>可讓應用程式儲存中繼資料，系統會將此中繼資料插入至已擷取的視訊檔案或應用程式內容的廣播串流。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.#ctor">
+      <summary>初始化 **AppCaptureMetadataWriter** 類別的新執行個體。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppCaptureMetadataWriter.RemainingStorageBytesAvailable">
+      <summary>取得系統配置給應用程式擷取中繼資料項目的儲存空間中，剩餘的位元組數。</summary>
+      <returns>中繼資料儲存空間剩餘的位元組數。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppCaptureMetadataWriter.MetadataPurged">
+      <summary>當系統清除先前儲存的中繼資料項目時發生。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddDoubleEvent(System.String,System.Double,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>新增新的雙精準數中繼資料事件。</summary>
+      <param name="name">中繼資料事件的名稱。</param>
+      <param name="value">中繼資料事件的值。</param>
+      <param name="priority">AppCaptureMetadataPriority 列舉的成員，指定中繼資料項目的相對重要性。 系統會使用這個值和中繼資料項目的使用期限，來決定當累積中繼資料的配置儲存空間達到上限時，應先清除哪些中繼資料項目。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddInt32Event(System.String,System.Int32,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>新增新的整數中繼資料事件。</summary>
+      <param name="name">中繼資料事件的名稱。</param>
+      <param name="value">中繼資料事件的值。</param>
+      <param name="priority">AppCaptureMetadataPriority 列舉的成員，指定中繼資料項目的相對重要性。 系統會使用這個值和中繼資料項目的使用期限，來決定當累積中繼資料的配置儲存空間達到上限時，應先清除哪些中繼資料項目。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddStringEvent(System.String,System.String,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>新增新的字串中繼資料事件。</summary>
+      <param name="name">中繼資料事件的名稱。</param>
+      <param name="value">中繼資料事件的值。</param>
+      <param name="priority">AppCaptureMetadataPriority 列舉的成員，指定中繼資料項目的相對重要性。 系統會使用這個值和中繼資料項目的使用期限，來決定當累積中繼資料的配置儲存空間達到上限時，應先清除哪些中繼資料項目。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.Close">
+      <summary>處置物件和相關聯的資源。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartDoubleState(System.String,System.Double,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>新增新的雙精準數中繼資料狀態。</summary>
+      <param name="name">中繼資料狀態的名稱。</param>
+      <param name="value">中繼資料狀態的值。</param>
+      <param name="priority">AppCaptureMetadataPriority 列舉的成員，指定中繼資料項目的相對重要性。 系統會使用這個值和中繼資料項目的使用期限，來決定當累積中繼資料的配置儲存空間達到上限時，應先清除哪些中繼資料項目。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartInt32State(System.String,System.Int32,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>新增新的雙精準數中繼資料狀態。</summary>
+      <param name="name">中繼資料狀態的名稱。</param>
+      <param name="value">中繼資料狀態的值。</param>
+      <param name="priority">AppCaptureMetadataPriority 列舉的成員，指定中繼資料項目的相對重要性。 系統會使用這個值和中繼資料項目的使用期限，來決定當累積中繼資料的配置儲存空間達到上限時，應先清除哪些中繼資料項目。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartStringState(System.String,System.String,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>新增新的雙精準數中繼資料狀態。</summary>
+      <param name="name">中繼資料狀態的名稱。</param>
+      <param name="value">中繼資料狀態的值。</param>
+      <param name="priority">AppCaptureMetadataPriority 列舉的成員，指定中繼資料項目的相對重要性。 系統會使用這個值和中繼資料項目的使用期限，來決定當累積中繼資料的配置儲存空間達到上限時，應先清除哪些中繼資料項目。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StopAllStates">
+      <summary>停止所有中繼資料狀態。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StopState(System.String)">
+      <summary>使用指定的識別碼停止中繼資料狀態。</summary>
+      <param name="name">要停止之狀態的識別碼。</param>
+    </member>
+  </members>
+</doc>

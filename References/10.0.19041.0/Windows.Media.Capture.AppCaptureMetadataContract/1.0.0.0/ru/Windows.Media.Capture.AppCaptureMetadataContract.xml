@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.AppCaptureMetadataContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataPriority">
+      <summary>Указывает относительную важность элемента метаданных захвата в приложении, сохраненного с помощью AppCaptureMetadataWriter. Если памяти, выделенной для всей совокупности метаданных, становится недостаточно, система будет использовать приоритет и возраст элементов метаданных, чтобы определить порядок удаления метаданных для освобождения пространства в памяти.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppCaptureMetadataPriority.Important">
+      <summary>Элемент метаданных имеет большую важность, чем элементы метаданных **Информационный**.</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppCaptureMetadataPriority.Informational">
+      <summary>Элемент метаданных имеет более низкую важность, чем элементы метаданных **Важный**.</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppCaptureMetadataWriter">
+      <summary>Позволяет приложению хранить метаданные, которые система будет вставлять в снятые видеофайлы или вещательные потоки содержимого приложения.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.#ctor">
+      <summary>Инициализирует новый экземпляр класса **AppCaptureMetadataWriter**.</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppCaptureMetadataWriter.RemainingStorageBytesAvailable">
+      <summary>Получает оставшееся количество байтов памяти, выделенной системой для элементов метаданных съемки приложения.</summary>
+      <returns>Количество оставшихся байтов для хранения метаданных.</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppCaptureMetadataWriter.MetadataPurged">
+      <summary>Происходит, когда система удаляет ранее сохраненные элементы метаданных.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddDoubleEvent(System.String,System.Double,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>Добавляет новое событие метаданных двойной точности.</summary>
+      <param name="name">Имя события метаданных.</param>
+      <param name="value">Значение события метаданных.</param>
+      <param name="priority">Член перечисления AppCaptureMetadataPriority, указывающий относительную важность элемента метаданных. Это значение и возраст элемента метаданных используются системой, чтобы определить, какие элементы метаданных следует удалить первыми, когда заканчивается место для хранения накопленных метаданных.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddInt32Event(System.String,System.Int32,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>Добавляет новое событие целых метаданных.</summary>
+      <param name="name">Имя события метаданных.</param>
+      <param name="value">Значение события метаданных.</param>
+      <param name="priority">Член перечисления AppCaptureMetadataPriority, указывающий относительную важность элемента метаданных. Это значение и возраст элемента метаданных используются системой, чтобы определить, какие элементы метаданных следует удалить первыми, когда заканчивается место для хранения накопленных метаданных.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.AddStringEvent(System.String,System.String,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>Добавляет новое событие строковых метаданных.</summary>
+      <param name="name">Имя события метаданных.</param>
+      <param name="value">Значение события метаданных.</param>
+      <param name="priority">Член перечисления AppCaptureMetadataPriority, указывающий относительную важность элемента метаданных. Это значение и возраст элемента метаданных используются системой, чтобы определить, какие элементы метаданных следует удалить первыми, когда заканчивается место для хранения накопленных метаданных.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.Close">
+      <summary>Удаляет объект и связанные ресурсы.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartDoubleState(System.String,System.Double,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>Добавляет новое состояние метаданных двойной точности.</summary>
+      <param name="name">Имя состояния метаданных.</param>
+      <param name="value">Значение состояния метаданных.</param>
+      <param name="priority">Член перечисления AppCaptureMetadataPriority, указывающий относительную важность элемента метаданных. Это значение и возраст элемента метаданных используются системой, чтобы определить, какие элементы метаданных следует удалить первыми, когда заканчивается место для хранения накопленных метаданных.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartInt32State(System.String,System.Int32,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>Добавляет новое состояние метаданных двойной точности.</summary>
+      <param name="name">Имя состояния метаданных.</param>
+      <param name="value">Значение состояния метаданных.</param>
+      <param name="priority">Член перечисления AppCaptureMetadataPriority, указывающий относительную важность элемента метаданных. Это значение и возраст элемента метаданных используются системой, чтобы определить, какие элементы метаданных следует удалить первыми, когда заканчивается место для хранения накопленных метаданных.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StartStringState(System.String,System.String,Windows.Media.Capture.AppCaptureMetadataPriority)">
+      <summary>Добавляет новое состояние метаданных двойной точности.</summary>
+      <param name="name">Имя состояния метаданных.</param>
+      <param name="value">Значение состояния метаданных.</param>
+      <param name="priority">Член перечисления AppCaptureMetadataPriority, указывающий относительную важность элемента метаданных. Это значение и возраст элемента метаданных используются системой, чтобы определить, какие элементы метаданных следует удалить первыми, когда заканчивается место для хранения накопленных метаданных.</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StopAllStates">
+      <summary>Останавливает все состояния метаданных.</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppCaptureMetadataWriter.StopState(System.String)">
+      <summary>Останавливает состояние метаданных с указанным идентификатором.</summary>
+      <param name="name">Идентификатор состояния, которое требуется остановить.</param>
+    </member>
+  </members>
+</doc>

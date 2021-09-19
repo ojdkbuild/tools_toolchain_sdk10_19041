@@ -1,0 +1,997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Windows.Media.Capture.AppBroadcastContract</name>
+  </assembly>
+  <members>
+    <member name="T:Windows.ApplicationModel.Background.AppBroadcastTrigger">
+      <summary>アプリケーションがゲームプレイ ブロードキャストを起動するときに実行されるバックグラウンド タスクをトリガーするイベントを表します。</summary>
+    </member>
+    <member name="M:Windows.ApplicationModel.Background.AppBroadcastTrigger.#ctor(System.String)">
+      <summary>ゲームプレイ ブロードキャストを実行するプロバイダーの名前で、AppBroadcastTrigger を構築します。</summary>
+      <param name="providerKey">ブロードキャスト ゲームプレイであるプロバイダーの名前です。</param>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTrigger.ProviderInfo">
+      <summary>ブロードキャスト ゲームプレイであるアプリケーションに関する情報を提供します。</summary>
+      <returns>ブロードキャスティング ゲームプレイであるプロバイダーに関する、最大ビデオ ビットレート、ビデオの幅と高さなどの情報を提供します。</returns>
+    </member>
+    <member name="T:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo">
+      <summary>ブロードキャスト ゲームプレイであるアプリケーションに関する、ロゴ、表示名、およびビデオ特性などの情報を提供します。</summary>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.DisplayNameResource">
+      <summary>ブロードキャスト ゲームプレイであるプロバイダーの UI フレンドリ名のリソースの場所を取得および設定します。</summary>
+      <returns>表示名のリソースの場所です。 たとえば、"ms-resource://resources/DisplayName"</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.LogoResource">
+      <summary>ブロードキャスト ゲームプレイであるプロバイダーのロゴのリソースの場所を取得および設定します。</summary>
+      <returns>ロゴのリソースの場所。 たとえば、"ms-resource://resources/Logo.png"</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoBitrate">
+      <summary>ブロードキャスト ゲームプレイであるプロバイダーが提供できる最大ビットレートを取得および設定します。</summary>
+      <returns>1 秒あたりのビット数の単位で表した最大ビットレートです。 たとえば、2500000 = 2.5 mbps</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoHeight">
+      <summary>ゲームプレイ ブロードキャスト プロバイダーがサポートをする最大のビデオ高さを取得および設定します。</summary>
+      <returns>ピクセルの単位で表した最大のビデオ高さです。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.MaxVideoWidth">
+      <summary>ゲームプレイ ブロードキャスト プロバイダーがサポートをする最大のビデオ幅を取得および設定します。</summary>
+      <returns>ピクセルの単位で表した最大のビデオ幅です。</returns>
+    </member>
+    <member name="P:Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo.VideoKeyFrameInterval">
+      <summary>ビデオのキー フレーム間の時間の量を取得および設定します。</summary>
+      <returns>キー フレーム間の時間間隔です。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundService">
+      <summary>ブロードキャスト UWP アプリとシステムでホストされたブロードキャスト サービスとの間のインターフェイスを提供します。 このクラスは、ブロードキャスト サービスの認証を容易にし、ブロードキャスト プロバイダー サービスへのデバイスのインターネットの帯域幅の機能をテストし、キャプチャしたオーディオおよびビデオのフレームをブロードキャスト プロバイダー サービスに送信できるようにするためにそれらのフレームを取得するタスクを可能にするところのオブジェクトへのアクセスを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.AppId">
+      <summary>ブロードキャストされるゲームの識別子を格納している文字列を取得します。 デスクトップ デバイス上でブロードキャストするとき、この値はユーザーがブロードキャストを開始したゲームです。</summary>
+      <returns>ブロードキャスト アプリのシステム定義の識別子を格納している文字列です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastChannel">
+      <summary>現在のブロードキャスト チャネルの名前を含む文字列を取得します。</summary>
+      <returns>現在のブロードキャスト チャネルの名前を含む文字列。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastLanguage">
+      <summary>現在のブロードキャスト チャネルの言語を表す文字列を取得します。</summary>
+      <returns>現在のブロードキャスト チャネルの言語を表す文字列。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastTitle">
+      <summary>ユーザーが指定したブロードキャストのタイトルを格納している文字列を取得します。</summary>
+      <returns>ユーザーが指定したブロードキャストのタイトルを格納している文字列です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.PlugInState">
+      <summary>ブロードキャスト バックグラウンド タスクの現在の状態を指定する値を取得または設定します。</summary>
+      <returns>ブロードキャスト バックグラウンド タスクの現在の状態を指定する値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.SignInInfo">
+      <summary>アプリ ブロードキャスト バックグラウンド サービスのサインイン情報を表すオブジェクトを取得します。</summary>
+      <returns>アプリ ブロードキャスト バックグラウンド サービスのサインイン情報を表すオブジェクトです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.StreamInfo">
+      <summary>アプリ ブロードキャスト バックグラウンド サービスのストリームの状態を管理するオブジェクトを取得します。</summary>
+      <returns>アプリ ブロードキャスト バックグラウンド サービスのストリームの状態を管理するオブジェクトです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.TitleId">
+      <summary>ブロードキャストされているタイトルの一意の識別子を取得します。</summary>
+      <returns>ブロードキャストされているタイトルの一意の識別子です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundService.ViewerCount">
+      <summary>ブロードキャストの視聴者の数を取得または設定します。</summary>
+      <returns>ブロードキャストの視聴者の数です。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastChannelChanged">
+      <summary>BroadcastChannel プロパティの値が変更された場合に発生します。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastLanguageChanged">
+      <summary>BroadcastLanguage プロパティの値が変更された場合に発生します。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.BroadcastTitleChanged">
+      <summary>BroadcastTitle プロパティの値が変更された場合に発生します。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundService.HeartbeatRequested">
+      <summary>ブロードキャスト バックグラウンド タスクが現在アクティブであることを確認するために、システムによって定期的に生成されます。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastBackgroundService.TerminateBroadcast(Windows.Media.Capture.AppBroadcastTerminationReason,System.UInt32)">
+      <summary>ブロードキャストを終了します。</summary>
+      <param name="reason">ブロードキャストが終了する理由を示す値です。</param>
+      <param name="providerSpecificReason">ブロードキャストが終了するプロバイダー固有の理由を伝える整数です。</param>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo">
+      <summary>アプリ ブロードキャスト バックグラウンド サービスのサインイン情報を表します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.AuthenticationResult">
+      <summary>Web 認証操作の結果を表すオブジェクトを取得します。</summary>
+      <returns>Web 認証操作の結果を表すオブジェクトです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.OAuthCallbackUri">
+      <summary>OAuth コールバック URI を取得または設定します。</summary>
+      <returns>OAuth コールバック URI です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.OAuthRequestUri">
+      <summary>OAuth 要求 URI を取得または設定します。</summary>
+      <returns>OAuth 要求 URI です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.SignInState">
+      <summary>アプリ ブロードキャスト バックグラウンド サービスのサインイン状態を表すオブジェクトを取得します。</summary>
+      <returns>アプリ ブロードキャスト バックグラウンド サービスのサインイン状態です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.UserName">
+      <summary>アプリ ブロードキャスト バックグラウンド サービスの認証のユーザー名を取得または設定します。</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged">
+      <summary>アプリ ブロードキャスト バックグラウンド サービスのサインイン状態が変更されるときに発生します。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo.UserNameChanged">
+      <summary>UserName はプロパティが変更されたときに発生します。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo">
+      <summary>アプリ ブロードキャスト バックグラウンド サービスのストリームの状態を管理します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.AudioCodec">
+      <summary>アプリ ブロードキャスト バックグラウンド サービスで使用されるオーディオ コーデックを取得または設定します。</summary>
+      <returns>アプリ ブロードキャスト バックグラウンド サービスで使用されるオーディオ コーデックです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.BandwidthTestBitrate">
+      <summary>アプリ ブロードキャスト バックグラウンド サービスの帯域幅テストのビットレートを取得または設定します。</summary>
+      <returns>アプリ ブロードキャスト バックグラウンド サービスの帯域幅テストのビットレートです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.BroadcastStreamReader">
+      <summary>アプリ ブロードキャスト バックグラウンド サービスのためのブロードキャスト ストリーム リーダーを取得します。</summary>
+      <returns>アプリ ブロードキャスト バックグラウンド サービスのためのブロードキャスト ストリーム リーダーです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.DesiredVideoEncodingBitrate">
+      <summary>アプリ ブロードキャスト バックグラウンド サービスのための要求するビデオ エンコードのビットレートを取得または設定します。</summary>
+      <returns>アプリ ブロードキャスト バックグラウンド サービスのための要求するビデオ エンコード ビットレートです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.StreamState">
+      <summary>アプリ ブロードキャスト ストリームの状態を示す値を取得します。</summary>
+      <returns>アプリ ブロードキャスト ストリームの状態を示す値です。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.StreamStateChanged">
+      <summary>アプリ ブロードキャスト ストリームの状態が変化したときに発生します。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.VideoEncodingBitrateChanged">
+      <summary>アプリ ブロードキャストのビデオ エンコードのビットレートが変化したときに発生します。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.VideoEncodingResolutionChanged">
+      <summary>アプリ ブロードキャストのビデオ エンコードの分解能が変化したときに発生します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo.ReportProblemWithStream">
+      <summary>ブロードキャスト ストリームに問題が検出されたことをシステムに通知します。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraCaptureState">
+      <summary>アプリ ブロードキャスト カメラ キャプチャの状態を指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Failed">
+      <summary>アプリ ブロードキャスト カメラ キャプチャが失敗しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Started">
+      <summary>アプリ ブロードキャスト カメラ キャプチャが開始しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraCaptureState.Stopped">
+      <summary>アプリ ブロードキャスト カメラ キャプチャが停止します。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs">
+      <summary>AppBroadcast.CameraCaptureStateChanged イベントのデータを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs.ErrorCode">
+      <summary>イベントに関連付けられているエラー コードを取得します。</summary>
+      <returns>イベントに関連付けられているエラー コードです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs.State">
+      <summary>アプリ ブロードキャスト カメラ キャプチャの新しい状態を示す値を取得します。</summary>
+      <returns>アプリ ブロードキャスト カメラ キャプチャの新しい状態を示す値です。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraOverlayLocation">
+      <summary>ブロードキャスト ビデオ フレーム内のカメラ オーバーレイの場所を指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomCenter">
+      <summary>オーバーレイはフレームの下部中央に配置されます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomLeft">
+      <summary>オーバーレイはフレームの左下に配置されます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.BottomRight">
+      <summary>オーバーレイはフレームの右下に配置されます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleCenter">
+      <summary>オーバーレイはフレームの真中中央に配置されます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleLeft">
+      <summary>オーバーレイはフレームの中央左に配置されます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.MiddleRight">
+      <summary>オーバーレイはフレームの中央右に配置されます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopCenter">
+      <summary>オーバーレイはフレームの上部中央に配置されます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopLeft">
+      <summary>オーバーレイはフレームの左上に配置されます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlayLocation.TopRight">
+      <summary>オーバーレイはフレームの右上に配置されます。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCameraOverlaySize">
+      <summary>ブロードキャスト ビデオ フレーム内のカメラ オーバーレイのサイズを指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Large">
+      <summary>大きいオーバーレイ サイズです。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Medium">
+      <summary>中位のオーバーレイ サイズです。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCameraOverlaySize.Small">
+      <summary>小さいオーバーレイ サイズです。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastCaptureTargetType">
+      <summary>アプリ ブロードキャストでキャプチャされるターゲットの種類を指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCaptureTargetType.AppView">
+      <summary>アプリ ビューをキャプチャします。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastCaptureTargetType.EntireDisplay">
+      <summary>表示全体をキャプチャします。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastContract">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason">
+      <summary>ブロードキャスト モードが終了した理由を指定する値を取得します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.AuthorizationFail">
+      <summary>認証の失敗により、ブロードキャストが終了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.ForegroundAppActivated">
+      <summary>フォアグラウンド アプリがアクティブ化されたため、ブロードキャストが終了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.NormalExit">
+      <summary>ブロードキャストは正常に終了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastExitBroadcastModeReason.UserCanceled">
+      <summary>ユーザーがブロードキャストを取り消しました。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastGlobalSettings">
+      <summary>すべてのブロードキャスト UWP アプリに及ぶグローバル ブロードキャスト設定を指定します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.CameraOverlayLocation">
+      <summary>ブロードキャスト ビデオ フレーム内のカメラ オーバーレイの場所を指定する値を取得または設定します。</summary>
+      <returns>ブロードキャスト ビデオ フレーム内のカメラ オーバーレイの場所を指定する値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.CameraOverlaySize">
+      <summary>ブロードキャスト ビデオ フレーム内のカメラ オーバーレイのサイズを指定する値を取得または設定します。</summary>
+      <returns>ブロードキャスト ビデオ フレーム内のカメラ オーバーレイのサイズを指定する値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.HasHardwareEncoder">
+      <summary>現在のデバイスがハードウェア ベースのメディア エンコードをサポートしているかどうかを示す値を取得します。</summary>
+      <returns>デバイスがハードウェア エンコードをサポートしている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsAudioCaptureEnabled">
+      <summary>ブロードキャストでオーディオ キャプチャが有効になっているかどうかを示す値を取得または設定します。</summary>
+      <returns>オーディオ キャプチャが有効な場合は true、それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsBroadcastEnabled">
+      <summary>デバイス上でブロードキャストが有効になっているかどうかを示す値を取得します。</summary>
+      <returns>デバイス上でブロードキャストが有効になっている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsCameraCaptureEnabledByDefault">
+      <summary>ブロードキャストでカメラ キャプチャが既定で有効になっているかどうかを示す値を取得または設定します。</summary>
+      <returns>カメラ キャプチャが既定で有効になっている場合は true、それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsCursorImageCaptureEnabled">
+      <summary>カーソル画像がキャプチャされているかどうかを示す値を取得します。</summary>
+      <returns>カーソル画像がキャプチャされている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsDisabledByPolicy">
+      <summary>グループ ポリシーによって、デバイス上で、ブロードキャストが無効になっているかどうかを示す値を取得します。</summary>
+      <returns>グループ ポリシーによってデバイス上でブロードキャストが無効になっている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsEchoCancellationEnabled">
+      <summary>エコー キャンセルが有効になっているかどうかを示す値を取得または設定します。</summary>
+      <returns>エコー キャンセルが有効になっている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsGpuConstrained">
+      <summary>デバイス上の GPU が制約されているかどうかを示す値を取得します。</summary>
+      <returns>GPU が制約されている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.IsMicrophoneCaptureEnabledByDefault">
+      <summary>ブロードキャストでマイク キャプチャが既定で有効になっているかどうかを示す値を取得または設定します。</summary>
+      <returns>マイク キャプチャが既定で有効な場合は true、それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.MicrophoneGain">
+      <summary>ブロードキャスト オーディオ キャプチャのマイク ゲインを示す値を取得または設定します。</summary>
+      <returns>ブロードキャスト オーディオ キャプチャのためのマイク ゲインです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.SelectedCameraId">
+      <summary>ブロードキャスト ビデオ キャプチャに使用されるカメラのデバイス ID を格納している文字列を取得または設定します。</summary>
+      <returns>ブロードキャスト ビデオ キャプチャに使用されるカメラのデバイス ID です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastGlobalSettings.SystemAudioGain">
+      <summary>ブロードキャスト オーディオ キャプチャのシステム ゲインを取得または設定します。</summary>
+      <returns>ブロードキャスト オーディオ キャプチャのシステム ゲインです。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs">
+      <summary>これは、ブロードキャスト バックグラウンド タスクが現在アクティブであることを確認するためにシステムによって定期的に生成される AppBroadcastBackgroundService.HeartbeatRequested イベントのデータを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs.Handled">
+      <summary>ブロードキャスト バックグラウンド タスクが現在アクティブであるかどうかを示す値を取得または設定します。</summary>
+      <returns>ブロードキャスト バックグラウンド タスクが現在アクティブになっている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastManager">
+      <summary>現在のデバイスのグローバル ブロードキャスト設定とブロードキャスト プロバイダー設定へのアクセスを提供します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.ApplyGlobalSettings(Windows.Media.Capture.AppBroadcastGlobalSettings)">
+      <summary>現在のデバイスのグローバル ブロードキャスト設定を更新します。</summary>
+      <param name="value">現在のデバイスのグローバル ブロードキャスト設定を公開するオブジェクトです。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.ApplyProviderSettings(Windows.Media.Capture.AppBroadcastProviderSettings)">
+      <summary>ブロードキャスト プロバイダー設定を更新します。</summary>
+      <param name="value">
+      </param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.GetGlobalSettings">
+      <summary>現在のデバイスのグローバル ブロードキャスト設定を公開するオブジェクトを取得します。</summary>
+      <returns>現在のデバイスのグローバル ブロードキャスト設定を公開するオブジェクトです。</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastManager.GetProviderSettings">
+      <summary>ブロードキャスト プロバイダー設定を公開するオブジェクトを取得します。</summary>
+      <returns>ブロードキャスト プロバイダー設定を公開するオブジェクトです。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState">
+      <summary>アプリ ブロードキャスト マイク キャプチャの状態を指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Failed">
+      <summary>マイク キャプチャに失敗しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Started">
+      <summary>マイク キャプチャが開始されました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastMicrophoneCaptureState.Stopped">
+      <summary>マイク キャプチャが停止されました。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs">
+      <summary>AppBroadcastState.MicrophoneCaptureStateChanged イベントのデータを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs.ErrorCode">
+      <summary>イベントに関連付けられているエラー コードを取得します。</summary>
+      <returns>イベントに関連付けられているエラー コードです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs.State">
+      <summary>アプリ ブロードキャスト マイク キャプチャの状態を示す値を取得します。</summary>
+      <returns>アプリ ブロードキャスト マイク キャプチャの状態を示す値です。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugIn">
+      <summary>アプリ ブロードキャスト プラグインに関する情報を提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.AppId">
+      <summary>アプリ ブロードキャスト プラグインに関連付けられているアプリの一意の ID を取得します。</summary>
+      <returns>アプリ ブロードキャスト プラグインに関連付けられているアプリの一意の ID です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.DisplayName">
+      <summary>アプリ ブロードキャスト プラグインの表示名を取得します。</summary>
+      <returns>アプリ ブロードキャスト プラグインの表示名です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.Logo">
+      <summary>アプリ ブロードキャスト プラグインのロゴ画像を格納しているストリームを取得します。</summary>
+      <returns>アプリ ブロードキャスト プラグインのロゴ画像を格納しているストリームです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugIn.ProviderSettings">
+      <summary>アプリ ブロードキャスト プラグインのプロバイダー設定を表すオブジェクトを取得します。</summary>
+      <returns>アプリ ブロードキャスト プラグインのプロバイダー設定です。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInManager">
+      <summary>アプリ ブロードキャスト プラグインを管理します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.DefaultPlugIn">
+      <summary>既定のアプリ ブロードキャスト プラグインを取得または設定します。</summary>
+      <returns>既定のアプリ ブロードキャスト プラグインです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.IsBroadcastProviderAvailable">
+      <summary>ブロードキャスト プロバイダーが使用可能かどうかを示す値を取得します。</summary>
+      <returns>ブロードキャスト プロバイダーを使用できる場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInManager.PlugInList">
+      <summary>すべてのアプリ ブロードキャスト プラグインの読み取り専用の一覧を取得します。</summary>
+      <returns>すべてのアプリ ブロードキャスト プラグインの読み取り専用の一覧です。</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPlugInManager.GetDefault">
+      <summary>アプリ ブロードキャストの既定のプラグインを取得します。</summary>
+      <returns>アプリ ブロードキャストの既定のプラグインです。</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPlugInManager.GetForUser(Windows.System.User)">
+      <summary>指定されたユーザーに関連付けられているアプリ ブロードキャスト プラグインを取得します。</summary>
+      <param name="user">アプリ ブロードキャスト プラグインの取得を必要とするユーザーです。</param>
+      <returns>指定されたユーザーに関連付けられているアプリ ブロードキャスト プラグインです。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInState">
+      <summary>ブロードキャスト バックグラウンド タスクの現在の状態を指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.InBandwidthTest">
+      <summary>ブロードキャスト バックグラウンド タスクでは、ブロードキャスト サービス プロバイダーへのデバイスの接続の帯域幅のテストが進行中です。 このテストが完了すると、システムは AppBroadcastBackgroundServiceStreamInfo.BandwidthTestBitrate プロパティを設定して、帯域幅のテストの結果を示します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.Initialized">
+      <summary>ブロードキャスト バックグラウンド タスクが初期化されます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.MicrosoftSignInRequired">
+      <summary>現在のユーザーを、Microsoft サービスに対して認証する必要があります。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.OAuthSignInRequired">
+      <summary>現在のユーザーを、ブロードキャスト プロバイダー サービスに対して認証する必要があります。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.ProviderSignInRequired">
+      <summary>ブロードキャスト バックグラウンド タスクは、ブロードキャスト プロバイダー サービスに対して現在のユーザーを認証する必要があります。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.ReadyToBroadcast">
+      <summary>ブロードキャスト バックグラウンド タスクをブロードキャストする準備ができました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPlugInState.Unknown">
+      <summary>現在の状態は不明です。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs">
+      <summary>AppBroadcastState.PlugInStateChanged イベントのデータを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs.PlugInState">
+      <summary>新しいアプリ ブロードキャスト プラグインの状態を取得します。</summary>
+      <returns>新しいアプリ ブロードキャスト プラグインの状態です。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreview">
+      <summary>ステータス情報とアプリ ブロードキャスト プレビューへのアクセスを提供します。 </summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.ErrorCode">
+      <summary>アプリ ブロードキャスト プレビューに関連付けられているエラー コードを取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビューに関連付けられているエラー コードです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.PreviewState">
+      <summary>アプリ ブロードキャスト プレビューの状態を示す値を取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビューの状態を示す値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreview.PreviewStreamReader">
+      <summary>アプリ ブロードキャスト プレビューのためのストリーム リーダーを取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビューのためのストリーム リーダーです。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastPreview.PreviewStateChanged">
+      <summary>アプリ ブロードキャスト プレビューの状態が変化したときに発生します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPreview.StopPreview">
+      <summary>アプリ ブロードキャスト プレビューを停止します。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewState">
+      <summary>アプリ ブロードキャスト プレビューの状態を指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Failed">
+      <summary>アプリ ブロードキャスト プレビューに失敗しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Started">
+      <summary>アプリ ブロードキャスト プレビューが開始されました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastPreviewState.Stopped">
+      <summary>アプリ ブロードキャスト プレビューが停止されました。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs">
+      <summary>AppBroadcastPreview.PreviewStateChanged イベントのデータを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs.ErrorCode">
+      <summary>イベントに関連付けられているエラー コードを取得します。</summary>
+      <returns>イベントに関連付けられているエラー コードです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs.PreviewState">
+      <summary>アプリ ブロードキャスト プレビューの新しい状態を取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビューの新しい状態です。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamReader">
+      <summary>アプリ ブロードキャスト プレビュー ストリームに関する情報とそのストリームへのアクセスを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoBitmapAlphaMode">
+      <summary>アプリ ブロードキャスト プレビュー ストリームのビデオ ビットマップ アルファ モードを取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビュー ストリームのビデオ ビットマップ アルファ モードです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoBitmapPixelFormat">
+      <summary>アプリ ブロードキャスト プレビュー ストリームのビデオ ビットマップ ピクセル形式を取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビュー ストリームのビデオ ビットマップ ピクセル形式です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoHeight">
+      <summary>アプリ ブロードキャスト プレビュー ストリームのビデオ高さをピクセルの単位で取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビュー ストリームのピクセルの単位でのビデオ高さです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoStride">
+      <summary>アプリ ブロードキャスト プレビュー ストリームのビデオ ストライドを取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビュー ストリームのビデオ ストライドです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoWidth">
+      <summary>アプリ ブロードキャスト プレビュー ストリームのビデオの幅をピクセルの単位で取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビュー ストリームのピクセルの単位でのビデオの幅です。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastPreviewStreamReader.VideoFrameArrived">
+      <summary>アプリ ブロードキャスト プレビュー ストリームから新しいビデオ フレームが到着したときに発生します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastPreviewStreamReader.TryGetNextVideoFrame">
+      <summary>アプリ ブロードキャスト プレビュー ストリームから次のビデオ フレームの取得を試行します。</summary>
+      <returns>アプリ ブロードキャスト プレビュー ストリームからの次のビデオ フレームです。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame">
+      <summary>アプリ ブロードキャスト プレビュー ストリームからのビデオ フレームを表します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame.VideoBuffer">
+      <summary>アプリ ブロードキャスト プレビュー ストリームのビデオ フレームの画像データを格納しているバッファーを取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビュー ストリームのビデオ フレームの画像データを格納しているバッファーです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame.VideoHeader">
+      <summary>アプリ ブロードキャスト プレビュー ストリームのビデオ フレームの画像データを記述しているヘッダーを取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビュー ストリームのビデオ フレームの画像データを記述しているヘッダーです。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader">
+      <summary>アプリ ブロードキャスト プレビュー ストリームのビデオ フレームに関するメタデータを表します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.AbsoluteTimestamp">
+      <summary>アプリ ブロードキャスト プレビュー ストリームのビデオ フレームの絶対タイムスタンプを取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビュー ストリームのビデオ フレームの絶対タイムスタンプです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.Duration">
+      <summary>アプリ ブロードキャスト プレビュー ストリームのビデオ フレームの継続時間を取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビュー ストリームのビデオ フレームの継続時間です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.FrameId">
+      <summary>アプリ ブロードキャスト プレビュー ストリームのビデオ フレームのフレーム ID を取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビュー ストリームのビデオ フレームのフレーム ID です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader.RelativeTimestamp">
+      <summary>アプリ ブロードキャスト プレビュー ストリームのビデオ フレームの相対タイムスタンプを取得します。</summary>
+      <returns>アプリ ブロードキャスト プレビュー ストリームのビデオ フレームの相対タイムスタンプです。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastProviderSettings">
+      <summary>リモート ブロードキャスト プロバイダー サービスの設定へのアクセスを提供します。 これらの設定を、ブロードキャスト プロバイダーは表示および変更することができます。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.AudioEncodingBitrate">
+      <summary>ブロードキャスト ストリームのオーディオ エンコードのビットレートをビット/秒の単位で取得または設定します。</summary>
+      <returns>ビット/秒の単位でのブロードキャスト ストリームのオーディオ エンコードのビットレートです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingBitrate">
+      <summary>ブロードキャスト ストリームのビデオ エンコードのカスタムのビットレートをビット/秒の単位で取得または設定します。</summary>
+      <returns>ビット/秒の単位での、ブロードキャスト ストリームのビデオ エンコードのカスタムのビットレートです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingHeight">
+      <summary>ブロードキャスト ストリームのビデオ エンコードのカスタムの高さを取得または設定します。</summary>
+      <returns>ブロードキャスト ストリームのビデオ エンコードのカスタムの高さです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.CustomVideoEncodingWidth">
+      <summary>ブロードキャスト ストリームのビデオ エンコードのカスタムの幅を取得または設定します。</summary>
+      <returns>ブロードキャスト ストリームのビデオ エンコードのカスタムの幅です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.DefaultBroadcastTitle">
+      <summary>ブロードキャストの既定のタイトルを取得または設定します。</summary>
+      <returns>ブロードキャストの既定のタイトルです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.VideoEncodingBitrateMode">
+      <summary>リモート ブロードキャスト プロバイダー サービスのビデオ エンコードのビットレート モードを取得または設定します。</summary>
+      <returns>ビデオ エンコードのビットレートです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastProviderSettings.VideoEncodingResolutionMode">
+      <summary>リモート ブロードキャスト プロバイダー サービスのビデオ エンコードの分解能モードを取得または設定します。</summary>
+      <returns>ビデオ エンコードの分解能モードです。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastServices">
+      <summary>アプリ ブロードキャストの状態を管理します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.BroadcastLanguage">
+      <summary>アプリ ブロードキャストの言語設定を指定する文字列を取得または設定します。</summary>
+      <returns>アプリ ブロードキャストの言語設定を指定する文字列です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.BroadcastTitle">
+      <summary>ブロードキャストのタイトルを取得または設定します。</summary>
+      <returns>ブロードキャストのタイトル。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.CanCapture">
+      <summary>ブロードキャスト サービスがキャプチャできるかどうかを示す値を取得します。</summary>
+      <returns>ブロードキャスト サービスがキャプチャできる場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.CaptureTargetType">
+      <summary>ブロードキャストに使われるキャプチャのターゲットの種類を指定する値を取得または設定します。</summary>
+      <returns>ブロードキャストに使われるキャプチャのターゲットの種類を指定する値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.State">
+      <summary>アプリ ブロードキャスト サービスの現在の状態を取得します。</summary>
+      <returns>アプリ ブロードキャスト サービスの現在の状態です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastServices.UserName">
+      <summary>アプリ ブロードキャストの認証に使用されるユーザー名を取得します。</summary>
+      <returns>アプリ ブロードキャストの認証に使用されるユーザー名です。</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.EnterBroadcastModeAsync(Windows.Media.Capture.AppBroadcastPlugIn)">
+      <summary>アプリ ブロードキャスト サービスを、指定されたアプリ ブロードキャスト プラグインで、ブロードキャスト モードに入れます。</summary>
+      <param name="plugIn">ブロードキャスト モードに入るために使用するアプリ ブロードキャスト プラグインです。</param>
+      <returns>正常な完了時に状態コードを返す非同期操作です。</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.ExitBroadcastMode(Windows.Media.Capture.AppBroadcastExitBroadcastModeReason)">
+      <summary>指定した理由で、アプリ ブロードキャスト サービスのブロードキャスト モードを終了させます。</summary>
+      <param name="reason">ブロードキャスト モードが終了する理由を指定するオブジェクトです。</param>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.PauseBroadcast">
+      <summary>アプリ ブロードキャストを一時停止します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.ResumeBroadcast">
+      <summary>アプリ ブロードキャストを再開します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.StartBroadcast">
+      <summary>アプリ ブロードキャストを開始します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastServices.StartPreview(Windows.Foundation.Size)">
+      <summary>アプリ ブロードキャスト プレビューを開始します。</summary>
+      <param name="desiredSize">アプリ ブロードキャスト プレビューのサイズをピクセル単位で指定するオブジェクトです。</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInResult">
+      <summary>サインイン操作の結果を指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.AuthenticationFailed">
+      <summary>サインイン認証に失敗しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.ServiceUnavailable">
+      <summary>サインイン サービスを使用できません。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Success">
+      <summary>サインインに成功しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Unauthorized">
+      <summary>認証されたユーザーには、要求されたリソースに対するアクセス権はありません。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInResult.Unknown">
+      <summary>サインインの結果が不明です。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInState">
+      <summary>ブロードキャスト アプリの現在のサインイン状態を指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.MicrosoftSignInComplete">
+      <summary>Microsoft サービスへのサインイン操作が完了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.MicrosoftSignInInProgress">
+      <summary>Microsoft サービスへのサインイン操作が進行中です。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.NotSignedIn">
+      <summary>ユーザーはサインインしていません。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.OAuthSignInComplete">
+      <summary>ブロードキャスト プロバイダー サービスへのサインイン操作が完了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastSignInState.OAuthSignInInProgress">
+      <summary>ブロードキャスト プロバイダー サービスへのサインイン操作が進行中です。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs">
+      <summary>AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged イベントのデータを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs.Result">
+      <summary>AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged イベントに関連付けられているブロードキャスト アプリ サインイン操作の結果を取得します。</summary>
+      <returns>サインイン操作の結果です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs.SignInState">
+      <summary>AppBroadcastBackgroundServiceSignInInfo.SignInStateChanged の生成後に、現在ブロードキャスト アプリ サインイン状態を取得します。</summary>
+      <returns>現在のサインイン状態です。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastState">
+      <summary>アプリ ブロードキャストの状態を表示および管理します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.AuthenticationResult">
+      <summary>アプリ ブロードキャスト状態の認証結果を取得します。</summary>
+      <returns>アプリ ブロードキャスト状態の認証結果です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.CameraCaptureError">
+      <summary>アプリ ブロードキャスト状態に関連付けられているカメラ キャプチャ エラーを取得します。</summary>
+      <returns>アプリ ブロードキャスト状態に関連付けられているカメラ キャプチャ エラーです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.CameraCaptureState">
+      <summary>カメラ キャプチャの状態を取得します。</summary>
+      <returns>カメラ キャプチャの状態です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.EncodedVideoSize">
+      <summary>アプリ ブロードキャストのエンコードされたビデオのサイズを取得します。</summary>
+      <returns>アプリ ブロードキャストのエンコードされたビデオのサイズです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.IsCaptureTargetRunning">
+      <summary>キャプチャ対象が現在実行中であるかどうかを示す値を取得します。</summary>
+      <returns>キャプチャ対象が現在実行中の場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureError">
+      <summary>アプリ ブロードキャスト状態に関連付けられているマイク キャプチャ エラーを取得します。</summary>
+      <returns>アプリ ブロードキャスト状態に関連付けられているマイク キャプチャ エラーです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureState">
+      <summary>マイク キャプチャの状態を取得します。</summary>
+      <returns>マイク キャプチャの状態です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.OAuthCallbackUri">
+      <summary>アプリ ブロードキャスト状態に関連付けられている OAuth コールバック URI を取得します。</summary>
+      <returns>OAuth コールバック URI です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.OAuthRequestUri">
+      <summary>アプリ ブロードキャスト状態に関連付けられている OAuth 要求 URI を取得します。</summary>
+      <returns>OAuth 要求 URI です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.PlugInState">
+      <summary>アプリのブロードキャスト状態に関連付けられているプラグインの状態を取得します。</summary>
+      <returns>アプリのブロードキャスト状態に関連付けられているプラグインの状態です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ShouldCaptureCamera">
+      <summary>アプリ ブロードキャストでカメラをキャプチャする必要があるかどうかを指定する値を取得または設定します。</summary>
+      <returns>アプリ ブロードキャストでカメラをキャプチャする必要があるかどうかを指定する値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ShouldCaptureMicrophone">
+      <summary>アプリ ブロードキャストでマイクをキャプチャする必要があるかどうかを指定する値を取得または設定します。</summary>
+      <returns>アプリ ブロードキャストでマイクをキャプチャする必要があるかどうかを指定する値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.SignInState">
+      <summary>アプリ ブロードキャストのサインイン状態を指定する値を取得または設定します。</summary>
+      <returns>アプリ ブロードキャストのサインイン状態を指定する値。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.StreamState">
+      <summary>アプリ ブロードキャスト ストリームの状態を指定する値を取得します。</summary>
+      <returns>アプリ ブロードキャスト ストリームの状態を指定する値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.TerminationReason">
+      <summary>アプリ ブロードキャストを終了した理由を示す値を取得します。</summary>
+      <returns>アプリ ブロードキャストを終了した理由を示す値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.TerminationReasonPlugInSpecific">
+      <summary>アプリ ブロードキャストを終了した、プラグインで指定された理由を示す値を取得します。</summary>
+      <returns>アプリ ブロードキャストを終了した、プラグインで指定された理由を示す値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastState.ViewerCount">
+      <summary>アプリ ブロードキャストの視聴者数を取得します。</summary>
+      <returns>アプリ ブロードキャストの視聴者数です。</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.CameraCaptureStateChanged">
+      <summary>カメラのキャプチャ状態が変化したときに発生します。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.CaptureTargetClosed">
+      <summary>キャプチャ対象が閉じたときに発生します。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.MicrophoneCaptureStateChanged">
+      <summary>マイクのキャプチャ状態が変化したときに発生します。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.PlugInStateChanged">
+      <summary>アプリ ブロードキャスト状態に関連付けられているプラグインの状態が変化したときに発生します。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.StreamStateChanged">
+      <summary>アプリ ブロードキャストのストリームの状態が変化したときに発生します。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastState.ViewerCountChanged">
+      <summary>アプリ ブロードキャストの視聴者数が変化したときに発生します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastState.RestartCameraCapture">
+      <summary>アプリ ブロードキャストのカメラのキャプチャを再開します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastState.RestartMicrophoneCapture">
+      <summary>アプリ ブロードキャストのマイクのキャプチャを再開します。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamAudioFrame">
+      <summary>ブロードキャスト ストリーム内のオーディオ サンプルのフレームを表します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioFrame.AudioBuffer">
+      <summary>ブロードキャスト オーディオ フレームのオーディオ サンプルを格納しているバッファーを取得します。</summary>
+      <returns>ブロードキャスト オーディオ フレームのオーディオ サンプルを格納しているバッファーです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioFrame.AudioHeader">
+      <summary>関連付けられているオーディオ ブロードキャスト フレームに関するメタデータを格納しているオブジェクトを取得します。</summary>
+      <returns>関連付けられているブロードキャスト オーディオ フレームに関するメタデータを格納しているオブジェクトです。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamAudioHeader">
+      <summary>ブロードキャスト オーディオ フレームに関するメタデータを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.AbsoluteTimestamp">
+      <summary>オーディオ フレームがキャプチャされたシステム時刻を示すタイムスタンプを取得します。</summary>
+      <returns>オーディオ フレームがキャプチャされたシステム時刻を示すタイムスタンプです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.Duration">
+      <summary>オーディオ フレームの時間間隔を示す値を取得します。</summary>
+      <returns>オーディオ フレームの継続時間。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.FrameId">
+      <summary>オーディオ フレームを識別する値を取得します。</summary>
+      <returns>オーディオ フレームを識別する値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.HasDiscontinuity">
+      <summary>オーディオ フレームにオーディオ ストリームの不連続が含まれているかどうかを示す値を取得します。</summary>
+      <returns>オーディオ フレームに不連続が含まれている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamAudioHeader.RelativeTimestamp">
+      <summary>オーディオ フレームがキャプチャされた、オーディオ ストリーム内の相対的時間を示すタイムスタンプを取得します。</summary>
+      <returns>オーディオ フレームがキャプチャされた、オーディオ ストリーム内の相対的時間を示すタイムスタンプです。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamReader">
+      <summary>アプリ ブロードキャスト ストリームからオーディオとビデオのフレームを取得するためのメソッドとイベントを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioAacSequence">
+      <summary>AAC オーディオ ストリームのシーケンスのヘッダーを格納しているバッファーを取得します。</summary>
+      <returns>AAC オーディオ ストリームのシーケンスのヘッダーを格納しているバッファーです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioBitrate">
+      <summary>AppBroadcastStreamReader に関連付けられているオーディオ ストリームのビットレート (ビット/秒) を取得します。</summary>
+      <returns>オーディオ ストリームのビットレート (ビット/秒) です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioChannels">
+      <summary>AppBroadcastStreamReader に関連付けられているオーディオ ストリーム内のチャネル数を取得します。</summary>
+      <returns>オーディオ ストリーム内のチャネル数。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.AudioSampleRate">
+      <summary>AppBroadcastStreamReader に関連付けられているオーディオ ストリームのサンプル レートを取得します。</summary>
+      <returns>オーディオ ストリームのサンプル レート</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoBitrate">
+      <summary>AppBroadcastStreamReader に関連付けられているビデオ ストリームのビットレート (ビット/秒) を取得します。</summary>
+      <returns>ビデオ ストリームのビットレート (ビット/秒) です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoHeight">
+      <summary>AppBroadcastStreamReader に関連付けられているビデオ ストリーム内のフレームの高さを取得します。</summary>
+      <returns>ビデオ ストリーム内のフレームの高さです</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamReader.VideoWidth">
+      <summary>AppBroadcastStreamReader に関連付けられているビデオ ストリーム内のフレームの幅を取得します。</summary>
+      <returns>ビデオ ストリーム内のフレームの幅です</returns>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastStreamReader.AudioFrameArrived">
+      <summary>ブロードキャスト ストリームから新しいオーディオ フレームが到着したときに発生します。</summary>
+    </member>
+    <member name="E:Windows.Media.Capture.AppBroadcastStreamReader.VideoFrameArrived">
+      <summary>ブロードキャスト ストリームから新しいビデオ フレームが到着したときに発生します。</summary>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastStreamReader.TryGetNextAudioFrame">
+      <summary>最新のオーディオ フレームを表す AppBroadcastStreamAudioFrame オブジェクトを、ブロードキャスト ストリームから取得を試みます。</summary>
+      <returns>成功した場合はブロードキャスト ストリームからの最新のオーディオ フレーム。そうでない場合は null。</returns>
+    </member>
+    <member name="M:Windows.Media.Capture.AppBroadcastStreamReader.TryGetNextVideoFrame">
+      <summary>最新のビデオ フレームを表す AppBroadcastStreamVideoFrame オブジェクトを、ブロードキャスト ストリームから取得を試みます。</summary>
+      <returns>成功した場合はブロードキャスト ストリームからの最新のビデオ フレーム。そうでない場合は null。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamState">
+      <summary>アプリ ブロードキャスト ストリームの状態を指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Initializing">
+      <summary>アプリ ブロードキャスト ストリームを初期化しています。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Paused">
+      <summary>アプリ ブロードキャスト ストリームが一時停止しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Started">
+      <summary>アプリ ブロードキャスト ストリームが開始されました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.StreamReady">
+      <summary>アプリ ブロードキャスト ストリームの準備ができました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastStreamState.Terminated">
+      <summary>アプリ ブロードキャスト ストリームが終了しました。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs">
+      <summary>AppBroadcastState.StreamStateChanged イベントのデータを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs.StreamState">
+      <summary>アプリ ブロードキャスト ストリームの新しい状態を取得します。</summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamVideoFrame">
+      <summary>ブロードキャスト ストリーム内のビデオ フレームを表します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoFrame.VideoBuffer">
+      <summary>ブロードキャスト オーディオ フレームの画像データを格納しているバッファーを取得します。</summary>
+      <returns>ブロードキャスト オーディオ フレームの画像データを格納しているバッファーです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoFrame.VideoHeader">
+      <summary>関連付けられているブロードキャスト ビデオ フレームに関するメタデータを格納しているオブジェクトを取得します。</summary>
+      <returns>関連付けられているブロードキャスト ビデオ フレームに関するメタデータを格納しているオブジェクトです。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastStreamVideoHeader">
+      <summary>ブロードキャスト ビデオ フレームに関するメタデータを提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.AbsoluteTimestamp">
+      <summary>ビデオ フレームがキャプチャされたシステム時刻を示すタイムスタンプを取得します。</summary>
+      <returns>オーディオ フレームがキャプチャされたシステム時刻を示すタイムスタンプです。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.Duration">
+      <summary>ビデオ フレームの継続時間を示す値を取得します。</summary>
+      <returns>ビデオ フレームの継続時間。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.FrameId">
+      <summary>ビデオ フレームを識別する値を取得します。</summary>
+      <returns>ビデオ フレームを識別する値です。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.HasDiscontinuity">
+      <summary>ビデオ フレームにビデオ ストリームの不連続が含まれているかどうかを示す値を取得します。</summary>
+      <returns>ビデオ フレームに不連続が含まれている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.IsKeyFrame">
+      <summary>ビデオ フレームがブロードキャスト ビデオ ストリーム内のキー フレームであるかどうかを示す値を取得します。</summary>
+      <returns>ビデオ フレームがキー フレームの場合は True。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastStreamVideoHeader.RelativeTimestamp">
+      <summary>ビデオ フレームがキャプチャされた、ビデオ ストリーム内の相対的時間を示すタイムスタンプを取得します。</summary>
+      <returns>ビデオ フレームがキャプチャされた、ビデオ ストリーム内の相対的時間です。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastTerminationReason">
+      <summary>アプリ ブロードキャストが終了した理由を指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.BackgroundTaskTerminated">
+      <summary>アプリ ブロードキャスト バックグラウンド タスクが終了したため、アプリ ブロードキャストは終了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.BackgroundTaskUnresponsive">
+      <summary>アプリ ブロードキャスト バックグラウンド タスクが応答しないため、アプリ ブロードキャストは終了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.InternalError">
+      <summary>アプリ ブロードキャストは内部エラーのため終了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.LostConnectionToService">
+      <summary>サービスへの接続が失われたため、アプリ ブロードキャストは終了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.NoNetworkConnectivity">
+      <summary>ネットワーク接続がないため、アプリ ブロードキャストは終了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.NormalTermination">
+      <summary>アプリ ブロードキャストは正常に終了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceAbort">
+      <summary>サービスがブロードキャストを中断したため、アプリ ブロードキャストは終了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceError">
+      <summary>サービス エラーが発生したため、アプリ ブロードキャストは終了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.ServiceUnavailable">
+      <summary>サービスを使用できなかったため、アプリ ブロードキャストは終了しました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastTerminationReason.UnsupportedFormat">
+      <summary>アプリ ブロードキャストは、サポートされていない形式を使用しているため終了しました。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastTriggerDetails">
+      <summary>ブロードキャスト アプリ バックグラウンド タスクに関連付けられている詳細を提供します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastTriggerDetails.BackgroundService">
+      <summary>ブロードキャスト UWP アプリとシステムでホストされるブロードキャスト サービスとの間のインターフェイスを提供するオブジェクトを取得します。</summary>
+      <returns>ブロードキャスト UWP アプリとシステムでホストされるブロードキャスト サービスとの間のインターフェイスを提供するオブジェクトです。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode">
+      <summary>ブロードキャスト ビデオ エンコードのビットレートを設定するモードを指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode.Auto">
+      <summary>ビットレートは、システムによって自動的に設定されます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode.Custom">
+      <summary>AppBroadcastProviderSettings.CustomVideoEncodingBitrate プロパティで指定されたビットレートが使用されます。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode">
+      <summary>ブロードキャスト ビデオ エンコードの分解能を設定するモードを指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode.Auto">
+      <summary>分解能は、システムによって自動的に設定されます。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode.Custom">
+      <summary>AppBroadcastProviderSettings.CustomVideoEncodingHeight プロパティおよび CustomVideoEncodingBitrate プロパティで指定した解像度が使われます。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs">
+      <summary>AppBroadcastViewerCountChanged イベントのデータを指定します。</summary>
+    </member>
+    <member name="P:Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs.ViewerCount">
+      <summary>新しい視聴者数を取得します。</summary>
+      <returns>新しい視聴者数です。</returns>
+    </member>
+    <member name="T:Windows.Media.Capture.ForegroundActivationArgument">
+      <summary>アプリ ブロードキャスト プラグインがフォアグラウンドでアクティブ化された理由を指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.ForegroundActivationArgument.MoreSettings">
+      <summary>プラグイン固有の設定をユーザーが変更できるようにするために、アプリ ブロードキャスト プラグインがフォアグラウンドでアクティブ化されました。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.ForegroundActivationArgument.SignInRequired">
+      <summary>サインインが必要なため、アプリ ブロードキャスト プラグインがフォアグラウンドでアクティブ化されました。</summary>
+    </member>
+    <member name="T:Windows.Media.Capture.GameBarServicesDisplayMode">
+      <summary>ゲーム バーの表示モードを指定します。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarServicesDisplayMode.FullScreenExclusive">
+      <summary>全画面表示排他的モードです。</summary>
+    </member>
+    <member name="F:Windows.Media.Capture.GameBarServicesDisplayMode.Windowed">
+      <summary>ウィンドウ表示モードです。</summary>
+    </member>
+  </members>
+</doc>
